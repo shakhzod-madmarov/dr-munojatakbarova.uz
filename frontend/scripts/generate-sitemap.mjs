@@ -41,7 +41,15 @@ const resolveAsset = (src) => {
   return "/" + entry.file;
 };
 
-const urlFor = (routePath, lang = DEFAULT_LANG) => SITE_ORIGIN + localizePath(routePath, lang);
+/* GitHub Pages serves /about from /about/index.html and 301s /about to
+   /about/. A canonical that redirects away from itself is a contradiction, so
+   every absolute URL the site publishes - canonical, og:url, hreflang, sitemap
+   - carries the trailing slash Pages actually serves. Internal links are left
+   alone: in-app navigation never hits the redirect. */
+const withTrailingSlash = (path) => (path.endsWith("/") ? path : path + "/");
+
+const urlFor = (routePath, lang = DEFAULT_LANG) =>
+  SITE_ORIGIN + withTrailingSlash(localizePath(routePath, lang));
 
 const lines = [];
 lines.push('<?xml version="1.0" encoding="UTF-8"?>');

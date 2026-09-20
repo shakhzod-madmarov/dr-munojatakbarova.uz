@@ -5,7 +5,15 @@ import { getPageSeo, PAGE_KEYWORDS } from "../constants/seo";
 export const SITE_ORIGIN = "https://drmunojat.uz";
 
 /** Absolute URL for a canonical (Uzbek) path in a given language. */
-export const urlFor = (path, lang) => SITE_ORIGIN + localizePath(path, lang);
+/* GitHub Pages serves /about from /about/index.html and 301s /about to
+   /about/. A canonical that redirects away from itself is a contradiction, so
+   every absolute URL the site publishes - canonical, og:url, hreflang, sitemap
+   - carries the trailing slash Pages actually serves. Internal links are left
+   alone: in-app navigation never hits the redirect. */
+const withTrailingSlash = (path) => (path.endsWith("/") ? path : path + "/");
+
+export const urlFor = (path, lang) =>
+  SITE_ORIGIN + withTrailingSlash(localizePath(path, lang));
 import { PrerenderContext, SEO_MARKER_TYPE } from "../context/SeoCollector";
 
 /* The indexable defaults, matching index.html. Every route sets the robots tags

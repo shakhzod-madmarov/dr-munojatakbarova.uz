@@ -147,7 +147,7 @@ for (const route of routes) {
   const canonical =
     route === NOT_FOUND_ROUTE
       ? null
-      : seo.canonical || SITE_ORIGIN + (route === "/" ? "/" : route);
+      : seo.canonical || SITE_ORIGIN + (route.endsWith("/") ? route : route + "/");
 
   let page = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
   page = setTitle(page, seo.title);
