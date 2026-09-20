@@ -113,7 +113,7 @@ const HeroSection = ({ onOpenBooking }) => {
               .catch(() => {});
           };
 
-          const gestureEvents = ["click", "pointerdown", "touchstart", "touchend", "keydown"];
+          const gestureEvents = ["click", "pointerdown", "pointerup", "mousedown", "mouseup", "touchstart", "touchend", "keydown", "wheel"];
           gestureEvents.forEach((evt) => {
             window.addEventListener(evt, onUserGesture, { capture: true });
             document.addEventListener(evt, onUserGesture, { capture: true });
@@ -364,33 +364,23 @@ const HeroSection = ({ onOpenBooking }) => {
         </div>
       </div>
 
-      {/* Audio Control (Clear, intuitive pill toggle) */}
+      {/* Audio Control (Minimalist circular icon toggle — zero text) */}
       <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-auto">
         <button
           type="button"
           onClick={toggleSound}
           aria-label={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
           title={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-white backdrop-blur-md transition-all shadow-xl active:scale-95 cursor-pointer group ${
+          className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-xl active:scale-90 cursor-pointer ${
             isMuted
-              ? "bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 border-2 border-amber-300 shadow-amber-500/20 hover:scale-105 animate-pulse"
-              : "bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/40"
+              ? "bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white border-2 border-amber-300 shadow-amber-500/30 hover:scale-110 animate-pulse"
+              : "bg-slate-900/85 hover:bg-slate-800 text-emerald-400 border border-white/20 hover:scale-105"
           }`}
         >
           {isMuted ? (
-            <>
-              <IconVolumeMute className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-black tracking-wide text-white drop-shadow-xs">
-                {lang === "uz" ? "🔊 Ovozni yoqish" : lang === "ru" ? "🔊 Включить звук" : "🔊 Unmute Sound"}
-              </span>
-            </>
+            <IconVolumeMute className="w-5 h-5 text-white" />
           ) : (
-            <>
-              <IconVolumeUp className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors animate-pulse" />
-              <span className="text-xs font-bold text-emerald-300">
-                {lang === "uz" ? "Ovoz yoniq" : lang === "ru" ? "Звук включен" : "Sound On"}
-              </span>
-            </>
+            <IconVolumeUp className="w-5 h-5 text-emerald-400 animate-pulse" />
           )}
         </button>
       </div>
