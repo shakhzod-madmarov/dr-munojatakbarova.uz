@@ -47,15 +47,16 @@ const HeroSection = ({ onOpenBooking }) => {
   const bgVideoRef = useRef(null);
   const heroSectionRef = useRef(null);
   const isHeaderInViewRef = useRef(true);
-  // Sound enabled by default as requested
-  const [isMuted, setIsMuted] = useState(false);
+  // Default to muted true for seamless SSR & instant browser autoplay compatibility
+  const [isMuted, setIsMuted] = useState(true);
   const userExplicitlyMutedRef = useRef(false);
 
+  // Directly unmute video safely
   const unmuteVideo = useCallback(() => {
-    if (userExplicitlyMutedRef.current) return;
     const video = bgVideoRef.current;
     if (!video) return;
 
+    userExplicitlyMutedRef.current = false;
     video.muted = false;
     video.volume = 1.0;
     const playPromise = video.play();
@@ -64,20 +65,48 @@ const HeroSection = ({ onOpenBooking }) => {
         .then(() => {
           setIsMuted(false);
         })
-        .catch(() => {
-          // Autoplay policy prevented playback, keep listening for user gesture
+        .catch((err) => {
+          console.warn("Unmute play rejected:", err);
+          video.muted = true;
+          setIsMuted(true);
         });
+    } else {
+      setIsMuted(false);
     }
   }, []);
 
-  // Autoplay with sound by default (or auto-unmute on first user gesture: click/touch/keydown)
+  // Directly mute video safely
+  const muteVideo = useCallback(() => {
+    const video = bgVideoRef.current;
+    if (!video) return;
+
+    userExplicitlyMutedRef.current = true;
+    video.muted = true;
+    setIsMuted(true);
+  }, []);
+
+  // Audio button toggle: cleanly isolated from any document click listeners
+  const toggleSound = (e) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    const video = bgVideoRef.current;
+    if (!video) return;
+
+    if (video.muted) {
+      unmuteVideo();
+    } else {
+      muteVideo();
+    }
+  };
+
+  // Attempt unmuted playback immediately, with one-shot unlock on very first real user interaction
   useEffect(() => {
     const video = bgVideoRef.current;
     if (!video) return;
 
     video.volume = 1.0;
 
-    // 1. Attempt direct unmuted playback immediately on mount
+    // 1. Try direct unmuted playback on load (works if browser allows or MEI threshold is met)
     video.muted = false;
     const playPromise = video.play();
 
@@ -87,40 +116,52 @@ const HeroSection = ({ onOpenBooking }) => {
           setIsMuted(false);
         })
         .catch(() => {
-          // Browser autoplay policy restricted unmuted playback on initial page load.
-          // Start playing muted immediately so visual playback is never paused:
+          // Browser Autoplay Policy blocked initial unmuted audio.
+          // Fall back to muted playback so visual stream starts immediately:
           video.muted = true;
           video.play().catch(() => {});
           setIsMuted(true);
 
-          // 2. As soon as the user clicks anywhere, touches the screen, or presses a key, unmute audio immediately:
-          const onUserGesture = () => {
+          // 2. Unmute on the very first user interaction anywhere on the document:
+          const handleFirstGesture = (e) => {
+            // Do not run if clicking directly on the sound toggle button (let toggleSound handle it)
+            if (e.target?.closest?.("#header-sound-btn")) return;
             if (userExplicitlyMutedRef.current) return;
+
             const vid = bgVideoRef.current;
             if (!vid) return;
 
             vid.muted = false;
             vid.volume = 1.0;
-            vid.play()
-              .then(() => {
+            const p = vid.play();
+            if (p !== undefined) {
+              p.then(() => {
                 setIsMuted(false);
-                // Clean up listeners only after audio has successfully unmuted
-                gestureEvents.forEach((evt) => {
-                  window.removeEventListener(evt, onUserGesture, { capture: true });
-                  document.removeEventListener(evt, onUserGesture, { capture: true });
-                });
-              })
-              .catch(() => {});
+                cleanup();
+              }).catch(() => {
+                // Not allowed yet, keep waiting
+              });
+            } else {
+              setIsMuted(false);
+              cleanup();
+            }
           };
 
-          const gestureEvents = ["click", "pointerdown", "pointerup", "mousedown", "mouseup", "touchstart", "touchend", "keydown", "wheel"];
-          gestureEvents.forEach((evt) => {
-            window.addEventListener(evt, onUserGesture, { capture: true });
-            document.addEventListener(evt, onUserGesture, { capture: true });
-          });
+          const cleanup = () => {
+            document.removeEventListener("click", handleFirstGesture, true);
+            document.removeEventListener("touchstart", handleFirstGesture, true);
+            document.removeEventListener("keydown", handleFirstGesture, true);
+          };
+
+          // Capture on genuine user activation events only (never 'wheel' or 'scroll')
+          document.addEventListener("click", handleFirstGesture, true);
+          document.addEventListener("touchstart", handleFirstGesture, true);
+          document.addEventListener("keydown", handleFirstGesture, true);
+
+          return cleanup;
         });
     }
-  }, []);
+  }, [unmuteVideo]);
 
   /* Play or pause with visibility, preserving the mute state. */
   useEffect(() => {
@@ -167,27 +208,9 @@ const HeroSection = ({ onOpenBooking }) => {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  const toggleSound = (e) => {
-    e?.stopPropagation();
-    const video = bgVideoRef.current;
-    if (!video) return;
-
-    if (isMuted || video.muted) {
-      userExplicitlyMutedRef.current = false;
-      video.muted = false;
-      video.volume = 1.0;
-      setIsMuted(false);
-      video.play().catch(() => {});
-    } else {
-      userExplicitlyMutedRef.current = true;
-      video.muted = true;
-      setIsMuted(true);
-    }
-  };
-
   const handleHeroClick = (e) => {
     if (e.target.closest("button") || e.target.closest("a") || e.target.closest("input")) return;
-    if (isMuted) {
+    if (bgVideoRef.current?.muted) {
       unmuteVideo();
     }
   };
@@ -256,7 +279,7 @@ const HeroSection = ({ onOpenBooking }) => {
       <figure className="absolute inset-y-0 right-0 w-full md:w-[70%] lg:w-[58%] xl:w-[52%] h-full overflow-hidden pointer-events-none select-none z-0 m-0">
         <video
           ref={bgVideoRef}
-          src="/dr_munojat_award.mp4"
+          src="/dr_munojat_award.mp4?v=20260920"
           poster="/dr_munojat_award_poster.webp"
           autoPlay
           loop
@@ -367,20 +390,21 @@ const HeroSection = ({ onOpenBooking }) => {
       {/* Audio Control (Minimalist circular icon toggle — zero text) */}
       <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-auto">
         <button
+          id="header-sound-btn"
           type="button"
           onClick={toggleSound}
           aria-label={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
           title={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
-          className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-xl active:scale-90 cursor-pointer ${
+          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-2xl active:scale-90 cursor-pointer ${
             isMuted
-              ? "bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white border-2 border-amber-300 shadow-amber-500/30 hover:scale-110 animate-pulse"
-              : "bg-slate-900/85 hover:bg-slate-800 text-emerald-400 border border-white/20 hover:scale-105"
+              ? "bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white border-2 border-amber-300/90 shadow-red-900/50 hover:scale-110 animate-pulse ring-4 ring-red-500/20"
+              : "bg-slate-900/90 hover:bg-slate-800 text-emerald-400 border border-emerald-500/40 hover:scale-105 shadow-emerald-950/40 ring-2 ring-emerald-500/20"
           }`}
         >
           {isMuted ? (
-            <IconVolumeMute className="w-5 h-5 text-white" />
+            <IconVolumeMute className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow" />
           ) : (
-            <IconVolumeUp className="w-5 h-5 text-emerald-400 animate-pulse" />
+            <IconVolumeUp className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 animate-pulse" />
           )}
         </button>
       </div>
