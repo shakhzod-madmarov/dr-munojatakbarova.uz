@@ -47,14 +47,67 @@ const HeroSection = ({ onOpenBooking }) => {
   const bgVideoRef = useRef(null);
   const heroSectionRef = useRef(null);
   const isHeaderInViewRef = useRef(true);
-  /* Sound is opt-in. The hero used to autoplay unmuted and re-enable audio on
-     the first scroll, click or keypress, which fails WCAG 2.1 Audio Control
-     (1.4.2) and is blocked by browser autoplay policy anyway. The video now
-     starts muted and only the toggle below changes that; nothing else touches
-     the mute state, so an unmute survives scrolling away and back. */
-  const [isMuted, setIsMuted] = useState(true);
+  // Sound enabled by default as requested
+  const [isMuted, setIsMuted] = useState(false);
+  const userExplicitlyMutedRef = useRef(false);
 
-  /* Play or pause with visibility, never touching the mute state. */
+  // Autoplay with sound by default (or auto-unmute on first interaction if blocked by browser policy)
+  useEffect(() => {
+    const video = bgVideoRef.current;
+    if (!video) return;
+
+    video.volume = 1.0;
+
+    // Attempt direct unmuted playback
+    video.muted = false;
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsMuted(false);
+        })
+        .catch(() => {
+          // Browser autoplay policy restricted unmuted playback without prior interaction.
+          // Start playing muted immediately so visual playback is never blocked:
+          video.muted = true;
+          video.play().catch(() => {});
+          setIsMuted(true);
+
+          // As soon as the user touches the screen, clicks, or interacts, unmute audio immediately:
+          const enableAudioOnInteraction = () => {
+            if (userExplicitlyMutedRef.current) return;
+            const vid = bgVideoRef.current;
+            if (!vid) return;
+
+            vid.muted = false;
+            vid.volume = 1.0;
+            vid.play()
+              .then(() => {
+                setIsMuted(false);
+              })
+              .catch(() => {});
+
+            cleanup();
+          };
+
+          const events = ["touchstart", "touchend", "pointerdown", "mousedown", "click", "keydown", "scroll"];
+          const cleanup = () => {
+            events.forEach((evt) => {
+              window.removeEventListener(evt, enableAudioOnInteraction, { capture: true });
+              document.removeEventListener(evt, enableAudioOnInteraction, { capture: true });
+            });
+          };
+
+          events.forEach((evt) => {
+            window.addEventListener(evt, enableAudioOnInteraction, { capture: true, once: true });
+            document.addEventListener(evt, enableAudioOnInteraction, { capture: true, once: true });
+          });
+        });
+    }
+  }, []);
+
+  /* Play or pause with visibility, preserving the mute state. */
   useEffect(() => {
     const sectionEl = heroSectionRef.current;
     if (!sectionEl) return;
@@ -79,8 +132,6 @@ const HeroSection = ({ onOpenBooking }) => {
     observer.observe(sectionEl);
     return () => {
       observer.disconnect();
-      /* Copied into a local first: bgVideoRef.current may already be null by
-         the time this cleanup runs. */
       const video = bgVideoRef.current;
       if (video) video.pause();
     };
@@ -106,11 +157,13 @@ const HeroSection = ({ onOpenBooking }) => {
     if (!video) return;
 
     if (isMuted || video.muted) {
+      userExplicitlyMutedRef.current = false;
       video.muted = false;
       video.volume = 1.0;
       setIsMuted(false);
       video.play().catch(() => {});
     } else {
+      userExplicitlyMutedRef.current = true;
       video.muted = true;
       setIsMuted(true);
     }
@@ -183,9 +236,9 @@ const HeroSection = ({ onOpenBooking }) => {
           poster="/dr_munojat_award_poster.webp"
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-label="Dr. Munojat Akbarova - The Best of Uzbekistan 2025 taqdirlash marosimi"
           className="w-full h-full object-cover object-center scale-100 lg:scale-105 transition-transform duration-1000"
         />
