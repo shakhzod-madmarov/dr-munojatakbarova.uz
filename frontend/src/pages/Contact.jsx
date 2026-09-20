@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { toast } from "react-toastify";
+import { useBooking } from "../context/BookingContext";
+
+/* The contact form's service list predates the booking modal, so its
+   option values are mapped rather than renamed - changing them would
+   change what patients see in the dropdown. */
+const BOOKING_SERVICE_BY_OPTION = {
+  "Tsirkoniy Karonkalar": "ortopediya",
+  "Titan Implant": "implantatsiya",
+  "ZOOM 4 Oqartirish": "tish-oqartirish",
+  "Karies & Plomba": "tish-davolash",
+  "Og'riqsiz Xirurgiya": "xirurgiya",
+};
 import Seo from "../components/Seo";
 import ClinicLocationMap from "../components/ClinicLocationMap";
 import {
@@ -19,8 +30,10 @@ import { getA11yLabels } from "../constants/a11yLabels";
 const Contact = () => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
-  const [form, setForm] = useState({ name: "", phone: "", service: "Vinir", message: "" });
-  const [sending, setSending] = useState(false);
+  /* The default matched no option in the list, so the form submitted "Vinir"
+     while the select displayed crowns. */
+  const [form, setForm] = useState({ name: "", phone: "", service: "Tsirkoniy Karonkalar", message: "" });
+  const { openBooking } = useBooking();
 
   const t = {
     uz: {
@@ -32,9 +45,7 @@ const Contact = () => {
       phonePh: "Telefon raqamingiz (+998 90 ...)",
       serviceLabel: "Qiziqtirgan xizmat",
       msgPh: "Tishingizdagi bezovtalik (ixtiyoriy)",
-      send: "Telegram Orqali Yuborish",
-      sending: "Yuborilmoqda...",
-      success: "Xabaringiz yuborildi! Tez orada siz bilan bog'lanamiz.",
+      send: "Bo'sh Vaqtni Tanlash",
       hours: "Qabul Vaqti",
       hoursVal: OPENING_HOURS.display.uz,
       phone: "Telefon",
@@ -52,9 +63,7 @@ const Contact = () => {
       phonePh: "Номер телефона (+998 90 ...)",
       serviceLabel: "Услуга",
       msgPh: "Ваше сообщение (необязательно)",
-      send: "Отправить через Telegram",
-      sending: "Отправка...",
-      success: "Заявка отправлена! Мы скоро свяжемся с вами.",
+      send: "Выбрать свободное время",
       hours: "Часы приёма",
       hoursVal: OPENING_HOURS.display.ru,
       phone: "Телефон",
@@ -72,9 +81,7 @@ const Contact = () => {
       phonePh: "Phone Number (+998 90 ...)",
       serviceLabel: "Service",
       msgPh: "Your message (optional)",
-      send: "Submit via Telegram",
-      sending: "Sending...",
-      success: "Message sent! We will contact you shortly.",
+      send: "Choose a free time",
       hours: "Opening Hours",
       hoursVal: OPENING_HOURS.display.en,
       phone: "Phone",
@@ -88,14 +95,15 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
-    setSending(true);
-    const text = encodeURIComponent(
-      `📍 SAYTDAN QABULGA YOZILISH:\n👤 Bemor: ${form.name}\n📞 Tel: ${form.phone}\n🦷 Xizmat: ${form.service}\n💬 Xabar: ${form.message || "Yo'q"}\n🏥 Klinika: Orzu Stoma Denta (Andijon)`
-    );
-    window.open(`https://t.me/dr_munojat?text=${text}`, "_blank", "noopener,noreferrer");
-    setSending(false);
-    toast.success(t.success);
-    setForm({ name: "", phone: "", service: "Vinir", message: "" });
+    /* Hand the patient to the real calendar instead of opening Telegram
+       with the details typed into a message, which no calendar ever saw.
+       They pick a free time and it lands in the dentist's MedInson app. */
+    openBooking({
+      service: BOOKING_SERVICE_BY_OPTION[form.service] || null,
+      name: form.name,
+      phone: form.phone,
+      note: form.message,
+    });
   };
 
   return (
@@ -302,10 +310,9 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    disabled={sending}
                     className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 text-white font-black text-sm rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
-                    <span>✈️ {sending ? t.sending : t.send}</span>
+                    <span>{t.send}</span>
                   </button>
                 </form>
               </div>

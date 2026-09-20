@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
+import { useBooking } from "../context/BookingContext";
 import Seo from "../components/Seo";
 import { assets } from "../assets/assets";
 import {
@@ -754,7 +755,7 @@ const ServiceDetail = () => {
   const specialty = detailedSpecialties[slug] || detailedSpecialties["implantatsiya"];
 
   const [bookingForm, setBookingForm] = useState({ name: "", phone: "", notes: "" });
-  const [sending, setSending] = useState(false);
+  const { openBooking } = useBooking();
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -766,23 +767,15 @@ const ServiceDetail = () => {
       );
       return;
     }
-    setSending(true);
-    const text = encodeURIComponent(
-      `🦷 QABULGA YOZILISH:\n` +
-      `📌 Xizmat: ${specialty.title[lang]}\n` +
-      `👤 Bemor: ${bookingForm.name}\n` +
-      `📞 Tel: ${bookingForm.phone}\n` +
-      (bookingForm.notes ? `💬 Izoh: ${bookingForm.notes}\n` : "") +
-      `📍 Manzil: Andijon (drmunojat.uz)`
-    );
-    window.open(`https://t.me/dr_munojat?text=${text}`, "_blank", "noopener,noreferrer");
-    toast.success(
-      lang === "uz" ? "Qabulingiz Telegramga yuborildi!" :
-      lang === "ru" ? "Заявка отправлена в Telegram!" :
-      "Appointment sent via Telegram!"
-    );
-    setSending(false);
-    setBookingForm({ name: "", phone: "", notes: "" });
+    /* Hand the patient to the real calendar instead of opening Telegram
+       with the details typed into a message, which no calendar ever saw.
+       They pick a free time and it lands in the dentist's MedInson app. */
+    openBooking({
+      service: specialty.slug,
+      name: bookingForm.name,
+      phone: bookingForm.phone,
+      note: bookingForm.notes,
+    });
   };
 
   const otherSpecialties = Object.values(detailedSpecialties).filter((s) => s.slug !== specialty.slug);
@@ -1093,10 +1086,9 @@ const ServiceDetail = () => {
                 />
                 <button
                   type="submit"
-                  disabled={sending}
                   className="btn-crimson w-full min-h-[48px] text-sm flex items-center justify-center gap-2"
                 >
-                  <span>{lang === "uz" ? "Telegram orqali yozilish" : lang === "ru" ? "Записаться в Telegram" : "Book via Telegram"}</span>
+                  <span>{lang === "uz" ? "Bo'sh vaqtni tanlash" : lang === "ru" ? "Выбрать свободное время" : "Choose a free time"}</span>
                 </button>
               </form>
             </div>

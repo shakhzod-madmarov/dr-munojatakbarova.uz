@@ -11,6 +11,17 @@ import {
   IconSparkleStar,
 } from "./MedicalIcons";
 import { getA11yLabels } from "../constants/a11yLabels";
+import { useBooking } from "../context/BookingContext";
+
+/* Which service the booking form should preselect for each priced plan.
+   The ids are the ones the booking modal and the service pages use. */
+const BOOKING_SERVICE_BY_PLAN = {
+  treatment: "tish-davolash",
+  veneers: "ortopediya",
+  implant: "implantatsiya",
+  whitening: "tish-oqartirish",
+  extraction: "xirurgiya",
+};
 
 const treatments = [
   {
@@ -255,6 +266,7 @@ const treatments = [
 const Interactive3DCostCalculator = () => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
+  const { openBooking } = useBooking();
   const [selectedId, setSelectedId] = useState("treatment");
   const [patientName, setPatientName] = useState("");
   const [patientPhone, setPatientPhone] = useState("");
@@ -265,16 +277,15 @@ const Interactive3DCostCalculator = () => {
     e.preventDefault();
     if (!patientName || !patientPhone) return;
 
-    const text = encodeURIComponent(
-      `QABULGA YOZILISH (drmunojat.uz):\n` +
-      `Xizmat: ${current.title[lang]}\n` +
-      `Bemor: ${patientName}\n` +
-      `Tel: ${patientPhone}\n` +
-      `Manzil: Andijon`
-    );
-    window.open(`https://t.me/dr_munojat?text=${text}`, "_blank", "noopener,noreferrer");
-    setPatientName("");
-    setPatientPhone("");
+    /* Hand the patient to the real calendar instead of opening Telegram
+       with the details typed into a message, which no calendar ever saw.
+       They pick a free time and it lands in the dentist's MedInson app. */
+    openBooking({
+      service: BOOKING_SERVICE_BY_PLAN[selectedId] || null,
+      name: patientName,
+      phone: patientPhone,
+      note: current.title[lang],
+    });
   };
 
   return (
@@ -521,7 +532,7 @@ const Interactive3DCostCalculator = () => {
                   type="submit"
                   className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] via-[#fd1616] to-[#dc2626] hover:brightness-110 active:scale-98 text-white font-black text-sm rounded-xl shadow-lg shadow-red-950/40 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>{lang === "uz" ? "Telegram orqali yuborish" : lang === "ru" ? "Отправить через Telegram" : "Book via Telegram"}</span>
+                  <span>{lang === "uz" ? "Bo'sh vaqtni tanlash" : lang === "ru" ? "Выбрать свободное время" : "Choose a free time"}</span>
                   <span>→</span>
                 </button>
               </form>

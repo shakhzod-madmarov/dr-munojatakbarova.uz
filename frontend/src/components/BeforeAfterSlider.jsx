@@ -7,7 +7,7 @@ import { getA11yLabels } from "../constants/a11yLabels";
 const casesData = [
   {
     id: 1,
-    serviceId: "oqartirish",
+    serviceId: "tish-oqartirish",
     title: {
       uz: "ZOOM 4 Laser Tish Oqartirish",
       ru: "ZOOM 4 Лазерное Отбеливание",
