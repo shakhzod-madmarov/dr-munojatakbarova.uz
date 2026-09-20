@@ -97,7 +97,7 @@ const FloatingActionHub = ({ onOpenBooking }) => {
 
           {/* Yandex Maps: Orzu Stoma Denta */}
           <a
-            href="https://yandex.uz/maps/-/CTT8VGNR"
+            href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={a11y.yandexMap}

@@ -206,7 +206,7 @@ const Contact = () => {
                   </p>
                   <div className="grid grid-cols-2 gap-2 pt-1">
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=40.754205,72.358426"
+                      href="https://maps.google.com/?cid=4641379713526839793"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-[11px] shadow-2xs transition-all active:scale-95"
@@ -217,7 +217,7 @@ const Contact = () => {
                       <span>★</span>
                     </a>
                     <a
-                      href="https://yandex.uz/maps/-/CTT8VGNR"
+                      href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 font-black text-[11px] shadow-2xs hover:brightness-105 transition-all active:scale-95"

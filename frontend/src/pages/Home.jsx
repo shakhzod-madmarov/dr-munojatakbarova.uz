@@ -796,7 +796,7 @@ const PatientReviews = () => {
 
             <div className="pt-6 relative z-10">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=40.754205,72.358426"
+                href="https://maps.google.com/?cid=4641379713526839793"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white text-xs font-black shadow-md shadow-blue-600/20 transition-all"
@@ -840,7 +840,7 @@ const PatientReviews = () => {
 
             <div className="pt-6 relative z-10">
               <a
-                href="https://yandex.uz/maps/-/CTT8VGNR"
+                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:brightness-105 active:scale-98 text-amber-950 text-xs font-black shadow-md shadow-amber-500/20 transition-all"

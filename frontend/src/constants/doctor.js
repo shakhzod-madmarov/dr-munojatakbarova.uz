@@ -23,8 +23,8 @@ export const DOCTOR_INFO = {
   telegram: "https://t.me/dr_munojat",
   telegramHandle: "@dr_munojat",
   instagram: "https://www.instagram.com/dr_munojatakbarova/",
-  yandexMaps: "https://yandex.uz/maps/-/CTT8VGNR",
-  googleMaps: "https://www.google.com/maps/search/?api=1&query=40.754205,72.358426",
+  yandexMaps: "https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/",
+  googleMaps: "https://maps.google.com/?cid=4641379713526839793",
   coordinates: {
     lat: 40.754205,
     lng: 72.358426,

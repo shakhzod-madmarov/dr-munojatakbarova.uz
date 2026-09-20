@@ -125,7 +125,7 @@ const ClinicLocationMap = () => {
             {/* Navigation buttons */}
             <div className="pt-6 mt-6 border-t border-white/10">
               <a
-                href="https://yandex.uz/maps/-/CTT8VGNR"
+                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-red-900/40 transition-all"

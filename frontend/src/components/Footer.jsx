@@ -254,7 +254,7 @@ const Footer = () => {
 
             <div className="pt-2 flex flex-col gap-2">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=40.754205,72.358426"
+                href="https://maps.google.com/?cid=4641379713526839793"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-blue-50/70 hover:bg-blue-100/80 text-blue-900 text-xs font-bold transition-all border border-blue-200 shadow-2xs group"
@@ -265,7 +265,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://yandex.uz/maps/-/CTT8VGNR"
+                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-amber-50/80 hover:bg-amber-100 text-amber-950 text-xs font-bold transition-all border border-amber-300 shadow-2xs group"
@@ -276,7 +276,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://yandex.uz/maps/-/CTT8VGNR"
+                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all border border-slate-200"
