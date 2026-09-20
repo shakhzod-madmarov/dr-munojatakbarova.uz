@@ -105,11 +105,15 @@ const HeroSection = ({ onOpenBooking }) => {
     const video = bgVideoRef.current;
     if (!video) return;
 
-    const enable = video.muted;
-    video.muted = !enable;
-    if (enable) video.volume = 0.25;
-    setIsMuted(!enable);
-    video.play().catch(() => {});
+    if (isMuted || video.muted) {
+      video.muted = false;
+      video.volume = 1.0;
+      setIsMuted(false);
+      video.play().catch(() => {});
+    } else {
+      video.muted = true;
+      setIsMuted(true);
+    }
   };
 
   const t = {
@@ -283,19 +287,29 @@ const HeroSection = ({ onOpenBooking }) => {
         </div>
       </div>
 
-      {/* Discreet Audio Control (Pure icon toggle, zero text) */}
+      {/* Audio Control (Clear, intuitive pill toggle) */}
       <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-auto">
         <button
           type="button"
           onClick={toggleSound}
           aria-label={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
           title={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
-          className="w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer group"
+          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/90 hover:bg-slate-850 text-white border border-amber-500/40 hover:border-amber-400 backdrop-blur-md transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer group"
         >
           {isMuted ? (
-            <IconVolumeMute className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+            <>
+              <IconVolumeMute className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors" />
+              <span className="text-xs font-bold text-slate-200 group-hover:text-white">
+                {lang === "uz" ? "Ovozni yoqish" : lang === "ru" ? "Включить звук" : "Unmute Sound"}
+              </span>
+            </>
           ) : (
-            <IconVolumeUp className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors animate-pulse" />
+            <>
+              <IconVolumeUp className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors animate-pulse" />
+              <span className="text-xs font-bold text-emerald-300">
+                {lang === "uz" ? "Ovoz yoniq" : lang === "ru" ? "Звук включен" : "Sound On"}
+              </span>
+            </>
           )}
         </button>
       </div>

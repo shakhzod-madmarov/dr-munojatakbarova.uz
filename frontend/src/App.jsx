@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import EmergencyBanner from "./components/EmergencyBanner";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 /* Pages are imported eagerly on purpose. React.lazy was tried here and broke
@@ -56,10 +55,6 @@ const LangSync = () => {
 
 const App = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  /* The emergency banner is fixed, so it reports its height here: <Nav> sits
-     directly below it and <main> keeps the offset the banner used to add while
-     it was in normal flow. Both collapse to 0 when the banner is dismissed. */
-  const [bannerHeight, setBannerHeight] = useState(0);
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-[#fff8f8] text-slate-900 overflow-x-hidden">
@@ -74,10 +69,9 @@ const App = () => {
         toastStyle={{ background: "#1a0505", borderLeft: "4px solid #fd1616" }}
       />
 
-      <EmergencyBanner onHeightChange={setBannerHeight} />
-      <Nav topOffset={bannerHeight} />
+      <Nav />
 
-      <main className="flex-grow w-full" style={{ paddingTop: bannerHeight }}>
+      <main className="flex-grow w-full">
         <Routes>
           {/* Every page exists at three addresses: unprefixed Uzbek, /ru and
               /en. Defining them once per language keeps the three in step. */}
