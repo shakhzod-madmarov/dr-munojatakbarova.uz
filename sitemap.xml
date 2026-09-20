@@ -9,8 +9,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
@@ -20,13 +20,13 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru</loc>
+    <loc>https://drmunojat.uz/ru/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
@@ -36,13 +36,13 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en</loc>
+    <loc>https://drmunojat.uz/en/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
@@ -52,47 +52,47 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services</loc>
+    <loc>https://drmunojat.uz/services/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/"/>
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services</loc>
+    <loc>https://drmunojat.uz/ru/services/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/"/>
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services</loc>
+    <loc>https://drmunojat.uz/en/services/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/"/>
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services/implantatsiya</loc>
+    <loc>https://drmunojat.uz/services/implantatsiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_implant-EUoIaf_F.webp</image:loc>
       <image:title>Tish Implantatsiyasi Andijon - Dr. Munojat Akbarova | Titan Implant</image:title>
@@ -101,14 +101,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services/implantatsiya</loc>
+    <loc>https://drmunojat.uz/ru/services/implantatsiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_implant-EUoIaf_F.webp</image:loc>
       <image:title>Tish Implantatsiyasi Andijon - Dr. Munojat Akbarova | Titan Implant</image:title>
@@ -117,14 +117,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services/implantatsiya</loc>
+    <loc>https://drmunojat.uz/en/services/implantatsiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/implantatsiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/implantatsiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_implant-EUoIaf_F.webp</image:loc>
       <image:title>Tish Implantatsiyasi Andijon - Dr. Munojat Akbarova | Titan Implant</image:title>
@@ -133,14 +133,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services/tish-davolash</loc>
+    <loc>https://drmunojat.uz/services/tish-davolash/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/clinic_room-DUwk5xIL.webp</image:loc>
       <image:title>Tish Davolash Andijon - Dr. Munojat Akbarova | 4 Davlat Plombalari 100% Og&apos;riqsiz</image:title>
@@ -149,14 +149,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services/tish-davolash</loc>
+    <loc>https://drmunojat.uz/ru/services/tish-davolash/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/clinic_room-DUwk5xIL.webp</image:loc>
       <image:title>Tish Davolash Andijon - Dr. Munojat Akbarova | 4 Davlat Plombalari 100% Og&apos;riqsiz</image:title>
@@ -165,14 +165,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services/tish-davolash</loc>
+    <loc>https://drmunojat.uz/en/services/tish-davolash/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-davolash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-davolash/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/clinic_room-DUwk5xIL.webp</image:loc>
       <image:title>Tish Davolash Andijon - Dr. Munojat Akbarova | 4 Davlat Plombalari 100% Og&apos;riqsiz</image:title>
@@ -181,14 +181,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services/ortopediya</loc>
+    <loc>https://drmunojat.uz/services/ortopediya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/hero_smile-Xx0LVDIw.webp</image:loc>
       <image:title>Old va Orqa Tish Karonkalari Andijon - Dr. Munojat Akbarova | Xitoy, Germaniya, Avstraliya</image:title>
@@ -197,14 +197,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services/ortopediya</loc>
+    <loc>https://drmunojat.uz/ru/services/ortopediya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/hero_smile-Xx0LVDIw.webp</image:loc>
       <image:title>Old va Orqa Tish Karonkalari Andijon - Dr. Munojat Akbarova | Xitoy, Germaniya, Avstraliya</image:title>
@@ -213,14 +213,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services/ortopediya</loc>
+    <loc>https://drmunojat.uz/en/services/ortopediya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/ortopediya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/ortopediya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/hero_smile-Xx0LVDIw.webp</image:loc>
       <image:title>Old va Orqa Tish Karonkalari Andijon - Dr. Munojat Akbarova | Xitoy, Germaniya, Avstraliya</image:title>
@@ -229,14 +229,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services/xirurgiya</loc>
+    <loc>https://drmunojat.uz/services/xirurgiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_surgery-BQyw8eJX.webp</image:loc>
       <image:title>Og&apos;riqsiz Tish Xirurgiyasi Andijon - Dr. Munojat Akbarova | Aql Tishi</image:title>
@@ -245,14 +245,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services/xirurgiya</loc>
+    <loc>https://drmunojat.uz/ru/services/xirurgiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_surgery-BQyw8eJX.webp</image:loc>
       <image:title>Og&apos;riqsiz Tish Xirurgiyasi Andijon - Dr. Munojat Akbarova | Aql Tishi</image:title>
@@ -261,14 +261,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services/xirurgiya</loc>
+    <loc>https://drmunojat.uz/en/services/xirurgiya/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/xirurgiya/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/xirurgiya/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_surgery-BQyw8eJX.webp</image:loc>
       <image:title>Og&apos;riqsiz Tish Xirurgiyasi Andijon - Dr. Munojat Akbarova | Aql Tishi</image:title>
@@ -277,14 +277,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/services/tish-oqartirish</loc>
+    <loc>https://drmunojat.uz/services/tish-oqartirish/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_whitening-DAVxj-hD.webp</image:loc>
       <image:title>ZOOM 4 Tish Oqartirish Andijon - Dr. Munojat Akbarova | Tabiiy Yorqin Oqlik</image:title>
@@ -293,14 +293,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/services/tish-oqartirish</loc>
+    <loc>https://drmunojat.uz/ru/services/tish-oqartirish/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_whitening-DAVxj-hD.webp</image:loc>
       <image:title>ZOOM 4 Tish Oqartirish Andijon - Dr. Munojat Akbarova | Tabiiy Yorqin Oqlik</image:title>
@@ -309,14 +309,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/services/tish-oqartirish</loc>
+    <loc>https://drmunojat.uz/en/services/tish-oqartirish/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/services/tish-oqartirish/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/services/tish-oqartirish/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/assets/treatment_whitening-DAVxj-hD.webp</image:loc>
       <image:title>ZOOM 4 Tish Oqartirish Andijon - Dr. Munojat Akbarova | Tabiiy Yorqin Oqlik</image:title>
@@ -325,14 +325,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/about</loc>
+    <loc>https://drmunojat.uz/about/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
       <image:title>Dr. Munojat Akbarova haqida - Andijondagi yetakchi ayol stomatolog</image:title>
@@ -340,14 +340,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/about</loc>
+    <loc>https://drmunojat.uz/ru/about/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
       <image:title>Dr. Munojat Akbarova haqida - Andijondagi yetakchi ayol stomatolog</image:title>
@@ -355,14 +355,14 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/about</loc>
+    <loc>https://drmunojat.uz/en/about/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/about/"/>
     <image:image>
       <image:loc>https://drmunojat.uz/logo.png</image:loc>
       <image:title>Dr. Munojat Akbarova haqida - Andijondagi yetakchi ayol stomatolog</image:title>
@@ -370,7 +370,7 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/gallery</loc>
+    <loc>https://drmunojat.uz/gallery/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -381,7 +381,7 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/gallery</loc>
+    <loc>https://drmunojat.uz/ru/gallery/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -392,7 +392,7 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/gallery</loc>
+    <loc>https://drmunojat.uz/en/gallery/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -403,36 +403,36 @@
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/contact</loc>
+    <loc>https://drmunojat.uz/contact/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact/"/>
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/ru/contact</loc>
+    <loc>https://drmunojat.uz/ru/contact/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact/"/>
   </url>
 
   <url>
-    <loc>https://drmunojat.uz/en/contact</loc>
+    <loc>https://drmunojat.uz/en/contact/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact/"/>
   </url>
 
 </urlset>
