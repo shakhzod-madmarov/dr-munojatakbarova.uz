@@ -65,16 +65,16 @@ export const PAGE_SEO = {
 
   gallery: {
     uz: {
-      title: "Natijalar — Oqartirish va Implant, Andijon",
-      description: "Dr. Munojat Akbarova bemorlarining haqiqiy natijalari: ZOOM oqartirish, tsirkoniy karonkalar, titan implantatsiya va estetik tiklash.",
+      title: "Klinik Natijalar & Tabassum Galereyasi — Dr. Munojat Akbarova, Andijon",
+      description: "Dr. Munojat Akbarovaning klinik natijalari: Philips ZOOM 4 oqartirish, Germaniya tsirkoniy karonkalari, Janubiy Koreya biotitan implantlari va badiiy restavratsiya.",
     },
     ru: {
-      title: "Результаты работ — Андижан, Д-р Мунаджат",
-      description: "Реальные результаты пациентов: отбеливание ZOOM, циркониевые коронки, титановая имплантация и эстетическое восстановление зубов.",
+      title: "Клинические Результаты & Галерея Улыбок — Д-р Мунаджат, Андижан",
+      description: "Реальные клинические кейсы Д-р Мунаджат Акбаровой: отбеливание ZOOM 4, циркониевые коронки, титановые импланты и эстетическое восстановление зубов.",
     },
     en: {
-      title: "Results — Whitening and Implants, Andijan",
-      description: "Real patient results from Dr. Munojat Akbarova: ZOOM whitening, zirconia crowns, titanium implants and aesthetic restoration.",
+      title: "Clinical Results & Smile Gallery — Dr. Munojat Akbarova, Andijan",
+      description: "Documented clinical cases by Dr. Munojat Akbarova in Andijan: Philips ZOOM 4 whitening, German zirconia crowns, titanium implants, and artistic restorations.",
     },
   },
 
