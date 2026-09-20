@@ -34,7 +34,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/index-DkwR_sK3.js",
+    "file": "assets/index-Bs8PxFOr.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -45,12 +45,14 @@
       "_rolldown-runtime-y2wrX6ue.js"
     ],
     "css": [
-      "assets/index-BQIst6Iw.css"
+      "assets/index-BIOhbAu7.css"
     ],
     "assets": [
       "assets/logo-Cv2m4RxU.png",
       "assets/hero_3d_tooth-BtnQGPNK.webp",
       "assets/dr_munojat_portrait_34-cae6fmJC.webp",
+      "assets/dr_munojat_studio-DkSms6QM.webp",
+      "assets/dr_munojat_loupes-D9ULrx-G.webp",
       "assets/hero_smile-Xx0LVDIw.webp",
       "assets/treatment_implant-EUoIaf_F.webp",
       "assets/treatment_whitening-DAVxj-hD.webp",
@@ -62,9 +64,17 @@
     "file": "assets/clinic_room-DUwk5xIL.webp",
     "src": "src/assets/clinic_room.webp"
   },
+  "src/assets/dr_munojat_loupes.webp": {
+    "file": "assets/dr_munojat_loupes-D9ULrx-G.webp",
+    "src": "src/assets/dr_munojat_loupes.webp"
+  },
   "src/assets/dr_munojat_portrait_34.webp": {
     "file": "assets/dr_munojat_portrait_34-cae6fmJC.webp",
     "src": "src/assets/dr_munojat_portrait_34.webp"
+  },
+  "src/assets/dr_munojat_studio.webp": {
+    "file": "assets/dr_munojat_studio-DkSms6QM.webp",
+    "src": "src/assets/dr_munojat_studio.webp"
   },
   "src/assets/hero_3d_tooth.webp": {
     "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
