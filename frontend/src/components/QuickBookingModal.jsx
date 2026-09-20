@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { toast } from "react-toastify";
 import confetti from "canvas-confetti";
@@ -33,19 +33,25 @@ const getCalculatedDateString = (dateId) => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-const QuickBookingModal = ({ isOpen, onClose }) => {
+const QuickBookingModal = ({ isOpen, onClose, initialService }) => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
   const dialogRef = useModalA11y(isOpen, onClose);
   
   const [selectedDate, setSelectedDate] = useState("tomorrow");
   const [selectedTime, setSelectedTime] = useState("11:00");
-  const [service, setService] = useState(servicesList[0].id);
+  const [service, setService] = useState(initialService || servicesList[0].id);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    if (initialService) {
+      setService(initialService);
+    }
+  }, [initialService, isOpen]);
 
   if (!isOpen) return null;
 

@@ -7,6 +7,7 @@ import { getA11yLabels } from "../constants/a11yLabels";
 const casesData = [
   {
     id: 1,
+    serviceId: "oqartirish",
     title: {
       uz: "ZOOM 4 Laser Tish Oqartirish",
       ru: "ZOOM 4 Лазерное Отбеливание",
@@ -17,8 +18,10 @@ const casesData = [
       ru: "1 сеанс (45 минут) — Естественное осветление и сияние",
       en: "1 session (45 mins) — Natural radiant smile brightness",
     },
-    beforeImg: assets.hero3DTooth,
+    beforeImg: assets.treatmentWhitening,
+    beforeFilter: "sepia(0.4) saturate(1.45) brightness(0.9) contrast(1.05)",
     afterImg: assets.treatmentWhitening,
+    afterFilter: "none",
     beforeTag: { uz: "DAVOLASHDAN OLDIN", ru: "ДО ПРОЦЕДУРЫ", en: "BEFORE TREATMENT" },
     afterTag: { uz: "DAVOLASHDAN KEYIN", ru: "ПОСЛЕ ПРОЦЕДУРЫ", en: "AFTER TREATMENT" },
     afterTone: "A1 Enamel · Tabiiy Yorqin Oqlik",
@@ -26,6 +29,7 @@ const casesData = [
   },
   {
     id: 2,
+    serviceId: "ortopediya",
     title: {
       uz: "Old Tish Karonkalari (Tsirkoniy)",
       ru: "Циркониевые Коронки",
@@ -36,35 +40,18 @@ const casesData = [
       ru: "Идеальная симметрия и натуральная голливудская улыбка",
       en: "Flawless front teeth symmetry & Hollywood smile",
     },
-    beforeImg: assets.clinicRoom,
+    beforeImg: assets.heroSmile,
+    beforeFilter: "sepia(0.3) saturate(1.2) brightness(0.92) contrast(1.1)",
     afterImg: assets.heroSmile,
+    afterFilter: "none",
     beforeTag: { uz: "DAVOLASHDAN OLDIN", ru: "ДО ПРОЦЕДУРЫ", en: "BEFORE TREATMENT" },
     afterTag: { uz: "DAVOLASHDAN KEYIN", ru: "ПОСЛЕ ПРОЦЕДУРЫ", en: "AFTER TREATMENT" },
     afterTone: "Germaniya Tsirkon Karonkasi",
-    beforeTone: "Tishlar Notekisligi",
-  },
-  {
-    id: 3,
-    title: {
-      uz: "Titan Tish Implanti & Tsirkoniy Toj",
-      ru: "Титановый Имплант и Цирконий",
-      en: "Titanium Implant & Zirconia Crown",
-    },
-    subtitle: {
-      uz: "Yo'qotilgan tishni uzoq yillar davomida va 100% og'riqsiz tiklash",
-      ru: "Надёжное и безболезненное восстановление зуба на долгие годы",
-      en: "Reliable and painless tooth restoration for long-term years",
-    },
-    beforeImg: assets.clinicRoom,
-    afterImg: assets.treatmentImplant,
-    beforeTag: { uz: "DAVOLASHDAN OLDIN", ru: "ДО ПРОЦЕДУРЫ", en: "BEFORE TREATMENT" },
-    afterTag: { uz: "DAVOLASHDAN KEYIN", ru: "ПОСЛЕ ПРОЦЕДУРЫ", en: "AFTER TREATMENT" },
-    afterTone: "100% Tabiiy Tiklandi",
-    beforeTone: "Yo'qotilgan Tish",
+    beforeTone: "Notekislik & Sariq Rang",
   },
 ];
 
-const BeforeAfterSlider = () => {
+const BeforeAfterSlider = ({ onOpenBooking }) => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
   const [sliderPos, setSliderPos] = useState(50);
@@ -178,7 +165,8 @@ const BeforeAfterSlider = () => {
                 alt={`${activeCase.title[lang]} — Muolajadan oldingi holat`}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover filter contrast-105"
+                style={{ filter: activeCase.beforeFilter || "none" }}
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
@@ -203,6 +191,33 @@ const BeforeAfterSlider = () => {
               </div>
             </div>
           </div>
+
+          {/* Action Row */}
+          {onOpenBooking && (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800">
+              <div className="text-left">
+                <p className="text-white font-bold text-sm">
+                  {lang === "uz" ? "Siz ham xuddi shunday tabiiy tabassumga ega bo'lishni xohlaysizmi?" :
+                   lang === "ru" ? "Хотите такую же безупречную улыбку?" :
+                   "Do you want to achieve the exact same radiant smile?"}
+                </p>
+                <p className="text-red-200/70 text-xs mt-0.5">
+                  {lang === "uz" ? "Dr. Munojat Akbarova qabuliga qulay vaqtni tanlang" :
+                   lang === "ru" ? "Выберите удобное время на приём к Д-р Мунаджат" :
+                   "Book your convenient appointment slot with Dr. Munojat"}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onOpenBooking(activeCase.serviceId)}
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#e11d48] via-[#fd1616] to-[#ea580c] hover:brightness-110 text-white font-black text-xs sm:text-sm shadow-xl shadow-red-900/40 active:scale-95 transition-all cursor-pointer"
+              >
+                {lang === "uz" ? "Aynan Shu Muolajaga Yozilish" :
+                 lang === "ru" ? "Записаться на эту процедуру" :
+                 "Book This Treatment"}
+              </button>
+            </div>
+          )}
         </div>
 
       </div>

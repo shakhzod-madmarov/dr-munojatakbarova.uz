@@ -55,6 +55,12 @@ const LangSync = () => {
 
 const App = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [bookingService, setBookingService] = useState(null);
+
+  const handleOpenBooking = (serviceId = null) => {
+    setBookingService(typeof serviceId === "string" ? serviceId : null);
+    setIsBookingOpen(true);
+  };
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-[#fff8f8] text-slate-900">
@@ -69,7 +75,7 @@ const App = () => {
         toastStyle={{ background: "#1a0505", borderLeft: "4px solid #fd1616" }}
       />
 
-      <Nav onOpenBooking={() => setIsBookingOpen(true)} />
+      <Nav onOpenBooking={() => handleOpenBooking()} />
 
       <main className="flex-grow w-full">
         <Routes>
@@ -79,11 +85,11 @@ const App = () => {
             const at = (path) =>
               code === DEFAULT_LANG ? path : `/${code}${path === "/" ? "" : path}`;
             return [
-              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={() => setIsBookingOpen(true)} />} />,
-              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={() => setIsBookingOpen(true)} />} />,
-              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={() => setIsBookingOpen(true)} />} />,
+              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={handleOpenBooking} />} />,
+              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={handleOpenBooking} />} />,
+              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={handleOpenBooking} />} />,
               <Route key={`${code}-detail`} path={at("/services/:slug")} element={<ServiceDetail />} />,
-              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery />} />,
+              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery onOpenBooking={handleOpenBooking} />} />,
               <Route key={`${code}-contact`} path={at("/contact")} element={<Contact />} />,
             ];
           })}
@@ -97,12 +103,16 @@ const App = () => {
       <Footer />
 
       {/* Modern Floating Action Hub */}
-      <FloatingActionHub onOpenBooking={() => setIsBookingOpen(true)} />
+      <FloatingActionHub onOpenBooking={() => handleOpenBooking()} />
 
       {/* Global 1-Click Quick Booking Modal */}
       <QuickBookingModal
         isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
+        initialService={bookingService}
+        onClose={() => {
+          setIsBookingOpen(false);
+          setBookingService(null);
+        }}
       />
     </div>
   );
