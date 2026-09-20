@@ -86,7 +86,7 @@ const SmileAssessmentWizard = () => {
     e.preventDefault();
     if (!name || !phone) return;
     const msg = encodeURIComponent(
-      `📋 TABASSUM TASHXIS TESTI (dr-munojatakbarova.uz):\n` +
+      `📋 TABASSUM TASHXIS TESTI (drmunojat.uz):\n` +
       `👤 Bemor: ${name}\n` +
       `📞 Tel: ${phone}\n` +
       `🎯 Muammo: ${concern}\n` +

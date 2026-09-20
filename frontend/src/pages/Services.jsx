@@ -137,7 +137,7 @@ const Services = () => {
       <Seo
         title="Dr. Munojat Akbarova Xizmatlari — Plomba, Davolash, Karonkalar, Implant | Andijon"
         description="Dr. Munojat Akbarova xizmatlari: tish og'rig'ini zudlik bilan qoldirish, 4 davlat plombalari, old va orqa tish karonkalari (Xitoy, Germaniya, Avstraliya), implantatsiya va ko'rik. Tel: +998 94 106-15-55"
-        canonical="https://dr-munojatakbarova.uz/services"
+        canonical="https://drmunojat.uz/services"
       />
 
       {/* Hero Header */}

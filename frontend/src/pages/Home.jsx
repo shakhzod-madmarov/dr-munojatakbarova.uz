@@ -940,7 +940,7 @@ const Home = ({ onOpenBooking }) => {
       <Seo
         title="Dr. Munojat Akbarova — Andijon Ayol Stomatologi | Plomba, Davolash, Vinir, Karonka, Implant"
         description="Dr. Munojat Akbarova — Andijondagi oliy toifali ayol stomatolog. Tish og'rig'ini qoldirish, zamonaviy plomba, estetik vinirlar, tsirkoniy karonkalar va og'riqsiz implantatsiya. 100% maxfiy muhit. Tel: +998 94 106-15-55"
-        canonical="https://dr-munojatakbarova.uz/"
+        canonical="https://drmunojat.uz/"
       />
 
       <HeroSection onOpenBooking={onOpenBooking} />

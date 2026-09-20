@@ -1,11 +1,8 @@
 /*
- * Five images were imported and re-exported here but rendered by nothing:
- * dr_munojat_portrait, dr_munojat_portrait_sq, patient_nodira, patient_malika
- * and patient_zulfiya - roughly 530 KB shipped on every visit for no reason.
- * The import is removed so they stop being bundled; the files remain in
- * src/assets/ because the three patient photos match the reviewer names the
- * site used to carry, and look intended for a testimonials section. Re-add the
- * import here to use them.
+ * Only images that are actually rendered are imported here. Three AI-generated
+ * placeholder "patient" portraits and two portrait copies duplicated from
+ * public/ were removed; they shipped ~530 KB on every visit and appeared on no
+ * page. The real doctor photos live in public/ and are referenced from there.
  */
 import logo from "./logo.png";
 import hero3DTooth from "./hero_3d_tooth.webp";

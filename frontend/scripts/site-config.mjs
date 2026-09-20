@@ -11,7 +11,7 @@
  * "/assets/treatment_implant.jpg" and every one of those URLs 404'd.
  */
 
-export const SITE_ORIGIN = "https://dr-munojatakbarova.uz";
+export const SITE_ORIGIN = "https://drmunojat.uz";
 
 /* Bumped deliberately, not auto-set to the build date: stamping "changed today"
    on every page at every deploy is a signal search engines learn to discount. */

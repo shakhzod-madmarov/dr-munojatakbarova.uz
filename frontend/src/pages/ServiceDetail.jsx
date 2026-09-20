@@ -772,7 +772,7 @@ const ServiceDetail = () => {
       `👤 Bemor: ${bookingForm.name}\n` +
       `📞 Tel: ${bookingForm.phone}\n` +
       (bookingForm.notes ? `💬 Izoh: ${bookingForm.notes}\n` : "") +
-      `📍 Manzil: Andijon (dr-munojatakbarova.uz)`
+      `📍 Manzil: Andijon (drmunojat.uz)`
     );
     window.open(`https://t.me/dr_munojat?text=${text}`, "_blank", "noopener,noreferrer");
     toast.success(
@@ -791,7 +791,7 @@ const ServiceDetail = () => {
     "@type": ["MedicalProcedure", "MedicalWebPage"],
     "name": specialty.title[lang],
     "description": specialty.metaDescription[lang],
-    "url": `https://dr-munojatakbarova.uz/services/${specialty.slug}`,
+    "url": `https://drmunojat.uz/services/${specialty.slug}`,
     "provider": {
       "@type": "Person",
       "name": "Dr. Munojat Akbarova",
@@ -811,7 +811,7 @@ const ServiceDetail = () => {
         title={specialty.seoTitle[lang]}
         description={specialty.metaDescription[lang]}
         keywords={`${specialty.title[lang]}, ${specialty.slug} Andijon, ayol stomatolog Andijon, Dr Munojat Akbarova`}
-        canonical={`https://dr-munojatakbarova.uz/services/${specialty.slug}`}
+        canonical={`https://drmunojat.uz/services/${specialty.slug}`}
         schemaJson={schemaJson}
       />
 

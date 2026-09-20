@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 # ROBOTS.TXT — Dr. Munojat Akbarova Stomatologiya Markazi (Andijon)
-# Official Website: https://dr-munojatakbarova.uz
+# Official Website: https://drmunojat.uz
 # Configured for maximum visibility on Google, Yandex, Bing, Applebot, and AI Search
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -75,5 +75,5 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap
-Sitemap: https://dr-munojatakbarova.uz/sitemap.xml
+Sitemap: https://drmunojat.uz/sitemap.xml
 

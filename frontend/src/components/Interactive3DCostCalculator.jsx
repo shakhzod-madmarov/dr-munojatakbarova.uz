@@ -266,7 +266,7 @@ const Interactive3DCostCalculator = () => {
     if (!patientName || !patientPhone) return;
 
     const text = encodeURIComponent(
-      `QABULGA YOZILISH (dr-munojatakbarova.uz):\n` +
+      `QABULGA YOZILISH (drmunojat.uz):\n` +
       `Xizmat: ${current.title[lang]}\n` +
       `Bemor: ${patientName}\n` +
       `Tel: ${patientPhone}\n` +

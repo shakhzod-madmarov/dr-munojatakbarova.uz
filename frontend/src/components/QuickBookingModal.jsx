@@ -35,7 +35,7 @@ const QuickBookingModal = ({ isOpen, onClose }) => {
 
     const dateLabel = dates.find((d) => d.id === selectedDate)?.[lang] || selectedDate;
     const msg = encodeURIComponent(
-      `🦷 TEZKOR QABULGA YOZILISH (dr-munojatakbarova.uz):\n` +
+      `🦷 TEZKOR QABULGA YOZILISH (drmunojat.uz):\n` +
       `👤 Bemor: ${name}\n` +
       `📞 Tel: ${phone}\n` +
       `⚙️ Xizmat: ${service}\n` +

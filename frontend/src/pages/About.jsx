@@ -218,13 +218,13 @@ const About = ({ onOpenBooking }) => {
   const physicianSchema = {
     "@context": "https://schema.org",
     "@type": ["Dentist", "Physician"],
-    "@id": "https://dr-munojatakbarova.uz/about#doctor",
+    "@id": "https://drmunojat.uz/about#doctor",
     name: "Dr. Munojat Akbarova",
     alternateName: "Munojat Akbarova",
-    image: "https://dr-munojatakbarova.uz/dr_munojat_portrait.webp",
+    image: "https://drmunojat.uz/dr_munojat_portrait.webp",
     jobTitle: "Oliy Toifali Shifokor-Stomatolog, Terapevt, Ortoped va Implantolog",
     telephone: "+998941061555",
-    url: "https://dr-munojatakbarova.uz/about",
+    url: "https://drmunojat.uz/about",
     award: "The Best of Uzbekistan 2025 - Eng Yaxshi Ayol Stomatologi",
     medicalSpecialty: [
       "Conservative Dentistry",
@@ -278,7 +278,7 @@ const About = ({ onOpenBooking }) => {
       <Seo
         title="Dr. Munojat Akbarova — Shifokor Haqida | Plomba, Vinir, Karonka, Implant | 12 Yillik Tajriba"
         description="Dr. Munojat Akbarova — Andijonda oliy toifali ayol stomatolog. Tish og'rig'ini davolash, zamonaviy plomba, estetik vinirlar, tsirkoniy karonkalar va implantatsiya. 100% og'riqsiz."
-        canonical="https://dr-munojatakbarova.uz/about"
+        canonical="https://drmunojat.uz/about"
         schemaJson={physicianSchema}
       />
 

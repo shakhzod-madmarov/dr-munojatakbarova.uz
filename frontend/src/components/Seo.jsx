@@ -20,7 +20,7 @@ const Seo = ({
   description,
   keywords,
   canonical,
-  ogImage = "https://dr-munojatakbarova.uz/logo.png",
+  ogImage = "https://drmunojat.uz/logo.png",
   schemaJson,
   noindex = false,
 }) => {
