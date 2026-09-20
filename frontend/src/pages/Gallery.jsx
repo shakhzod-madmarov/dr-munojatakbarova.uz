@@ -24,7 +24,7 @@ const galleryCases = [
   {
     id: 1,
     category: "whitening",
-    serviceId: "oqartirish",
+    serviceId: "tish-oqartirish",
     serviceSlug: "tish-oqartirish",
     image: assets.treatmentWhitening,
     badge: { uz: "AQSH Sovuq Nur Texnologiyasi", ru: "Технология Холодного Света (США)", en: "USA Cold Light Technology" },

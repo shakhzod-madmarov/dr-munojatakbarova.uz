@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -16,7 +16,7 @@ import Contact from "./pages/Contact";
 import StickersShowcase from "./pages/StickersShowcase";
 import NotFound from "./pages/NotFound";
 import FloatingActionHub from "./components/FloatingActionHub";
-import QuickBookingModal from "./components/QuickBookingModal";
+import { BookingProvider, useBooking } from "./context/BookingContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLanguage, LANGS, DEFAULT_LANG } from "./context/LanguageContext";
@@ -53,14 +53,8 @@ const LangSync = () => {
   return null;
 };
 
-const App = () => {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [bookingService, setBookingService] = useState(null);
-
-  const handleOpenBooking = (serviceId = null) => {
-    setBookingService(typeof serviceId === "string" ? serviceId : null);
-    setIsBookingOpen(true);
-  };
+const AppShell = () => {
+  const { openBooking } = useBooking();
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-[#fff8f8] text-slate-900">
@@ -75,7 +69,7 @@ const App = () => {
         toastStyle={{ background: "#1a0505", borderLeft: "4px solid #fd1616" }}
       />
 
-      <Nav onOpenBooking={() => handleOpenBooking()} />
+      <Nav onOpenBooking={() => openBooking()} />
 
       <main className="flex-grow w-full">
         <Routes>
@@ -85,11 +79,11 @@ const App = () => {
             const at = (path) =>
               code === DEFAULT_LANG ? path : `/${code}${path === "/" ? "" : path}`;
             return [
-              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={handleOpenBooking} />} />,
-              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={handleOpenBooking} />} />,
-              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={handleOpenBooking} />} />,
+              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={openBooking} />} />,
               <Route key={`${code}-detail`} path={at("/services/:slug")} element={<ServiceDetail />} />,
-              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery onOpenBooking={handleOpenBooking} />} />,
+              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery onOpenBooking={openBooking} />} />,
               <Route key={`${code}-contact`} path={at("/contact")} element={<Contact />} />,
             ];
           })}
@@ -103,19 +97,18 @@ const App = () => {
       <Footer />
 
       {/* Modern Floating Action Hub */}
-      <FloatingActionHub onOpenBooking={() => handleOpenBooking()} />
+      <FloatingActionHub onOpenBooking={() => openBooking()} />
 
-      {/* Global 1-Click Quick Booking Modal */}
-      <QuickBookingModal
-        isOpen={isBookingOpen}
-        initialService={bookingService}
-        onClose={() => {
-          setIsBookingOpen(false);
-          setBookingService(null);
-        }}
-      />
     </div>
   );
 };
+
+/* The provider wraps the shell rather than the other way round, because the
+   shell reads the booking modal it would otherwise be providing. */
+const App = () => (
+  <BookingProvider>
+    <AppShell />
+  </BookingProvider>
+);
 
 export default App;

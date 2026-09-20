@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { IconSparkleStar, IconShieldCheck, IconCheckCircle, IconPhone } from "./MedicalIcons";
+import { useBooking } from "../context/BookingContext";
+
+/* The concern the patient picked decides which service the booking form
+   opens on, so the recommendation carries through to the appointment. */
+const BOOKING_SERVICE_BY_CONCERN = {
+  yellow: "tish-oqartirish",
+  missing: "implantatsiya",
+  pain: "tish-davolash",
+  crooked: "ortopediya",
+};
 
 const questions = [
   {
@@ -74,6 +84,7 @@ const plans = {
 
 const SmileAssessmentWizard = () => {
   const { lang } = useLanguage();
+  const { openBooking } = useBooking();
   const [step, setStep] = useState(1);
   const [concern, setConcern] = useState("yellow");
   const [goal, setGoal] = useState("painless");
@@ -85,17 +96,15 @@ const SmileAssessmentWizard = () => {
   const handleBooking = (e) => {
     e.preventDefault();
     if (!name || !phone) return;
-    const msg = encodeURIComponent(
-      `📋 TABASSUM TASHXIS TESTI (drmunojat.uz):\n` +
-      `👤 Bemor: ${name}\n` +
-      `📞 Tel: ${phone}\n` +
-      `🎯 Muammo: ${concern}\n` +
-      `⭐ Tavsiya: ${currentPlan.title[lang]}\n` +
-      `📍 Manzil: Andijon`
-    );
-    window.open(`https://t.me/dr_munojat?text=${msg}`, "_blank", "noopener,noreferrer");
-    setName("");
-    setPhone("");
+    /* Hand the patient to the real calendar instead of opening Telegram
+       with the details typed into a message, which no calendar ever saw.
+       They pick a free time and it lands in the dentist's MedInson app. */
+    openBooking({
+      service: BOOKING_SERVICE_BY_CONCERN[concern] || null,
+      name,
+      phone,
+      note: currentPlan.title[lang],
+    });
   };
 
   return (
@@ -234,7 +243,7 @@ const SmileAssessmentWizard = () => {
                   type="submit"
                   className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 text-white font-black text-sm rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>✈️ Telegram orqali qabulga yozilish</span>
+                  <span>{lang === "uz" ? "Bo'sh vaqtni tanlash" : lang === "ru" ? "Выбрать свободное время" : "Choose a free time"}</span>
                 </button>
               </form>
 
