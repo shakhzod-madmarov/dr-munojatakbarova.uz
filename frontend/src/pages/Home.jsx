@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
@@ -51,14 +51,33 @@ const HeroSection = ({ onOpenBooking }) => {
   const [isMuted, setIsMuted] = useState(false);
   const userExplicitlyMutedRef = useRef(false);
 
-  // Autoplay with sound by default (or auto-unmute on first interaction if blocked by browser policy)
+  const unmuteVideo = useCallback(() => {
+    if (userExplicitlyMutedRef.current) return;
+    const video = bgVideoRef.current;
+    if (!video) return;
+
+    video.muted = false;
+    video.volume = 1.0;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsMuted(false);
+        })
+        .catch(() => {
+          // Autoplay policy prevented playback, keep listening for user gesture
+        });
+    }
+  }, []);
+
+  // Autoplay with sound by default (or auto-unmute on first user gesture: click/touch/keydown)
   useEffect(() => {
     const video = bgVideoRef.current;
     if (!video) return;
 
     video.volume = 1.0;
 
-    // Attempt direct unmuted playback
+    // 1. Attempt direct unmuted playback immediately on mount
     video.muted = false;
     const playPromise = video.play();
 
@@ -68,14 +87,14 @@ const HeroSection = ({ onOpenBooking }) => {
           setIsMuted(false);
         })
         .catch(() => {
-          // Browser autoplay policy restricted unmuted playback without prior interaction.
-          // Start playing muted immediately so visual playback is never blocked:
+          // Browser autoplay policy restricted unmuted playback on initial page load.
+          // Start playing muted immediately so visual playback is never paused:
           video.muted = true;
           video.play().catch(() => {});
           setIsMuted(true);
 
-          // As soon as the user touches the screen, clicks, or interacts, unmute audio immediately:
-          const enableAudioOnInteraction = () => {
+          // 2. As soon as the user clicks anywhere, touches the screen, or presses a key, unmute audio immediately:
+          const onUserGesture = () => {
             if (userExplicitlyMutedRef.current) return;
             const vid = bgVideoRef.current;
             if (!vid) return;
@@ -85,23 +104,19 @@ const HeroSection = ({ onOpenBooking }) => {
             vid.play()
               .then(() => {
                 setIsMuted(false);
+                // Clean up listeners only after audio has successfully unmuted
+                gestureEvents.forEach((evt) => {
+                  window.removeEventListener(evt, onUserGesture, { capture: true });
+                  document.removeEventListener(evt, onUserGesture, { capture: true });
+                });
               })
               .catch(() => {});
-
-            cleanup();
           };
 
-          const events = ["touchstart", "touchend", "pointerdown", "mousedown", "click", "keydown", "scroll"];
-          const cleanup = () => {
-            events.forEach((evt) => {
-              window.removeEventListener(evt, enableAudioOnInteraction, { capture: true });
-              document.removeEventListener(evt, enableAudioOnInteraction, { capture: true });
-            });
-          };
-
-          events.forEach((evt) => {
-            window.addEventListener(evt, enableAudioOnInteraction, { capture: true, once: true });
-            document.addEventListener(evt, enableAudioOnInteraction, { capture: true, once: true });
+          const gestureEvents = ["click", "pointerdown", "touchstart", "touchend", "keydown"];
+          gestureEvents.forEach((evt) => {
+            window.addEventListener(evt, onUserGesture, { capture: true });
+            document.addEventListener(evt, onUserGesture, { capture: true });
           });
         });
     }
@@ -152,7 +167,8 @@ const HeroSection = ({ onOpenBooking }) => {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  const toggleSound = () => {
+  const toggleSound = (e) => {
+    e?.stopPropagation();
     const video = bgVideoRef.current;
     if (!video) return;
 
@@ -166,6 +182,13 @@ const HeroSection = ({ onOpenBooking }) => {
       userExplicitlyMutedRef.current = true;
       video.muted = true;
       setIsMuted(true);
+    }
+  };
+
+  const handleHeroClick = (e) => {
+    if (e.target.closest("button") || e.target.closest("a") || e.target.closest("input")) return;
+    if (isMuted) {
+      unmuteVideo();
     }
   };
 
@@ -211,6 +234,7 @@ const HeroSection = ({ onOpenBooking }) => {
   return (
     <section
       ref={heroSectionRef}
+      onClick={handleHeroClick}
       aria-label="Dr. Munojat Akbarova Stomatologiya Markazi"
       itemScope
       itemType="https://schema.org/Dentist"
@@ -347,13 +371,17 @@ const HeroSection = ({ onOpenBooking }) => {
           onClick={toggleSound}
           aria-label={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
           title={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
-          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/90 hover:bg-slate-850 text-white border border-amber-500/40 hover:border-amber-400 backdrop-blur-md transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer group"
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-white backdrop-blur-md transition-all shadow-xl active:scale-95 cursor-pointer group ${
+            isMuted
+              ? "bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 border-2 border-amber-300 shadow-amber-500/20 hover:scale-105 animate-pulse"
+              : "bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/40"
+          }`}
         >
           {isMuted ? (
             <>
-              <IconVolumeMute className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors" />
-              <span className="text-xs font-bold text-slate-200 group-hover:text-white">
-                {lang === "uz" ? "Ovozni yoqish" : lang === "ru" ? "Включить звук" : "Unmute Sound"}
+              <IconVolumeMute className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-black tracking-wide text-white drop-shadow-xs">
+                {lang === "uz" ? "🔊 Ovozni yoqish" : lang === "ru" ? "🔊 Включить звук" : "🔊 Unmute Sound"}
               </span>
             </>
           ) : (
