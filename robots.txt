@@ -1,0 +1,79 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROBOTS.TXT — Dr. Munojat Akbarova Stomatologiya Markazi (Andijon)
+# Official Website: https://drmunojat.uz
+# Configured for maximum visibility on Google, Yandex, Bing, Applebot, and AI Search
+# ═══════════════════════════════════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+Disallow: /dist/
+
+# 1. Google (Web, Mobile, Images, AI Overviews)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# 2. Yandex (Web, Images, Maps, Alice / Neuro)
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: YandexImages
+Allow: /
+
+# 3. Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# 4. Apple (Siri, Safari, Apple Intelligence)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# 5. OpenAI / ChatGPT & Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# 6. Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+
+# 7. Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# 8. Meta AI & Social Crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# 9. Other Crawlers
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap
+Sitemap: https://drmunojat.uz/sitemap.xml
+

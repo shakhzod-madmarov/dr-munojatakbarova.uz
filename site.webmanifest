@@ -1,0 +1,41 @@
+{
+  "name": "Dr. Munojat Akbarova — Ayol Stomatolog Andijon",
+  "short_name": "Dr. Munojat",
+  "description": "Dr. Munojat Akbarova — Andijondagi oliy toifali ayol stomatolog. Titan implantatsiya, 4 davlat plombalari, old va orqa tish karonkalari va ZOOM oqartirish.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8f8",
+  "theme_color": "#930b0b",
+  "lang": "uz",
+  "scope": "/",
+  "categories": [
+    "medical",
+    "health",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

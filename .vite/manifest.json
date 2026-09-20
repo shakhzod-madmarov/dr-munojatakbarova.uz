@@ -1,0 +1,93 @@
+{
+  "_react-vendor-jklwyxZe.js": {
+    "file": "assets/react-vendor-jklwyxZe.js",
+    "name": "react-vendor",
+    "imports": [
+      "_rolldown-runtime-y2wrX6ue.js"
+    ]
+  },
+  "_rolldown-runtime-y2wrX6ue.js": {
+    "file": "assets/rolldown-runtime-y2wrX6ue.js",
+    "name": "rolldown-runtime"
+  },
+  "_router-CVzPlGiS.js": {
+    "file": "assets/router-CVzPlGiS.js",
+    "name": "router",
+    "imports": [
+      "_react-vendor-jklwyxZe.js",
+      "_rolldown-runtime-y2wrX6ue.js"
+    ]
+  },
+  "_vendor-utils-DHtLVDbd.css": {
+    "file": "assets/vendor-utils-DHtLVDbd.css",
+    "src": "_vendor-utils-DHtLVDbd.css"
+  },
+  "_vendor-utils-DxuEL7qH.js": {
+    "file": "assets/vendor-utils-DxuEL7qH.js",
+    "name": "vendor-utils",
+    "imports": [
+      "_react-vendor-jklwyxZe.js",
+      "_rolldown-runtime-y2wrX6ue.js"
+    ],
+    "css": [
+      "assets/vendor-utils-DHtLVDbd.css"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index-9i391QA0.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_router-CVzPlGiS.js",
+      "_vendor-utils-DxuEL7qH.js",
+      "_react-vendor-jklwyxZe.js",
+      "_rolldown-runtime-y2wrX6ue.js"
+    ],
+    "css": [
+      "assets/index-CHgehpwo.css"
+    ],
+    "assets": [
+      "assets/logo-Cv2m4RxU.png",
+      "assets/hero_3d_tooth-BtnQGPNK.webp",
+      "assets/dr_munojat_portrait_34-cae6fmJC.webp",
+      "assets/hero_smile-Xx0LVDIw.webp",
+      "assets/treatment_implant-EUoIaf_F.webp",
+      "assets/treatment_whitening-DAVxj-hD.webp",
+      "assets/clinic_room-DUwk5xIL.webp",
+      "assets/treatment_surgery-BQyw8eJX.webp"
+    ]
+  },
+  "src/assets/clinic_room.webp": {
+    "file": "assets/clinic_room-DUwk5xIL.webp",
+    "src": "src/assets/clinic_room.webp"
+  },
+  "src/assets/dr_munojat_portrait_34.webp": {
+    "file": "assets/dr_munojat_portrait_34-cae6fmJC.webp",
+    "src": "src/assets/dr_munojat_portrait_34.webp"
+  },
+  "src/assets/hero_3d_tooth.webp": {
+    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
+    "src": "src/assets/hero_3d_tooth.webp"
+  },
+  "src/assets/hero_smile.webp": {
+    "file": "assets/hero_smile-Xx0LVDIw.webp",
+    "src": "src/assets/hero_smile.webp"
+  },
+  "src/assets/logo.png": {
+    "file": "assets/logo-Cv2m4RxU.png",
+    "src": "src/assets/logo.png"
+  },
+  "src/assets/treatment_implant.webp": {
+    "file": "assets/treatment_implant-EUoIaf_F.webp",
+    "src": "src/assets/treatment_implant.webp"
+  },
+  "src/assets/treatment_surgery.webp": {
+    "file": "assets/treatment_surgery-BQyw8eJX.webp",
+    "src": "src/assets/treatment_surgery.webp"
+  },
+  "src/assets/treatment_whitening.webp": {
+    "file": "assets/treatment_whitening-DAVxj-hD.webp",
+    "src": "src/assets/treatment_whitening.webp"
+  }
+}
