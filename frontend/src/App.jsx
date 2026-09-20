@@ -57,7 +57,7 @@ const App = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-[#fff8f8] text-slate-900 overflow-x-hidden">
+    <div className="flex flex-col min-h-screen w-full bg-[#fff8f8] text-slate-900">
       <LangSync />
       <ScrollToTop />
       <FaviconEnforcer />
@@ -69,7 +69,7 @@ const App = () => {
         toastStyle={{ background: "#1a0505", borderLeft: "4px solid #fd1616" }}
       />
 
-      <Nav />
+      <Nav onOpenBooking={() => setIsBookingOpen(true)} />
 
       <main className="flex-grow w-full">
         <Routes>
