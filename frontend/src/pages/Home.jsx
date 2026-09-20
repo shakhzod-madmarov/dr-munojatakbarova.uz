@@ -678,17 +678,17 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Authentic Doctor Photo Frame (Clean, Elegant, No Tacky Stickers) */}
+          {/* Authentic Doctor Photo Frame (New Studio Portrait) */}
           <div className="lg:col-span-5 flex justify-center">
-            <figure className="relative w-full max-w-[360px] sm:max-w-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 bg-white m-0">
+            <figure className="relative w-full max-w-[360px] sm:max-w-[400px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 m-0">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
-                  src={assets.drMunojatPortrait34}
+                  src={assets.drMunojatStudio}
                   alt="Dr. Munojat Akbarova — Andijondagi yetakchi ayol stomatolog"
-                  className="w-full h-full object-cover object-[center_15%] select-none"
+                  className="w-full h-full object-cover object-[center_20%] select-none"
                   loading="lazy"
                   width="682"
-                  height="910"
+                  height="1024"
                 />
               </div>
             </figure>

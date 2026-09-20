@@ -12,11 +12,10 @@ const ClinicLocationMap = () => {
       sub: "Andijon shahrida ayollar va qizlar uchun maxsus qulay, shinam va to'liq maxfiy stomatologiya klinikasi.",
       clinicName: "Orzu Stoma Denta",
       docName: "Dr. Munojat Akbarova Qabuli",
-      address: "Andijon shahri, Orzu Stoma Denta klinikasi (Koordinatalar: 40.754205, 72.358426)",
+      address: "Andijon shahri, Orzu Stoma Denta klinikasi",
       hours: OPENING_HOURS.withSunday.uz,
       yandexBtn: "Yandex Xaritada Ochish (Orzu Stoma Denta)",
       googleBtn: "Google Maps'da Ochish",
-      landmarks: ["Orzu Stoma Denta", "Qulay avtoturargoh", "Shahar markaziga yaqin", "Jamoat transporti qulay"],
     },
     ru: {
       tag: "г. АНДИЖАН • ТОЧНАЯ ЛОКАЦИЯ",
@@ -24,11 +23,10 @@ const ClinicLocationMap = () => {
       sub: "Клиника стоматологии в Андижане — комфортный, современный и приватный приём для женщин.",
       clinicName: "Orzu Stoma Denta",
       docName: "Приём Д-р Мунаджат Акбаровой",
-      address: "г. Андижан, клиника Orzu Stoma Denta (Координаты: 40.754205, 72.358426)",
+      address: "г. Андижан, клиника Orzu Stoma Denta",
       hours: OPENING_HOURS.withSunday.ru,
       yandexBtn: "Открыть в Яндекс Картах",
       googleBtn: "Открыть в Google Maps",
-      landmarks: ["Orzu Stoma Denta", "Удобная парковка", "Центр города", "Остановки рядом"],
     },
     en: {
       tag: "ANDIJAN CITY • EXACT LOCATION",
@@ -36,11 +34,10 @@ const ClinicLocationMap = () => {
       sub: "Andijan City — modern, private, and comfortable dental care suite tailored for women.",
       clinicName: "Orzu Stoma Denta",
       docName: "Dr. Munojat Akbarova Dental Suite",
-      address: "Andijan City, Orzu Stoma Denta clinic (Coordinates: 40.754205, 72.358426)",
+      address: "Andijan City, Orzu Stoma Denta clinic",
       hours: OPENING_HOURS.withSunday.en,
       yandexBtn: "Open in Yandex Maps",
       googleBtn: "Open in Google Maps",
-      landmarks: ["Orzu Stoma Denta", "Spacious Parking", "City Center", "Easy Transit Access"],
     },
   }[lang] || {};
 
@@ -110,15 +107,6 @@ const ClinicLocationMap = () => {
                     </a>
                   </div>
                 </div>
-              </div>
-
-              {/* Landmark badges */}
-              <div className="flex flex-wrap gap-2 pt-5 mt-5 border-t border-white/10">
-                {t.landmarks.map((l, i) => (
-                  <span key={i} className="bg-white/10 text-red-100 text-[11px] px-2.5 py-1 rounded-full border border-white/15">
-                    ✓ {l}
-                  </span>
-                ))}
               </div>
             </div>
 

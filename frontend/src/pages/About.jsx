@@ -294,17 +294,17 @@ const About = ({ onOpenBooking }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Column: Authentic Doctor Portrait — 100% CLEAN, ZERO TEXTS ON IMAGE */}
+            {/* Left Column: Authentic Doctor Portrait (Univet Optics) */}
             <div className="lg:col-span-5 flex justify-center">
               <figure className="relative w-full max-w-[360px] sm:max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-50 m-0">
                 <img
-                  src={assets.drMunojatPortrait34}
+                  src={assets.drMunojatLoupes}
                   alt="Dr. Munojat Akbarova — Andijondagi yetakchi ayol stomatolog"
-                  className="w-full h-full object-cover object-[center_15%] select-none"
+                  className="w-full h-full object-cover object-[center_20%] select-none"
                   loading="eager"
                   fetchPriority="high"
                   width="682"
-                  height="910"
+                  height="1024"
                   itemProp="image"
                 />
               </figure>

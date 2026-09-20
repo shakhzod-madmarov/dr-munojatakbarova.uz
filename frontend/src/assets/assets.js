@@ -7,6 +7,8 @@
 import logo from "./logo.png";
 import hero3DTooth from "./hero_3d_tooth.webp";
 import drMunojatPortrait34 from "./dr_munojat_portrait_34.webp";
+import drMunojatStudio from "./dr_munojat_studio.webp";
+import drMunojatLoupes from "./dr_munojat_loupes.webp";
 import heroSmile from "./hero_smile.webp";
 import treatmentImplant from "./treatment_implant.webp";
 import treatmentWhitening from "./treatment_whitening.webp";
@@ -17,6 +19,8 @@ export const assets = {
   logo,
   hero3DTooth,
   drMunojatPortrait34,
+  drMunojatStudio,
+  drMunojatLoupes,
   heroSmile,
   treatmentImplant,
   treatmentWhitening,

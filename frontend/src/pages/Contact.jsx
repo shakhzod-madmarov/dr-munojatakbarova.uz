@@ -41,7 +41,7 @@ const Contact = () => {
       ig: "Instagram",
       tg: "Telegram",
       loc: "Klinika Manzili",
-      locVal: "Andijon shahri, Orzu Stoma Denta (40.754205, 72.358426)",
+      locVal: "Andijon shahri, Orzu Stoma Denta",
     },
     ru: {
       tag: "ORZU STOMA DENTA • АНДИЖАН",
@@ -61,7 +61,7 @@ const Contact = () => {
       ig: "Instagram",
       tg: "Telegram",
       loc: "Адрес Клиники",
-      locVal: "г. Андижан, клиника Orzu Stoma Denta (40.754205, 72.358426)",
+      locVal: "г. Андижан, клиника Orzu Stoma Denta",
     },
     en: {
       tag: "ORZU STOMA DENTA • ANDIJAN",
@@ -81,7 +81,7 @@ const Contact = () => {
       ig: "Instagram",
       tg: "Telegram",
       loc: "Clinic Location",
-      locVal: "Andijan City, Orzu Stoma Denta (40.754205, 72.358426)",
+      locVal: "Andijan City, Orzu Stoma Denta",
     },
   }[lang] || {};
 
