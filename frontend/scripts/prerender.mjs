@@ -13,7 +13,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { ROUTES, SITE_ORIGIN } from "./site-config.mjs";
+import { ROUTES, SITE_ORIGIN, LANGS, DEFAULT_LANG, localizePath } from "./site-config.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
@@ -59,6 +59,20 @@ const setCanonical = (html, value) =>
         tag.replace(/href="[^"]*"/, `href="${escapeAttr(value)}"`)
       );
 
+/* <html lang> must match the page, or a screen reader reads Russian with Uzbek
+   pronunciation rules and search engines mis-attribute the language. */
+const setHtmlLang = (html, lang) =>
+  html.replace(/<html([^>]*)\s+lang="[^"]*"/, `<html$1 lang="${lang}"`);
+
+/* Alternates go next to the canonical, which is where crawlers expect them. */
+const injectAlternates = (html, alternates) => {
+  if (!alternates || alternates.length === 0) return html;
+  const tags = alternates
+    .map((a) => `    <link rel="alternate" hreflang="${a.hreflang}" href="${escapeAttr(a.href)}" />`)
+    .join("\n");
+  return html.replace(/(<link\s+rel="canonical"[^>]*>)/, `$1\n${tags}`);
+};
+
 const setNoindex = (html) =>
   html
     .replace(/<meta\s+name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
@@ -91,8 +105,12 @@ if (!template.includes('<div id="root"></div>')) {
 /* Hosts look for dist/404.html to serve with a real 404 status. It is built
    from the same catch-all route the SPA renders, so both agree. */
 const NOT_FOUND_ROUTE = "/__not-found__";
-const routes = [...ROUTES.map((r) => r.path), NOT_FOUND_ROUTE];
-console.log(`prerender: ${routes.length} routes from site-config\n`);
+/* Every page in every language, plus one 404. */
+const routes = [
+  ...ROUTES.flatMap((r) => LANGS.map((lang) => localizePath(r.path, lang))),
+  NOT_FOUND_ROUTE,
+];
+console.log(`prerender: ${routes.length} routes (pages x languages + 404)\n`);
 
 let failed = 0;
 
@@ -144,6 +162,8 @@ for (const route of routes) {
   page = setMetaName(page, "twitter:description", seo.description);
   page = setMetaName(page, "twitter:image", seo.ogImage);
   if (seo.noindex) page = setNoindex(page);
+  page = setHtmlLang(page, seo.lang || DEFAULT_LANG);
+  page = injectAlternates(page, seo.alternates);
   page = injectSchema(page, seo.schemaJson);
 
   const outPath =

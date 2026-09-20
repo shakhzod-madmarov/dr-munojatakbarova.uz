@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Seo from "../components/Seo";
 import { assets } from "../assets/assets";
 import {
@@ -29,9 +29,9 @@ export const detailedSpecialties = {
       en: "Dental Implantation in Andijan",
     },
     seoTitle: {
-      uz: "Tish Implantatsiyasi Andijon — Dr. Munojat Akbarova | Titan Implantlar, 100% Og'riqsiz",
-      ru: "Имплантация зубов в Андижане — Д-р Мунаджат Акбарова | Титановые импланты без боли",
-      en: "Dental Implantation Andijan — Dr. Munojat Akbarova | Titanium Implants, 100% Painless",
+      uz: "Tish Implantatsiyasi Andijon — Dr. Munojat",
+      ru: "Имплантация зубов в Андижане — Д-р Мунаджат",
+      en: "Dental Implants in Andijan — Dr. Munojat",
     },
     metaDescription: {
       uz: "Andijonda tish implantatsiyasi Dr. Munojat Akbarova tomonidan. Titan implantlar bilan yo'qotilgan tishlarni uzoq yillar davomida tiklash. 100% og'riqsiz, ayollar uchun maxsus qulay sharoit. Tel: +998 94 106-15-55",
@@ -151,9 +151,9 @@ export const detailedSpecialties = {
       en: "Painless Dental Treatment & Fillings in Andijan",
     },
     seoTitle: {
-      uz: "Tish Davolash & Plomba Andijon — Germaniya, Yaponiya, Koreya, Rossiya | Dr. Munojat Akbarova",
-      ru: "Лечение зубов и пломбы в Андижане — Германия, Япония, Корея, Россия | Д-р Мунаджат Акбарова",
-      en: "Dental Treatment & Fillings Andijan — Germany, Japan, Korea, Russia | Dr. Munojat Akbarova",
+      uz: "Tish Davolash va Plomba Andijon — Dr. Munojat",
+      ru: "Лечение зубов и пломбы в Андижане — Д-р Мунаджат",
+      en: "Dental Treatment & Fillings in Andijan",
     },
     metaDescription: {
       uz: "Andijonda karies, pulpit va tish og'riqlarini 100% og'riqsiz davolash. Germaniya (3M™), Yaponiya (Estelite), Janubiy Koreya (DenFil) va Rossiya original plombalari. Tel: +998 94 106-15-55",
@@ -344,9 +344,9 @@ export const detailedSpecialties = {
       en: "Front & Back Teeth Crowns in Andijan",
     },
     seoTitle: {
-      uz: "Old va Orqa Tish Karonkalari Andijon — Xitoy, Germaniya, Avstraliya | Dr. Munojat Akbarova",
-      ru: "Коронки для передних и жевательных зубов в Андижане — Китай, Германия, Австралия",
-      en: "Front and Back Dental Crowns Andijan — China, Germany, Australia | Dr. Munojat",
+      uz: "Tish Karonkalari Andijon — Dr. Munojat Akbarova",
+      ru: "Коронки на зубы в Андижане — Д-р Мунаджат",
+      en: "Dental Crowns in Andijan — Dr. Munojat",
     },
     metaDescription: {
       uz: "Andijonda old va orqa tishlar uchun Germaniya, Avstraliya hamda Xitoy tsirkoniy va keramik karonkalari. Dr. Munojat Akbarova — tabiiy estetika va uzoq yillik mustahkamlik. Tel: +998 94 106-15-55",
@@ -522,9 +522,9 @@ export const detailedSpecialties = {
       en: "Oral Surgery & Tooth Extraction in Andijan",
     },
     seoTitle: {
-      uz: "Tish Olish va Aql Tishi Xirurgiyasi Andijon — Dr. Munojat Akbarova | 100% Og'riqsiz",
-      ru: "Удаление зубов и зубов мудрости в Андижане — Д-р Мунаджат Акбарова | Без боли",
-      en: "Painless Tooth Extraction Andijan — Dr. Munojat Akbarova | Wisdom Tooth Surgery",
+      uz: "Og'riqsiz Tish Olish Andijon — Dr. Munojat",
+      ru: "Удаление зубов в Андижане — Д-р Мунаджат",
+      en: "Painless Tooth Extraction in Andijan",
     },
     metaDescription: {
       uz: "Andijonda og'riqsiz tish olish, aql tishini xirurgik olish va milk operatsiyalari. Dr. Munojat Akbarova — mikroxirurgik nozik usul, 1-3 kunda tez tiklanish. Tel: +998 94 106-15-55",
@@ -638,9 +638,9 @@ export const detailedSpecialties = {
       en: "ZOOM Professional Teeth Whitening in Andijan",
     },
     seoTitle: {
-      uz: "ZOOM Tish Oqartirish Andijon — Dr. Munojat Akbarova | Tishlarni Xavfsiz Yorqin Qilish",
-      ru: "Отбеливание зубов ZOOM в Андижане — Д-р Мунаджат Акбарова | 1 сеанс",
-      en: "ZOOM Teeth Whitening Andijan — Dr. Munojat Akbarova | Safe Natural Brightening",
+      uz: "ZOOM Tish Oqartirish Andijon — Dr. Munojat",
+      ru: "Отбеливание зубов ZOOM в Андижане — Д-р Мунаджат",
+      en: "ZOOM Teeth Whitening in Andijan",
     },
     metaDescription: {
       uz: "Andijonda professional ZOOM tish oqartirish. Dr. Munojat Akbarova — tishlarning o'z holatiga nisbatan xavfsiz oqartirish va yorqin qilish. Emalga zarar yo'q. Tel: +998 94 106-15-55",
@@ -749,6 +749,7 @@ const ServiceDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
 
   const specialty = detailedSpecialties[slug] || detailedSpecialties["implantatsiya"];
 
@@ -811,7 +812,7 @@ const ServiceDetail = () => {
         title={specialty.seoTitle[lang]}
         description={specialty.metaDescription[lang]}
         keywords={`${specialty.title[lang]}, ${specialty.slug} Andijon, ayol stomatolog Andijon, Dr Munojat Akbarova`}
-        canonical={`https://drmunojat.uz/services/${specialty.slug}`}
+        path={`/services/${specialty.slug}`}
         schemaJson={schemaJson}
       />
 
@@ -825,9 +826,9 @@ const ServiceDetail = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Breadcrumbs */}
           <nav className="flex items-center justify-center gap-2 text-xs text-red-300/70 mb-6 font-semibold">
-            <Link to="/" className="hover:text-white transition-colors">Bosh sahifa</Link>
+            <Link to={lp("/")} className="hover:text-white transition-colors">Bosh sahifa</Link>
             <span>/</span>
-            <Link to="/services" className="hover:text-white transition-colors">Xizmatlar</Link>
+            <Link to={lp("/services")} className="hover:text-white transition-colors">Xizmatlar</Link>
             <span>/</span>
             <span className="text-[#fd1616]">{specialty.title[lang]}</span>
           </nav>
@@ -1145,7 +1146,7 @@ const ServiceDetail = () => {
                 return (
                   <Link
                     key={other.slug}
-                    to={`/services/${other.slug}`}
+                    to={lp(`/services/${other.slug}`)}
                     className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xs hover:border-[#930b0b]/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
                   >
                     <div>

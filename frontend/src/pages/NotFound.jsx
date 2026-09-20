@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Seo from "../components/Seo";
 import { IconPhone, IconTelegram } from "../components/MedicalIcons";
 import { DOCTOR_INFO } from "../constants/doctor";
@@ -17,6 +17,7 @@ import { DOCTOR_INFO } from "../constants/doctor";
  */
 const NotFound = () => {
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
 
   const t = {
     uz: {
@@ -56,7 +57,7 @@ const NotFound = () => {
 
   return (
     <>
-      <Seo title={t.seoTitle} description={t.seoDesc} noindex />
+      <Seo page="notFound" noindex />
 
       <section className="relative pt-28 pb-20 sm:pt-32 sm:pb-24 bg-[#0d0101] text-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -75,19 +76,19 @@ const NotFound = () => {
 
           <nav aria-label={t.title} className="flex flex-wrap items-center justify-center gap-3 mb-8">
             <Link
-              to="/"
+              to={lp("/")}
               className="min-h-[46px] px-6 py-3 rounded-full bg-gradient-to-r from-[#930b0b] to-[#fd1616] text-white font-bold text-sm shadow-lg hover:brightness-110 active:scale-95 transition-all"
             >
               {t.home}
             </Link>
             <Link
-              to="/services"
+              to={lp("/services")}
               className="min-h-[46px] px-6 py-3 rounded-full bg-white/10 border border-white/25 text-white font-bold text-sm hover:bg-white/20 transition-all"
             >
               {t.services}
             </Link>
             <Link
-              to="/contact"
+              to={lp("/contact")}
               className="min-h-[46px] px-6 py-3 rounded-full bg-white/10 border border-white/25 text-white font-bold text-sm hover:bg-white/20 transition-all"
             >
               {t.contact}

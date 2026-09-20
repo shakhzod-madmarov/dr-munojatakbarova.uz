@@ -101,9 +101,8 @@ const Contact = () => {
   return (
     <div className="bg-[#fff8f8]">
       <Seo
-        title="Dr. Munojat Akbarova Aloqa — Orzu Stoma Denta Andijon | Qabulga Yozilish"
-        description="Dr. Munojat Akbarova qabuliga yozilish. Orzu Stoma Denta klinikasi, Andijon shahri. Tel: +998 (94) 106-15-55. Telegram: @dr_munojat"
-        canonical="https://drmunojat.uz/contact"
+        page="contact"
+        path="/contact"
       />
 
       {/* Hero Header */}

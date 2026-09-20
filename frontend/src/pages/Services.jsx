@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
 import Seo from "../components/Seo";
 import DentalSticker from "../components/DentalSticker";
@@ -14,6 +14,7 @@ import {
 const Services = () => {
   const navigate = useNavigate();
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
 
   const t = {
     uz: {
@@ -135,9 +136,8 @@ const Services = () => {
   return (
     <div className="pt-20 sm:pt-24 bg-[#faf8f8]">
       <Seo
-        title="Dr. Munojat Akbarova Xizmatlari — Plomba, Davolash, Karonkalar, Implant | Andijon"
-        description="Dr. Munojat Akbarova xizmatlari: tish og'rig'ini zudlik bilan qoldirish, 4 davlat plombalari, old va orqa tish karonkalari (Xitoy, Germaniya, Avstraliya), implantatsiya va ko'rik. Tel: +998 94 106-15-55"
-        canonical="https://drmunojat.uz/services"
+        page="services"
+        path="/services"
       />
 
       {/* Hero Header */}
@@ -171,7 +171,7 @@ const Services = () => {
             {services.slice(0, 3).map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={lp(`/services/${s.slug}`)}
                 className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
               >
                 <article itemScope itemType="https://schema.org/MedicalProcedure" className="flex flex-col h-full justify-between">
@@ -226,7 +226,7 @@ const Services = () => {
             {services.slice(3, 5).map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={lp(`/services/${s.slug}`)}
                 className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
               >
                 <article itemScope itemType="https://schema.org/MedicalProcedure" className="flex flex-col h-full justify-between">

@@ -17,11 +17,21 @@ export const SITE_ORIGIN = "https://drmunojat.uz";
    on every page at every deploy is a signal search engines learn to discount. */
 const LASTMOD = "2026-09-08";
 
-/* Language lives in localStorage, not in the URL, so every language shares one
-   address. hreflang annotations that all resolve to the same URL are invalid and
-   ignored by search engines, so none are emitted. Flip this to true once the
-   site actually serves per-language URLs. */
-const TRILINGUAL = false;
+/* Each page is served in three languages at three distinct URLs: Uzbek
+   unprefixed, Russian under /ru, English under /en. Because those addresses are
+   genuinely different, hreflang now carries real information - which it could
+   not when all three languages shared one URL. */
+export const LANGS = ["uz", "ru", "en"];
+export const DEFAULT_LANG = "uz";
+
+/** Canonical (Uzbek) path -> the path for a given language. */
+export const localizePath = (path, lang) => {
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  if (lang === DEFAULT_LANG) return clean;
+  return clean === "/" ? `/${lang}` : `/${lang}${clean}`;
+};
+
+const TRILINGUAL = true;
 
 export const ROUTES = [
   {

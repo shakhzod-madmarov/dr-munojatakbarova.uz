@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Logo from "./Logo";
 import {
   DOCTOR_INFO,
@@ -21,6 +21,7 @@ import { getA11yLabels } from "../constants/a11yLabels";
 
 const Footer = () => {
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
   const a11y = getA11yLabels(lang);
   const years = getYearsOfExperience();
   const start = DOCTOR_INFO.careerStartYear;
@@ -150,7 +151,7 @@ const Footer = () => {
           
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="inline-block" aria-label={a11y.home}>
+            <Link to={lp("/")} className="inline-block" aria-label={a11y.home}>
               <Logo />
             </Link>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
@@ -207,7 +208,7 @@ const Footer = () => {
             <ul className="space-y-2 text-xs sm:text-sm">
               {navLinks.map((l, i) => (
                 <li key={i}>
-                  <Link to={l.to} className="text-slate-600 hover:text-[#930b0b] font-medium transition-colors">
+                  <Link to={lp(l.to)} className="text-slate-600 hover:text-[#930b0b] font-medium transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -223,7 +224,7 @@ const Footer = () => {
             <ul className="space-y-2 text-xs sm:text-sm">
               {serviceLinks.map((s, i) => (
                 <li key={i}>
-                  <Link to={s.to} className="text-slate-600 hover:text-[#930b0b] font-medium transition-colors">
+                  <Link to={lp(s.to)} className="text-slate-600 hover:text-[#930b0b] font-medium transition-colors">
                     {s.label}
                   </Link>
                 </li>

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import ClinicLocationMap from "../components/ClinicLocationMap";
@@ -308,6 +308,7 @@ const HeroSection = ({ onOpenBooking }) => {
 /* ─── 2. 5 CORE SPECIALTIES BENTO GRID ─────────────────────────────── */
 const CoreServicesBento = ({ onOpenBooking }) => {
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
 
   const services = [
     {
@@ -392,7 +393,7 @@ const CoreServicesBento = ({ onOpenBooking }) => {
             {services.slice(0, 3).map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={lp(`/services/${s.slug}`)}
                 className="bg-slate-50 hover:bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
               >
                 <article itemScope itemType="https://schema.org/MedicalProcedure" className="flex flex-col h-full justify-between">
@@ -435,7 +436,7 @@ const CoreServicesBento = ({ onOpenBooking }) => {
             {services.slice(3, 5).map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={lp(`/services/${s.slug}`)}
                 className="bg-slate-50 hover:bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
               >
                 <article itemScope itemType="https://schema.org/MedicalProcedure" className="flex flex-col h-full justify-between">
@@ -544,6 +545,7 @@ const ModestyPillars = () => {
 /* ─── 3.5 DOCTOR SPOTLIGHT SECTION (AUTHENTIC PORTRAIT & CREDENTIALS) ─── */
 const DoctorSpotlight = ({ onOpenBooking }) => {
   const { lang } = useLanguage();
+  const lp = useLocalizedPath();
   const a11y = getA11yLabels(lang);
   const years = getYearsOfExperience();
 
@@ -658,7 +660,7 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
               </button>
 
               <Link
-                to="/about"
+                to={lp("/about")}
                 className="min-h-[48px] px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-900 font-bold text-sm border border-slate-300 shadow-xs flex items-center gap-1.5 transition-all active:scale-95"
               >
                 <span>{t.moreBtn}</span>
@@ -938,9 +940,8 @@ const Home = ({ onOpenBooking }) => {
   return (
     <>
       <Seo
-        title="Dr. Munojat Akbarova — Andijon Ayol Stomatologi | Plomba, Davolash, Vinir, Karonka, Implant"
-        description="Dr. Munojat Akbarova — Andijondagi oliy toifali ayol stomatolog. Tish og'rig'ini qoldirish, zamonaviy plomba, estetik vinirlar, tsirkoniy karonkalar va og'riqsiz implantatsiya. 100% maxfiy muhit. Tel: +998 94 106-15-55"
-        canonical="https://drmunojat.uz/"
+        page="home"
+        path="/"
       />
 
       <HeroSection onOpenBooking={onOpenBooking} />

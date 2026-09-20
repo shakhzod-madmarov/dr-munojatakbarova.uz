@@ -276,9 +276,8 @@ const About = ({ onOpenBooking }) => {
   return (
     <div className="pt-24 sm:pt-28 bg-white">
       <Seo
-        title="Dr. Munojat Akbarova — Shifokor Haqida | Plomba, Vinir, Karonka, Implant | 12 Yillik Tajriba"
-        description="Dr. Munojat Akbarova — Andijonda oliy toifali ayol stomatolog. Tish og'rig'ini davolash, zamonaviy plomba, estetik vinirlar, tsirkoniy karonkalar va implantatsiya. 100% og'riqsiz."
-        canonical="https://drmunojat.uz/about"
+        page="about"
+        path="/about"
         schemaJson={physicianSchema}
       />
 

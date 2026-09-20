@@ -12,7 +12,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { ROUTES, SITE_ORIGIN } from "./site-config.mjs";
+import { ROUTES, SITE_ORIGIN, LANGS, DEFAULT_LANG, localizePath } from "./site-config.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
@@ -41,7 +41,7 @@ const resolveAsset = (src) => {
   return "/" + entry.file;
 };
 
-const urlFor = (routePath) => SITE_ORIGIN + routePath;
+const urlFor = (routePath, lang = DEFAULT_LANG) => SITE_ORIGIN + localizePath(routePath, lang);
 
 const lines = [];
 lines.push('<?xml version="1.0" encoding="UTF-8"?>');
@@ -52,8 +52,12 @@ lines.push("");
 
 let unresolved = 0;
 
+/* One <url> per page per language. Each entry lists every language variant,
+   which is what tells a search engine these are translations of one page
+   rather than competing duplicates. */
 for (const route of ROUTES) {
-  const loc = urlFor(route.path);
+  for (const lang of LANGS) {
+  const loc = urlFor(route.path, lang);
   lines.push("  <url>");
   lines.push(`    <loc>${xmlEscape(loc)}</loc>`);
   if (route.lastmod) lines.push(`    <lastmod>${route.lastmod}</lastmod>`);
@@ -61,12 +65,10 @@ for (const route of ROUTES) {
   if (route.priority) lines.push(`    <priority>${route.priority}</priority>`);
 
   if (route.hreflang) {
-    for (const lang of ["uz", "ru", "en"]) {
-      lines.push(`    <xhtml:link rel="alternate" hreflang="${lang}" href="${xmlEscape(loc)}"/>`);
+    for (const alt of LANGS) {
+      lines.push(`    <xhtml:link rel="alternate" hreflang="${alt}" href="${xmlEscape(urlFor(route.path, alt))}"/>`);
     }
-    if (route.xDefault) {
-      lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(loc)}"/>`);
-    }
+    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(urlFor(route.path, DEFAULT_LANG))}"/>`);
   }
 
   if (route.image) {
@@ -85,6 +87,7 @@ for (const route of ROUTES) {
 
   lines.push("  </url>");
   lines.push("");
+  }
 }
 
 lines.push("</urlset>");
@@ -92,7 +95,7 @@ lines.push("</urlset>");
 const outPath = path.join(distDir, "sitemap.xml");
 fs.writeFileSync(outPath, lines.join("\n"), "utf-8");
 
-console.log(`sitemap: ${ROUTES.length} urls -> dist/sitemap.xml`);
+console.log(`sitemap: ${ROUTES.length * LANGS.length} urls (${ROUTES.length} pages x ${LANGS.length} languages) -> dist/sitemap.xml`);
 if (unresolved > 0) {
   console.error(`sitemap: ${unresolved} image(s) could not be resolved.`);
   process.exit(1);

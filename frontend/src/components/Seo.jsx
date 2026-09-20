@@ -1,5 +1,11 @@
 import { useEffect, useContext } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, LANGS, DEFAULT_LANG, localizePath } from "../context/LanguageContext";
+import { getPageSeo, PAGE_KEYWORDS } from "../constants/seo";
+
+export const SITE_ORIGIN = "https://drmunojat.uz";
+
+/** Absolute URL for a canonical (Uzbek) path in a given language. */
+export const urlFor = (path, lang) => SITE_ORIGIN + localizePath(path, lang);
 import { PrerenderContext, SEO_MARKER_TYPE } from "../context/SeoCollector";
 
 /* The indexable defaults, matching index.html. Every route sets the robots tags
@@ -16,6 +22,12 @@ const ROBOTS_NOINDEX = "noindex, follow";
  * Injects canonical, title, description, keywords, OpenGraph, Twitter, and custom JSON-LD schemas
  */
 const Seo = ({
+  /* `page` looks copy up from constants/seo for the active language; `path` is
+     the canonical Uzbek path and drives canonical plus hreflang. Explicit
+     title/description still win, for pages that build their own (service
+     detail). */
+  page,
+  path,
   title,
   description,
   keywords,
@@ -26,6 +38,18 @@ const Seo = ({
 }) => {
   const { lang } = useLanguage();
 
+  const copy = page ? getPageSeo(page, lang) : null;
+  const resolvedTitle = title || copy?.title;
+  const resolvedDescription = description || copy?.description;
+  const resolvedKeywords = keywords || PAGE_KEYWORDS[lang];
+  const resolvedCanonical = canonical || (path ? urlFor(path, lang) : undefined);
+  /* Now that each language has its own URL, hreflang finally means something.
+     x-default points at Uzbek, the unprefixed default. */
+  const alternates = path
+    ? LANGS.map((code) => ({ hreflang: code, href: urlFor(path, code) }))
+        .concat([{ hreflang: "x-default", href: urlFor(path, DEFAULT_LANG) }])
+    : null;
+
   /* Callers build schemaJson inline, so it is a new object on every render.
      Key the effect on its serialised form instead of its identity, otherwise
      the script tag is torn down and rebuilt on each keystroke of a page form. */
@@ -35,55 +59,55 @@ const Seo = ({
 
   useEffect(() => {
     // 1. Title
-    if (title) {
-      document.title = title;
+    if (resolvedTitle) {
+      document.title = resolvedTitle;
     }
 
     // 2. Meta description
-    if (description) {
+    if (resolvedDescription) {
       let descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) {
-        descMeta.setAttribute("content", description);
+        descMeta.setAttribute("content", resolvedDescription);
       }
       let ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) {
-        ogDesc.setAttribute("content", description);
+        ogDesc.setAttribute("content", resolvedDescription);
       }
       let twDesc = document.querySelector('meta[name="twitter:description"]');
       if (twDesc) {
-        twDesc.setAttribute("content", description);
+        twDesc.setAttribute("content", resolvedDescription);
       }
     }
 
     // 3. Meta keywords
-    if (keywords) {
+    if (resolvedKeywords) {
       let kwMeta = document.querySelector('meta[name="keywords"]');
       if (kwMeta) {
-        kwMeta.setAttribute("content", keywords);
+        kwMeta.setAttribute("content", resolvedKeywords);
       }
     }
 
     // 4. Canonical
-    if (canonical) {
+    if (resolvedCanonical) {
       let canonicalLink = document.querySelector('link[rel="canonical"]');
       if (canonicalLink) {
-        canonicalLink.setAttribute("href", canonical);
+        canonicalLink.setAttribute("href", resolvedCanonical);
       }
       let ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) {
-        ogUrl.setAttribute("content", canonical);
+        ogUrl.setAttribute("content", resolvedCanonical);
       }
     }
 
     // 5. OpenGraph Title
-    if (title) {
+    if (resolvedTitle) {
       let ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
-        ogTitle.setAttribute("content", title);
+        ogTitle.setAttribute("content", resolvedTitle);
       }
       let twTitle = document.querySelector('meta[name="twitter:title"]');
       if (twTitle) {
-        twTitle.setAttribute("content", title);
+        twTitle.setAttribute("content", resolvedTitle);
       }
     }
 
@@ -118,7 +142,7 @@ const Seo = ({
         scriptTag.parentNode.removeChild(scriptTag);
       }
     };
-  }, [title, description, keywords, canonical, schemaKey, lang, noindex]);
+  }, [resolvedTitle, resolvedDescription, resolvedKeywords, resolvedCanonical, schemaKey, lang, noindex]);
 
   /* Static render: hand this route's head data to the prerenderer as an inert
      marker. It is lifted into <head> and stripped from the body afterwards, so
@@ -126,13 +150,15 @@ const Seo = ({
      the script tag early while staying valid JSON. */
   if (isPrerender) {
     const payload = JSON.stringify({
-      title,
-      description,
-      keywords,
-      canonical,
+      title: resolvedTitle,
+      description: resolvedDescription,
+      keywords: resolvedKeywords,
+      canonical: resolvedCanonical,
+      alternates,
       ogImage,
       schemaJson: schemaKey,
       noindex,
+      lang,
     }).split("<").join(String.raw`\u003c`);
     return <script type={SEO_MARKER_TYPE} dangerouslySetInnerHTML={{ __html: payload }} />;
   }

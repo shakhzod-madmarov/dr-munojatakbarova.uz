@@ -145,9 +145,8 @@ const Gallery = () => {
   return (
     <div className="bg-[#fff8f8]">
       <Seo
-        title="Dr. Munojat Akbarova Galereyasi — Tish Oqartirish, Vinirlar va Implant Natijalari Andijon"
-        description="Dr. Munojat Akbarova stomatologik ishlari va natijalari. ZOOM oqartirish, tsirkoniy karonkalar, titan implantatsiya va maxfiy ayollar xonasi suratlari."
-        canonical="https://drmunojat.uz/gallery"
+        page="gallery"
+        path="/gallery"
       />
 
       {/* Header */}

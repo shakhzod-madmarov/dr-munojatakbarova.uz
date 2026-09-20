@@ -20,7 +20,7 @@ import FloatingActionHub from "./components/FloatingActionHub";
 import QuickBookingModal from "./components/QuickBookingModal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLanguage } from "./context/LanguageContext";
+import { useLanguage, LANGS, DEFAULT_LANG } from "./context/LanguageContext";
 
 /* Sync <html lang="..."> with active UI language for SEO and a11y */
 /* Enforce authentic logo favicon in tab dynamically to bypass browser caching */
@@ -79,12 +79,20 @@ const App = () => {
 
       <main className="flex-grow w-full" style={{ paddingTop: bannerHeight }}>
         <Routes>
-          <Route path="/" element={<Home onOpenBooking={() => setIsBookingOpen(true)} />} />
-          <Route path="/about" element={<About onOpenBooking={() => setIsBookingOpen(true)} />} />
-          <Route path="/services" element={<Services onOpenBooking={() => setIsBookingOpen(true)} />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* Every page exists at three addresses: unprefixed Uzbek, /ru and
+              /en. Defining them once per language keeps the three in step. */}
+          {LANGS.flatMap((code) => {
+            const at = (path) =>
+              code === DEFAULT_LANG ? path : `/${code}${path === "/" ? "" : path}`;
+            return [
+              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={() => setIsBookingOpen(true)} />} />,
+              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={() => setIsBookingOpen(true)} />} />,
+              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={() => setIsBookingOpen(true)} />} />,
+              <Route key={`${code}-detail`} path={at("/services/:slug")} element={<ServiceDetail />} />,
+              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery />} />,
+              <Route key={`${code}-contact`} path={at("/contact")} element={<Contact />} />,
+            ];
+          })}
           <Route path="/stickers-preview" element={<StickersShowcase />} />
           {/* Catch-all. Without this, unknown URLs rendered an empty <main>
               carrying the homepage's title and canonical - a soft 404. */}

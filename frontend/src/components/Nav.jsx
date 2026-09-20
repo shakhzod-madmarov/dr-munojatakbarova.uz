@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Logo from "./Logo";
 import { IconPhone } from "./MedicalIcons";
 import { getA11yLabels } from "../constants/a11yLabels";
@@ -10,6 +10,7 @@ const Nav = ({ topOffset = 0 }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { lang, changeLanguage } = useLanguage();
+  const lp = useLocalizedPath();
   const a11y = getA11yLabels(lang);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const Nav = ({ topOffset = 0 }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
 
         {/* Brand Logo */}
-        <NavLink to="/" aria-label="Dr. Munojat Akbarova" className="flex items-center min-w-0">
+        <NavLink to={lp("/")} aria-label="Dr. Munojat Akbarova" className="flex items-center min-w-0">
           <Logo />
         </NavLink>
 
@@ -60,7 +61,7 @@ const Nav = ({ topOffset = 0 }) => {
           {navItems.map((item) => (
             <NavLink
               key={item.path}
-              to={item.path}
+              to={lp(item.path)}
               end={item.exact}
               className={({ isActive }) =>
                 `px-4 py-2 rounded-full text-xs font-bold transition-all ${
@@ -124,7 +125,7 @@ const Nav = ({ topOffset = 0 }) => {
           {navItems.map((item) => (
             <NavLink
               key={item.path}
-              to={item.path}
+              to={lp(item.path)}
               end={item.exact}
               onClick={() => setShowMenu(false)}
               className={({ isActive }) =>
