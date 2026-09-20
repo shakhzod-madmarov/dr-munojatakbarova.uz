@@ -28,8 +28,12 @@ jobs:
       - name: Build project
         run: cd frontend && npm run build
 
+      - name: Write CNAME
+        run: echo "drmunojat.uz" > frontend/dist/CNAME
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: frontend/dist
           branch: gh-pages
+          clean: true
