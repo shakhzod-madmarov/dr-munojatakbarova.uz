@@ -12,6 +12,7 @@ import { useModalA11y } from "../hooks/useModalA11y";
 import { getA11yLabels } from "../constants/a11yLabels";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { availabilityUrl, requestUrl, BOOKING_TIMEOUT_MS } from "../constants/booking";
+import { canSeal, makeLinkToken, sealBookingDetails } from "../utils/sealBooking";
 
 /* ─── Constants ──────────────────────────────────────────────────── */
 
@@ -75,6 +76,12 @@ const TEXT = {
     telegramReminder: "Telegram orqali eslatma olish (ixtiyoriy)",
     close: "Yopish",
     callUs: "Yoki qo'ng'iroq:",
+    dobPlaceholder: "Tug'ilgan sana",
+    dobHint: "Klinikada sizni to'g'ri topishimiz uchun",
+    needDob: "Iltimos, tug'ilgan sanangizni kiriting",
+    botTitle: "Eslatma olish uchun botga ulaning",
+    botBody: "QR kodni telefoningiz kamerasi bilan skanerlang yoki tugmani bosing. Shundan keyin qabul haqida eslatmalar Telegramga keladi.",
+    botOpen: "Telegramda ochish",
   },
   ru: {
     badge: "MEDINSON · БЫСТРАЯ ЗАПИСЬ",
@@ -108,6 +115,12 @@ const TEXT = {
     telegramReminder: "Получить напоминание в Telegram (опция)",
     close: "Закрыть",
     callUs: "Или позвоните:",
+    dobPlaceholder: "Дата рождения",
+    dobHint: "Чтобы мы точно нашли вас в клинике",
+    needDob: "Пожалуйста, укажите дату рождения",
+    botTitle: "Подключитесь к боту для напоминаний",
+    botBody: "Отсканируйте QR-код камерой телефона или нажмите кнопку. После этого напоминания о приёме придут в Telegram.",
+    botOpen: "Открыть в Telegram",
   },
   en: {
     badge: "MEDINSON · QUICK BOOKING",
@@ -141,6 +154,12 @@ const TEXT = {
     telegramReminder: "Get Telegram Reminder (Optional)",
     close: "Close",
     callUs: "Or call:",
+    dobPlaceholder: "Date of birth",
+    dobHint: "So the clinic finds the right record for you",
+    needDob: "Please enter your date of birth",
+    botTitle: "Connect to the bot for reminders",
+    botBody: "Scan the QR code with your phone camera, or tap the button. Appointment reminders will then arrive on Telegram.",
+    botOpen: "Open in Telegram",
   },
 };
 
@@ -184,22 +203,29 @@ const dayLabel = (ymd, lang) => {
 /* ─── Component ──────────────────────────────────────────────────── */
 
 /**
- * Ask MedInson for the free times. Throws when the clinic cannot be reached, so
- * the caller decides what to show - this never invents a timetable.
+ * Ask MedInson for the free times, the key to seal a booking to, and which bot
+ * to send the patient to afterwards. Throws when the clinic cannot be reached,
+ * so the caller decides what to show - this never invents a timetable.
  */
-const fetchFreeDays = async () => {
+const fetchAvailability = async () => {
   const res = await fetch(availabilityUrl(), {
     headers: { Accept: "application/json" },
     signal: AbortSignal.timeout(BOOKING_TIMEOUT_MS),
   });
   if (!res.ok) throw new Error("HTTP " + res.status);
   const data = await res.json();
-  return (Array.isArray(data?.days) ? data.days : [])
-    .map((day) => ({
-      date: String(day?.date || ""),
-      times: Array.isArray(day?.times) ? day.times.filter(Boolean) : [],
-    }))
-    .filter((day) => day.date && day.times.length > 0);
+  return {
+    days: (Array.isArray(data?.days) ? data.days : [])
+      .map((day) => ({
+        date: String(day?.date || ""),
+        times: Array.isArray(day?.times) ? day.times.filter(Boolean) : [],
+      }))
+      .filter((day) => day.date && day.times.length > 0),
+    /* Absent when the clinic runs an older app that cannot decrypt yet. The
+       booking then goes as it used to rather than failing. */
+    publicKey: typeof data?.publicKey === "string" ? data.publicKey : "",
+    botUsername: typeof data?.botUsername === "string" ? data.botUsername : "",
+  };
 };
 
 /**
@@ -221,12 +247,23 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
   const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState(initialName || "");
   const [phone, setPhone] = useState(initialPhone || "");
+  /* The clinic asks for a date of birth at the desk, so the website asks for
+     it too: it is what tells a returning patient from a relative sharing
+     their phone, and without it every family booking makes a new record. */
+  const [dob, setDob] = useState("");
+  const [clinicKey, setClinicKey] = useState("");
+  const [botUsername, setBotUsername] = useState("");
+  const [botLink, setBotLink] = useState("");
+  const [botQr, setBotQr] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   /* ── Free times, straight from the dentist's calendar ───────── */
-  const applyDays = useCallback((free) => {
+  const applyAvailability = useCallback((result) => {
+    const free = result.days;
     setDays(free);
+    setClinicKey(result.publicKey || "");
+    setBotUsername(result.botUsername || "");
     setStatus("ready");
     /* Keep the patient's day if it still has free times, otherwise move to the
        first day that does. */
@@ -239,9 +276,9 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
      state, and the rest lands when the clinic answers. */
   useEffect(() => {
     let cancelled = false;
-    fetchFreeDays()
-      .then((free) => {
-        if (!cancelled) applyDays(free);
+    fetchAvailability()
+      .then((result) => {
+        if (!cancelled) applyAvailability(result);
       })
       .catch(() => {
         if (cancelled) return;
@@ -251,13 +288,13 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
     return () => {
       cancelled = true;
     };
-  }, [applyDays]);
+  }, [applyAvailability]);
 
   /** Re-read the calendar after a retry, or after somebody took a slot. */
   const reloadAvailability = async () => {
     setStatus("loading");
     try {
-      applyDays(await fetchFreeDays());
+      applyAvailability(await fetchAvailability());
     } catch {
       setDays([]);
       setStatus("offline");
@@ -289,6 +326,10 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
       toast.error(t.needName);
       return;
     }
+    if (!dob.trim()) {
+      toast.error(t.needDob);
+      return;
+    }
     if (!selectedDate || !selectedTime) {
       toast.error(t.needTime);
       return;
@@ -296,6 +337,25 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
 
     setIsSubmitting(true);
     try {
+      const details = {
+        name: name.trim(),
+        phone: phone.trim(),
+        dob: dob.trim(),
+        note: buildNote(serviceLabel, initialNote),
+      };
+
+      /* A one-time secret the clinic's app will register against this patient,
+         so the code shown afterwards connects them to the right record. */
+      const linkToken = clinicKey && canSeal() ? makeLinkToken() : "";
+
+      /* Sealed in this browser when the clinic published a key, so the server
+         in between stores bytes it cannot read. Sent plainly only when that is
+         impossible - an older clinic app, or a browser without WebCrypto -
+         because refusing the booking would help nobody. */
+      const payload = linkToken
+        ? { sealed: await sealBookingDetails({ ...details, linkToken }, clinicKey) }
+        : details;
+
       const res = await fetch(requestUrl(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -303,14 +363,22 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
         body: JSON.stringify({
           date: selectedDate,
           time: selectedTime,
-          name: name.trim(),
-          phone: phone.trim(),
-          note: buildNote(serviceLabel, initialNote),
+          ...payload,
           source: window.location.hostname,
         }),
       });
 
       if (res.status === 201) {
+        if (linkToken && botUsername) {
+          const link = `https://t.me/${botUsername}?start=${linkToken}`;
+          setBotLink(link);
+          /* Loaded only once a booking succeeds, so the library never costs
+             anybody who is just looking at the times. */
+          import("qrcode")
+            .then((mod) => (mod.default || mod).toDataURL(link, { margin: 2, width: 220 }))
+            .then(setBotQr)
+            .catch(() => setBotQr(""));
+        }
         setIsSuccess(true);
         confetti({
           particleCount: 100,
@@ -338,7 +406,7 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
     }
   };
 
-  const canSubmit = Boolean(name.trim() && phone.trim() && selectedDate && selectedTime);
+  const canSubmit = Boolean(name.trim() && phone.trim() && dob.trim() && selectedDate && selectedTime);
 
   /* ─────────────────────── JSX ────────────────────────────────── */
   return (
@@ -396,16 +464,48 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
               </div>
             </dl>
 
+            {botLink ? (
+              /* The clinic's own bot, tied to this booking by a one-time code.
+                 Scanning it is what lets reminders reach them at all: the app
+                 skips anyone whose Telegram is not connected, so a patient who
+                 books online and walks away would otherwise be the only kind
+                 who never gets reminded. */
+              <div className="rounded-2xl border-2 border-sky-200 bg-sky-50 p-4 space-y-3">
+                <p className="text-xs font-black text-sky-900">{t.botTitle}</p>
+                {botQr && (
+                  <img
+                    src={botQr}
+                    alt={t.botTitle}
+                    width={176}
+                    height={176}
+                    className="mx-auto rounded-xl bg-white p-2 shadow-sm"
+                  />
+                )}
+                <p className="text-[11px] text-sky-800 leading-relaxed">{t.botBody}</p>
+                <a
+                  href={botLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full min-h-[44px] bg-[#229ED9] hover:bg-[#1e8bc0] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <IconTelegram className="w-4 h-4 text-white" />
+                  <span>{t.botOpen}</span>
+                </a>
+              </div>
+            ) : null}
+
             <div className="space-y-2 pt-1">
-              <a
-                href={telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full min-h-[44px] bg-[#229ED9] hover:bg-[#1e8bc0] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
-              >
-                <IconTelegram className="w-4 h-4 text-white" />
-                <span>{t.telegramReminder}</span>
-              </a>
+              {!botLink && (
+                <a
+                  href={telegramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full min-h-[44px] bg-[#229ED9] hover:bg-[#1e8bc0] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <IconTelegram className="w-4 h-4 text-white" />
+                  <span>{t.telegramReminder}</span>
+                </a>
+              )}
               <button
                 type="button"
                 onClick={onClose}
@@ -604,6 +704,24 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                   required
                   className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
                 />
+              </div>
+              <div>
+                <label htmlFor="bk-dob" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  {t.dobPlaceholder}
+                </label>
+                <input
+                  id="bk-dob"
+                  name="bday"
+                  type="date"
+                  autoComplete="bday"
+                  max={todayYmd()}
+                  value={dob}
+                  onChange={(e) => setDob(e.target.value)}
+                  required
+                  aria-describedby="bk-dob-hint"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900"
+                />
+                <p id="bk-dob-hint" className="mt-1 text-[10px] text-slate-400">{t.dobHint}</p>
               </div>
             </div>
 
