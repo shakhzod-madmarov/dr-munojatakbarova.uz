@@ -1,51 +1,54 @@
 {
-  "_react-vendor-jklwyxZe.js": {
-    "file": "assets/react-vendor-jklwyxZe.js",
+  "_react-vendor-Ns-oaxmK.js": {
+    "file": "assets/react-vendor-Ns-oaxmK.js",
     "name": "react-vendor",
     "imports": [
-      "_rolldown-runtime-y2wrX6ue.js"
+      "_rolldown-runtime-D7zIpOPY.js"
     ]
   },
-  "_rolldown-runtime-y2wrX6ue.js": {
-    "file": "assets/rolldown-runtime-y2wrX6ue.js",
+  "_rolldown-runtime-D7zIpOPY.js": {
+    "file": "assets/rolldown-runtime-D7zIpOPY.js",
     "name": "rolldown-runtime"
   },
-  "_router-CVzPlGiS.js": {
-    "file": "assets/router-CVzPlGiS.js",
+  "_router-CkI1Nn9G.js": {
+    "file": "assets/router-CkI1Nn9G.js",
     "name": "router",
     "imports": [
-      "_react-vendor-jklwyxZe.js",
-      "_rolldown-runtime-y2wrX6ue.js"
+      "_react-vendor-Ns-oaxmK.js",
+      "_rolldown-runtime-D7zIpOPY.js"
+    ]
+  },
+  "_vendor-utils-CxfItI9C.js": {
+    "file": "assets/vendor-utils-CxfItI9C.js",
+    "name": "vendor-utils",
+    "imports": [
+      "_react-vendor-Ns-oaxmK.js",
+      "_rolldown-runtime-D7zIpOPY.js"
+    ],
+    "css": [
+      "assets/vendor-utils-DHtLVDbd.css"
     ]
   },
   "_vendor-utils-DHtLVDbd.css": {
     "file": "assets/vendor-utils-DHtLVDbd.css",
     "src": "_vendor-utils-DHtLVDbd.css"
   },
-  "_vendor-utils-DxuEL7qH.js": {
-    "file": "assets/vendor-utils-DxuEL7qH.js",
-    "name": "vendor-utils",
-    "imports": [
-      "_react-vendor-jklwyxZe.js",
-      "_rolldown-runtime-y2wrX6ue.js"
-    ],
-    "css": [
-      "assets/vendor-utils-DHtLVDbd.css"
-    ]
-  },
   "index.html": {
-    "file": "assets/index-BRsptvZ6.js",
+    "file": "assets/index-Bn4MUaZY.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "_router-CVzPlGiS.js",
-      "_vendor-utils-DxuEL7qH.js",
-      "_react-vendor-jklwyxZe.js",
-      "_rolldown-runtime-y2wrX6ue.js"
+      "_router-CkI1Nn9G.js",
+      "_vendor-utils-CxfItI9C.js",
+      "_react-vendor-Ns-oaxmK.js",
+      "_rolldown-runtime-D7zIpOPY.js"
+    ],
+    "dynamicImports": [
+      "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-tdh0A6-u.css"
+      "assets/index-DFX3PrLz.css"
     ],
     "assets": [
       "assets/logo-Cv2m4RxU.png",
@@ -58,6 +61,15 @@
       "assets/treatment_whitening-DAVxj-hD.webp",
       "assets/clinic_room-DUwk5xIL.webp",
       "assets/treatment_surgery-BQyw8eJX.webp"
+    ]
+  },
+  "node_modules/qrcode/lib/browser.js": {
+    "file": "assets/browser-B19Dqh5D.js",
+    "name": "browser",
+    "src": "node_modules/qrcode/lib/browser.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-D7zIpOPY.js"
     ]
   },
   "src/assets/clinic_room.webp": {
