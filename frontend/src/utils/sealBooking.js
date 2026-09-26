@@ -50,6 +50,20 @@ export const makeLinkToken = () => {
 };
 
 /**
+ * SHA-256 of the one-time link token (64 hex chars).
+ * Sent alongside the booking request so the relay registers the handshake token
+ * immediately, before the clinic's computer polls 30s later.
+ */
+export const hashLinkToken = async (token) => {
+  if (!token || !window.crypto?.subtle) return "";
+  const buf = await window.crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(String(token)),
+  );
+  return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
+};
+
+/**
  * Seal the patient's details to the clinic's public key.
  *
  * A fresh AES key per booking, wrapped with the clinic's RSA key — the payload

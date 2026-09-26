@@ -17,16 +17,26 @@ const PRODUCTION_API = "https://dentist-medinson-license.uz/api/public/booking";
    is how the booking flow is exercised end to end without touching live data. */
 export const BOOKING_API = import.meta.env.VITE_BOOKING_API || PRODUCTION_API;
 
-/** The domain registered on the MedInson account. Used only in development. */
+/**
+ * Optional 10-character site code shown in the clinic's MedInson app settings.
+ * When set (or passed via VITE_BOOKING_SITE_ID), resolves the clinic directly
+ * via ?site=... regardless of domain. When empty, falls back to Origin / BOOKING_DOMAIN.
+ */
+export const BOOKING_SITE_ID = (import.meta.env.VITE_BOOKING_SITE_ID || "").trim();
+
+/** The domain registered on the MedInson account. Used when BOOKING_SITE_ID is empty. */
 export const BOOKING_DOMAIN = "drmunojat.uz";
 
 /* Vite serves the site from localhost while developing, and localhost is not
-   anybody's clinic, so the domain is named explicitly there. In production the
-   browser sends the real Origin and this is never used. */
-const devQuery = import.meta.env.DEV ? `?domain=${encodeURIComponent(BOOKING_DOMAIN)}` : "";
+   anybody's clinic, so the domain is named explicitly there when no site code is set. */
+const bookingQuery = BOOKING_SITE_ID
+  ? `?site=${encodeURIComponent(BOOKING_SITE_ID)}`
+  : import.meta.env.DEV
+    ? `?domain=${encodeURIComponent(BOOKING_DOMAIN)}`
+    : "";
 
-export const availabilityUrl = () => `${BOOKING_API}/availability${devQuery}`;
-export const requestUrl = () => `${BOOKING_API}/request${devQuery}`;
+export const availabilityUrl = () => `${BOOKING_API}/availability${bookingQuery}`;
+export const requestUrl = () => `${BOOKING_API}/request${bookingQuery}`;
 
 /** How long to wait on the server before offering the phone number instead. */
 export const BOOKING_TIMEOUT_MS = 8000;

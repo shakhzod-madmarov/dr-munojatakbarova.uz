@@ -12,7 +12,7 @@ import { useModalA11y } from "../hooks/useModalA11y";
 import { getA11yLabels } from "../constants/a11yLabels";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { availabilityUrl, requestUrl, BOOKING_TIMEOUT_MS } from "../constants/booking";
-import { canSeal, makeLinkToken, sealBookingDetails } from "../utils/sealBooking";
+import { canSeal, makeLinkToken, hashLinkToken, sealBookingDetails } from "../utils/sealBooking";
 
 /* ─── Constants ──────────────────────────────────────────────────── */
 
@@ -347,13 +347,17 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
       /* A one-time secret the clinic's app will register against this patient,
          so the code shown afterwards connects them to the right record. */
       const linkToken = clinicKey && canSeal() ? makeLinkToken() : "";
+      const linkTokenHash = linkToken ? await hashLinkToken(linkToken) : "";
 
       /* Sealed in this browser when the clinic published a key, so the server
          in between stores bytes it cannot read. Sent plainly only when that is
          impossible - an older clinic app, or a browser without WebCrypto -
          because refusing the booking would help nobody. */
       const payload = linkToken
-        ? { sealed: await sealBookingDetails({ ...details, linkToken }, clinicKey) }
+        ? {
+            sealed: await sealBookingDetails({ ...details, linkToken }, clinicKey),
+            ...(linkTokenHash ? { linkTokenHash } : {}),
+          }
         : details;
 
       const res = await fetch(requestUrl(), {
