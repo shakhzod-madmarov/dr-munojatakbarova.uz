@@ -79,6 +79,8 @@ const TEXT = {
     dobPlaceholder: "Tug'ilgan sana",
     dobHint: "Klinikada sizni to'g'ri topishimiz uchun",
     needDob: "Iltimos, tug'ilgan sanangizni kiriting",
+    invalidPhone: "Iltimos, to'liq telefon raqamingizni kiriting (kamida 9 ta raqam)",
+    notePlaceholder: "Izoh yoki shikoyat (ixtiyoriy)",
     botTitle: "Eslatma olish uchun botga ulaning",
     botBody: "QR kodni telefoningiz kamerasi bilan skanerlang yoki tugmani bosing. Shundan keyin qabul haqida eslatmalar Telegramga keladi.",
     botOpen: "Telegramda ochish",
@@ -118,6 +120,8 @@ const TEXT = {
     dobPlaceholder: "Дата рождения",
     dobHint: "Чтобы мы точно нашли вас в клинике",
     needDob: "Пожалуйста, укажите дату рождения",
+    invalidPhone: "Пожалуйста, введите полный номер телефона (минимум 9 цифр)",
+    notePlaceholder: "Комментарий или жалоба (необязательно)",
     botTitle: "Подключитесь к боту для напоминаний",
     botBody: "Отсканируйте QR-код камерой телефона или нажмите кнопку. После этого напоминания о приёме придут в Telegram.",
     botOpen: "Открыть в Telegram",
@@ -157,6 +161,8 @@ const TEXT = {
     dobPlaceholder: "Date of birth",
     dobHint: "So the clinic finds the right record for you",
     needDob: "Please enter your date of birth",
+    invalidPhone: "Please enter a valid phone number (at least 9 digits)",
+    notePlaceholder: "Note or symptom (optional)",
     botTitle: "Connect to the bot for reminders",
     botBody: "Scan the QR code with your phone camera, or tap the button. Appointment reminders will then arrive on Telegram.",
     botOpen: "Open in Telegram",
@@ -251,6 +257,7 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
      it too: it is what tells a returning patient from a relative sharing
      their phone, and without it every family booking makes a new record. */
   const [dob, setDob] = useState("");
+  const [note, setNote] = useState(initialNote || "");
   const [clinicKey, setClinicKey] = useState("");
   const [botUsername, setBotUsername] = useState("");
   const [botLink, setBotLink] = useState("");
@@ -322,8 +329,12 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!name.trim() || !phone.trim()) {
+    if (name.trim().length < 2 || !phone.trim()) {
       toast.error(t.needName);
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 9) {
+      toast.error(t.invalidPhone);
       return;
     }
     if (!dob.trim()) {
@@ -341,7 +352,7 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
         name: name.trim(),
         phone: phone.trim(),
         dob: dob.trim(),
-        note: buildNote(serviceLabel, initialNote),
+        note: buildNote(serviceLabel, note),
       };
 
       /* A one-time secret the clinic's app will register against this patient,
@@ -410,7 +421,14 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
     }
   };
 
-  const canSubmit = Boolean(name.trim() && phone.trim() && dob.trim() && selectedDate && selectedTime);
+  const canSubmit = Boolean(
+    name.trim().length >= 2 &&
+    phone.replace(/\D/g, "").length >= 9 &&
+    dob.trim() &&
+    selectedDate &&
+    selectedTime,
+  );
+  const noSlotsAvailable = status === "offline" || (status === "ready" && days.length === 0);
 
   /* ─────────────────────── JSX ────────────────────────────────── */
   return (
@@ -554,10 +572,14 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
               </select>
             </div>
 
-            {status === "offline" ? (
-              /* No invented timetable. The clinic is reachable by phone. */
+            {noSlotsAvailable ? (
+              /* No invented timetable. When the server is unreachable or all
+                 published slots are currently taken, offer direct phone/Telegram
+                 contact and a retry button instead of an unsubmittable form. */
               <div className="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-900 text-xs space-y-3">
-                <p className="font-semibold leading-relaxed">{t.offline}</p>
+                <p className="font-semibold leading-relaxed">
+                  {status === "offline" ? t.offline : t.noTimes}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   <a
                     href={`tel:${DOCTOR_INFO.phoneRaw}`}
@@ -597,8 +619,6 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                         <div key={i} className="h-[58px] w-[54px] rounded-2xl bg-slate-100 animate-pulse" />
                       ))}
                     </div>
-                  ) : days.length === 0 ? (
-                    <p className="text-xs text-slate-500 py-2">{t.noTimes}</p>
                   ) : (
                     <div
                       className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-hide"
@@ -672,101 +692,116 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                     </div>
                   )}
                 </div>
+
+                {/* ── Patient details ────────────────────────────── */}
+                <div className="space-y-3">
+                  <div>
+                    <label htmlFor="bk-name" className="sr-only">
+                      {t.namePlaceholder}
+                    </label>
+                    <input
+                      id="bk-name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      placeholder={t.namePlaceholder}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="bk-phone" className="sr-only">
+                      {t.phonePlaceholder}
+                    </label>
+                    <input
+                      id="bk-phone"
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      placeholder={t.phonePlaceholder}
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="bk-dob" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      {t.dobPlaceholder}
+                    </label>
+                    <input
+                      id="bk-dob"
+                      name="bday"
+                      type="date"
+                      autoComplete="bday"
+                      max={todayYmd()}
+                      value={dob}
+                      onChange={(e) => setDob(e.target.value)}
+                      required
+                      aria-describedby="bk-dob-hint"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900"
+                    />
+                    <p id="bk-dob-hint" className="mt-1 text-[10px] text-slate-400">{t.dobHint}</p>
+                  </div>
+                  <div>
+                    <label htmlFor="bk-note" className="sr-only">
+                      {t.notePlaceholder}
+                    </label>
+                    <input
+                      id="bk-note"
+                      name="note"
+                      type="text"
+                      maxLength={240}
+                      placeholder={t.notePlaceholder}
+                      value={note}
+                      onChange={(e) => setNote(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
+                    />
+                  </div>
+                </div>
+
+                {selectedTime && (
+                  <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+                    <IconCheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>
+                      {selectedDate} · {selectedTime} — {serviceLabel}
+                    </span>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !canSubmit}
+                  className="w-full min-h-[50px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed text-white font-black text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      <span>{t.submitting}</span>
+                    </>
+                  ) : (
+                    <>
+                      <IconClock className="w-4 h-4 text-white" />
+                      <span>{t.submit}</span>
+                    </>
+                  )}
+                </button>
+
+                <div className="pt-1 text-center">
+                  <a
+                    href={`tel:${DOCTOR_INFO.phoneRaw}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#930b0b] transition-colors"
+                  >
+                    <IconPhone className="w-3.5 h-3.5 text-[#930b0b]" />
+                    <span>
+                      {t.callUs} {DOCTOR_INFO.phone}
+                    </span>
+                  </a>
+                </div>
               </>
             )}
-
-            {/* ── Patient details ────────────────────────────── */}
-            <div className="space-y-3">
-              <div>
-                <label htmlFor="bk-name" className="sr-only">
-                  {t.namePlaceholder}
-                </label>
-                <input
-                  id="bk-name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  placeholder={t.namePlaceholder}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
-                />
-              </div>
-              <div>
-                <label htmlFor="bk-phone" className="sr-only">
-                  {t.phonePlaceholder}
-                </label>
-                <input
-                  id="bk-phone"
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  placeholder={t.phonePlaceholder}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
-                />
-              </div>
-              <div>
-                <label htmlFor="bk-dob" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  {t.dobPlaceholder}
-                </label>
-                <input
-                  id="bk-dob"
-                  name="bday"
-                  type="date"
-                  autoComplete="bday"
-                  max={todayYmd()}
-                  value={dob}
-                  onChange={(e) => setDob(e.target.value)}
-                  required
-                  aria-describedby="bk-dob-hint"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900"
-                />
-                <p id="bk-dob-hint" className="mt-1 text-[10px] text-slate-400">{t.dobHint}</p>
-              </div>
-            </div>
-
-            {selectedTime && (
-              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
-                <IconCheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>
-                  {selectedDate} · {selectedTime} — {serviceLabel}
-                </span>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting || !canSubmit}
-              className="w-full min-h-[50px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed text-white font-black text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              {isSubmitting ? (
-                <>
-                  <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                  <span>{t.submitting}</span>
-                </>
-              ) : (
-                <>
-                  <IconClock className="w-4 h-4 text-white" />
-                  <span>{t.submit}</span>
-                </>
-              )}
-            </button>
-
-            <div className="pt-1 text-center">
-              <a
-                href={`tel:${DOCTOR_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#930b0b] transition-colors"
-              >
-                <IconPhone className="w-3.5 h-3.5 text-[#930b0b]" />
-                <span>
-                  {t.callUs} {DOCTOR_INFO.phone}
-                </span>
-              </a>
-            </div>
           </form>
         )}
       </div>
