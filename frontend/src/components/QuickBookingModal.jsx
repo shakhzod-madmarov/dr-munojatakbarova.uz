@@ -231,6 +231,9 @@ const fetchAvailability = async () => {
        booking then goes as it used to rather than failing. */
     publicKey: typeof data?.publicKey === "string" ? data.publicKey : "",
     botUsername: typeof data?.botUsername === "string" ? data.botUsername : "",
+    dentist: data?.dentist && typeof data.dentist === "object" ? data.dentist : null,
+    clinic: data?.clinic && typeof data.clinic === "object" ? data.clinic : null,
+    slotMinutes: Number(data?.slotMinutes) > 0 ? Number(data.slotMinutes) : 30,
   };
 };
 
@@ -260,6 +263,7 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
   const [note, setNote] = useState(initialNote || "");
   const [clinicKey, setClinicKey] = useState("");
   const [botUsername, setBotUsername] = useState("");
+  const [liveMeta, setLiveMeta] = useState(null);
   const [botLink, setBotLink] = useState("");
   const [botQr, setBotQr] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -271,6 +275,11 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
     setDays(free);
     setClinicKey(result.publicKey || "");
     setBotUsername(result.botUsername || "");
+    setLiveMeta({
+      dentist: result.dentist || null,
+      clinic: result.clinic || null,
+      slotMinutes: result.slotMinutes || 30,
+    });
     setStatus("ready");
     /* Keep the patient's day if it still has free times, otherwise move to the
        first day that does. */
@@ -548,6 +557,26 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                 {t.title}
               </h3>
               <p className="text-xs text-slate-500">{t.subtitle}</p>
+              {liveMeta && (liveMeta.clinic?.name || liveMeta.dentist?.workingHours) && (
+                <div className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-slate-600">
+                  {(liveMeta.clinic?.name || liveMeta.dentist?.clinicName) && (
+                    <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2.5 py-1 text-slate-700">
+                      🏥 {liveMeta.clinic?.name || liveMeta.dentist?.clinicName}
+                    </span>
+                  )}
+                  {liveMeta.dentist?.workingHours?.start && liveMeta.dentist?.workingHours?.end && (
+                    <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-50 px-2.5 py-1 text-emerald-700">
+                      <IconClock className="w-3 h-3" />
+                      {liveMeta.dentist.workingHours.start}–{liveMeta.dentist.workingHours.end}
+                    </span>
+                  )}
+                  {(liveMeta.clinic?.address || liveMeta.dentist?.address) && (
+                    <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2.5 py-1 text-slate-600 truncate max-w-full">
+                      📍 {liveMeta.clinic?.address || liveMeta.dentist?.address}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Service selector */}
