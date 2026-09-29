@@ -138,6 +138,13 @@ export const ROUTES = [
     },
   },
   {
+    path: "/qabul",
+    lastmod: LASTMOD,
+    changefreq: "weekly",
+    priority: "0.90",
+    hreflang: TRILINGUAL,
+  },
+  {
     path: "/contact",
     lastmod: LASTMOD,
     changefreq: "monthly",

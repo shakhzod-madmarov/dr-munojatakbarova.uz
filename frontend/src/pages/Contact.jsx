@@ -1,22 +1,8 @@
-import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { useBooking } from "../context/BookingContext";
-
-/* The contact form's service list predates the booking modal, so its
-   option values are mapped rather than renamed - changing them would
-   change what patients see in the dropdown. */
-const BOOKING_SERVICE_BY_OPTION = {
-  "Tsirkoniy Karonkalar": "ortopediya",
-  "Titan Implant": "implantatsiya",
-  "ZOOM 4 Oqartirish": "tish-oqartirish",
-  "Karies & Plomba": "tish-davolash",
-  "Og'riqsiz Xirurgiya": "xirurgiya",
-};
 import Seo from "../components/Seo";
 import ClinicLocationMap from "../components/ClinicLocationMap";
+import InlineBookingSection from "../components/InlineBookingSection";
 import {
-  IconLocationPin,
-  IconSparkleStar,
   IconPhone,
   IconTelegram,
   IconInstagram,
@@ -30,10 +16,6 @@ import { getA11yLabels } from "../constants/a11yLabels";
 const Contact = () => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
-  /* The default matched no option in the list, so the form submitted "Vinir"
-     while the select displayed crowns. */
-  const [form, setForm] = useState({ name: "", phone: "", service: "Tsirkoniy Karonkalar", message: "" });
-  const { openBooking } = useBooking();
 
   const t = {
     uz: {
@@ -92,20 +74,6 @@ const Contact = () => {
     },
   }[lang] || {};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!form.name || !form.phone) return;
-    /* Hand the patient to the real calendar instead of opening Telegram
-       with the details typed into a message, which no calendar ever saw.
-       They pick a free time and it lands in the dentist's MedInson app. */
-    openBooking({
-      service: BOOKING_SERVICE_BY_OPTION[form.service] || null,
-      name: form.name,
-      phone: form.phone,
-      note: form.message,
-    });
-  };
-
   return (
     <div className="bg-[#fff8f8]">
       <Seo
@@ -128,7 +96,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Main Grid: Contact Cards + Booking Form */}
+      {/* Main Grid: Contact Cards + Inline Booking Section */}
       <section className="pt-8 pb-12 sm:pt-10 sm:pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -240,82 +208,9 @@ const Contact = () => {
               </address>
             </div>
 
-            {/* Right: Booking Form */}
+            {/* Right: Inline Date & Time Booking Section */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md">
-                <h3 className="text-xl font-black text-slate-900 mb-2">
-                  {t.formTitle}
-                </h3>
-                <p className="text-xs text-slate-500 mb-5">
-                  Ma'lumotlaringizni qoldiring, Dr. Munojat siz bilan shaxsan bog'lanadi.
-                </p>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="contact-name" className="sr-only">{t.namePh}</label>
-                    <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      placeholder={t.namePh}
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#fd1616]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-phone" className="sr-only">{t.phonePh}</label>
-                    <input
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder={t.phonePh}
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#fd1616]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-service" className="sr-only">{t.serviceLabel}</label>
-                    <select
-                      id="contact-service"
-                      name="service"
-                      value={form.service}
-                      onChange={(e) => setForm({ ...form, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#fd1616] bg-white"
-                    >
-                      <option value="Tsirkoniy Karonkalar">Old va Orqa Tish Karonkalari (Xitoy, Germaniya, Avstraliya)</option>
-                      <option value="Titan Implant">Titan Tish Implanti</option>
-                      <option value="ZOOM 4 Oqartirish">ZOOM 4 Laser Tish Oqartirish</option>
-                      <option value="Karies & Plomba">Terapevtik Tish Davolash & Plomba</option>
-                      <option value="Og'riqsiz Xirurgiya">Og'riqsiz Tish Olish (Xirurgiya)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <textarea
-                      placeholder={t.msgPh}
-                      rows={3}
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-medium text-slate-900 focus:outline-none focus:border-[#fd1616] resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 text-white font-black text-sm rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
-                  >
-                    <span>{t.send}</span>
-                  </button>
-                </form>
-              </div>
+              <InlineBookingSection sectionId="uchrashuv-vaqti" />
             </div>
 
           </div>

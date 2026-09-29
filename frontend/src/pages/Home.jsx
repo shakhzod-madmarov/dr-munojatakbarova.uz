@@ -9,6 +9,7 @@ import FaqAccordion from "../components/FaqAccordion";
 import { IconTelegram } from "../components/MedicalIcons";
 import Seo from "../components/Seo";
 import DentalSticker, { DentalHeroSeal } from "../components/DentalSticker";
+import InlineBookingSection from "../components/InlineBookingSection";
 import {
   DOCTOR_INFO,
   getYearsOfExperience,
@@ -662,36 +663,36 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
     uz: {
       tag: `YIL STOMATOLOGI – 2025 · ${years} YILLIK AMALIYOT`,
       title: "Dr. Munojat Akbarova",
-      subtitle: "Oliy Toifali Shifokor: Plomba, Davolash, Karonkalar va Implantologiya",
-      desc: "12 yillik boy amaliy tajriba: Germaniya, Yaponiya, Koreya va Rossiya plombalari, old va orqa tishlar uchun Xitoy, Germaniya, Avstraliya karonkalari hamda Janubiy Koreya biotitan implantatsiyasi. 100% og'riqsiz va ayollar uchun maxfiy muhitda.",
-      badge1: "Germaniya & Yaponiya Plombalari",
-      badge2: "Koreya & Rossiya Plombalari",
-      badge3: "Xitoy, Germaniya, Avstraliya Karonkalari",
-      badge4: "Janubiy Koreya Biotitan Implanti",
+      subtitle: "Oliy Toifali Shifokor-Stomatolog, Terapevt va Implantolog",
+      desc: "12 yillik amaliy tajriba: estetik restavratsiya, tsirkoniy va keramik karonkalar hamda dental implantologiya. 100% og'riqsiz va ayollar uchun maxfiy muhitda.",
+      badge1: "Oliy Tibbiy Ma'lumot (TDSI & ADTI)",
+      badge2: "Xalqaro Malaka (Janubiy Koreya)",
+      badge3: "Yil Stomatologi – 2025",
+      badge4: "100% Steril va Og'riqsiz Davolash",
       moreBtn: "Shifokor Haqida Batafsil",
       bookBtn: "Qabulga Yozilish",
     },
     ru: {
       tag: `СТОМАТОЛОГ ГОДА – 2025 · ${years} ЛЕТ ОПЫТА`,
       title: "Д-р Мунаджат Акбарова",
-      subtitle: "Ведущий Стоматолог: Пломбы, Лечение Зубов, Виниры, Коронки и Импланты",
-      desc: "12 лет безупречной практики: снятие зубной боли, пломбы из 4 стран, коронки для передних и жевательных зубов из Германии, Австралии и Китая, а также имплантация на долгие годы. Без боли, в комфортной приватной обстановке.",
-      badge1: "Лечение Зубов & Пломбы 3M™",
-      badge2: "Коронки: Китай, Германия, Австралия",
-      badge3: "Имплантация (Южная Корея)",
-      badge4: "Проф. Осмотр & Без Боли",
+      subtitle: "Врач-стоматолог высшей категории, терапевт и имплантолог",
+      desc: "12 лет клинической практики: эстетическая реставрация, циркониевые коронки и дентальная имплантология в приватной обстановке без боли.",
+      badge1: "Высшее медицинское образование (ТГСИ и АГМИ)",
+      badge2: "Международная квалификация (Южная Корея)",
+      badge3: "Стоматолог года – 2025",
+      badge4: "100% Стерильность и без боли",
       moreBtn: "Подробнее о Враче",
       bookBtn: "Записаться на Приём",
     },
     en: {
       tag: `DENTIST OF THE YEAR – 2025 · ${years}+ YRS EXPERIENCE`,
       title: "Dr. Munojat Akbarova",
-      subtitle: "Leading Dental Specialist: Restorative Fillings, Veneers, Crowns & Implants",
-      desc: "12+ years of clinical excellence: tooth pain relief, certified fillings, dental crowns (China, Germany, Australia), extractions, and Korean bio-implants. Strictly private, 100% pain-free.",
-      badge1: "Tooth Pain Care & Certified Fillings",
-      badge2: "Crowns: China, Germany, Australia",
-      badge3: "South Korea Implant Surgery",
-      badge4: "Dental Check-up & 100% Pain-Free",
+      subtitle: "Senior Dental Specialist, Restorative & Implant Surgeon",
+      desc: "12+ years of clinical excellence in restorative dentistry, zirconia prosthodontics, and dental implantology. Strictly private and pain-free care.",
+      badge1: "Higher Medical Education (TSDI & ASMI)",
+      badge2: "International Fellowship (South Korea)",
+      badge3: "Dentist of the Year – 2025",
+      badge4: "100% Sterile & Pain-Free Care",
       moreBtn: "Learn More About Doctor",
       bookBtn: "Book Appointment",
     },
@@ -1058,6 +1059,9 @@ const Home = ({ onOpenBooking }) => {
       <SmileAssessmentWizard />
       <ModestyPillars />
       <DoctorSpotlight onOpenBooking={onOpenBooking} />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <InlineBookingSection sectionId="uchrashuv-vaqti" />
+      </div>
       <BeforeAfterSlider />
       <PatientReviews />
       <FaqAccordion />

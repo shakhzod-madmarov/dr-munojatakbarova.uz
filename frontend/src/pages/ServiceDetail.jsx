@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { useBooking } from "../context/BookingContext";
 import Seo from "../components/Seo";
+import InlineBookingSection from "../components/InlineBookingSection";
+import DentalSticker from "../components/DentalSticker";
 import { assets } from "../assets/assets";
 import {
   IconDentalImplant,
@@ -1022,76 +1024,9 @@ const ServiceDetail = () => {
             </div>
           </div>
 
-          {/* Dedicated Booking Section */}
-          <div id="book" className="bg-gradient-to-br from-[#1a0505] to-[#2a0808] text-white rounded-3xl p-8 sm:p-12 shadow-premium border border-red-900/40">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <div>
-                <span className="section-tag mb-3">{specialty.title[lang]}</span>
-                <h2 className="text-2xl sm:text-4xl font-black text-white leading-tight mb-4">
-                  {lang === "uz" ? "Andijonda Qabulga Yoziling" : lang === "ru" ? "Запишитесь в Андижане" : "Book in Andijan"}
-                </h2>
-                <p className="text-red-200/80 text-sm leading-relaxed mb-6">
-                  {lang === "uz" ? "Dr. Munojat Akbarova sizga maxsus qulay vaqt ajratadi. To'g'ridan-to'g'ri qo'ng'iroq qiling yoki quyidagi formani to'ldiring:" :
-                   lang === "ru" ? "Д-р Мунаджат подберёт для вас удобное время. Позвоните или оставьте заявку:" :
-                   "Dr. Munojat will schedule your convenient appointment. Call directly or submit below:"}
-                </p>
-                <div className="space-y-2 text-sm text-red-200/90">
-                  <p><strong className="text-white">+998 (94) 106-15-55</strong></p>
-                  <p><strong className="text-white">@dr_munojat</strong></p>
-                  <p><strong className="text-white">Andijon shahar, O'zbekiston</strong></p>
-                </div>
-              </div>
-
-              {/* Form */}
-              <form onSubmit={handleBooking} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 space-y-3">
-                <label htmlFor="sd-booking-name" className="sr-only">
-                  {lang === "uz" ? "Ismingiz" : lang === "ru" ? "Ваше имя" : "Your name"}
-                </label>
-                <input
-                  id="sd-booking-name"
-                  name="name"
-                  autoComplete="name"
-                  type="text"
-                  placeholder={lang === "uz" ? "Ismingiz" : lang === "ru" ? "Ваше имя" : "Your name"}
-                  value={bookingForm.name}
-                  onChange={(e) => setBookingForm((p) => ({ ...p, name: e.target.value }))}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-white text-slate-800 font-medium text-sm outline-none focus:ring-2 focus:ring-[#fd1616]"
-                />
-                <label htmlFor="sd-booking-phone" className="sr-only">
-                  {lang === "uz" ? "Telefon raqamingiz" : lang === "ru" ? "Номер телефона" : "Phone number"}
-                </label>
-                <input
-                  id="sd-booking-phone"
-                  name="tel"
-                  autoComplete="tel"
-                  type="tel"
-                  placeholder={lang === "uz" ? "Telefon raqamingiz" : lang === "ru" ? "Номер телефона" : "Phone number"}
-                  value={bookingForm.phone}
-                  onChange={(e) => setBookingForm((p) => ({ ...p, phone: e.target.value }))}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-white text-slate-800 font-medium text-sm outline-none focus:ring-2 focus:ring-[#fd1616]"
-                />
-                <label htmlFor="sd-booking-notes" className="sr-only">
-                  {lang === "uz" ? "Qo'shimcha savol yoki qulay vaqt" : lang === "ru" ? "Вопрос или удобное время" : "Notes or preferred time"}
-                </label>
-                <textarea
-                  id="sd-booking-notes"
-                  name="notes"
-                  placeholder={lang === "uz" ? "Qo'shimcha savol yoki qulay vaqt" : lang === "ru" ? "Вопрос или удобное время" : "Notes or preferred time"}
-                  value={bookingForm.notes}
-                  onChange={(e) => setBookingForm((p) => ({ ...p, notes: e.target.value }))}
-                  rows={2}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white text-slate-800 font-medium text-sm outline-none focus:ring-2 focus:ring-[#fd1616] resize-none"
-                />
-                <button
-                  type="submit"
-                  className="btn-crimson w-full min-h-[48px] text-sm flex items-center justify-center gap-2"
-                >
-                  <span>{lang === "uz" ? "Bo'sh vaqtni tanlash" : lang === "ru" ? "Выбрать свободное время" : "Choose a free time"}</span>
-                </button>
-              </form>
-            </div>
+          {/* Dedicated Inline Booking Section */}
+          <div id="book">
+            <InlineBookingSection sectionId="uchrashuv-vaqti" initialService={specialty.slug} />
           </div>
 
           {/* Other Specialties navigation */}
@@ -1102,36 +1037,11 @@ const ServiceDetail = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {otherSpecialties.map((other) => {
                 const specialtyMedia = {
-                  ortopediya: {
-                    image: assets.heroSmile,
-                    icon: <IconVeneerTooth className="w-4 h-4 text-amber-600" />,
-                    badge: "XITOY · GERMANIYA · AVSTRALIYA",
-                    badgeBg: "bg-amber-50 text-amber-900 border-amber-200",
-                  },
-                  implantatsiya: {
-                    image: assets.treatmentImplant,
-                    icon: <IconDentalImplant className="w-4 h-4 text-sky-600" />,
-                    badge: "OSSTEM & STRAUMANN · UZOQ YILLAR",
-                    badgeBg: "bg-sky-50 text-sky-900 border-sky-200",
-                  },
-                  "tish-oqartirish": {
-                    image: assets.treatmentWhitening,
-                    icon: <IconCosmeticSmile className="w-4 h-4 text-blue-600" />,
-                    badge: "PHILIPS ZOOM® 4 · TABIIY OQLIK",
-                    badgeBg: "bg-blue-50 text-blue-900 border-blue-200",
-                  },
-                  "tish-davolash": {
-                    image: assets.clinicRoom,
-                    icon: <IconTherapeuticTooth className="w-4 h-4 text-teal-600" />,
-                    badge: "3M™ ESPE · 100% OG'RIQSIZ",
-                    badgeBg: "bg-teal-50 text-teal-900 border-teal-200",
-                  },
-                  xirurgiya: {
-                    image: assets.treatmentSurgery,
-                    icon: <IconSurgicalScalpel className="w-4 h-4 text-purple-600" />,
-                    badge: "PIEZOTOME® · 0 SHISH",
-                    badgeBg: "bg-purple-50 text-purple-900 border-purple-200",
-                  },
+                  ortopediya: { image: assets.heroSmile },
+                  implantatsiya: { image: assets.treatmentImplant },
+                  "tish-oqartirish": { image: assets.treatmentWhitening },
+                  "tish-davolash": { image: assets.clinicRoom },
+                  xirurgiya: { image: assets.treatmentSurgery },
                 };
                 const media = specialtyMedia[other.slug] || specialtyMedia["implantatsiya"];
 
@@ -1151,10 +1061,7 @@ const ServiceDetail = () => {
                           loading="lazy"
                         />
                         <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
-                          <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] font-black border shadow-xs ${media.badgeBg}`}>
-                            {media.icon}
-                            <span>{media.badge}</span>
-                          </span>
+                          <DentalSticker type={other.slug} lang={lang} />
                         </div>
                       </div>
 

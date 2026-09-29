@@ -13,6 +13,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
 import StickersShowcase from "./pages/StickersShowcase";
 import NotFound from "./pages/NotFound";
 import FloatingActionHub from "./components/FloatingActionHub";
@@ -79,12 +80,13 @@ const AppShell = () => {
             const at = (path) =>
               code === DEFAULT_LANG ? path : `/${code}${path === "/" ? "" : path}`;
             return [
-              <Route key={`${code}-home`} path={at("/")} element={<Home onOpenBooking={openBooking} />} />,
-              <Route key={`${code}-about`} path={at("/about")} element={<About onOpenBooking={openBooking} />} />,
-              <Route key={`${code}-services`} path={at("/services")} element={<Services onOpenBooking={openBooking} />} />,
-              <Route key={`${code}-detail`} path={at("/services/:slug")} element={<ServiceDetail />} />,
-              <Route key={`${code}-gallery`} path={at("/gallery")} element={<Gallery onOpenBooking={openBooking} />} />,
-              <Route key={`${code}-contact`} path={at("/contact")} element={<Contact />} />,
+              <Route key={`${code}-home`}     path={at("/")}               element={<Home onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-about`}    path={at("/about")}          element={<About onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-services`} path={at("/services")}       element={<Services onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-detail`}   path={at("/services/:slug")} element={<ServiceDetail />} />,
+              <Route key={`${code}-gallery`}  path={at("/gallery")}        element={<Gallery onOpenBooking={openBooking} />} />,
+              <Route key={`${code}-booking`}  path={at("/qabul")}          element={<Booking />} />,
+              <Route key={`${code}-contact`}  path={at("/contact")}        element={<Contact />} />,
             ];
           })}
           <Route path="/stickers-preview" element={<StickersShowcase />} />

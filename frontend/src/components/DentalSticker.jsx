@@ -1,56 +1,56 @@
 import React from "react";
 
-/* ─── INTERNATIONAL CLINICAL TECHNOLOGY BADGES (GERMANIYA, ROSSIYA, KOREYA, YAPONIYA) ── */
+/* ─── CLASSIC, PROFESSIONAL CLINICAL SPECIALTY BADGES ────────────────────── */
 const STICKER_CONFIGS = {
   ortopediya: {
-    uz: "Karonkalar: Xitoy · Germaniya · Avstraliya",
-    ru: "Коронки: Китай · Германия · Австралия",
-    en: "Crowns: China · Germany · Australia",
+    uz: "Ortopedik Stomatologiya",
+    ru: "Ортопедическая стоматология",
+    en: "Prosthodontics",
   },
   implantatsiya: {
-    uz: "Biotitan Implant · Koreya",
-    ru: "Имплантация · Южная Корея",
-    en: "Implantation · South Korea",
+    uz: "Dental Implantologiya",
+    ru: "Дентальная имплантация",
+    en: "Dental Implantology",
   },
   "tish-oqartirish": {
-    uz: "Philips ZOOM® 4 · AQSH",
-    ru: "ZOOM® 4 · США",
-    en: "Philips ZOOM® 4 · USA",
+    uz: "Estetik Stomatologiya",
+    ru: "Эстетическая стоматология",
+    en: "Esthetic Dentistry",
   },
   "tish-davolash": {
-    uz: "Germaniya · Yaponiya · Koreya · Rossiya Plombalari",
-    ru: "Пломбы: Германия · Япония · Корея · Россия",
-    en: "Fillings: Germany · Japan · Korea · Russia",
+    uz: "Terapevtik Davolash",
+    ru: "Терапевтическое лечение",
+    en: "Restorative Care",
   },
   xirurgiya: {
-    uz: "Atravmatik Jarrohlik",
-    ru: "Атравматичное Удаление",
-    en: "Atraumatic Extraction",
+    uz: "Jarrohlik Stomatologiyasi",
+    ru: "Хирургическая стоматология",
+    en: "Oral Surgery",
   },
   japan_nano: {
-    uz: "Nano-Restavratsiya · Yaponiya",
-    ru: "Нано-Реставрация · Япония",
-    en: "Nano-Restoration · Japan",
+    uz: "Badiiy Restavratsiya",
+    ru: "Художественная реставрация",
+    en: "Artistic Restoration",
   },
   russia_endo: {
-    uz: "Klinik Endodontiya · Rossiya",
-    ru: "Эндодонтия · Россия",
-    en: "Endodontics · Russia",
+    uz: "Klinik Endodontiya",
+    ru: "Клиническая эндодонтия",
+    en: "Clinical Endodontics",
   },
   hygiene: {
-    uz: "Profilaktik Ko'rik & Airflow",
-    ru: "Проф. Осмотр & Airflow",
-    en: "Check-up & Airflow",
+    uz: "Profilaktik Ko'rik",
+    ru: "Профилактический осмотр",
+    en: "Preventive Check-up",
   },
   clinic_women: {
-    uz: "100% Maxfiy Ayollar Xonasi",
-    ru: "100% Женский Кабинет",
-    en: "100% Private Women Suite",
+    uz: "Maxfiy Ayollar Kabineti",
+    ru: "Приватный женский кабинет",
+    en: "Private Women's Suite",
   },
 };
 
 /**
- * Clean, discreet, medical-grade technology badge.
+ * Simple, classic, professional medical badge.
  */
 export const DentalSticker = ({
   type = "ortopediya",
@@ -62,9 +62,9 @@ export const DentalSticker = ({
 
   return (
     <div
-      className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/85 backdrop-blur-md border border-white/20 text-white text-[11px] font-semibold tracking-wide shadow-md select-none ${className}`}
+      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm border border-slate-200/90 text-slate-800 text-[11px] font-semibold tracking-wide shadow-xs select-none ${className}`}
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#930b0b] shrink-0" />
       <span>{label}</span>
     </div>
   );

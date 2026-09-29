@@ -31,11 +31,12 @@ const Nav = ({ onOpenBooking }) => {
   }, [showMenu]);
 
   const navItems = [
-    { name: { uz: "Bosh sahifa", ru: "Главная", en: "Home" }[lang], path: "/", exact: true },
-    { name: { uz: "Xizmatlar", ru: "Услуги", en: "Services" }[lang], path: "/services" },
+    { name: { uz: "Bosh sahifa", ru: "Главная",     en: "Home"        }[lang], path: "/" , exact: true },
+    { name: { uz: "Xizmatlar",  ru: "Услуги",       en: "Services"    }[lang], path: "/services" },
     { name: { uz: "Dr. Munojat haqida", ru: "О докторе", en: "About Dr." }[lang], path: "/about" },
-    { name: { uz: "Natijalar", ru: "Результаты", en: "Results" }[lang], path: "/gallery" },
-    { name: { uz: "Aloqa", ru: "Контакты", en: "Contact" }[lang], path: "/contact" },
+    { name: { uz: "Natijalar",  ru: "Результаты",   en: "Results"     }[lang], path: "/gallery" },
+    { name: { uz: "Aloqa",      ru: "Контакты",     en: "Contact"     }[lang], path: "/contact" },
+    { name: { uz: "Qabul yozilish", ru: "Запись",   en: "Book"        }[lang], path: "/qabul", highlight: true },
   ];
 
   return (
