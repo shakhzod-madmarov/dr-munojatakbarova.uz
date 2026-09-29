@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { IconSparkleStar, IconShieldCheck, IconCheckCircle, IconPhone } from "./MedicalIcons";
 import { useBooking } from "../context/BookingContext";
+import { formatUzPhone, PHONE_PLACEHOLDER, handleUzPhonePaste } from "../utils/phone";
 
 /* The concern the patient picked decides which service the booking form
    opens on, so the recommendation carries through to the appointment. */
@@ -230,11 +231,14 @@ const SmileAssessmentWizard = () => {
                   <input
                     id="wizard-phone"
                     name="tel"
+                    inputMode="tel"
                     autoComplete="tel"
                     type="tel"
-                    placeholder={lang === "uz" ? "Telefoningiz (+998 90 ...)" : "Номер телефона"}
+                    maxLength={19}
+                    placeholder={PHONE_PLACEHOLDER}
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setPhone(formatUzPhone(e.target.value, phone))}
+                    onPaste={(e) => handleUzPhonePaste(e, setPhone)}
                     required
                     className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#fd1616]"
                   />

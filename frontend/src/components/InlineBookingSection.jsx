@@ -15,6 +15,12 @@ import {
   submitDentistBooking,
   buildWorkingHoursSchedule,
 } from "../lib/medinsonBooking";
+import {
+  formatUzPhone,
+  PHONE_PLACEHOLDER,
+  isUzPhoneComplete,
+  handleUzPhonePaste,
+} from "../utils/phone";
 
 /* ── Helpers ─────────────────────────────────────────────────────────── */
 
@@ -241,9 +247,10 @@ const InlineBookingSection = ({
       : CLASSIC_SERVICES[0].id,
   );
   const [name, setName] = useState(initialName || "");
-  const [phone, setPhone] = useState(initialPhone || "");
+  const [phone, setPhone] = useState(initialPhone ? formatUzPhone(initialPhone) : "");
   const [dob, setDob] = useState("");
   const [note, setNote] = useState(initialNote || "");
+  const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -258,7 +265,7 @@ const InlineBookingSection = ({
 
   useEffect(() => {
     if (initialName) setName(initialName);
-    if (initialPhone) setPhone(initialPhone);
+    if (initialPhone) setPhone(formatUzPhone(initialPhone));
     if (initialNote) setNote(initialNote);
   }, [initialName, initialPhone, initialNote]);
 
@@ -284,7 +291,7 @@ const InlineBookingSection = ({
         setService(detail.service);
       }
       if (detail.name) setName(detail.name);
-      if (detail.phone) setPhone(detail.phone);
+      if (detail.phone) setPhone(formatUzPhone(detail.phone));
       if (detail.note) setNote(detail.note);
     };
     window.addEventListener("medinson-prefill-booking", onPrefill);
@@ -335,21 +342,45 @@ const InlineBookingSection = ({
     liveMeta?.dentist?.address ||
     "Darxon MFY, Xalqlar Do'stligi 931, Andijon";
 
-  const canSubmit = Boolean(
-    name.trim().length >= 2 &&
-      phone.replace(/\D/g, "").length >= 9 &&
-      selectedDate &&
-      selectedTime,
-  );
+  const handlePhoneChange = (e) => {
+    const formatted = formatUzPhone(e.target.value, phone);
+    setPhone(formatted);
+    if (errors.phone && isUzPhoneComplete(formatted)) {
+      setErrors((prev) => ({ ...prev, phone: "" }));
+    }
+  };
+
+  const handlePhoneBlur = () => {
+    if (phone.trim() && !isUzPhoneComplete(phone)) {
+      setErrors((prev) => ({
+        ...prev,
+        phone:
+          lang === "uz"
+            ? "Telefon formati noto‘g‘ri. Masalan: +998 (94) 106-15-55"
+            : lang === "ru"
+              ? "Неверный формат. Например: +998 (94) 106-15-55"
+              : "Invalid format. Example: +998 (94) 106-15-55",
+      }));
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name.trim().length < 2 || !phone.trim()) {
-      toast.error(t.needName);
-      return;
+    const nextErrors = {};
+    if (name.trim().length < 2) {
+      nextErrors.name = t.needName;
     }
-    if (phone.replace(/\D/g, "").length < 9) {
-      toast.error(t.invalidPhone);
+    if (!phone.trim() || !isUzPhoneComplete(phone)) {
+      nextErrors.phone =
+        lang === "uz"
+          ? "Telefon formati noto‘g‘ri. Masalan: +998 (94) 106-15-55"
+          : lang === "ru"
+            ? "Неверный формат. Например: +998 (94) 106-15-55"
+            : "Invalid format. Example: +998 (94) 106-15-55";
+    }
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      toast.error(nextErrors.name || nextErrors.phone);
       return;
     }
     if (!selectedDate || !selectedTime) {
@@ -412,6 +443,7 @@ const InlineBookingSection = ({
     setPhone("");
     setDob("");
     setNote("");
+    setErrors({});
   };
 
   return (
@@ -632,7 +664,7 @@ const InlineBookingSection = ({
           </div>
 
           {/* 4. Patient Form Fields */}
-          <div className="pt-2 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+          <div className="pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left items-start">
             <div>
               <label
                 htmlFor={`${sectionId}-name`}
@@ -647,10 +679,22 @@ const InlineBookingSection = ({
                 autoComplete="name"
                 placeholder={t.namePlaceholder}
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  if (errors.name && e.target.value.trim().length >= 2) {
+                    setErrors((prev) => ({ ...prev, name: "" }));
+                  }
+                }}
                 required
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#930b0b] focus:outline-none text-sm text-slate-900 placeholder:text-slate-400 bg-white transition-colors"
+                className={`w-full h-[50px] px-4 rounded-2xl border text-sm text-slate-800 placeholder:text-slate-400 bg-white outline-none transition ${
+                  errors.name
+                    ? "border-red-500 ring-2 ring-red-500/10"
+                    : "border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10"
+                }`}
               />
+              {errors.name && (
+                <p className="mt-1 text-xs text-red-600 font-semibold">{errors.name}</p>
+              )}
             </div>
 
             <div>
@@ -664,13 +708,24 @@ const InlineBookingSection = ({
                 id={`${sectionId}-phone`}
                 name="phone"
                 type="tel"
+                inputMode="tel"
                 autoComplete="tel"
-                placeholder={t.phonePlaceholder}
+                maxLength={19}
+                placeholder={PHONE_PLACEHOLDER}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={handlePhoneChange}
+                onBlur={handlePhoneBlur}
+                onPaste={(e) => handleUzPhonePaste(e, setPhone)}
                 required
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#930b0b] focus:outline-none text-sm text-slate-900 placeholder:text-slate-400 bg-white transition-colors"
+                className={`w-full h-[50px] px-4 rounded-2xl border text-sm font-medium tracking-wide text-slate-800 placeholder:text-slate-400 bg-white outline-none transition ${
+                  errors.phone
+                    ? "border-red-500 ring-2 ring-red-500/10"
+                    : "border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10"
+                }`}
               />
+              {errors.phone && (
+                <p className="mt-1 text-xs text-red-600 font-semibold">{errors.phone}</p>
+              )}
             </div>
 
             {!compact && (
@@ -690,7 +745,7 @@ const InlineBookingSection = ({
                   max={todayYmd()}
                   value={dob}
                   onChange={(e) => setDob(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#930b0b] focus:outline-none text-sm text-slate-900 bg-white transition-colors"
+                  className="w-full h-[50px] px-4 rounded-2xl border border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10 outline-none text-sm text-slate-800 bg-white transition"
                 />
                 <p className="mt-1 text-[11px] text-slate-400">{t.dobHint}</p>
               </div>
@@ -704,15 +759,15 @@ const InlineBookingSection = ({
                 {t.noteLabel}{" "}
                 <span className="font-normal text-slate-400">({t.optional})</span>
               </label>
-              <textarea
+              <input
                 id={`${sectionId}-note`}
                 name="note"
-                rows={2}
+                type="text"
                 maxLength={500}
                 placeholder={t.notePlaceholder}
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#930b0b] focus:outline-none text-sm text-slate-900 placeholder:text-slate-400 bg-white resize-none transition-colors"
+                className="w-full h-[50px] px-4 rounded-2xl border border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10 outline-none text-sm text-slate-800 placeholder:text-slate-400 bg-white transition"
               />
             </div>
           </div>
@@ -741,8 +796,8 @@ const InlineBookingSection = ({
 
             <button
               type="submit"
-              disabled={isSubmitting || !canSubmit}
-              className="w-full sm:w-auto min-h-[48px] px-8 py-3 rounded-xl bg-[#930b0b] hover:bg-[#7a0909] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto min-h-[48px] px-8 py-3 rounded-xl bg-[#930b0b] hover:bg-[#7a0909] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {isSubmitting ? (
                 <>
