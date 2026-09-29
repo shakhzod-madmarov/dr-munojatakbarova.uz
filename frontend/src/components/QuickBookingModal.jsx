@@ -11,8 +11,8 @@ import {
 import { useModalA11y } from "../hooks/useModalA11y";
 import { getA11yLabels } from "../constants/a11yLabels";
 import { DOCTOR_INFO } from "../constants/doctor";
-import { availabilityUrl, requestUrl, BOOKING_TIMEOUT_MS } from "../constants/booking";
-import { canSeal, makeLinkToken, hashLinkToken, sealBookingDetails } from "../utils/sealBooking";
+import { availabilityUrl, BOOKING_TIMEOUT_MS } from "../constants/booking";
+import { submitDentistBooking } from "../lib/medinsonBooking";
 
 /* ─── Constants ──────────────────────────────────────────────────── */
 
@@ -81,9 +81,9 @@ const TEXT = {
     needDob: "Iltimos, tug'ilgan sanangizni kiriting",
     invalidPhone: "Iltimos, to'liq telefon raqamingizni kiriting (kamida 9 ta raqam)",
     notePlaceholder: "Izoh yoki shikoyat (ixtiyoriy)",
-    botTitle: "Eslatma olish uchun botga ulaning",
-    botBody: "QR kodni telefoningiz kamerasi bilan skanerlang yoki tugmani bosing. Shundan keyin qabul haqida eslatmalar Telegramga keladi.",
-    botOpen: "Telegramda ochish",
+    botTitle: "📲 Telegram eslatmani yoqing",
+    botBody: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
+    botOpen: "Telegram botga ulanish ↗",
   },
   ru: {
     badge: "MEDINSON · БЫСТРАЯ ЗАПИСЬ",
@@ -122,9 +122,9 @@ const TEXT = {
     needDob: "Пожалуйста, укажите дату рождения",
     invalidPhone: "Пожалуйста, введите полный номер телефона (минимум 9 цифр)",
     notePlaceholder: "Комментарий или жалоба (необязательно)",
-    botTitle: "Подключитесь к боту для напоминаний",
-    botBody: "Отсканируйте QR-код камерой телефона или нажмите кнопку. После этого напоминания о приёме придут в Telegram.",
-    botOpen: "Открыть в Telegram",
+    botTitle: "📲 Включите напоминания в Telegram",
+    botBody: "Нажмите кнопку ниже и нажмите START в боте — и напоминания о приёме будут приходить автоматически в Telegram.",
+    botOpen: "Подключиться к Telegram боту ↗",
   },
   en: {
     badge: "MEDINSON · QUICK BOOKING",
@@ -159,13 +159,13 @@ const TEXT = {
     close: "Close",
     callUs: "Or call:",
     dobPlaceholder: "Date of birth",
-    dobHint: "So the clinic finds the right record for you",
+    dobHint: "Helps the clinic distinguish family members sharing one phone number",
     needDob: "Please enter your date of birth",
     invalidPhone: "Please enter a valid phone number (at least 9 digits)",
-    notePlaceholder: "Note or symptom (optional)",
-    botTitle: "Connect to the bot for reminders",
-    botBody: "Scan the QR code with your phone camera, or tap the button. Appointment reminders will then arrive on Telegram.",
-    botOpen: "Open in Telegram",
+    notePlaceholder: "Note or complaint (optional)",
+    botTitle: "📲 Enable Telegram reminders",
+    botBody: "Tap the button below and press START in the bot to receive automatic reminders when your appointment is approaching.",
+    botOpen: "Connect to Telegram bot ↗",
   },
 };
 
@@ -346,10 +346,6 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
       toast.error(t.invalidPhone);
       return;
     }
-    if (!dob.trim()) {
-      toast.error(t.needDob);
-      return;
-    }
     if (!selectedDate || !selectedTime) {
       toast.error(t.needTime);
       return;
@@ -357,74 +353,44 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
 
     setIsSubmitting(true);
     try {
-      const details = {
+      const result = await submitDentistBooking({
+        date: selectedDate,
+        time: selectedTime,
         name: name.trim(),
         phone: phone.trim(),
-        dob: dob.trim(),
+        dob: dob.trim(),   // optional — sent when present
         note: buildNote(serviceLabel, note),
-      };
-
-      /* A one-time secret the clinic's app will register against this patient,
-         so the code shown afterwards connects them to the right record. */
-      const linkToken = clinicKey && canSeal() ? makeLinkToken() : "";
-      const linkTokenHash = linkToken ? await hashLinkToken(linkToken) : "";
-
-      /* Sealed in this browser when the clinic published a key, so the server
-         in between stores bytes it cannot read. Sent plainly only when that is
-         impossible - an older clinic app, or a browser without WebCrypto -
-         because refusing the booking would help nobody. */
-      const payload = linkToken
-        ? {
-            sealed: await sealBookingDetails({ ...details, linkToken }, clinicKey),
-            ...(linkTokenHash ? { linkTokenHash } : {}),
-          }
-        : details;
-
-      const res = await fetch(requestUrl(), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        signal: AbortSignal.timeout(BOOKING_TIMEOUT_MS),
-        body: JSON.stringify({
-          date: selectedDate,
-          time: selectedTime,
-          ...payload,
-          source: window.location.hostname,
-        }),
       });
 
-      if (res.status === 201) {
-        if (linkToken && botUsername) {
-          const link = `https://t.me/${botUsername}?start=${linkToken}`;
-          setBotLink(link);
-          /* Loaded only once a booking succeeds, so the library never costs
-             anybody who is just looking at the times. */
-          import("qrcode")
-            .then((mod) => (mod.default || mod).toDataURL(link, { margin: 2, width: 220 }))
-            .then(setBotQr)
-            .catch(() => setBotQr(""));
-        }
-        setIsSuccess(true);
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.55 },
-          colors: ["#ffd700", "#fd1616", "#229ed9", "#10b981", "#ffffff"],
-        });
-        return;
+      /* Wire up the Telegram bot deep-link from the lib's return value */
+      if (result.telegramUrl) {
+        setBotLink(result.telegramUrl);
+        /* Lazy-load QR only after a successful booking */
+        import("qrcode")
+          .then((mod) => (mod.default || mod).toDataURL(result.telegramUrl, { margin: 2, width: 220 }))
+          .then(setBotQr)
+          .catch(() => setBotQr(""));
       }
 
-      /* 409 means somebody else took this time between loading the form and
-         submitting it. Reload so the patient picks from what is still free. */
-      if (res.status === 409) {
+      setIsSuccess(true);
+      /* Re-fetch so the booked slot disappears from the UI immediately */
+      reloadAvailability();
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.55 },
+        colors: ["#ffd700", "#fd1616", "#229ed9", "#10b981", "#ffffff"],
+      });
+    } catch (err) {
+      if (err?.status === 409) {
         toast.error(t.taken);
         setSelectedTime("");
         await reloadAvailability();
-        return;
+      } else if (err?.status === 429) {
+        toast.error(t.tooMany);
+      } else {
+        toast.error(t.failed);
       }
-
-      toast.error(res.status === 429 ? t.tooMany : t.failed);
-    } catch {
-      toast.error(t.failed);
     } finally {
       setIsSubmitting(false);
     }
@@ -433,7 +399,6 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
   const canSubmit = Boolean(
     name.trim().length >= 2 &&
     phone.replace(/\D/g, "").length >= 9 &&
-    dob.trim() &&
     selectedDate &&
     selectedTime,
   );
@@ -724,9 +689,10 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
 
                 {/* ── Patient details ────────────────────────────── */}
                 <div className="space-y-3">
+                  {/* Full Name */}
                   <div>
-                    <label htmlFor="bk-name" className="sr-only">
-                      {t.namePlaceholder}
+                    <label htmlFor="bk-name" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      {lang === "uz" ? "Ism va familiya" : lang === "ru" ? "Имя и фамилия" : "Full name"}
                     </label>
                     <input
                       id="bk-name"
@@ -740,9 +706,10 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                       className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
+                  {/* Phone */}
                   <div>
-                    <label htmlFor="bk-phone" className="sr-only">
-                      {t.phonePlaceholder}
+                    <label htmlFor="bk-phone" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      {lang === "uz" ? "Telefon raqami" : lang === "ru" ? "Номер телефона" : "Phone number"}
                     </label>
                     <input
                       id="bk-phone"
@@ -756,9 +723,11 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                       className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
+                  {/* Date of birth — optional, helps clinic distinguish family members */}
                   <div>
                     <label htmlFor="bk-dob" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      {t.dobPlaceholder}
+                      {lang === "uz" ? "Tug'ilgan sana" : lang === "ru" ? "Дата рождения" : "Date of birth"}
+                      <span className="ml-1.5 normal-case font-normal text-slate-400">({lang === "uz" ? "ixtiyoriy" : lang === "ru" ? "необязательно" : "optional"})</span>
                     </label>
                     <input
                       id="bk-dob"
@@ -768,25 +737,26 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                       max={todayYmd()}
                       value={dob}
                       onChange={(e) => setDob(e.target.value)}
-                      required
                       aria-describedby="bk-dob-hint"
                       className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900"
                     />
                     <p id="bk-dob-hint" className="mt-1 text-[10px] text-slate-400">{t.dobHint}</p>
                   </div>
+                  {/* Note / complaint — optional */}
                   <div>
-                    <label htmlFor="bk-note" className="sr-only">
-                      {t.notePlaceholder}
+                    <label htmlFor="bk-note" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      {lang === "uz" ? "Shikoyat yoki izoh" : lang === "ru" ? "Жалоба или комментарий" : "Note / Complaint"}
+                      <span className="ml-1.5 normal-case font-normal text-slate-400">({lang === "uz" ? "ixtiyoriy" : lang === "ru" ? "необязательно" : "optional"})</span>
                     </label>
-                    <input
+                    <textarea
                       id="bk-note"
                       name="note"
-                      type="text"
-                      maxLength={240}
+                      rows={3}
+                      maxLength={500}
                       placeholder={t.notePlaceholder}
                       value={note}
                       onChange={(e) => setNote(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400 resize-none"
                     />
                   </div>
                 </div>
