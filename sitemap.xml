@@ -403,6 +403,39 @@
   </url>
 
   <url>
+    <loc>https://drmunojat.uz/qabul/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/qabul/"/>
+  </url>
+
+  <url>
+    <loc>https://drmunojat.uz/ru/qabul/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/qabul/"/>
+  </url>
+
+  <url>
+    <loc>https://drmunojat.uz/en/qabul/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/qabul/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/qabul/"/>
+  </url>
+
+  <url>
     <loc>https://drmunojat.uz/contact/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
