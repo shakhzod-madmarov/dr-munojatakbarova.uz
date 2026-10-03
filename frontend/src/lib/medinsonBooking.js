@@ -286,10 +286,23 @@ export async function submitDentistBooking({
     linkTokenHash = await sha256Hex(linkToken);
   }
 
+  const cleanDob = (function normalizeIncomingDob(val) {
+    const s = String(val || "").trim();
+    if (!s) return "";
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+    const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+    if (m) {
+      return `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+    }
+    return s;
+  })(dob);
+
   const details = {
     name: String(name || "").trim(),
     phone: String(phone || "").trim(),
-    dob: String(dob || "").trim(),
+    dob: cleanDob,
+    DOB: cleanDob,
+    birthDate: cleanDob,
     note: String(note || "").trim(),
     linkToken,
   };
@@ -314,7 +327,10 @@ export async function submitDentistBooking({
   } else {
     payload.name = details.name;
     payload.phone = details.phone;
-    if (details.dob) payload.dob = details.dob;
+    if (cleanDob) {
+      payload.dob = cleanDob;
+      payload.DOB = cleanDob;
+    }
     if (details.note) payload.note = details.note;
   }
 

@@ -21,6 +21,12 @@ import {
   isUzPhoneComplete,
   handleUzPhonePaste,
 } from "../utils/phone";
+import {
+  formatDmyInput,
+  getDmyValidationError,
+  handleDmyPaste,
+  DMY_PLACEHOLDER,
+} from "../utils/date";
 
 /* ── Helpers ─────────────────────────────────────────────────────────── */
 
@@ -115,6 +121,7 @@ const TEXT = {
     noteLabel: "Shikoyat yoki izoh",
     namePlaceholder: "Masalan: Malika Yusupova",
     phonePlaceholder: "+998 90 123 45 67",
+    dobPlaceholder: "KK.OO.YYYY (kun.oy.yil)",
     notePlaceholder: "Tish og'rig'i, plomba, karonka yoki implant bo'yicha murojaat...",
     submit: "Tasdiqlash va Yozilish",
     submitting: "Yuborilmoqda...",
@@ -156,6 +163,7 @@ const TEXT = {
     noteLabel: "Жалоба или комментарий",
     namePlaceholder: "Например: Малика Юсупова",
     phonePlaceholder: "+998 90 123 45 67",
+    dobPlaceholder: "ДД.ММ.ГГГГ (день.месяц.год)",
     notePlaceholder: "Зубная боль, пломба, коронка или консультация по имплантации...",
     submit: "Подтвердить запись",
     submitting: "Отправка...",
@@ -197,6 +205,7 @@ const TEXT = {
     noteLabel: "Note or symptom",
     namePlaceholder: "e.g. Malika Yusupova",
     phonePlaceholder: "+998 90 123 45 67",
+    dobPlaceholder: "DD.MM.YYYY (day.month.year)",
     notePlaceholder: "Toothache, filling, crown, or implant consultation...",
     submit: "Confirm Appointment",
     submitting: "Submitting...",
@@ -364,6 +373,27 @@ const InlineBookingSection = ({
     }
   };
 
+  const handleDobChange = (e) => {
+    const formatted = formatDmyInput(e.target.value, dob);
+    setDob(formatted);
+    if (errors.dob) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.dob;
+        return next;
+      });
+    }
+  };
+
+  const handleDobBlur = () => {
+    if (dob.trim()) {
+      const err = getDmyValidationError(dob, lang);
+      if (err) {
+        setErrors((prev) => ({ ...prev, dob: err }));
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const nextErrors = {};
@@ -378,9 +408,15 @@ const InlineBookingSection = ({
             ? "Неверный формат. Например: +998 (94) 106-15-55"
             : "Invalid format. Example: +998 (94) 106-15-55";
     }
+    if (dob.trim()) {
+      const dobErr = getDmyValidationError(dob, lang);
+      if (dobErr) {
+        nextErrors.dob = dobErr;
+      }
+    }
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
-      toast.error(nextErrors.name || nextErrors.phone);
+      toast.error(nextErrors.name || nextErrors.phone || nextErrors.dob);
       return;
     }
     if (!selectedDate || !selectedTime) {
@@ -737,17 +773,34 @@ const InlineBookingSection = ({
                   {t.dobLabel}{" "}
                   <span className="font-normal text-slate-400">({t.optional})</span>
                 </label>
-                <input
-                  id={`${sectionId}-dob`}
-                  name="bday"
-                  type="date"
-                  autoComplete="bday"
-                  max={todayYmd()}
-                  value={dob}
-                  onChange={(e) => setDob(e.target.value)}
-                  className="w-full h-[50px] px-4 rounded-2xl border border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10 outline-none text-sm text-slate-800 bg-white transition"
-                />
-                <p className="mt-1 text-[11px] text-slate-400">{t.dobHint}</p>
+                <div className="relative">
+                  <input
+                    id={`${sectionId}-dob`}
+                    name="bday"
+                    type="text"
+                    inputMode="numeric"
+                    autoComplete="bday"
+                    placeholder={t.dobPlaceholder || "KK.OO.YYYY"}
+                    value={dob}
+                    onChange={handleDobChange}
+                    onBlur={handleDobBlur}
+                    onPaste={(e) => handleDmyPaste(e, setDob)}
+                    maxLength={10}
+                    className={`w-full h-[50px] px-4 pr-24 rounded-2xl border text-sm font-medium tracking-wide text-slate-800 placeholder:text-slate-400 bg-white outline-none transition ${
+                      errors.dob
+                        ? "border-red-500 ring-2 ring-red-500/10"
+                        : "border-slate-200 focus:border-[#930b0b]/60 focus:ring-2 focus:ring-[#930b0b]/10"
+                    }`}
+                  />
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400 pointer-events-none select-none">
+                    {lang === "ru" ? "ДД.ММ.ГГГГ" : lang === "en" ? "DD.MM.YYYY" : "KK.OO.YYYY"}
+                  </span>
+                </div>
+                {errors.dob ? (
+                  <p className="mt-1 text-xs text-red-600 font-semibold">{errors.dob}</p>
+                ) : (
+                  <p className="mt-1 text-[11px] text-slate-400">{t.dobHint}</p>
+                )}
               </div>
             )}
 

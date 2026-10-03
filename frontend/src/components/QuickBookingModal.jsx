@@ -11,8 +11,19 @@ import {
 import { useModalA11y } from "../hooks/useModalA11y";
 import { getA11yLabels } from "../constants/a11yLabels";
 import { DOCTOR_INFO } from "../constants/doctor";
-import { availabilityUrl, BOOKING_TIMEOUT_MS } from "../constants/booking";
 import { submitDentistBooking } from "../lib/medinsonBooking";
+import {
+  formatUzPhone,
+  PHONE_PLACEHOLDER,
+  isUzPhoneComplete,
+  handleUzPhonePaste,
+} from "../utils/phone";
+import {
+  formatDmyInput,
+  getDmyValidationError,
+  handleDmyPaste,
+  DMY_PLACEHOLDER,
+} from "../utils/date";
 
 /* ─── Constants ──────────────────────────────────────────────────── */
 
@@ -342,9 +353,16 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
       toast.error(t.needName);
       return;
     }
-    if (phone.replace(/\D/g, "").length < 9) {
+    if (!isUzPhoneComplete(phone)) {
       toast.error(t.invalidPhone);
       return;
+    }
+    if (dob.trim()) {
+      const dobErr = getDmyValidationError(dob, lang);
+      if (dobErr) {
+        toast.error(dobErr);
+        return;
+      }
     }
     if (!selectedDate || !selectedTime) {
       toast.error(t.needTime);
@@ -398,7 +416,8 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
 
   const canSubmit = Boolean(
     name.trim().length >= 2 &&
-    phone.replace(/\D/g, "").length >= 9 &&
+    isUzPhoneComplete(phone) &&
+    (!dob.trim() || isValidDmy(dob)) &&
     selectedDate &&
     selectedTime,
   );
@@ -715,10 +734,13 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                       id="bk-phone"
                       name="phone"
                       type="tel"
+                      inputMode="tel"
                       autoComplete="tel"
-                      placeholder={t.phonePlaceholder}
+                      maxLength={19}
+                      placeholder={PHONE_PLACEHOLDER}
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => setPhone(formatUzPhone(e.target.value, phone))}
+                      onPaste={(e) => handleUzPhonePaste(e, setPhone)}
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
                     />
@@ -729,17 +751,25 @@ const BookingDialog = ({ onClose, initialService, initialName, initialPhone, ini
                       {lang === "uz" ? "Tug'ilgan sana" : lang === "ru" ? "Дата рождения" : "Date of birth"}
                       <span className="ml-1.5 normal-case font-normal text-slate-400">({lang === "uz" ? "ixtiyoriy" : lang === "ru" ? "необязательно" : "optional"})</span>
                     </label>
-                    <input
-                      id="bk-dob"
-                      name="bday"
-                      type="date"
-                      autoComplete="bday"
-                      max={todayYmd()}
-                      value={dob}
-                      onChange={(e) => setDob(e.target.value)}
-                      aria-describedby="bk-dob-hint"
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900"
-                    />
+                    <div className="relative">
+                      <input
+                        id="bk-dob"
+                        name="bday"
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="bday"
+                        placeholder={lang === "ru" ? "ДД.ММ.ГГГГ" : lang === "en" ? "DD.MM.YYYY" : "KK.OO.YYYY"}
+                        value={dob}
+                        onChange={(e) => setDob(formatDmyInput(e.target.value, dob))}
+                        onPaste={(e) => handleDmyPaste(e, setDob)}
+                        maxLength={10}
+                        aria-describedby="bk-dob-hint"
+                        className="w-full px-4 py-3 pr-24 rounded-xl border-2 border-slate-200 focus:border-[#fd1616] focus:outline-none text-xs font-semibold text-slate-900 placeholder:text-slate-400"
+                      />
+                      <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] font-bold text-slate-400 pointer-events-none select-none">
+                        {lang === "ru" ? "ДД.ММ.ГГГГ" : lang === "en" ? "DD.MM.YYYY" : "KK.OO.YYYY"}
+                      </span>
+                    </div>
                     <p id="bk-dob-hint" className="mt-1 text-[10px] text-slate-400">{t.dobHint}</p>
                   </div>
                   {/* Note / complaint — optional */}
