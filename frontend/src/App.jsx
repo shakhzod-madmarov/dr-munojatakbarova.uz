@@ -14,6 +14,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
+import FeedbackGate from "./pages/FeedbackGate";
 import StickersShowcase from "./pages/StickersShowcase";
 import NotFound from "./pages/NotFound";
 import FloatingActionHub from "./components/FloatingActionHub";
@@ -87,6 +88,7 @@ const AppShell = () => {
               <Route key={`${code}-gallery`}  path={at("/gallery")}        element={<Gallery onOpenBooking={openBooking} />} />,
               <Route key={`${code}-booking`}  path={at("/qabul")}          element={<Booking />} />,
               <Route key={`${code}-contact`}  path={at("/contact")}        element={<Contact />} />,
+              <Route key={`${code}-feedback`} path={at("/baho")}           element={<FeedbackGate />} />,
             ];
           })}
           <Route path="/stickers-preview" element={<StickersShowcase />} />

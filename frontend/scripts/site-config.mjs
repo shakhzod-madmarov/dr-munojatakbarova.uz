@@ -151,4 +151,11 @@ export const ROUTES = [
     priority: "0.85",
     hreflang: TRILINGUAL,
   },
+  {
+    path: "/baho",
+    lastmod: "2026-10-04",
+    changefreq: "monthly",
+    priority: "0.80",
+    hreflang: TRILINGUAL,
+  },
 ];
