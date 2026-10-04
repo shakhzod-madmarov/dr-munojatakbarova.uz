@@ -35,11 +35,12 @@ export const CLINICS = [
     region: { uz: "Andijon viloyati", ru: "Андижанская область", en: "Andijan Region" },
     country: "UZ",
 
-    /* REQUIRED and currently INCOMPLETE: this needs the actual street address.
-       "Andijon shahri" alone is not a postal address and will not match a map
-       listing. */
-    street: { uz: "", ru: "", en: "" },
-    postalCode: "",
+    street: {
+      uz: "Shabnam ko'chasi, 11",
+      ru: "улица Шабнам, 11",
+      en: "11 Shabnam Street",
+    },
+    postalCode: "170100",
 
     /* REQUIRED. Verified against the clinic's real map pin, not approximated. */
     geo: { lat: 40.754205, lng: 72.358426 },

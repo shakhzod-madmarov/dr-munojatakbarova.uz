@@ -223,7 +223,7 @@ const Nav = ({ onOpenBooking }) => {
             {/* Clinic Info Snippet */}
             <div className="pt-2 text-center text-xs text-slate-400 space-y-1 border-t border-slate-100">
               <p className="font-semibold text-slate-600">
-                {lang === "uz" ? "Andijon sh., Milliy Tiklanish ko'chasi" : lang === "ru" ? "г. Андижан, ул. Миллий Тикланиш" : "Andijan, Milliy Tiklanish street"}
+                {lang === "uz" ? "Andijon sh., Shabnam ko'chasi, 11" : lang === "ru" ? "г. Андижан, ул. Шабнам, 11" : "11 Shabnam Street, Andijan"}
               </p>
               <p className="text-[11px]">
                 {lang === "uz" ? "Har kuni: 08:30 – 18:00" : lang === "ru" ? "Ежедневно: 08:30 – 18:00" : "Daily: 08:30 – 18:00"}
