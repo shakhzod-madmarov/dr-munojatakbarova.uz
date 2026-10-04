@@ -17,7 +17,7 @@ const TEXT = {
   uz: {
     title: "Qabulingiz qanday o‘tdi?",
     subtitle: "Dr. Munojat Akbarova xizmati va yangi tabassumingizni baholang",
-    doctorRole: "Oliy toifali ayol stomatolog · Orzu Stoma Denta",
+    doctorRole: "Oliy toifali ayol stomatolog · Andijon",
     promptStar: "Baho berish uchun yulduzchalardan birini bosing:",
     ratings: {
       5: "A‘lo darajada! Juda mamnunman 😍",
@@ -29,8 +29,8 @@ const TEXT = {
     positiveTitle: "Katta rahmat! O‘z fikringizni qayerda qoldirmoqchisiz?",
     positiveBody:
       "Sizning 5 yulduzli iliq sharhingiz boshqa ayollarga ham ishonchli va og‘riqsiz ayol stomatologni topishda katta yordam beradi.",
-    googleBtn: "Google Xaritalarda baholash (5★)",
-    yandexBtn: "Yandex Xaritalarda baholash (5★)",
+    googleBtn: "Google'da Dr. Munojatni baholash (5★)",
+    yandexBtn: "Yandex'da Dr. Munojatni baholash (5★)",
     telegramBtn: "Shaxsiy minnatdorchilik (Telegram)",
     reviewTip:
       "💡 Maslahat: Sharhingizda 'Dr. Munojat', 'Ayol stomatolog' va qilingan muolajangizni (masalan: plomba, karonka, implant) eslatib o‘tsangiz, Google va Yandex tizimlari sharhingizni eng yuqoriga chiqaradi.",
@@ -50,7 +50,7 @@ const TEXT = {
   ru: {
     title: "Как прошёл ваш приём?",
     subtitle: "Оцените приём и новую улыбку у Д-р Мунаджат Акбаровой",
-    doctorRole: "Женский стоматолог высшей категории · Orzu Stoma Denta",
+    doctorRole: "Женский стоматолог высшей категории · Андижан",
     promptStar: "Нажмите на звёздочки, чтобы поставить оценку:",
     ratings: {
       5: "Отлично! Очень довольна 😍",
@@ -62,8 +62,8 @@ const TEXT = {
     positiveTitle: "Большое спасибо! Где вам удобнее оставить отзыв?",
     positiveBody:
       "Ваш отзыв на 5 звёзд поможет другим женщинам и девушкам найти надёжного и деликатного женского стоматолога.",
-    googleBtn: "Оценить в Google Maps (5★)",
-    yandexBtn: "Оценить в Яндекс Картах (5★)",
+    googleBtn: "Оценить Д-р Мунаджат в Google (5★)",
+    yandexBtn: "Оценить Д-р Мунаджат в Яндекс (5★)",
     telegramBtn: "Написать лично в Telegram",
     reviewTip:
       "💡 Подсказка: Если в отзыве вы упомянете «Д-р Мунаджат», «женский стоматолог» и вашу процедуру (пломба, коронка, имплант), поиск Google и Яндекс будет рекомендовать врача ещё выше.",
@@ -83,7 +83,7 @@ const TEXT = {
   en: {
     title: "How was your appointment?",
     subtitle: "Rate your experience and new smile with Dr. Munojat Akbarova",
-    doctorRole: "Leading Female Dentist · Orzu Stoma Denta",
+    doctorRole: "Leading Female Dentist · Andijan",
     promptStar: "Tap a star to share your rating:",
     ratings: {
       5: "Excellent! Completely satisfied 😍",
@@ -95,8 +95,8 @@ const TEXT = {
     positiveTitle: "Thank you so much! Where would you like to post your review?",
     positiveBody:
       "Your 5-star review helps other women find a gentle, trusted, and private female dentist.",
-    googleBtn: "Review on Google Maps (5★)",
-    yandexBtn: "Review on Yandex Maps (5★)",
+    googleBtn: "Rate Dr. Munojat on Google (5★)",
+    yandexBtn: "Rate Dr. Munojat on Yandex (5★)",
     telegramBtn: "Send a personal note via Telegram",
     reviewTip:
       "💡 Tip: Mentioning 'Dr. Munojat', 'Female dentist', and your procedure (e.g. filling, crown, implant) helps search engines recommend her at the top.",

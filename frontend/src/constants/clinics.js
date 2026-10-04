@@ -54,8 +54,8 @@ export const CLINICS = [
     hoursDisplay: OPENING_HOURS.display,
 
     maps: {
-      yandex: DOCTOR_INFO.yandexMaps,
-      google: DOCTOR_INFO.googleMaps,
+      yandex: DOCTOR_INFO.clinicYandexMaps,
+      google: DOCTOR_INFO.clinicGoogleMaps,
     },
 
     /* Which of her services are actually offered here. Slugs from

@@ -23,8 +23,17 @@ export const DOCTOR_INFO = {
   telegram: "https://t.me/dr_munojat",
   telegramHandle: "@dr_munojat",
   instagram: "https://www.instagram.com/dr_munojatakbarova/",
-  yandexMaps: "https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/",
-  googleMaps: "https://maps.google.com/?cid=4641379713526839793",
+  // Physical Clinic Building navigation
+  clinicYandexMaps: "https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/",
+  clinicGoogleMaps: "https://maps.google.com/?cid=4641379713526839793",
+
+  // Personal Doctor Business Profiles (Dr. Munojat Akbarova's verified personal profiles for patient reviews)
+  doctorYandexReviewUrl: "https://yandex.uz/maps/org/138661792687/",
+  doctorGoogleReviewUrl: "https://www.google.com/search?q=Dr.+Munojat+Akbarova+%E2%80%94+Ayol+Stomatolog+Andijon",
+
+  // Defaults used across the site
+  yandexMaps: "https://yandex.uz/maps/org/138661792687/",
+  googleMaps: "https://www.google.com/search?q=Dr.+Munojat+Akbarova+%E2%80%94+Ayol+Stomatolog+Andijon",
   coordinates: {
     lat: 40.754205,
     lng: 72.358426,
