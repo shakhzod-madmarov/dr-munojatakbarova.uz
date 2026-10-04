@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-Df1G2syO.js",
+    "file": "assets/index-xfjr1MZc.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -45,10 +45,10 @@
       "_rolldown-runtime-D7zIpOPY.js"
     ],
     "dynamicImports": [
-      "node_modules/qrcode/lib/browser.js"
+      "index.html"
     ],
     "css": [
-      "assets/index-aqf1Yppm.css"
+      "assets/index-CgYfk_VR.css"
     ],
     "assets": [
       "assets/logo-Cv2m4RxU.png",
@@ -64,12 +64,12 @@
     ]
   },
   "node_modules/qrcode/lib/browser.js": {
-    "file": "assets/browser-B19Dqh5D.js",
+    "file": "assets/browser-TBuj_NnU.js",
     "name": "browser",
     "src": "node_modules/qrcode/lib/browser.js",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-D7zIpOPY.js"
+      "index.html"
     ]
   },
   "src/assets/clinic_room.webp": {

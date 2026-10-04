@@ -468,4 +468,37 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/contact/"/>
   </url>
 
+  <url>
+    <loc>https://drmunojat.uz/baho/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/baho/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/baho/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/baho/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/baho/"/>
+  </url>
+
+  <url>
+    <loc>https://drmunojat.uz/ru/baho/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/baho/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/baho/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/baho/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/baho/"/>
+  </url>
+
+  <url>
+    <loc>https://drmunojat.uz/en/baho/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://drmunojat.uz/baho/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/baho/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/baho/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/baho/"/>
+  </url>
+
 </urlset>
