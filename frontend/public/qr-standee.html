@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Munojat Akbarova — QR Stend (Google & Yandex Sharh)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .no-print-bar {
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      background: #0f172a;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+      margin-bottom: 25px;
+    }
+    .print-btn {
+      background: linear-gradient(135deg, #930b0b, #fd1616);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .print-btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Stend Card (A4 / A5 proportions) */
+    .stand-card {
+      width: 100%;
+      max-width: 720px;
+      background: white;
+      border-radius: 28px;
+      padding: 40px 48px;
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stand-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #930b0b, #fd1616, #b45309, #fd1616, #930b0b);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: #fef2f2;
+      color: #930b0b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid #fecaca;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #1a0505;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .invite-box {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fde68a;
+      border-radius: 18px;
+      padding: 14px 20px;
+      margin-bottom: 30px;
+    }
+    .invite-stars {
+      color: #f59e0b;
+      font-size: 20px;
+      letter-spacing: 4px;
+      margin-bottom: 4px;
+    }
+    .invite-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 2px;
+    }
+    .invite-desc {
+      font-size: 12px;
+      color: #92400e;
+      font-weight: 600;
+    }
+
+    /* Dual QR Grid */
+    .qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .qr-box {
+      border: 2px solid #f1f5f9;
+      border-radius: 22px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .qr-box.google {
+      border-color: #dbeafe;
+      background: #f8faff;
+    }
+    .qr-box.yandex {
+      border-color: #fee2e2;
+      background: #fffafa;
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .platform-header.google { color: #1a73e8; }
+    .platform-header.yandex { color: #e11d48; }
+
+    .platform-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: white;
+      font-size: 13px;
+    }
+    .platform-icon.google { background: #1a73e8; }
+    .platform-icon.yandex { background: #fc3f1d; }
+
+    .qr-image-wrap {
+      width: 190px;
+      height: 190px;
+      background: white;
+      padding: 8px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      margin-bottom: 14px;
+    }
+    .qr-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-action {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .qr-sub {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* Footer NAP */
+    .stand-footer {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .stand-footer strong {
+      color: #1a0505;
+      font-weight: 800;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .stand-card {
+        box-shadow: none;
+        border: 1px solid #cbd5e1;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 30px 40px;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen-only print navigation bar -->
+  <div class="no-print-bar">
+    <span style="font-size: 13px; font-weight: 600;">🏥 Qabulxona va Ko'zgu uchun A4/A5 Akril Stend</span>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+      Chop etish (Print)
+    </button>
+  </div>
+
+  <!-- Main Standee Card -->
+  <div class="stand-card">
+    <div class="badge">Oliy Toifali Shifokor-Stomatolog · 12 Yillik Tajriba</div>
+    <h1>Dr. Munojat Akbarova</h1>
+    <p class="subtitle">Andijon shahri, Shabnam ko'chasi, 11 · Tel: +998 (94) 106-15-55</p>
+
+    <!-- Warm invitation -->
+    <div class="invite-box">
+      <div class="invite-stars">★★★★★</div>
+      <div class="invite-title">Fikringiz biz uchun juda qadrli! · Ваш отзыв важен для нас!</div>
+      <div class="invite-desc">Telefoningiz kamerasini QR-kodga qarating va 1 daqiqada 5★ baho qoldiring</div>
+    </div>
+
+    <!-- Dual QR Codes -->
+    <div class="qr-grid">
+      
+      <!-- Google Review Card -->
+      <div class="qr-box google">
+        <div class="platform-header google">
+          <span class="platform-icon google">G</span>
+          <span>Google Xaritalar</span>
+        </div>
+        <div class="qr-image-wrap">
+          <img src="/qr-google.png" alt="Google Review QR Code Dr. Munojat Akbarova">
+        </div>
+        <div class="qr-action">Google'da Baholash (5★)</div>
+        <div class="qr-sub">Оцените нас в Google Maps</div>
+      </div>
+
+      <!-- Yandex Review Card -->
+      <div class="qr-box yandex">
+        <div class="platform-header yandex">
+          <span class="platform-icon yandex">Я</span>
+          <span>Yandex Xaritalar</span>
+        </div>
+        <div class="qr-image-wrap">
+          <img src="/qr-yandex.png" alt="Yandex Review QR Code Dr. Munojat Akbarova">
+        </div>
+        <div class="qr-action">Yandex'da Baholash (5★)</div>
+        <div class="qr-sub">Оцените нас в Яндекс Картах</div>
+      </div>
+
+    </div>
+
+    <!-- Footer Information -->
+    <div class="stand-footer">
+      <div><strong>Manzil:</strong> Andijon sh., Shabnam ko'chasi, 11</div>
+      <div><strong>Rasmiy sayt:</strong> drmunojat.uz</div>
+      <div><strong>Telegram:</strong> @dr_munojat</div>
+    </div>
+  </div>
+
+</body>
+</html>
