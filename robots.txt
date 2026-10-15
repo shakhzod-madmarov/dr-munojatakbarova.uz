@@ -80,3 +80,7 @@ Allow: /
 # Sitemap
 Sitemap: https://drmunojat.uz/sitemap.xml
 
+# AI & LLM Discovery (https://llmstxt.org)
+# https://drmunojat.uz/llms.txt
+# https://drmunojat.uz/llms-full.txt
+
