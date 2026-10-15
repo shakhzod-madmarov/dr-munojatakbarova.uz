@@ -6,6 +6,7 @@ import {
   IconInstagram,
   IconLocationPin,
   IconClock,
+  IconGoogle,
 } from "./MedicalIcons";
 import { getA11yLabels } from "../constants/a11yLabels";
 
@@ -95,6 +96,20 @@ const FloatingActionHub = ({ onOpenBooking }) => {
             </span>
           </a>
 
+          {/* Google Maps: Dr. Munojat Akbarova */}
+          <a
+            href="https://g.page/r/CXp3o79wS1FnEBM"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Google Maps"
+            className="flex items-center gap-2.5 bg-blue-600 text-white px-4 py-2 rounded-full shadow-xl hover:scale-105 transition-all text-xs font-bold border border-white/20"
+          >
+            <span>Google {lang === "uz" ? "Xarita" : lang === "ru" ? "Карта" : "Maps"}</span>
+            <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+              <IconGoogle className="w-3.5 h-3.5 text-white" />
+            </span>
+          </a>
+
           {/* Yandex Maps: Dr. Munojat Akbarova */}
           <a
             href="https://yandex.uz/maps/org/138661792687/"
@@ -103,7 +118,7 @@ const FloatingActionHub = ({ onOpenBooking }) => {
             aria-label={a11y.yandexMap}
             className="flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2 rounded-full shadow-xl hover:scale-105 transition-all text-xs font-bold border border-white/20"
           >
-            <span>Yandex Xarita</span>
+            <span>Yandex {lang === "uz" ? "Xarita" : lang === "ru" ? "Карта" : "Maps"}</span>
             <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
               <IconLocationPin className="w-3.5 h-3.5 text-white" />
             </span>
