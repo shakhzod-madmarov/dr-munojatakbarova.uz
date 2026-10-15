@@ -39,19 +39,19 @@ export const servicesData = [
     color: "from-red-950 to-red-900",
     borderColor: "border-red-800",
     displayName: {
-      uz: "Implantatsiya",
-      ru: "Имплантация",
-      en: "Implantation",
+      uz: "Tish Implantatsiyasi (Ayol Implantolog)",
+      ru: "Имплантация Зубов (Женский Имплантолог)",
+      en: "Dental Implantation (Female Implantologist)",
     },
     shortDesc: {
-      uz: "Yo'qotilgan tishlarni titan implantlar bilan tiklash — uzoq yillar davomida mustahkam natija.",
-      ru: "Восстановление утраченных зубов с помощью титановых имплантов — надёжный результат на долгие годы.",
-      en: "Restoration of lost teeth with titanium implants — reliable result for long-term years.",
+      uz: "Andijonda yetakchi ayol implantolog Dr. Munojat Akbarova: Janubiy Koreya biotitan implantlari bilan 100% og'riqsiz davolash.",
+      ru: "Ведущий женский имплантолог в Андижане Д-р Мунаджат: титановые импланты из Южной Кореи, надёжно и без боли.",
+      en: "Leading female implantologist in Andijan Dr. Munojat: South Korean titanium implants, 100% pain-free treatment.",
     },
     fullDesc: {
-      uz: "Implantatsiya — yo'qotilgan tishlarni sun'iy ildiz (implant) yordamida tiklash usuli. Dr. Munojat Akbarova eng zamonaviy titan implantlardan foydalangan holda, og'riqsiz va ishonchli tarzda tishingizni qayta tiklaydi. Natija tabiiy ko'rinish va og'iz faoliyatining to'liq tiklanishi.",
-      ru: "Имплантация — метод восстановления утраченных зубов с помощью искусственного корня (импланта). Д-р Мунаджат Акбарова использует современные титановые импланты для безболезненного и надёжного восстановления зубов.",
-      en: "Implantation is a method of restoring lost teeth using an artificial root (implant). Dr. Munojat Akbarova uses state-of-the-art titanium implants for painless and reliable tooth restoration.",
+      uz: "Implantatsiya — yo'qotilgan tishlarni sun'iy ildiz (implant) yordamida tiklash usuli. Dr. Munojat Akbarova — Koreyada malaka oshirgan yetakchi ayol implantolog va stomatolog-jarroh sifatida, ayollar va qizlar uchun 100% og'riqsiz, maxfiy va xavfsiz sharoitda tishingizni qayta tiklaydi. Natija tabiiy ko'rinish va og'iz faoliyatining to'liq tiklanishi.",
+      ru: "Имплантация — метод восстановления утраченных зубов с помощью искусственного корня (импланта). Д-р Мунаджат Акбарова — ведущий женский имплантолог со стажировкой в Южной Корее, безболезненно и деликатно восстановит зубной ряд.",
+      en: "Dental implantation is a method of restoring lost teeth using an artificial root (implant). Dr. Munojat Akbarova, leading female implantologist trained in South Korea, provides 100% painless and gentle restoration tailored for women.",
     },
     benefits: {
       uz: ["100% og'riqsiz", "Titan implant", "Uzoq yillar kafolat", "Tabiiy ko'rinish"],

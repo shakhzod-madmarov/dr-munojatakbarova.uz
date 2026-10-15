@@ -32,14 +32,14 @@ export const detailedSpecialties = {
       en: "Dental Implantation in Andijan",
     },
     seoTitle: {
-      uz: "Tish Implantatsiyasi Andijon — Dr. Munojat",
-      ru: "Имплантация зубов в Андижане — Д-р Мунаджат",
-      en: "Dental Implants in Andijan — Dr. Munojat",
+      uz: "Ayol Implantolog Andijon — Tish Implantatsiyasi Dr. Munojat",
+      ru: "Женский Имплантолог в Андижане — Д-р Мунаджат",
+      en: "Female Implantologist in Andijan — Dr. Munojat",
     },
     metaDescription: {
-      uz: "Andijonda tish implantatsiyasi Dr. Munojat Akbarova tomonidan. Titan implantlar bilan yo'qotilgan tishlarni uzoq yillar davomida tiklash. 100% og'riqsiz, ayollar uchun maxsus qulay sharoit. Tel: +998 94 106-15-55",
-      ru: "Имплантация зубов в Андижане у Д-р Мунаджат Акбаровой. Восстановление зубов титановыми имплантами с гарантией на долгие годы. Без боли, деликатный приём для женщин. Тел: +998 94 106-15-55",
-      en: "Dental implantation in Andijan by Dr. Munojat Akbarova. Long-term restoration with titanium implants. 100% pain-free, specialized for women. Phone: +998 94 106-15-55",
+      uz: "Andijonda yetakchi ayol implantolog Dr. Munojat Akbarova qabuli. Janubiy Koreya biotitan implantlari bilan tishlarni 100% og'riqsiz va mustahkam tiklash. Tel: +998 94 106-15-55",
+      ru: "Приём ведущего женского имплантолога в Андижане Д-р Мунаджат Акбаровой. Установка титановых имплантов без боли с гарантией. Тел: +998 94 106-15-55",
+      en: "Consultation with leading female implantologist Dr. Munojat Akbarova in Andijan. Painless titanium dental implants with long-term guarantee. Tel: +998 94 106-15-55",
     },
     subtitle: {
       uz: "Yo'qotilgan tishlarni zamonaviy titan implantlar va tsirkoniy tojlar bilan uzoq yillar davomida qayta tiklash",
