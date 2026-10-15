@@ -18,7 +18,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# 2. Yandex (Web, Images, Maps, Alice / Neuro)
+# 2. Yandex (Web, Images, Maps, Alice / Neuro, Favicons)
 User-agent: Yandex
 Allow: /
 
@@ -26,6 +26,9 @@ User-agent: YandexBot
 Allow: /
 
 User-agent: YandexImages
+Allow: /
+
+User-agent: YandexFavicons
 Allow: /
 
 # 3. Microsoft Bing & Copilot
