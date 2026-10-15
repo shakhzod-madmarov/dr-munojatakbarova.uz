@@ -19,9 +19,9 @@ const Contact = () => {
 
   const t = {
     uz: {
-      tag: "ORZU STOMA DENTA • ANDIJON",
+      tag: "DR. MUNOJAT AKBAROVA • ANDIJON",
       heading: "Dr. Munojat Akbarova Bilan Bog'laning",
-      sub: "Orzu Stoma Denta klinikasida xotin-qizlar uchun 100% og'riqsiz, maxfiy va xavfsiz qabul.",
+      sub: "Andijon shahrida xotin-qizlar uchun 100% og'riqsiz, maxfiy va xavfsiz stomatologik qabul.",
       formTitle: "Tezkor Qabulga Yozilish",
       namePh: "Ismingiz (masalan: Malika)",
       phonePh: "Telefon raqamingiz (+998 90 ...)",
@@ -33,13 +33,13 @@ const Contact = () => {
       phone: "Telefon",
       ig: "Instagram",
       tg: "Telegram",
-      loc: "Klinika Manzili",
-      locVal: "Andijon shahri, Shabnam ko'chasi, 11 (Orzu Stoma Denta)",
+      loc: "Qabul Manzili",
+      locVal: "Andijon shahri, Shabnam ko'chasi, 11 (Dr. Munojat Akbarova qabuli)",
     },
     ru: {
-      tag: "ORZU STOMA DENTA • АНДИЖАН",
+      tag: "Д-Р МУНАДЖАТ АКБАРОВА • АНДИЖАН",
       heading: "Свяжитесь с Д-р Мунаджат",
-      sub: "Приватный приём для женщин в клинике Orzu Stoma Denta в Андижане.",
+      sub: "Приватный и безболезненный стоматологический приём для женщин в Андижане.",
       formTitle: "Запись на Приём",
       namePh: "Ваше имя (например: Малика)",
       phonePh: "Номер телефона (+998 90 ...)",
@@ -51,13 +51,13 @@ const Contact = () => {
       phone: "Телефон",
       ig: "Instagram",
       tg: "Telegram",
-      loc: "Адрес Клиники",
-      locVal: "г. Андижан, ул. Шабнам, 11 (клиника Orzu Stoma Denta)",
+      loc: "Адрес Приёма",
+      locVal: "г. Андижан, ул. Шабнам, 11 (приём Д-р Мунаджат)",
     },
     en: {
-      tag: "ORZU STOMA DENTA • ANDIJAN",
+      tag: "DR. MUNOJAT AKBAROVA • ANDIJAN",
       heading: "Contact Dr. Munojat Akbarova",
-      sub: "Private, gentle dental care for women at Orzu Stoma Denta in Andijan.",
+      sub: "Private, gentle, and painless aesthetic dental care for women in Andijan.",
       formTitle: "Book An Appointment",
       namePh: "Your Name",
       phonePh: "Phone Number (+998 90 ...)",
@@ -69,16 +69,84 @@ const Contact = () => {
       phone: "Phone",
       ig: "Instagram",
       tg: "Telegram",
-      loc: "Clinic Location",
-      locVal: "11 Shabnam Street, Andijan (Orzu Stoma Denta)",
+      loc: "Clinic Address",
+      locVal: "11 Shabnam Street, Andijan (Dr. Munojat Clinic)",
     },
   }[lang] || {};
+
+  const pathPrefix = lang === "uz" ? "" : `/${lang}`;
+  const contactCanonicalUrl = `https://drmunojat.uz${pathPrefix}/contact`;
+  const homeCanonicalUrl = `https://drmunojat.uz${pathPrefix}`;
+  const breadcrumbHome = lang === "uz" ? "Bosh sahifa" : lang === "ru" ? "Главная" : "Home";
+  const breadcrumbContact = lang === "uz" ? "Bog'lanish" : lang === "ru" ? "Контакты" : "Contact";
+
+  const contactSchemaJson = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${contactCanonicalUrl}#webpage`,
+        "url": contactCanonicalUrl,
+        "name": t.heading,
+        "description": t.sub,
+      },
+      {
+        "@type": "Dentist",
+        "@id": "https://drmunojat.uz/#dentist",
+        "name": "Dr. Munojat Akbarova — Ayol Stomatolog",
+        "telephone": "+998941061555",
+        "priceRange": "$$",
+        "image": "https://drmunojat.uz/dr_munojat_portrait.webp",
+        "sameAs": [
+          "https://g.page/r/CXp3o79wS1FnEBM",
+          "https://yandex.uz/maps/org/138661792687",
+          "https://www.instagram.com/dr.munojat_akbarova/",
+          "https://t.me/MunojatAkbarova",
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shabnam ko'chasi, 11",
+          "addressLocality": "Andijon",
+          "addressRegion": "Andijon viloyati",
+          "postalCode": "170100",
+          "addressCountry": "UZ",
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00",
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${contactCanonicalUrl}#breadcrumbs`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": breadcrumbHome,
+            "item": homeCanonicalUrl,
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": breadcrumbContact,
+            "item": contactCanonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <div className="bg-[#fff8f8]">
       <Seo
         page="contact"
         path="/contact"
+        schemaJson={contactSchemaJson}
       />
 
       {/* Hero Header */}
@@ -104,7 +172,7 @@ const Contact = () => {
             {/* Left: Contact Info */}
             <div className="lg:col-span-5 space-y-4">
               <address className="not-italic bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4" itemScope itemType="https://schema.org/MedicalBusiness">
-                <meta itemProp="name" content="Dr. Munojat Akbarova — Orzu Stoma Denta" />
+                <meta itemProp="name" content="Dr. Munojat Akbarova — Ayol Stomatolog" />
                 <h3 className="text-lg font-black text-slate-900 border-b border-slate-100 pb-3">
                   Tezkor Aloqa Kanallari
                 </h3>

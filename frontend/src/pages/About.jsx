@@ -262,15 +262,23 @@ const About = () => {
     ],
     worksFor: {
       "@type": "Dentist",
-      name: "Orzu Stoma Denta",
+      name: "Dr. Munojat Akbarova — Ayol Stomatolog",
       telephone: "+998941061555",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "Shabnam ko'chasi, 11",
         addressLocality: "Andijon",
         addressRegion: "Andijon viloyati",
+        postalCode: "170100",
         addressCountry: "UZ",
       },
     },
+    sameAs: [
+      "https://g.page/r/CXp3o79wS1FnEBM",
+      "https://yandex.uz/maps/org/138661792687",
+      "https://www.instagram.com/dr.munojat_akbarova/",
+      "https://t.me/MunojatAkbarova",
+    ],
   };
 
   return (

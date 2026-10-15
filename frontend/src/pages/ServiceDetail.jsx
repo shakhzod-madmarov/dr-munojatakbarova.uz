@@ -782,23 +782,86 @@ const ServiceDetail = () => {
 
   const otherSpecialties = Object.values(detailedSpecialties).filter((s) => s.slug !== specialty.slug);
 
+  const pathPrefix = lang === "uz" ? "" : `/${lang}`;
+  const serviceCanonicalUrl = `https://drmunojat.uz${pathPrefix}/services/${specialty.slug}`;
+  const homeCanonicalUrl = `https://drmunojat.uz${pathPrefix}`;
+  const servicesCanonicalUrl = `https://drmunojat.uz${pathPrefix}/services`;
+
+  const breadcrumbHome = lang === "uz" ? "Bosh sahifa" : lang === "ru" ? "Главная" : "Home";
+  const breadcrumbServices = lang === "uz" ? "Xizmatlar" : lang === "ru" ? "Услуги" : "Services";
+
   const schemaJson = {
     "@context": "https://schema.org",
-    "@type": ["MedicalProcedure", "MedicalWebPage"],
-    "name": specialty.title[lang],
-    "description": specialty.metaDescription[lang],
-    "url": `https://drmunojat.uz/services/${specialty.slug}`,
-    "provider": {
-      "@type": "Person",
-      "name": "Dr. Munojat Akbarova",
-      "jobTitle": "Stomatolog",
-      "telephone": "+998941061555",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Andijon",
-        "addressCountry": "UZ"
-      }
-    }
+    "@graph": [
+      {
+        "@type": ["MedicalProcedure", "MedicalWebPage"],
+        "@id": `${serviceCanonicalUrl}#procedure`,
+        "name": specialty.title[lang],
+        "description": specialty.metaDescription[lang],
+        "url": serviceCanonicalUrl,
+        "procedureType": "Dental",
+        "provider": {
+          "@type": ["Dentist", "Physician"],
+          "@id": "https://drmunojat.uz/about#doctor",
+          "name": "Dr. Munojat Akbarova",
+          "jobTitle": lang === "uz" ? "Oliy Toifali Shifokor-Stomatolog" : lang === "ru" ? "Врач-стоматолог высшей категории" : "Female Dental Specialist",
+          "telephone": "+998941061555",
+          "sameAs": [
+            "https://g.page/r/CXp3o79wS1FnEBM",
+            "https://yandex.uz/maps/org/138661792687",
+            "https://www.instagram.com/dr.munojat_akbarova/",
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shabnam ko'chasi, 11",
+            "addressLocality": "Andijon",
+            "addressRegion": "Andijon viloyati",
+            "postalCode": "170100",
+            "addressCountry": "UZ",
+          },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${serviceCanonicalUrl}#breadcrumbs`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": breadcrumbHome,
+            "item": homeCanonicalUrl,
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": breadcrumbServices,
+            "item": servicesCanonicalUrl,
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": specialty.title[lang],
+            "item": serviceCanonicalUrl,
+          },
+        ],
+      },
+      ...(specialty.faqs && specialty.faqs[lang] && specialty.faqs[lang].length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${serviceCanonicalUrl}#faq`,
+              "mainEntity": specialty.faqs[lang].map((faq) => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.a,
+                },
+              })),
+            },
+          ]
+        : []),
+    ],
   };
 
   return (
@@ -820,10 +883,10 @@ const ServiceDetail = () => {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Breadcrumbs */}
-          <nav className="flex items-center justify-center gap-2 text-xs text-red-300/70 mb-6 font-semibold">
-            <Link to={lp("/")} className="hover:text-white transition-colors">Bosh sahifa</Link>
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-red-300/70 mb-6 font-semibold">
+            <Link to={lp("/")} className="hover:text-white transition-colors">{breadcrumbHome}</Link>
             <span>/</span>
-            <Link to={lp("/services")} className="hover:text-white transition-colors">Xizmatlar</Link>
+            <Link to={lp("/services")} className="hover:text-white transition-colors">{breadcrumbServices}</Link>
             <span>/</span>
             <span className="text-[#fd1616]">{specialty.title[lang]}</span>
           </nav>

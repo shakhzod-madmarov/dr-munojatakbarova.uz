@@ -133,16 +133,64 @@ const Services = () => {
     },
   ];
 
+  const pathPrefix = lang === "uz" ? "" : `/${lang}`;
+  const homeCanonicalUrl = `https://drmunojat.uz${pathPrefix}`;
+  const servicesCanonicalUrl = `https://drmunojat.uz${pathPrefix}/services`;
+  const breadcrumbHome = lang === "uz" ? "Bosh sahifa" : lang === "ru" ? "Главная" : "Home";
+  const breadcrumbServices = lang === "uz" ? "Xizmatlar" : lang === "ru" ? "Услуги" : "Services";
+
+  const servicesSchemaJson = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${servicesCanonicalUrl}#breadcrumbs`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": breadcrumbHome,
+            "item": homeCanonicalUrl,
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": breadcrumbServices,
+            "item": servicesCanonicalUrl,
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${servicesCanonicalUrl}#catalog`,
+        "name": t.heading,
+        "itemListElement": services.map((s, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": s.title[lang],
+          "description": s.desc[lang],
+          "url": `https://drmunojat.uz${pathPrefix}/services/${s.slug}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="pt-20 sm:pt-24 bg-[#faf8f8]">
       <Seo
         page="services"
         path="/services"
+        schemaJson={servicesSchemaJson}
       />
 
       {/* Hero Header */}
       <section className="pt-6 pb-8 sm:pt-8 sm:pb-10 bg-white border-b border-slate-200/60 text-center">
         <div className="max-w-3xl mx-auto px-4">
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-slate-500 mb-3 font-semibold">
+            <Link to={lp("/")} className="hover:text-[#930b0b] transition-colors">{breadcrumbHome}</Link>
+            <span>/</span>
+            <span className="text-[#930b0b]">{breadcrumbServices}</span>
+          </nav>
           <span className="text-xs font-black text-[#930b0b] uppercase tracking-widest bg-red-50 border border-red-200/80 px-4 py-1.5 rounded-full inline-block mb-3">
             {t.tag}
           </span>

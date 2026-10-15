@@ -81,30 +81,30 @@ export const PAGE_SEO = {
   contact: {
     uz: {
       title: "Qabulga Yozilish — Dr. Munojat Akbarova, Andijon",
-      description: `Orzu Stoma Denta klinikasi, Andijon shahri. Dushanba-Shanba 08:00-18:00. Telefon yoki onlayn qabulga yoziling: ${PHONE}`,
+      description: `Dr. Munojat Akbarova qabuli: Shabnam ko'chasi, 11, Andijon. Dushanba-Shanba 08:00-18:00. Qabulga yozilish: ${PHONE}`,
     },
     ru: {
       title: "Записаться на приём — Андижан, Д-р Мунаджат",
-      description: `Клиника Orzu Stoma Denta, город Андижан. Понедельник-суббота 08:00-18:00. Запись онлайн или по телефону: ${PHONE}`,
+      description: `Приём Д-р Мунаджат Акбаровой: ул. Шабнам, 11, Андижан. Понедельник-суббота 08:00-18:00. Запись: ${PHONE}`,
     },
     en: {
       title: "Book an Appointment — Dr. Munojat, Andijan",
-      description: `Orzu Stoma Denta clinic, Andijan. Monday to Saturday, 08:00-18:00. Book online or by phone: ${PHONE}`,
+      description: `Dr. Munojat Akbarova Clinic: 11 Shabnam St, Andijan. Monday to Saturday, 08:00-18:00. Phone: ${PHONE}`,
     },
   },
 
   booking: {
     uz: {
       title: "Uchrashuv Vaqtini Tanlang — Dr. Munojat Akbarova, Andijon",
-      description: `Dr. Munojat Akbarova qabuliga onlayn yozilish: bo'sh kunlar va soatlarni tanlang. Orzu Stoma Denta klinikasi, Andijon. ${PHONE}`,
+      description: `Dr. Munojat Akbarova qabuliga onlayn yozilish: Shabnam 11, Andijon. Bo'sh kunlar va soatlarni tanlang. ${PHONE}`,
     },
     ru: {
       title: "Выберите Время Приёма — Д-р Мунаджат Акбарова, Андижан",
-      description: `Онлайн запись к Д-р Мунаджат Акбаровой: выберите свободный день и время приёма. Клиника Orzu Stoma Denta, Андижан. ${PHONE}`,
+      description: `Онлайн запись к Д-р Мунаджат Акбаровой: ул. Шабнам, 11, Андижан. Выберите свободный день и время приёма. ${PHONE}`,
     },
     en: {
       title: "Select Appointment Time — Dr. Munojat Akbarova, Andijan",
-      description: `Direct online appointment booking with Dr. Munojat Akbarova in Andijan. Choose an available date and time slot. ${PHONE}`,
+      description: `Direct online appointment booking with Dr. Munojat Akbarova: 11 Shabnam St, Andijan. Choose an available date and time slot. ${PHONE}`,
     },
   },
 
