@@ -254,7 +254,7 @@ export default function FeedbackGate() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto">
                 {/* Google Maps Review Link */}
                 <a
-                  href={DOCTOR_INFO.googleMaps}
+                  href={DOCTOR_INFO.doctorGoogleReviewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 py-3.5 px-4 rounded-2xl bg-white border-2 border-blue-200 hover:border-blue-500 hover:bg-blue-50/50 shadow-sm hover:shadow-md transition font-bold text-xs text-slate-800"
@@ -265,7 +265,7 @@ export default function FeedbackGate() {
 
                 {/* Yandex Maps Review Link */}
                 <a
-                  href={DOCTOR_INFO.yandexMaps}
+                  href={DOCTOR_INFO.doctorYandexReviewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 py-3.5 px-4 rounded-2xl bg-white border-2 border-red-200 hover:border-red-500 hover:bg-red-50/50 shadow-sm hover:shadow-md transition font-bold text-xs text-slate-800"

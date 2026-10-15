@@ -29,11 +29,12 @@ export const DOCTOR_INFO = {
 
   // Personal Doctor Business Profiles (Dr. Munojat Akbarova's verified personal profiles for patient reviews)
   doctorYandexReviewUrl: "https://yandex.uz/maps/org/138661792687/",
-  doctorGoogleReviewUrl: "https://www.google.com/search?q=Dr.+Munojat+Akbarova+%E2%80%94+Ayol+Stomatolog+Andijon",
+  doctorGoogleReviewUrl: "https://g.page/r/CXp3o79wS1FnEBM/review",
+  doctorGoogleProfileUrl: "https://g.page/r/CXp3o79wS1FnEBM",
 
   // Defaults used across the site
   yandexMaps: "https://yandex.uz/maps/org/138661792687/",
-  googleMaps: "https://www.google.com/search?q=Dr.+Munojat+Akbarova+%E2%80%94+Ayol+Stomatolog+Andijon",
+  googleMaps: "https://g.page/r/CXp3o79wS1FnEBM/review",
   coordinates: {
     lat: 40.754205,
     lng: 72.358426,

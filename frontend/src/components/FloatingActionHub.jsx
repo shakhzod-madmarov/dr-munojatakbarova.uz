@@ -95,15 +95,15 @@ const FloatingActionHub = ({ onOpenBooking }) => {
             </span>
           </a>
 
-          {/* Yandex Maps: Orzu Stoma Denta */}
+          {/* Yandex Maps: Dr. Munojat Akbarova */}
           <a
-            href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
+            href="https://yandex.uz/maps/org/138661792687/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={a11y.yandexMap}
             className="flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2 rounded-full shadow-xl hover:scale-105 transition-all text-xs font-bold border border-white/20"
           >
-            <span>Orzu Stoma Denta</span>
+            <span>Yandex Xarita</span>
             <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
               <IconLocationPin className="w-3.5 h-3.5 text-white" />
             </span>

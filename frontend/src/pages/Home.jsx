@@ -801,7 +801,7 @@ const PatientReviews = () => {
       yandexTitle: "Yandex Kartada Baho Bering",
       yandexDesc: "Andijondagi manzilimiz bo'yicha Yandex profilingiz orqali muolaja sifatini baholang.",
       yandexBtn: "Yandex Kartada Baholash",
-      yandexTag: "Yandex Maps · Orzu Stoma Denta",
+      yandexTag: "Yandex Maps · Dr. Munojat",
       tgTitle: "Telegram orqali Fikr Yuboring",
       tgDesc: "Muolajadan keyingi minnatdorchilik xabaringiz yoki tabassumingiz fotosuratini shaxsan yuboring.",
       tgBtn: "Telegram'da Yozish",
@@ -821,7 +821,7 @@ const PatientReviews = () => {
       yandexTitle: "Оценить в Яндекс Картах",
       yandexDesc: "Поделитесь впечатлениями о комфорте, стерильности и лечении без боли на Яндекс Картах.",
       yandexBtn: "Оценить в Яндекс",
-      yandexTag: "Яндекс Карты · Orzu Stoma Denta",
+      yandexTag: "Яндекс Карты · Д-р Мунаджат",
       tgTitle: "Отзыв через Telegram",
       tgDesc: "Отправьте ваши впечатления, фото улыбки или слова благодарности лично доктору Мунаджат.",
       tgBtn: "Написать в Telegram",
@@ -841,7 +841,7 @@ const PatientReviews = () => {
       yandexTitle: "Rate on Yandex Maps",
       yandexDesc: "Share your honest impressions of comfort, sterility, and painless treatment on Yandex Maps.",
       yandexBtn: "Review on Yandex",
-      yandexTag: "Yandex Maps · Orzu Stoma Denta",
+      yandexTag: "Yandex Maps · Dr. Munojat",
       tgTitle: "Send Feedback via Telegram",
       tgDesc: "Send your recovery update, smile picture, or personal thank-you directly to Dr. Munojat.",
       tgBtn: "Message on Telegram",
@@ -906,7 +906,7 @@ const PatientReviews = () => {
 
             <div className="pt-6 relative z-10">
               <a
-                href="https://maps.google.com/?cid=4641379713526839793"
+                href={DOCTOR_INFO.doctorGoogleReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white text-xs font-black shadow-md shadow-blue-600/20 transition-all"
@@ -950,7 +950,7 @@ const PatientReviews = () => {
 
             <div className="pt-6 relative z-10">
               <a
-                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
+                href={DOCTOR_INFO.doctorYandexReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:brightness-105 active:scale-98 text-amber-950 text-xs font-black shadow-md shadow-amber-500/20 transition-all"

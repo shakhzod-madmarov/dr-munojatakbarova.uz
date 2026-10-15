@@ -12,9 +12,9 @@ const ClinicLocationMap = () => {
       sub: "Andijon shahrida ayollar va qizlar uchun maxsus qulay, shinam va to'liq maxfiy stomatologiya klinikasi.",
       clinicName: "Orzu Stoma Denta",
       docName: "Dr. Munojat Akbarova Qabuli",
-      address: "Andijon shahri, Orzu Stoma Denta klinikasi",
+      address: "Andijon shahri, Shabnam ko'chasi, 11",
       hours: OPENING_HOURS.withSunday.uz,
-      yandexBtn: "Yandex Xaritada Ochish (Orzu Stoma Denta)",
+      yandexBtn: "Yandex Xaritada Ochish (Dr. Munojat)",
       googleBtn: "Google Maps'da Ochish",
     },
     ru: {
@@ -23,7 +23,7 @@ const ClinicLocationMap = () => {
       sub: "Клиника стоматологии в Андижане — комфортный, современный и приватный приём для женщин.",
       clinicName: "Orzu Stoma Denta",
       docName: "Приём Д-р Мунаджат Акбаровой",
-      address: "г. Андижан, клиника Orzu Stoma Denta",
+      address: "г. Андижан, ул. Шабнам, 11",
       hours: OPENING_HOURS.withSunday.ru,
       yandexBtn: "Открыть в Яндекс Картах",
       googleBtn: "Открыть в Google Maps",
@@ -34,7 +34,7 @@ const ClinicLocationMap = () => {
       sub: "Andijan City — modern, private, and comfortable dental care suite tailored for women.",
       clinicName: "Orzu Stoma Denta",
       docName: "Dr. Munojat Akbarova Dental Suite",
-      address: "Andijan City, Orzu Stoma Denta clinic",
+      address: "11 Shabnam Street, Andijan",
       hours: OPENING_HOURS.withSunday.en,
       yandexBtn: "Open in Yandex Maps",
       googleBtn: "Open in Google Maps",
@@ -113,7 +113,7 @@ const ClinicLocationMap = () => {
             {/* Navigation buttons */}
             <div className="pt-6 mt-6 border-t border-white/10">
               <a
-                href="https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/"
+                href="https://yandex.uz/maps/org/138661792687/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full min-h-[48px] bg-gradient-to-r from-[#930b0b] to-[#fd1616] hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-red-900/40 transition-all"
