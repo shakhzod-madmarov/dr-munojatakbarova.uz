@@ -122,9 +122,9 @@ export const PAGE_SEO = {
    ignored this tag for years and Yandex treats stuffing as a quality signal
    against you. What remains is only what the page is genuinely about. */
 export const PAGE_KEYWORDS = {
-  uz: "ayol stomatolog Andijon, ayol implantolog Andijon, ayol shifokor Andijon, ayol tish doktori, tish davolash Andijon, implantatsiya Andijon, tish karonkasi, tish oqartirish, Dr. Munojat Akbarova",
-  ru: "женский стоматолог Андижан, женщина имплантолог, женщина врач Андижан, женский зубной врач, лечение зубов Андижан, имплантация зубов, коронки на зубы, отбеливание зубов, Мунаджат Акбарова",
-  en: "female dentist Andijan, female implantologist, female doctor Andijan, dental implants Andijan, dental crowns, teeth whitening, Dr Munojat Akbarova",
+  uz: "ayol stomatolog Andijon, ayol implantolog Andijon, ayol shifokor Andijon, ayol tish doktori, tish davolash Andijon, implantatsiya Andijon, tsirkoniy karonka, tish oqartirish, aql tishi olish, аёл стоматолог Андижон, тиш даволаш, Dr. Munojat Akbarova",
+  ru: "женский стоматолог Андижан, женщина имплантолог, женщина врач Андижан, женский зубной врач, лечение зубов Андижан, имплантация зубов, коронки цирконий, удаление зуба мудрости, отбеливание зубов, Мунаджат Акбарова",
+  en: "female dentist Andijan, female implantologist, female doctor Andijan, dental implants Andijan, zirconia crowns, teeth whitening, wisdom tooth extraction, Dr Munojat Akbarova",
 };
 
 export const getPageSeo = (page, lang) => {
