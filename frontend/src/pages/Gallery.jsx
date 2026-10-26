@@ -4,7 +4,6 @@ import { useLanguage, useLocalizedPath, localizePath } from "../context/Language
 import { assets } from "../assets/assets";
 import { DOCTOR_INFO } from "../constants/doctor";
 import Seo from "../components/Seo";
-import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import { useModalA11y } from "../hooks/useModalA11y";
 import {
   IconInstagram,
@@ -531,11 +530,6 @@ const Gallery = ({ onOpenBooking }) => {
 
         </div>
       </header>
-
-      {/* 2. INTERACTIVE BEFORE & AFTER SLIDER SHOWCASE */}
-      <section aria-label={t.compareHeading}>
-        <BeforeAfterSlider onOpenBooking={onOpenBooking} />
-      </section>
 
       {/* 3. CASE STUDIES GRID SECTION */}
       <section aria-labelledby="cases-grid-heading" className="pt-8 pb-14 sm:pt-12 sm:pb-20">

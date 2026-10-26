@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
-import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import ClinicLocationMap from "../components/ClinicLocationMap";
 import SmileAssessmentWizard from "../components/SmileAssessmentWizard";
 import FaqAccordion from "../components/FaqAccordion";
@@ -1062,7 +1061,6 @@ const Home = ({ onOpenBooking }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <InlineBookingSection sectionId="uchrashuv-vaqti" />
       </div>
-      <BeforeAfterSlider />
       <PatientReviews />
       <FaqAccordion />
       <ClinicLocationMap />
