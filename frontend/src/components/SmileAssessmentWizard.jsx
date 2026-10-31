@@ -186,7 +186,7 @@ const SmileAssessmentWizard = () => {
                 onClick={() => setStep(1)}
                 className="text-xs font-bold text-slate-500 hover:text-slate-800 pt-2 block cursor-pointer"
               >
-                ← {lang === "uz" ? "Oldingi savolga qaytish" : "Назад"}
+                ← {lang === "uz" ? "Oldingi savolga qaytish" : lang === "ru" ? "Назад" : "Back"}
               </button>
             </div>
           )}
@@ -198,7 +198,7 @@ const SmileAssessmentWizard = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <IconCheckCircle className="w-5 h-5 text-emerald-600" />
                   <span className="text-xs font-black text-emerald-700 uppercase tracking-wider">
-                    {lang === "uz" ? "Sizga Tavsiya Etilgan Muolaja" : "Рекомендуемый план"}
+                    {lang === "uz" ? "Sizga Tavsiya Etilgan Muolaja" : lang === "ru" ? "Рекомендуемый план" : "Recommended Treatment"}
                   </span>
                 </div>
                 <h4 className="text-2xl font-black text-slate-900 mb-2">{currentPlan.title[lang]}</h4>
@@ -208,7 +208,7 @@ const SmileAssessmentWizard = () => {
 
               <form onSubmit={handleBooking} className="space-y-3 pt-2">
                 <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  {lang === "uz" ? "Ushbu muolaja bo'yicha bepul maslahatga yozilish:" : "Записаться на консультацию по этому плану:"}
+                  {lang === "uz" ? "Ushbu muolaja bo'yicha bepul maslahatga yozilish:" : lang === "ru" ? "Записаться на консультацию по этому плану:" : "Book a consultation for this treatment plan:"}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <label htmlFor="wizard-name" className="sr-only">
@@ -219,7 +219,7 @@ const SmileAssessmentWizard = () => {
                     name="name"
                     autoComplete="name"
                     type="text"
-                    placeholder={lang === "uz" ? "Ismingiz (masalan: Dildora)" : "Ваше имя"}
+                    placeholder={lang === "uz" ? "Ismingiz (masalan: Dildora)" : lang === "ru" ? "Ваше имя (напр. Дильдора)" : "Your name (e.g. Sarah)"}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -255,7 +255,7 @@ const SmileAssessmentWizard = () => {
                 onClick={() => setStep(1)}
                 className="text-xs font-bold text-slate-500 hover:text-slate-800 block text-center w-full cursor-pointer"
               >
-                🔄 {lang === "uz" ? "Testni qaytadan boshlash" : "Пройти тест заново"}
+                🔄 {lang === "uz" ? "Testni qaytadan boshlash" : lang === "ru" ? "Пройти тест заново" : "Restart assessment"}
               </button>
             </div>
           )}

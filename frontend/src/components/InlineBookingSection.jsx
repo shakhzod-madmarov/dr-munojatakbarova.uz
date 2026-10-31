@@ -62,7 +62,7 @@ const formatDmy = (ymd) => {
   return `${d}.${m}.${y}`;
 };
 
-export const CLASSIC_SERVICES = [
+const CLASSIC_SERVICES = [
   {
     id: "korik",
     uz: "Ko'rik va konsultatsiya",
@@ -106,7 +106,7 @@ const TEXT = {
     kicker: "Onlayn qabul",
     heading: "Uchrashuv vaqtini tanlang",
     sub: "Qulay kun va bo'sh soatni tanlab, Dr. Munojat Akbarova qabuliga yoziling.",
-    hoursLabel: "Dush–Shan 08:00–18:00",
+    hoursLabel: "Dush–Shan 09:00–18:00",
     lunchLabel: "Tushlik 12:00–13:00",
     sundayClosed: "Yakshanba: dam olish kuni",
     serviceLabel: "Xizmat yo'nalishi",
@@ -148,7 +148,7 @@ const TEXT = {
     kicker: "Онлайн запись",
     heading: "Выберите время приёма",
     sub: "Выберите удобный день и свободное время для записи к Д-р Мунаджат Акбаровой.",
-    hoursLabel: "Пн–Сб 08:00–18:00",
+    hoursLabel: "Пн–Сб 09:00–18:00",
     lunchLabel: "Обед 12:00–13:00",
     sundayClosed: "Воскресенье: выходной",
     serviceLabel: "Направление лечения",
@@ -190,7 +190,7 @@ const TEXT = {
     kicker: "Online Appointment",
     heading: "Select an Appointment Time",
     sub: "Choose a convenient date and available hour with Dr. Munojat Akbarova.",
-    hoursLabel: "Mon–Sat 08:00–18:00",
+    hoursLabel: "Mon–Sat 09:00–18:00",
     lunchLabel: "Lunch 12:00–13:00",
     sundayClosed: "Sunday: closed",
     serviceLabel: "Type of Service",
@@ -248,17 +248,36 @@ const InlineBookingSection = ({
   const [days, setDays] = useState(initialSchedule);
   const [liveMeta, setLiveMeta] = useState(null);
   const [selectedDate, setSelectedDate] = useState(initialSchedule[0]?.date || "");
-  const [selectedTime, setSelectedTime] = useState(initialSchedule[0]?.times?.[0] || "");
+  const [selectedTime, setSelectedTime] = useState("");
 
-  const [service, setService] = useState(
-    CLASSIC_SERVICES.some((s) => s.id === initialService)
+  const [service, setService] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const q = new URLSearchParams(window.location.search).get("service");
+        if (q && CLASSIC_SERVICES.some((s) => s.id === q)) return q;
+      } catch {
+        /* ignore */
+      }
+    }
+    return CLASSIC_SERVICES.some((s) => s.id === initialService)
       ? initialService
-      : CLASSIC_SERVICES[0].id,
-  );
+      : CLASSIC_SERVICES[0].id;
+  });
+
   const [name, setName] = useState(initialName || "");
   const [phone, setPhone] = useState(initialPhone ? formatUzPhone(initialPhone) : "");
   const [dob, setDob] = useState("");
-  const [note, setNote] = useState(initialNote || "");
+  const [note, setNote] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const q = new URLSearchParams(window.location.search).get("note");
+        if (q) return q;
+      } catch {
+        /* ignore */
+      }
+    }
+    return initialNote || "";
+  });
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -266,34 +285,33 @@ const InlineBookingSection = ({
   const [botLink, setBotLink] = useState("");
   const [botQr, setBotQr] = useState("");
 
-  useEffect(() => {
+  /* Sync state during render if incoming initial props change */
+  const [prevInitialService, setPrevInitialService] = useState(initialService);
+  if (initialService !== prevInitialService) {
+    setPrevInitialService(initialService);
     if (initialService && CLASSIC_SERVICES.some((s) => s.id === initialService)) {
       setService(initialService);
     }
-  }, [initialService]);
+  }
 
-  useEffect(() => {
+  const [prevInitials, setPrevInitials] = useState({
+    name: initialName,
+    phone: initialPhone,
+    note: initialNote,
+  });
+  if (
+    initialName !== prevInitials.name ||
+    initialPhone !== prevInitials.phone ||
+    initialNote !== prevInitials.note
+  ) {
+    setPrevInitials({ name: initialName, phone: initialPhone, note: initialNote });
     if (initialName) setName(initialName);
     if (initialPhone) setPhone(formatUzPhone(initialPhone));
     if (initialNote) setNote(initialNote);
-  }, [initialName, initialPhone, initialNote]);
+  }
 
+  /* Listen for prefill events triggered by external booking buttons */
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const qService = params.get("service");
-      const qNote = params.get("note");
-      if (qService && CLASSIC_SERVICES.some((s) => s.id === qService)) {
-        setService(qService);
-      }
-      if (qNote) {
-        setNote(qNote);
-      }
-    } catch {
-      /* ignore */
-    }
-
     const onPrefill = (e) => {
       const detail = e?.detail || {};
       if (detail.service && CLASSIC_SERVICES.some((s) => s.id === detail.service)) {
@@ -307,39 +325,44 @@ const InlineBookingSection = ({
     return () => window.removeEventListener("medinson-prefill-booking", onPrefill);
   }, []);
 
-  const loadAvailability = useCallback(async () => {
-    try {
-      const data = await fetchDentistAvailability();
-      setLiveMeta({ clinic: data?.clinic || null, dentist: data?.dentist || null });
-      const fetchedDays = Array.isArray(data?.days) && data.days.length > 0
-        ? data.days
-        : buildWorkingHoursSchedule(data, 10);
-
-      setDays(fetchedDays);
-      setSelectedDate((cur) => {
-        const match = fetchedDays.find((d) => d.date === cur);
-        return match ? match.date : fetchedDays[0]?.date || "";
-      });
-    } catch {
-      /* Keep initial schedule */
-    }
-  }, []);
-
+  /* Fetch live schedule asynchronously with cancellation guard */
   useEffect(() => {
-    loadAvailability();
-  }, [loadAvailability]);
+    let isCancelled = false;
+    const fetchAvailability = async () => {
+      try {
+        const data = await fetchDentistAvailability();
+        if (isCancelled) return;
+        setLiveMeta({ clinic: data?.clinic || null, dentist: data?.dentist || null });
+        const fetchedDays =
+          Array.isArray(data?.days) && data.days.length > 0
+            ? data.days
+            : buildWorkingHoursSchedule(data, 10);
+
+        setDays(fetchedDays);
+        setSelectedDate((cur) => {
+          const match = fetchedDays.find((d) => d.date === cur);
+          return match ? match.date : fetchedDays[0]?.date || "";
+        });
+      } catch {
+        /* Keep initial schedule */
+      }
+    };
+    fetchAvailability();
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
 
   const activeDay = useMemo(
     () => days.find((d) => d.date === selectedDate) || days[0] || null,
     [days, selectedDate],
   );
 
-  useEffect(() => {
-    if (!activeDay) return;
-    if (!selectedTime || !activeDay.times.includes(selectedTime)) {
-      setSelectedTime(activeDay.times[0] || "");
-    }
-  }, [activeDay, selectedTime]);
+  /* Derived effective selected time: defaults cleanly to first available slot if empty or not in day */
+  const effectiveTime =
+    activeDay && selectedTime && activeDay.times.includes(selectedTime)
+      ? selectedTime
+      : activeDay?.times?.[0] || "";
 
   const serviceObj = CLASSIC_SERVICES.find((s) => s.id === service) || CLASSIC_SERVICES[0];
   const serviceLabel = serviceObj[lang] || serviceObj.uz;
@@ -419,7 +442,7 @@ const InlineBookingSection = ({
       toast.error(nextErrors.name || nextErrors.phone || nextErrors.dob);
       return;
     }
-    if (!selectedDate || !selectedTime) {
+    if (!selectedDate || !effectiveTime) {
       toast.error(t.needTime);
       return;
     }
@@ -428,7 +451,7 @@ const InlineBookingSection = ({
     try {
       const result = await submitDentistBooking({
         date: selectedDate,
-        time: selectedTime,
+        time: effectiveTime,
         name: name.trim(),
         phone: phone.trim(),
         dob: dob.trim(),
@@ -558,7 +581,7 @@ const InlineBookingSection = ({
             <div className="flex justify-between pt-0.5">
               <dt className="text-slate-500">{t.summaryWhen}:</dt>
               <dd className="font-bold text-[#930b0b]">
-                {formatDmy(selectedDate)} · {selectedTime}
+                {formatDmy(selectedDate)} · {effectiveTime}
               </dd>
             </div>
           </dl>
@@ -644,7 +667,7 @@ const InlineBookingSection = ({
                 aria-label={t.timeGroupLabel}
               >
                 {activeDay.times.map((time) => {
-                  const isSelected = selectedTime === time;
+                  const isSelected = effectiveTime === time;
                   return (
                     <button
                       key={time}
@@ -831,7 +854,7 @@ const InlineBookingSection = ({
               <p className="text-xs text-slate-500">
                 {t.selectedSlotLabel}{" "}
                 <strong className="text-slate-900 font-bold text-sm">
-                  {formatDmy(selectedDate)} / {selectedTime}
+                  {formatDmy(selectedDate)} / {effectiveTime}
                 </strong>{" "}
                 <span className="text-slate-400">·</span>{" "}
                 <span className="text-[#930b0b] font-semibold">{serviceLabel}</span>

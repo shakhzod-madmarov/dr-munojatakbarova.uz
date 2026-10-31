@@ -81,15 +81,15 @@ export const PAGE_SEO = {
   contact: {
     uz: {
       title: "Qabulga Yozilish — Dr. Munojat Akbarova, Andijon",
-      description: `Dr. Munojat Akbarova qabuli: Shabnam ko'chasi, 11, Andijon. Dushanba-Shanba 08:00-18:00. Qabulga yozilish: ${PHONE}`,
+      description: `Dr. Munojat Akbarova qabuli: Shabnam ko'chasi, 11, Andijon. Dushanba-Shanba 09:00-18:00. Qabulga yozilish: ${PHONE}`,
     },
     ru: {
       title: "Записаться на приём — Андижан, Д-р Мунаджат",
-      description: `Приём Д-р Мунаджат Акбаровой: ул. Шабнам, 11, Андижан. Понедельник-суббота 08:00-18:00. Запись: ${PHONE}`,
+      description: `Приём Д-р Мунаджат Акбаровой: ул. Шабнам, 11, Андижан. Понедельник-суббота 09:00-18:00. Запись: ${PHONE}`,
     },
     en: {
       title: "Book an Appointment — Dr. Munojat, Andijan",
-      description: `Dr. Munojat Akbarova Clinic: 11 Shabnam St, Andijan. Monday to Saturday, 08:00-18:00. Phone: ${PHONE}`,
+      description: `Dr. Munojat Akbarova Clinic: 11 Shabnam St, Andijan. Monday to Saturday, 09:00-18:00. Phone: ${PHONE}`,
     },
   },
 
@@ -105,6 +105,21 @@ export const PAGE_SEO = {
     en: {
       title: "Select Appointment Time — Dr. Munojat Akbarova, Andijan",
       description: `Direct online appointment booking with Dr. Munojat Akbarova: 11 Shabnam St, Andijan. Choose an available date and time slot. ${PHONE}`,
+    },
+  },
+
+  feedback: {
+    uz: {
+      title: "Baho Berish va Fikr Qoldirish — Dr. Munojat Akbarova",
+      description: `Dr. Munojat Akbarova qabuli bo'yicha o'z fikringiz va bahoingizni qoldiring. Google va Yandex Xaritalarda xolis sharhlar. ${PHONE}`,
+    },
+    ru: {
+      title: "Оставить Отзыв и Оценку — Д-р Мунаджат Акбарова",
+      description: `Оставьте ваш честный отзыв и оценку приёма Д-р Мунаджат Акбаровой. Оценки на Яндекс Картах и Google Maps. ${PHONE}`,
+    },
+    en: {
+      title: "Rate & Leave a Review — Dr. Munojat Akbarova",
+      description: `Leave your genuine review and rating for Dr. Munojat Akbarova in Andijan. Verified patient reviews on Google and Yandex Maps. ${PHONE}`,
     },
   },
 

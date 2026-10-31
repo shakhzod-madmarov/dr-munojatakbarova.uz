@@ -1,8 +1,10 @@
 import { useEffect, useContext } from "react";
-import { useLanguage, LANGS, DEFAULT_LANG, localizePath } from "../context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
+import { LANGS, DEFAULT_LANG, localizePath } from "../utils/language";
 import { getPageSeo, PAGE_KEYWORDS } from "../constants/seo";
+import { PrerenderContext, SEO_MARKER_TYPE } from "../context/SeoCollector";
 
-export const SITE_ORIGIN = "https://drmunojat.uz";
+const SITE_ORIGIN = "https://drmunojat.uz";
 
 /** Absolute URL for a canonical (Uzbek) path in a given language. */
 /* GitHub Pages serves /about from /about/index.html and 301s /about to
@@ -12,9 +14,8 @@ export const SITE_ORIGIN = "https://drmunojat.uz";
    alone: in-app navigation never hits the redirect. */
 const withTrailingSlash = (path) => (path.endsWith("/") ? path : path + "/");
 
-export const urlFor = (path, lang) =>
+const urlFor = (path, lang) =>
   SITE_ORIGIN + withTrailingSlash(localizePath(path, lang));
-import { PrerenderContext, SEO_MARKER_TYPE } from "../context/SeoCollector";
 
 /* The indexable defaults, matching index.html. Every route sets the robots tags
    outright rather than saving and restoring whatever was there: the 404 page is

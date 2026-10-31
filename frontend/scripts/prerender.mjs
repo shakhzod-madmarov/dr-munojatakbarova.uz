@@ -65,12 +65,16 @@ const setHtmlLang = (html, lang) =>
   html.replace(/<html([^>]*)\s+lang="[^"]*"/, `<html$1 lang="${lang}"`);
 
 /* Alternates go next to the canonical, which is where crawlers expect them. */
+const stripExistingAlternates = (html) =>
+  html.replace(/^[ \t]*<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*"\s*\/?>\r?\n?/gm, "");
+
 const injectAlternates = (html, alternates) => {
-  if (!alternates || alternates.length === 0) return html;
+  const cleaned = stripExistingAlternates(html);
+  if (!alternates || alternates.length === 0) return cleaned;
   const tags = alternates
     .map((a) => `    <link rel="alternate" hreflang="${a.hreflang}" href="${escapeAttr(a.href)}" />`)
     .join("\n");
-  return html.replace(/(<link\s+rel="canonical"[^>]*>)/, `$1\n${tags}`);
+  return cleaned.replace(/(<link\s+rel="canonical"[^>]*>)/, `$1\n${tags}`);
 };
 
 const setNoindex = (html) =>

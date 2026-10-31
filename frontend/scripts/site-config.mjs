@@ -15,7 +15,7 @@ export const SITE_ORIGIN = "https://drmunojat.uz";
 
 /* Bumped deliberately, not auto-set to the build date: stamping "changed today"
    on every page at every deploy is a signal search engines learn to discount. */
-const LASTMOD = "2026-09-08";
+const LASTMOD = "2026-10-31";
 
 /* Each page is served in three languages at three distinct URLs: Uzbek
    unprefixed, Russian under /ru, English under /en. Because those addresses are
@@ -153,7 +153,7 @@ export const ROUTES = [
   },
   {
     path: "/baho",
-    lastmod: "2026-10-04",
+    lastmod: LASTMOD,
     changefreq: "monthly",
     priority: "0.80",
     hreflang: TRILINGUAL,

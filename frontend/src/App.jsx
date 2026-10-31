@@ -21,7 +21,8 @@ import FloatingActionHub from "./components/FloatingActionHub";
 import { BookingProvider, useBooking } from "./context/BookingContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLanguage, LANGS, DEFAULT_LANG } from "./context/LanguageContext";
+import { useLanguage } from "./context/LanguageContext";
+import { LANGS, DEFAULT_LANG } from "./utils/language";
 
 /* Sync <html lang="..."> with active UI language for SEO and a11y */
 /* Enforce authentic logo favicon in tab dynamically to bypass browser caching */

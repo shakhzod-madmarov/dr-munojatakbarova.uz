@@ -92,12 +92,12 @@ export const buildWorkingHoursSchedule = (data = {}, daysCount = 10) => {
     ? data.dentist.workingDays
     : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const startStr = data?.dentist?.workingHours?.start || "08:00";
+  const startStr = data?.dentist?.workingHours?.start || "09:00";
   const endStr = data?.dentist?.workingHours?.end || "18:00";
 
   const [startH] = startStr.split(":").map(Number);
   const [endH] = endStr.split(":").map(Number);
-  const safeStartH = Number.isFinite(startH) ? startH : 8;
+  const safeStartH = Number.isFinite(startH) ? startH : 9;
   const safeEndH = Number.isFinite(endH) && endH > safeStartH ? endH : 18;
 
   const bookedSet = readLocalBookedSet();
@@ -219,7 +219,7 @@ export async function fetchDentistAvailability({
         address: "Darxon MFY, Xalqlar Do'stligi 931",
         city: "Andijon",
         workingDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        workingHours: { start: "08:00", end: "18:00" },
+        workingHours: { start: "09:00", end: "18:00" },
         botUsername: "Dr_Munojat_Akbarova_bot",
       },
       botUsername: "Dr_Munojat_Akbarova_bot",

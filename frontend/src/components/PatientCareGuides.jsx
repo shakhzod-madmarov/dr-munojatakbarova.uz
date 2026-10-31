@@ -10,7 +10,7 @@ const guides = [
       ru: "Белая диета после отбеливания ZOOM (48 часов)",
       en: "ZOOM 4 Post-Whitening 'White Diet' (48 Hours)",
     },
-    tag: "OQ PARHEZ",
+    tag: { uz: "OQ PARHEZ", ru: "БЕЛАЯ ДИЕТА", en: "WHITE DIET" },
     allowed: {
       uz: ["Sut, qatiq, tvorog va pishloq", "Tovuq va kurka go'shti (oq go'sht)", "Guruch, kartoshka va oq non", "Oddiy gazsiz toza suv"],
       ru: ["Молочные продукты (молоко, творог, сыр)", "Белое мясо птицы (курица, индейка)", "Рис, картофель, белые макароны", "Чистая негазированная вода"],
@@ -29,7 +29,7 @@ const guides = [
       ru: "Уход в первые 7 дней после имплантации",
       en: "First 7 Days Post-Implant Care",
     },
-    tag: "IMPLANT PARVARISHI",
+    tag: { uz: "IMPLANT PARVARISHI", ru: "УХОД ЗА ИМПЛАНТОМ", en: "IMPLANT CARE" },
     allowed: {
       uz: ["Iliq va yumshoq ovqatlar (pyure, sho'rva)", "Operatsiya qilinmagan tomonda ehtiyotkorona chaynash", "Dr. Munojat yozib bergan dori-darmonlarni o'z vaqtida ichish", "Antiseptik eritma bilan og'izni muloyim chayish"],
       ru: ["Тёплая и мягкая пища (пюре, супы)", "Жевание на противоположной стороне", "Приём назначенных врачом препаратов по графику", "Бережные антисептические ванночки"],
@@ -48,7 +48,7 @@ const guides = [
       ru: "Памятка после удаления зуба",
       en: "Post-Extraction Recovery Protocol",
     },
-    tag: "TISH OLINGANDAN SO'NG",
+    tag: { uz: "TISH OLINGANDAN SO'NG", ru: "ПОСЛЕ УДАЛЕНИЯ", en: "EXTRACTION CARE" },
     allowed: {
       uz: ["Dokali tamponni 20 daqiqadan so'ng olib tashlash", "Yuz tashqarisidan sovuq kompress qo'yish", "2 soatdan keyin iliq yumshoq taom yeyish", "Yumshoq tish cho'tkasi bilan ehtiyotkorlik bilan tozalash"],
       ru: ["Удалить марлевый тампон через 20 минут", "Прикладывать холод к щеке снаружи", "Принимать тёплую мягкую пищу через 2 часа", "Бережная чистка зубов мягкой щёткой"],
@@ -76,7 +76,7 @@ const PatientCareGuides = () => {
         <div className="text-center mb-6 sm:mb-8">
           <span className="inline-flex items-center gap-2 text-xs font-black text-[#930b0b] uppercase tracking-widest px-4 py-1.5 rounded-full bg-red-100/70 border border-red-200">
             <IconShieldCheck className="w-4 h-4 text-[#930b0b]" />
-            <span>{lang === "uz" ? "BEMORLAR UCHUN ESQATMA" : lang === "ru" ? "ПАМЯТКА ПАЦИЕНТАМ" : "PATIENT CARE GUIDES"}</span>
+            <span>{lang === "uz" ? "BEMORLAR UCHUN ESLATMA" : lang === "ru" ? "ПАМЯТКА ПАЦИЕНТАМ" : "PATIENT CARE GUIDES"}</span>
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mt-3 mb-4">
             {lang === "uz" ? "Muolajadan Keyingi Klinik Ko'rsatmalar" : lang === "ru" ? "Рекомендации после процедур" : "Post-Treatment Clinical Instructions"}
@@ -100,7 +100,7 @@ const PatientCareGuides = () => {
                   : "bg-white text-slate-700 border border-slate-200 hover:border-red-300"
               }`}
             >
-              {g.tag}
+              {typeof g.tag === "object" ? g.tag[lang] : g.tag}
             </button>
           ))}
         </div>

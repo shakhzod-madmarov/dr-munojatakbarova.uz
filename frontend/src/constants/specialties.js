@@ -1,0 +1,746 @@
+export const detailedSpecialties = {
+  "implantatsiya": {
+    slug: "implantatsiya",
+    iconType: "implant",
+    badge: {
+      uz: "100% OG'RIQSIZ · TITAN IMPLANT",
+      ru: "100% БЕЗ БОЛИ · ТИТАНОВЫЙ ИМПЛАНТ",
+      en: "100% PAIN-FREE · TITANIUM IMPLANTS",
+    },
+    title: {
+      uz: "Tish Implantatsiyasi — Andijon",
+      ru: "Имплантация Зубов в Андижане",
+      en: "Dental Implantation in Andijan",
+    },
+    seoTitle: {
+      uz: "Ayol Implantolog Andijon — Tish Implantatsiyasi Dr. Munojat",
+      ru: "Женский Имплантолог в Андижане — Д-р Мунаджат",
+      en: "Female Implantologist in Andijan — Dr. Munojat",
+    },
+    metaDescription: {
+      uz: "Andijonda yetakchi ayol implantolog Dr. Munojat Akbarova qabuli. Janubiy Koreya biotitan implantlari bilan tishlarni 100% og'riqsiz va mustahkam tiklash. Tel: +998 94 106-15-55",
+      ru: "Приём ведущего женского имплантолога в Андижане Д-р Мунаджат Акбаровой. Установка титановых имплантов без боли с гарантией. Тел: +998 94 106-15-55",
+      en: "Consultation with leading female implantologist Dr. Munojat Akbarova in Andijan. Painless titanium dental implants with long-term guarantee. Tel: +998 94 106-15-55",
+    },
+    subtitle: {
+      uz: "Yo'qotilgan tishlarni zamonaviy titan implantlar va tsirkoniy tojlar bilan uzoq yillar davomida qayta tiklash",
+      ru: "Восстановление утраченных зубов титановыми имплантами и циркониевыми коронками на долгие годы",
+      en: "Long-term restoration of missing teeth with modern titanium implants and zirconia crowns",
+    },
+    overview: {
+      uz: "Tish implantatsiyasi — zamonaviy stomatologiyaning eng ishonchli va uzoq muddatli yutug'idir. Titan vint (implant) jag' suyagiga kiritilib, tabiiy tish ildizining o'rnini to'liq bosadi. Natijada qo'shni sog'lom tishlarni charxlashga yoki ko'prik qilishga mutlaqo hojat qolmaydi. Dr. Munojat Akbarova implantatsiya muolajasini eng nozik mikroxirurgik usulda, 100% og'riqsiz mahalliy anesteziya ostida o'tkazadi.",
+      ru: "Имплантация зубов — самый надёжный и современный способ восстановления зубов. Титановый имплант вживляется в костную ткань и полностью заменяет натуральный корень зуба. При этом не требуется обтачивать соседние здоровые зубы. Д-р Мунаджат Акбарова проводит имплантацию микрохирургическим методом абсолютно безболезненно под современной анестезией.",
+      en: "Dental implantation is the most reliable modern method for restoring missing teeth. A titanium screw is placed into the jawbone, fully replacing the natural root without needing to grind adjacent healthy teeth. Dr. Munojat Akbarova performs the procedure microsurgically, 100% pain-free under modern anesthesia.",
+    },
+    indications: {
+      uz: [
+        "Bitta yoki bir nechta tish yo'qotilganda",
+        "Chaynov yoki old tishlarning to'liq yetishmasligi",
+        "Olinadigan protez taqishni istamagan bemorlar",
+        "Tishsiz qolish natijasida jag' suyagining yupqalashishi xavfi",
+        "Estetik tabassum va to'liq chaynash quvvatini qaytarish",
+      ],
+      ru: [
+        "Отсутствие одного или нескольких зубов",
+        "Полная или частичная потеря жевательных или передних зубов",
+        "Нежелание носить неудобные съёмные протезы",
+        "Предотвращение атрофии костной ткани челюсти",
+        "Восстановление идеальной улыбки и жевательной функции",
+      ],
+      en: [
+        "Missing single or multiple teeth",
+        "Partial or complete loss of chewing or front teeth",
+        "Desire to avoid uncomfortable removable dentures",
+        "Prevention of jawbone density loss (atrophy)",
+        "Full aesthetic and masticatory restoration",
+      ],
+    },
+    steps: {
+      uz: [
+        { title: "1. Diagnostika va 3D Tahlil", desc: "Raqamli rentgen va jag' suyagi zichligini baholash, individual davolash rejasi tuzish." },
+        { title: "2. Og'riqsiz Anesteziya", desc: "Eng so'nggi anesteziya preparatlari bilan to'liq og'riqsizlantirish." },
+        { title: "3. Titan Implant O'rnatish", desc: "Suyakka titan implantni steril va mikroxirurgik usulda o'rnatish (15-30 daqiqa)." },
+        { title: "4. Integratsiya Davri", desc: "Implantning suyak bilan to'liq mustahkam birikishi (2-4 oy)." },
+        { title: "5. Tsirkoniy Toj O'rnatish", desc: "Tish rangiga 100% mos keluvchi estetik tsirkoniy toj o'rnatish." },
+      ],
+      ru: [
+        { title: "1. Диагностика и 3D анализ", desc: "Рентген-диагностика, оценка плотности кости и составление индивидуального плана." },
+        { title: "2. Безопасная анестезия", desc: "Полное обезболивание современными анестетиками." },
+        { title: "3. Установка импланта", desc: "Установка титанового импланта в стерильных условиях за 15-30 минут." },
+        { title: "4. Период остеоинтеграции", desc: "Сращение импланта с костной тканью (2-4 месяца)." },
+        { title: "5. Циркониевая коронка", desc: "Установка индивидуальной коронки под натуральный цвет зубов." },
+      ],
+      en: [
+        { title: "1. 3D Diagnosis & Planning", desc: "Digital X-ray, bone density evaluation and personalized treatment plan." },
+        { title: "2. Painless Anesthesia", desc: "Complete comfort with modern local anesthetics." },
+        { title: "3. Implant Placement", desc: "Microsurgical sterile placement of titanium implant (15-30 mins)." },
+        { title: "4. Osseointegration Period", desc: "Firm biological integration of implant into jawbone (2-4 months)." },
+        { title: "5. Zirconia Crown Placement", desc: "Custom tooth-colored zirconia crown for natural aesthetic look." },
+      ],
+    },
+    comparison: {
+      title: { uz: "Implantatsiya va An'anaviy Ko'prik Taqqoslashi", ru: "Сравнение Имплантации и Мостовидного Протеза", en: "Comparison: Implants vs Traditional Bridges" },
+      headers: {
+        uz: ["Xususiyat", "Titan Implant", "Oddiy Ko'prik Protez"],
+        ru: ["Параметр", "Титановый имплант", "Обычный мост"],
+        en: ["Feature", "Titanium Implant", "Traditional Bridge"],
+      },
+      rows: {
+        uz: [
+          ["Qo'shni tishlarni charxlash", "— Kerak emas (Sog'lom qoladi)", "• 2 ta sog'lom tish charxlanadi"],
+          ["Xizmat muddati", "Uzoq yillar davomida", "5–10 yil"],
+          ["Suyak atrofiyasini to'xtatish", "✓ To'liq to'xtatadi", "— Suyak yupqalashaveradi"],
+          ["Chaynash kuchi", "✓ 100% tabiiy tishdek", "• 60-70% kuch"],
+        ],
+        ru: [
+          ["Обточка соседних зубов", "— Не требуется (Зубы целы)", "• Обтачиваются 2 здоровых зуба"],
+          ["Срок службы", "На долгие годы", "5–10 лет"],
+          ["Сохранение кости", "✓ Полностью сохраняет", "— Кость атрофируется"],
+          ["Жевательная сила", "✓ 100% как родной зуб", "• 60-70% мощности"],
+        ],
+        en: [
+          ["Grinding adjacent teeth", "— None (Neighbors stay healthy)", "• 2 healthy teeth must be ground"],
+          ["Lifespan", "Long-term durable years", "5–10 years"],
+          ["Bone loss prevention", "✓ Fully preserves bone", "— Bone slowly resorbs"],
+          ["Chewing efficiency", "✓ 100% natural bite", "• 60-70% capacity"],
+        ],
+      },
+    },
+    faqs: {
+      uz: [
+        { q: "Implant qo'yish jarayoni og'riqlimi?", a: "Yo'q, mutlaqo og'riqsiz. Zamonaviy mahalliy anesteziya sababli bemor faqat yengil teginishni his qiladi. Operatsiyadan keyin ham dori vositalari bilan qulaylik ta'minlanadi." },
+        { q: "Implant organizmga tushmasligi (rad etilishi) mumkinmi?", a: "Zamonaviy titan implantlarning ildiz otish foizi 98-99% ni tashkil qiladi. Dr. Munojat Akbarova xalqaro sifat sertifikatiga ega bo'lgan original titan implantlardan foydalanadi." },
+        { q: "Ayollar uchun implantatsiya qabulida qanday sharoit bor?", a: "Dr. Munojat xonasida ayollar va qizlar uchun to'liq maxfiy, shinam va mehrli muhit yaratilgan. Hijobli ayollar ham hech qanday xijolatsiz, erkin holda muolaja olishadi." },
+      ],
+      ru: [
+        { q: "Больно ли ставить имплант?", a: "Нет, процедура полностью безболезненна благодаря качественной современной анестезии. Никакой боли во время манипуляций нет." },
+        { q: "Может ли имплант не прижиться?", a: "Приживаемость титановых имплантов составляет 98-99%. Д-р Мунаджат использует сертифицированные мировые бренды имплантов." },
+        { q: "Какие условия для женщин?", a: "Кабинет Д-р Мунаджат обеспечивает полную приватность, уют и понимание для женщин и девушек." },
+      ],
+      en: [
+        { q: "Is implant placement painful?", a: "No, it is completely painless under local anesthesia. You only feel gentle vibration." },
+        { q: "What is the implant success rate?", a: "Modern medical titanium implants have a 98-99% success rate with Dr. Munojat." },
+        { q: "What accommodations are provided for ladies?", a: "Complete privacy, gentle care, and comfortable atmosphere where ladies feel safe and respected." },
+      ],
+    },
+  },
+
+  "tish-davolash": {
+    slug: "tish-davolash",
+    iconType: "treatment",
+    badge: {
+      uz: "100% OG'RIQSIZ · 4 DAVLAT PLOMBALARI",
+      ru: "100% БЕЗ БОЛИ · ПЛОМБЫ ИЗ 4 СТРАН",
+      en: "100% PAIN-FREE · 4-COUNTRY FILLINGS",
+    },
+    title: {
+      uz: "Tish Davolash & Plomba Turlari — Andijon",
+      ru: "Лечение Зубов и Виды Пломб в Андижане",
+      en: "Painless Dental Treatment & Fillings in Andijan",
+    },
+    seoTitle: {
+      uz: "Tish Davolash va Plomba Andijon — Dr. Munojat",
+      ru: "Лечение зубов и пломбы в Андижане — Д-р Мунаджат",
+      en: "Dental Treatment & Fillings in Andijan",
+    },
+    metaDescription: {
+      uz: "Andijonda karies, pulpit va tish og'riqlarini 100% og'riqsiz davolash. Germaniya (3M™), Yaponiya (Estelite), Janubiy Koreya (DenFil) va Rossiya original plombalari. Tel: +998 94 106-15-55",
+      ru: "Лечение кариеса, пульпита и зубной боли в Андижане у Д-р Мунаджат Акбаровой. Сертифицированные пломбы из Германии, Японии, Кореи и России. Тел: +998 94 106-15-55",
+      en: "Painless cavity & toothache care in Andijan by Dr. Munojat Akbarova. Genuine fillings from Germany (3M™), Japan (Estelite), South Korea (DenFil), and Russia. Phone: +998 94 106-15-55",
+    },
+    subtitle: {
+      uz: "Karies, pulpit va tish og'riqlarini Germaniya, Yaponiya, Janubiy Koreya va Rossiya original plombalari bilan 100% og'riqsiz davolash",
+      ru: "Лечение кариеса, пульпита и боли с помощью сертифицированных пломб из Германии, Японии, Южной Кореи и России",
+      en: "Treatment of cavities, pulpitis, and toothache using certified composite fillings from Germany, Japan, South Korea, and Russia",
+    },
+    overview: {
+      uz: "Tish og'rig'i va kariesni o'z vaqtida davolash — tishni uzoq yillar saqlab qolishning kalitidir. Dr. Munojat Akbarova terapevtik stomatologiyada 4 ta davlatning eng yetakchi sertifikatlangan fotopolimer kompozitlaridan foydalanadi: Germaniya (3M™ Filtek & Charisma), Yaponiya (Estelite & GC Gradia), Janubiy Koreya (DenFil & DiaDent) va Rossiya (VladMiVa). Har bir bemorga klinik holati va imkoniyatiga qarab eng to'g'ri plomba tavsiya etiladi. Barcha muolajalar nozik mikro-anesteziya ostida 100% og'riqsiz bajariladi.",
+      ru: "Своевременное лечение кариеса и пульпита позволяет сохранить собственные зубы на долгие годы. Д-р Мунаджат Акбарова применяет сертифицированные наногибридные фотополимерные материалы 4 ведущих стран: Германия (3M™ Filtek, Charisma), Япония (Estelite, GC Gradia), Южная Корея (DenFil, DiaDent) и Россия (ВладМиВа). Подбор материала индивидуален. Все манипуляции выполняются под деликатной микроанестезией на 100% без боли.",
+      en: "Timely treatment of caries and pulpitis preserves your natural teeth for decades. Dr. Munojat Akbarova utilizes certified composite filling systems from 4 world-leading manufacturing countries: Germany (3M™ Filtek & Charisma), Japan (Estelite & GC Gradia), South Korea (DenFil & DiaDent), and Russia (VladMiVa). All treatments are 100% painless under delicate micro-anesthesia.",
+    },
+    materials: {
+      title: {
+        uz: "Biz Qo'llaydigan Original Plomba Materiallari (4 Davlat)",
+        ru: "Используемые Пломбировочные Материалы (4 Страны)",
+        en: "Original Certified Filling Systems (4 Countries)",
+      },
+      subtitle: {
+        uz: "Dr. Munojat Akbarova har bir bemorga individual yondashib, tish holati va istagiga ko'ra eng ma'qul plomba turini tavsiya etadi:",
+        ru: "Доктор Мунаджат подбирает оптимальный материал индивидуально под клиническую ситуацию и пожелания пациентки:",
+        en: "Dr. Munojat selects the optimal composite filling based on clinical assessment and individual preferences:",
+      },
+      items: [
+        {
+          country: { uz: "Germaniya", ru: "Германия", en: "Germany" },
+          flagColor: "bg-amber-500",
+          brand: "3M™ Filtek & Charisma",
+          desc: {
+            uz: "Premium nano-keramik fotopolimer. Yuqori mustahkamlik, mikroskopik darajadagi jilolanish va 10+ yil benuqson xizmat.",
+            ru: "Премиальный нанокомпозит с нанокерамикой. Высокая прочность, зеркальный блеск и долговечность 10+ лет.",
+            en: "Premium nano-ceramic composite. Exceptional hardness, microscopic polish, and 10+ years durability.",
+          },
+          features: {
+            uz: ["Nano-klaster texnologiyasi", "Katta yuklamaga chidamli", "10+ yil rasmiy kafolat"],
+            ru: ["Технология нанокластеров", "Высокая износостойкость", "Гарантия 10+ лет"],
+            en: ["Nano-cluster technology", "High chewing resistance", "10+ years warranty"],
+          },
+        },
+        {
+          country: { uz: "Yaponiya", ru: "Япония", en: "Japan" },
+          flagColor: "bg-rose-500",
+          brand: "Estelite & GC Gradia Direct",
+          desc: {
+            uz: "Xameleon submikron restavratsiya. Tishning tabiiy emal rangi va shaffofligini 100% o'ziga singdiradi, chegara umuman ko'rinmaydi.",
+            ru: "Субмикронный композит с эффектом хамелеона. Идеальное слияние с естественным цветом зуба, переход абсолютно незаметен.",
+            en: "Submicron chameleon filler. Seamlessly mimics natural tooth shading and translucency with invisible margins.",
+          },
+          features: {
+            uz: ["Xameleon optik effekt", "Old tishlar uchun ideal", "Tabiiy emal jilolanishi"],
+            ru: ["Оптический эффект хамелеона", "Идеально для передних зубов", "Глянцевый естественный блеск"],
+            en: ["Chameleon optical blending", "Ideal for front incisors", "Natural enamel gloss"],
+          },
+        },
+        {
+          country: { uz: "Janubiy Koreya", ru: "Южная Корея", en: "South Korea" },
+          flagColor: "bg-sky-500",
+          brand: "DenFil & DiaDent",
+          desc: {
+            uz: "Yuqori zichlikdagi mikro-gibrid texnologiya. Chaynash tishlari uchun ajoyib chidamlilik va hamyonbop mukammal sifat uyg'unligi.",
+            ru: "Высокоплотный микрогибридный композит. Отличная прочность для жевательных зубов и идеальный баланс цены и качества.",
+            en: "High-density micro-hybrid composite. Superior wear resistance for molars with optimal value and reliability.",
+          },
+          features: {
+            uz: ["Mikro-gibrid polimer", "Chaynash tishlarida baquvvat", "Eng ma'qul narx-sifat"],
+            ru: ["Микрогибридная матрица", "Надёжность на жевательных зубах", "Оптимальное соотношение цена/качество"],
+            en: ["Micro-hybrid matrix", "Heavy chewing strength", "Best value & reliability"],
+          },
+        },
+        {
+          country: { uz: "Rossiya", ru: "Россия", en: "Russia" },
+          flagColor: "bg-emerald-500",
+          brand: "VladMiVa (Estelight / DentLight)",
+          desc: {
+            uz: "Tejamkor va vaqt sinovidan o'tgan terapevtik fotopolimer. Kariesni ishonchli va arzon narxda sifatli davolash uchun qulay tanlov.",
+            ru: "Проверенный временем доступный терапевтический композит. Надёжное и бюджетное лечение кариеса с хорошей фиксацией.",
+            en: "Time-tested and budget-friendly restorative photopolymer. Dependable cavity restoration at an accessible price point.",
+          },
+          features: {
+            uz: ["Klinik sinalgan tarkib", "Ishonchli terapevtik plomba", "Eng arzon va tejamkor"],
+            ru: ["Клинически проверенный состав", "Надёжная фиксация", "Самый доступный вариант"],
+            en: ["Clinically proven formula", "Dependable therapeutic seal", "Most accessible option"],
+          },
+        },
+      ],
+    },
+    indications: {
+      uz: [
+        "Tishda qora dog'lar, chuqurliklar yoki karies paydo bo'lganda",
+        "Issiq, sovuq, shirin yoki nordon yeguliklarda tish bezovta qilganda",
+        "Tunda tishning o'z-o'zidan qattiq og'rishi (pulpit)",
+        "Eski plombalarning rangi o'zgarishi yoki tushib qolishi",
+        "Tish sinishi, emal parchalanishi (badiiy restavratsiya)",
+      ],
+      ru: [
+        "Появление тёмных пятен, полостей и кариеса",
+        "Чувствительность на горячее, холодное, сладкое или кислое",
+        "Ноющая ночная боль в зубе (пульпит)",
+        "Потемнение или выпадение старых пломб",
+        "Сколы зубов и дефекты эмали (художественная реставрация)",
+      ],
+      en: [
+        "Dark spots, holes, or visible cavities on teeth",
+        "Sensitivity to hot, cold, sweet, or acidic foods",
+        "Throbbing nocturnal toothache (pulpitis)",
+        "Discolored, leaking, or missing old fillings",
+        "Chipped edges and enamel fractures (cosmetic bonding)",
+      ],
+    },
+    steps: {
+      uz: [
+        { title: "1. To'liq Diagnostika", desc: "Zararlangan sohani aniqlash va rentgen tekshiruvi." },
+        { title: "2. Og'riqsizlantirish", desc: "Yumshoq anesteziya yordamida muolajani to'liq hissizlantirish." },
+        { title: "3. Kariesni Tozalash", desc: "Zararlangan to'qimalarni mikromotor yordamida ehtiyotkorlik bilan tozalash." },
+        { title: "4. Kanal Davolash (zarurat bo'lsa)", desc: "Ildiz kanallarini antiseptik bilan yuvish va germetik plombalash." },
+        { title: "5. Badiiy Restavratsiya", desc: "Nano-kompozit material bilan tish anatomiyasini va emal rangini tiklash." },
+      ],
+      ru: [
+        { title: "1. Диагностика", desc: "Осмотр и прицельный рентген-снимок." },
+        { title: "2. Обезболивание", desc: "Качественная мягкая анестезия." },
+        { title: "3. Очищение кариеса", desc: "Бережное удаление поражённых тканей зуба." },
+        { title: "4. Пломбирование каналов", desc: "Антисептическая обработка и пломбировка корней (при пульпите)." },
+        { title: "5. Реставрация", desc: "Послойное нанесение фотополимера под естественный цвет." },
+      ],
+      en: [
+        { title: "1. Diagnosis", desc: "Detailed inspection and targeted digital X-ray." },
+        { title: "2. Painless Anesthesia", desc: "Gentle numbness injection." },
+        { title: "3. Cavity Cleaning", desc: "Micro-removal of carious enamel and dentin." },
+        { title: "4. Canal Therapy (if needed)", desc: "Antiseptic cleaning and hermetic root sealing." },
+        { title: "5. Layered Bonding", desc: "Layered nano-composite sculpting matching natural shade." },
+      ],
+    },
+    comparison: {
+      title: { uz: "Dr. Munojat Restavratsiyasi va Oddiy Plombalar Farqi", ru: "Преимущества Реставрации у Д-р Мунаджат", en: "Dr. Munojat's Restorations vs Standard Fillings" },
+      headers: {
+        uz: ["Xususiyat", "Dr. Munojat Fotopolimeri", "Eski Oddiy Plomba"],
+        ru: ["Критерий", "Фотополимер Д-р Мунаджат", "Старая обычная пломба"],
+        en: ["Feature", "Dr. Munojat Photopolymer", "Old Basic Filling"],
+      },
+      rows: {
+        uz: [
+          ["Tishga yopishish kuchi", "Nano-adgeziya (Tushib ketmaydi)", "• Ajralib qolish xavfi yuqori"],
+          ["Rang mosligi", "100% ko'rinmas, tabiiy emaldek", "— Kulrang yoki sariq dog'dek ko'rinadi"],
+          ["Tish shakli anatomiyasi", "✓ Tuberkul va burmalargacha tiklanadi", "— Tekis plastirdek qilinadi"],
+          ["Chidamlilik", "7–12 yil", "1–3 yil"],
+        ],
+        ru: [
+          ["Сцепление с зубом", "Нано-адгезив (Не выпадает)", "• Риск сколов и отслойки"],
+          ["Цвет", "Невидима, как родная эмаль", "— Заметна глазу, желтеет"],
+          ["Анатомия", "✓ Воссоздаются все бугорки зуба", "— Плоская заплатка"],
+          ["Срок службы", "7–12 лет", "1–3 года"],
+        ],
+        en: [
+          ["Bond strength", "Nano-adhesion (No debonding)", "• High risk of leakage"],
+          ["Shade match", "Seamless natural transparency", "— Visible artificial patch"],
+          ["Tooth anatomy", "✓ Exact cusps and grooves sculpted", "— Flat artificial blob"],
+          ["Durability", "7–12 years", "1–3 years"],
+        ],
+      },
+    },
+    faqs: {
+      uz: [
+        { q: "Tish davolatishdan juda qo'rqaman, og'riq bo'lmaydimi?", a: "Mutlaqo og'rimaydi! Dr. Munojat Akbarova aynan stomatologdan qo'rqadigan ayollar va bolalar bilan juda xotirjam, sabrli va mehrli ishlaydi. Anesteziya oldidan milkka maxsus muzlatuvchi gel surtiladi, hatto ukol ninasining o'zi ham sezilmaydi." },
+        { q: "Plomba qo'yilgandan keyin qachon ovqat yesa bo'ladi?", a: "Zamonaviy fotopolimer plombalar maxsus ultrabinafsha chiroq yordamida darhol qotadi, shuning uchun muolajadan so'ng (anesteziya o'tgach) bemalol ovqatlanishingiz mumkin." },
+      ],
+      ru: [
+        { q: "Очень боюсь лечить зубы, будет ли больно?", a: "Совершенно без боли! Перед уколом наносится обезболивающий гель, поэтому даже укол не чувствуется. Доктор работает мягко и терпеливо." },
+        { q: "Когда можно кушать после пломбирования?", a: "Фотополимер полимеризуется лампой сразу, поэтому кушать можно сразу после отхода анестезии." },
+      ],
+      en: [
+        { q: "I have dental anxiety, will it hurt?", a: "Zero pain! A topical numbing gel is applied before the injection, so you don't even feel the needle. Dr. Munojat is gentle and patient." },
+        { q: "When can I eat after a filling?", a: "Photopolymer cures immediately under UV light; you can eat as soon as the local numbness subsides." },
+      ],
+    },
+  },
+
+  "ortopediya": {
+    slug: "ortopediya",
+    iconType: "ortho",
+    badge: {
+      uz: "OLD VA ORQA TISHLAR · XITOY · GERMANIYA · AVSTRALIYA",
+      ru: "ПЕРЕДНИЕ И ЖЕВАТЕЛЬНЫЕ ЗУБЫ · КИТАЙ · ГЕРМАНИЯ · АВСТРАЛИЯ",
+      en: "FRONT & MOLAR TEETH · CHINA · GERMANY · AUSTRALIA",
+    },
+    title: {
+      uz: "Old va Orqa Tish Karonkalari (Tsirkoniy & Keramika) — Andijon",
+      ru: "Коронки для Передних и Жевательных Зубов в Андижане",
+      en: "Front & Back Teeth Crowns in Andijan",
+    },
+    seoTitle: {
+      uz: "Tish Karonkalari Andijon — Dr. Munojat Akbarova",
+      ru: "Коронки на зубы в Андижане — Д-р Мунаджат",
+      en: "Dental Crowns in Andijan — Dr. Munojat",
+    },
+    metaDescription: {
+      uz: "Andijonda old va orqa tishlar uchun Germaniya, Avstraliya hamda Xitoy tsirkoniy va keramik karonkalari. Dr. Munojat Akbarova — tabiiy estetika va uzoq yillik mustahkamlik. Tel: +998 94 106-15-55",
+      ru: "Коронки для передних и жевательных зубов в Андижане из Германии, Австралии и Китая у Д-р Мунаджат Акбаровой. Естественный цвет и прочность на долгие годы. Тел: +998 94 106-15-55",
+      en: "Front and molar dental crowns in Andijan using certified materials from Germany, Australia, and China by Dr. Munojat Akbarova. Long-term durability. Phone: +998 94 106-15-55",
+    },
+    subtitle: {
+      uz: "Old va orqa tishlarni Germaniya, Avstraliya hamda Xitoyning yuqori sifatli tsirkoniy va keramik karonkalari bilan uzoq yillarga mukammal tiklash",
+      ru: "Восстановление передних и жевательных зубов коронками из Германии, Австралии и Китая на долгие годы",
+      en: "Restoration of front and posterior teeth with certified crowns from Germany, Australia, and China for long-lasting years",
+    },
+    overview: {
+      uz: "Ortopedik stomatologiyada old va orqa tishlar alohida vazifalarni bajaradi: old tishlar yuz chiroyi, tabassum estetikasi va tabiiy shaffoflikni talab qilsa, orqa chaynov tishlari ovqatni to'liq maydalash va yuqori bosimga chidash uchun maksimal baquvvat bo'lishi kerak. Dr. Munojat Akbarova har bir bemorga individual yondashib, 3 ta yetakchi davlatning sertifikatlangan tsirkoniy va keramik qoplamalarini taqdim etadi: Germaniya (yuqori aniqlik va tabiiy emal shaffofligi), Avstraliya (premium biosovushuvchanlik va milk xavfsizligi) hamda Xitoy (hamyonbop va baquvvat monolit tsirkoniy). Har bir karonka uzoq yillar mustahkam va benuqson xizmat qiladi.",
+      ru: "Передние и жевательные зубы несут разную нагрузку: для зоны улыбки критически важны цвет и прозрачность, а для жевательных моляров — выдерживание экстремальных жевательных нагрузок. Д-р Мунаджат Акбарова предлагает сертифицированные коронки 3 ведущих стран: Германия (высочайшая точность и естественная эстетика), Австралия (биосовместимость и забота о деснах) и Китай (современный прочный и доступный цирконий). Все конструкции служат долгие годы.",
+      en: "Front and back teeth require distinct functional engineering: front teeth demand lifelike translucency and cosmetic elegance, while molars require heavy-duty strength to absorb immense chewing pressures. Dr. Munojat Akbarova provides certified crowns from 3 leading nations: Germany (sublime precision and natural enamel brilliance), Australia (premium biocompatibility preserving gum health), and China (durable, high-value modern monolithic zirconia) built for long-term years.",
+    },
+    materials: {
+      title: {
+        uz: "Old va Orqa Tish Karonkalari (3 Davlat)",
+        ru: "Коронки для Передних и Жевательных Зубов (3 Страны)",
+        en: "Crown Systems for Front & Back Teeth (3 Countries)",
+      },
+      subtitle: {
+        uz: "Dr. Munojat Akbarova old tishlarga tabiiy jilo va shaffoflik, orqa tishlarga esa baquvvat chaynash quvvatini ta'minlovchi materiallarni tavsiya etadi:",
+        ru: "Доктор Мунаджат подбирает материалы индивидуально: эстетическая прозрачность для зоны улыбки и высокая прочность для жевательных зубов:",
+        en: "Dr. Munojat selects materials tailored for front aesthetic translucency and posterior chewing strength:",
+      },
+      items: [
+        {
+          country: { uz: "Germaniya", ru: "Германия", en: "Germany" },
+          flagColor: "bg-amber-500",
+          brand: "Germaniya Tsirkon Karonkasi",
+          desc: {
+            uz: "Yuqori texnologik monolit tsirkoniy. Old va orqa tishlar uchun ajoyib optik shaffoflik, tabiiy rang va uzoq yillar benuqson xizmat.",
+            ru: "Высокотехнологичный монолитный цирконий. Естественная прозрачность для передних зубов и надёжность для жевательных на долгие годы.",
+            en: "High-precision German monolithic zirconia. Exceptional optical translucency and heavy load capacity lasting for years.",
+          },
+          features: {
+            uz: ["Tabiiy emaldek shaffof", "Old va orqa tishlarga mos", "Uzoq yillar xizmat"],
+            ru: ["Прозрачность родной эмали", "Для передних и моляров", "Долгие годы службы"],
+            en: ["Natural enamel translucency", "For incisors and molars", "Long-lasting service"],
+          },
+        },
+        {
+          country: { uz: "Avstraliya", ru: "Австралия", en: "Australia" },
+          flagColor: "bg-emerald-500",
+          brand: "Avstraliya Keramikasi",
+          desc: {
+            uz: "Premium biokompatibil keramik qoplama. Milk to'qimasiga 100% zararsiz, milkni qoraytirmaydi va uzoq yillik mustahkamlik beradi.",
+            ru: "Премиальная керамика. Идеальное прилегание к десне без посинения края, максимальная биосовместимость на долгие годы.",
+            en: "Premium biocompatible ceramic crowns. Zero gingival discoloration, ideal soft tissue adaptation for many years.",
+          },
+          features: {
+            uz: ["100% biosovushuvchanlik", "Milk cheti qoraymaydi", "Uzoq yillar mustahkamlik"],
+            ru: ["Биосовместимый состав", "Без тёмного края у десны", "Прочность на долгие годы"],
+            en: ["100% biocompatibility", "No dark gum margins", "High durability"],
+          },
+        },
+        {
+          country: { uz: "Xitoy", ru: "Китай", en: "China" },
+          flagColor: "bg-rose-500",
+          brand: "Xitoy Tsirkon Karonkasi",
+          desc: {
+            uz: "Zamonaviy raqamli CAD/CAM tsirkoniy qoplamasi. Chaynash tishlarida baquvvat, qattiq bosimga chidamli va eng ma'qul narxdagi sifat.",
+            ru: "Современный цифровой CAD/CAM диоксид циркония. Отличная выносливость на жевательных зубах по доступной стоимости.",
+            en: "Modern digital CAD/CAM zirconia crowns. Reliable chewing endurance for molars at an accessible price.",
+          },
+          features: {
+            uz: ["CAD/CAM aniqligi", "Orqa tishlarda baquvvat", "Eng ma'qul narx-sifat"],
+            ru: ["Высокая точность CAD/CAM", "Прочность на жевательных", "Доступная цена"],
+            en: ["CAD/CAM precision fit", "Heavy molar endurance", "Best value"],
+          },
+        },
+      ],
+    },
+    indications: {
+      uz: [
+        "Old tishlarning yemirilishi, rangi o'zgarishi, sinishi yoki shaklsizligi",
+        "Orqa chaynov tishlarining katta qismi karies sabab yemirilganda",
+        "Ildiz kanali davolangan (nervi olingan) tishlarni sinishdan asrash uchun",
+        "Tishlar orasidagi noqulay oraliqlarni estetik bartaraf etish",
+        "Uzoq yillar davomida mustahkam va ishonchli xizmat qiladigan qoplama kerak bo'lganda",
+      ],
+      ru: [
+        "Разрушение, сколы, потемнение или дефекты формы передних зубов",
+        "Сильное разрушение жевательных зубов кариесом",
+        "Защита депульпированных (после лечения каналов) зубов от раскалывания",
+        "Устранение эстетических дефектов и щелей",
+        "Потребность в надёжной коронке на долгие годы службы",
+      ],
+      en: [
+        "Chipped, discolored, fractured, or misshapen anterior incisors",
+        "Extensive cavity damage on posterior chewing molars",
+        "Protecting root-canal treated teeth from structural fracture",
+        "Correcting aesthetic spacing and misalignment",
+        "Desire for robust, natural dental crowns lasting for years",
+      ],
+    },
+    steps: {
+      uz: [
+        { title: "1. Diagnostika & 3D Tekshiruv", desc: "Old va orqa tishlarning holatini aniqlash va individual davolash rejasi." },
+        { title: "2. Nozik Tayyorlov", desc: "Tish to'qimasini mikron darajasida minimal silliqlash." },
+        { title: "3. Raqamli CAD/CAM Iz", desc: "Raqamli texnologiyada 100% aniqlikdagi 3D model olish." },
+        { title: "4. Vaqtinchalik Qoplama", desc: "Asosiy karonka tayyor bo'lguncha tishni to'liq himoya qilish." },
+        { title: "5. Doimiy Fiksatsiya", desc: "Karonkani maxsus tsement bilan uzoq yillarga mustahkam biriktirish." },
+      ],
+      ru: [
+        { title: "1. Диагностика и 3D-осмотр", desc: "Оценка зубов и составление плана протезирования." },
+        { title: "2. Бережная обработка", desc: "Минимальное микро-сошлифовывание эмали." },
+        { title: "3. Цифровой слепок CAD/CAM", desc: "Снятие высокоточного цифрового 3D-слепка." },
+        { title: "4. Временная защита", desc: "Установка временной коронки на время изготовления." },
+        { title: "5. Постоянная фиксация", desc: "Надёжное закрепление постоянной коронки на долгие годы." },
+      ],
+      en: [
+        { title: "1. 3D Assessment & Diagnosis", desc: "Comprehensive evaluation of front and posterior bite forces." },
+        { title: "2. Gentle Micro-Preparation", desc: "Minimal tooth contouring preserving live tissue." },
+        { title: "3. Digital CAD/CAM Scan", desc: "High-precision 3D scan for exact laboratory milling." },
+        { title: "4. Temporary Protection", desc: "Aesthetic temporary crown shielding the tooth." },
+        { title: "5. Definitive Bonding", desc: "Precision cementation engineered for long-term years." },
+      ],
+    },
+    comparison: {
+      title: { uz: "Zamonaviy Tsirkoniy Karonka va Oddiy Qoplama Farqi", ru: "Преимущества Циркониевых Коронок перед Обычными", en: "Modern Zirconia Crowns vs Basic Metal-Plastic" },
+      headers: {
+        uz: ["Parametr", "Tsirkoniy Karonka (Dr. Munojat)", "Eski Oddiy Qoplama"],
+        ru: ["Критерий", "Цирконий (Д-р Мунаджат)", "Старые металлические/пластмассовые"],
+        en: ["Feature", "Zirconia Crown (Dr. Munojat)", "Basic Metal/Plastic Crown"],
+      },
+      rows: {
+        uz: [
+          ["Old tishlar estetikasi", "100% tabiiy shaffof, chegarasi ko'rinmaydi", "• Sun'iy, qoraygan yoki mat ko'rinadi"],
+          ["Orqa tishlar mustahkamligi", "✓ Monolit: sinmaydi va yemirilmaydi", "— Plastmassa yoriladi, metall yeyiladi"],
+          ["Xizmat muddati", "Uzoq yillar davomida xizmat qiladi", "1–3 yilda eskiradi va tushadi"],
+          ["Milkka ta'siri", "✓ Milk qizarib qoraymaydi, 100% zararsiz", "— Metall cheti milkni qoraytirib qo'yadi"],
+        ],
+        ru: [
+          ["Эстетика передних зубов", "100% естественная прозрачность, без швов", "• Заметны глазу, серый оттенок"],
+          ["Прочность на жевательных", "✓ Монолит: не скалывается под нагрузкой", "— Пластмасса стирается, металл окисляется"],
+          ["Срок службы", "Служит долгие годы", "1–3 года максимум"],
+          ["Влияние на десну", "✓ Биосовместимо, десна остаётся розовой", "— Тёмная полоса у края десны"],
+        ],
+        en: [
+          ["Front smile aesthetics", "Lifelike translucency with invisible margins", "• Artificial look with gray discoloration"],
+          ["Molar chewing power", "✓ Monolithic: withstands heavy mastication", "— Chips, wears down, or fractures"],
+          ["Lifespan", "Lasts for long-term years", "1–3 years only"],
+          ["Gum line health", "✓ 100% biocompatible, no gum darkening", "— Unpleasant dark metallic border"],
+        ],
+      },
+    },
+    faqs: {
+      uz: [
+        { q: "Old va orqa tishlarga qanday karonka tanlash kerak?", a: "Old tishlar uchun tabiiy shaffoflikka ega Germaniya yoki Avstraliya karonkalari tavsiya etiladi (kulib turganda tabiiy tishdek ko'rinadi). Orqa chaynov tishlari uchun esa qattiq taomlar bosimiga chidamli Germaniya yoki Xitoy monolit tsirkoniy karonkalari uzoq yillar mustahkam xizmat qiladi." },
+        { q: "Karonkalar qancha vaqt xizmat qiladi?", a: "Zamonaviy tsirkoniy va keramik karonkalar uzoq yillar davomida mustahkam saqlanadi. Ular qahva, choy yoki boshqa moddalardan aslo rangini yo'qotmaydi va yeyilmaydi." },
+      ],
+      ru: [
+        { q: "Какие коронки лучше выбрать для передних и жевательных зубов?", a: "Для передних зубов рекомендуются коронки из Германии или Австралии с высокой прозрачностью родной эмали. Для жевательных моляров идеально подходят прочные монолитные циркониевые коронки из Германии или Китая на долгие годы." },
+        { q: "Сколько служат коронки?", a: "Современные циркониевые и керамические коронки служат долгие годы, не теряют блеск, не стираются и не меняют свой первоначальный цвет." },
+      ],
+      en: [
+        { q: "Which crown should I choose for front vs back teeth?", a: "For front incisors, highly translucent German or Australian crowns are optimal for natural smile aesthetics. For chewing molars, heavy-duty monolithic zirconia from Germany or China provides unmatched chewing durability for long years." },
+        { q: "How long do crowns last?", a: "Modern zirconia and ceramic crowns last for long-term years without staining, cracking, or losing their natural enamel luster." },
+      ],
+    },
+  },
+
+  "xirurgiya": {
+    slug: "xirurgiya",
+    iconType: "surgery",
+    badge: {
+      uz: "100% OG'RIQSIZ · MIKROXIRURGIYA",
+      ru: "100% БЕЗ БОЛИ · МИКРОХИРУРГИЯ",
+      en: "100% PAIN-FREE · MICROSURGERY",
+    },
+    title: {
+      uz: "Xirurgiya va Tish Olish — Andijon",
+      ru: "Хирургия и Удаление Зубов в Андижане",
+      en: "Oral Surgery & Tooth Extraction in Andijan",
+    },
+    seoTitle: {
+      uz: "Og'riqsiz Tish Olish Andijon — Dr. Munojat",
+      ru: "Удаление зубов в Андижане — Д-р Мунаджат",
+      en: "Painless Tooth Extraction in Andijan",
+    },
+    metaDescription: {
+      uz: "Andijonda og'riqsiz tish olish, aql tishini xirurgik olish va milk operatsiyalari. Dr. Munojat Akbarova — mikroxirurgik nozik usul, 1-3 kunda tez tiklanish. Tel: +998 94 106-15-55",
+      ru: "Безболезненное удаление зубов и зубов мудрости в Андижане у Д-р Мунаджат Акбаровой. Микрохирургическая точность, быстрое заживление. Тел: +998 94 106-15-55",
+      en: "Painless tooth extraction and wisdom tooth surgery in Andijan by Dr. Munojat Akbarova. Gentle microsurgery, fast recovery in 1-3 days. Phone: +998 94 106-15-55",
+    },
+    subtitle: {
+      uz: "Oddiy, murakkab va aql tishlarini (8-tish) mutlaqo og'riqsiz, nozik va tezkor mikroxirurgik usulda olish",
+      ru: "Удаление обычных зубов и зубов мудрости любой сложности без боли и травм",
+      en: "Gentle, painless extraction of simple, complex, and impacted wisdom teeth",
+    },
+    overview: {
+      uz: "Dr. Munojat Akbarova jarrohlik amaliyotlarida atravmatik (to'qimalarga shikast yetkazmaydigan) zamonaviy texnologiyalardan foydalanadi. Aql tishi noto'g'ri o'sgan yoki milk ichida qolib ketgan holatlarda ham maxsus mikroxirurgik asboblar yordamida tish bir necha daqiqada og'riqsiz olinadi va shish xavfi minimal darajaga tushiriladi.",
+      ru: "Д-р Мунаджат Акбарова применяет атравматичные технологии удаления зубов. Даже при сложном ретинированном зубе мудрости удаление проходит за считанные минуты без боли, с минимальным риском отёка.",
+      en: "Dr. Munojat Akbarova utilizes atraumatic surgical protocols. Even deeply impacted or angled wisdom teeth are removed smoothly within minutes with minimal swelling.",
+    },
+    indications: {
+      uz: [
+        "Davolashning iloji qolmagan, ildizigacha chirigan tishlar",
+        "Noto'g'ri o'sib, jag'ni og'ritayotgan yoki boshqa tishlarni siqayotgan aql tishlari",
+        "Ortodontik davolash (breket taqish) oldidan tish qatorida joy ochish zarurati",
+        "Ildiz atrofida yiring yoki kista paydo bo'lishi",
+      ],
+      ru: [
+        "Зубы, разрушенные ниже уровня десны и не подлежащие лечению",
+        "Зубы мудрости, растущие криво или давящие на соседние зубы",
+        "Подготовка зубного ряда к установке брекетов",
+        "Воспалительные кисты у верхушки корня",
+      ],
+      en: [
+        "Severely broken down teeth non-restorable by fillings or crowns",
+        "Impacted or sideways wisdom teeth causing crowding and pain",
+        "Orthodontic extractions to create space for aligners or braces",
+        "Persistent root cysts or chronic infection",
+      ],
+    },
+    steps: {
+      uz: [
+        { title: "1. Rentgen Tahlil", desc: "Tish ildizi shakli va jag' nervi joylashuvini aniq ko'rish." },
+        { title: "2. Chuqur Anesteziya", desc: "Sezuvchanlikni 100% yo'qotuvchi zamonaviy anesteziya." },
+        { title: "3. Atravmatik Olish", desc: "Suyak va milkka zarar yetkazmasdan tishni yengil ajratib olish." },
+        { title: "4. Dori Qo'yish & Tikish", desc: "Qon ketishini to'xtatuvchi hemostatik gubka va nozik mikro-tikuv." },
+        { title: "5. Shaxsiy Ko'rsatmalar", desc: "Tez bitishi uchun muz qo'yish va dori ichish bo'yicha yo'riqnoma." },
+      ],
+      ru: [
+        { title: "1. Рентген-контроль", desc: "Анализ формы корней и положения нерва." },
+        { title: "2. Глубокая анестезия", desc: "Полное отключение болевых рецепторов." },
+        { title: "3. Бережное удаление", desc: "Атравматичное извлечение без повреждения кости." },
+        { title: "4. Гемостаз и шов", desc: "Саморассасывающийся шов для быстрого заживления." },
+        { title: "5. Инструктаж", desc: "Рекомендации для заживления без отёков." },
+      ],
+      en: [
+        { title: "1. Digital X-Ray", desc: "Mapping root curvature and nerve proximity." },
+        { title: "2. Profound Anesthesia", desc: "Complete nerve blocking with premium anesthetics." },
+        { title: "3. Atraumatic Extraction", desc: "Gentle luxation preserving surrounding bone." },
+        { title: "4. Hemostatic Suture", desc: "Collagen sponge and micro-sutures for rapid healing." },
+        { title: "5. Post-op Guide", desc: "Clear guidelines on ice, food, and medications." },
+      ],
+    },
+    comparison: {
+      title: { uz: "Atravmatik Olish va Eski Usul Farqi", ru: "Атравматичное Удаление против Старого Метода", en: "Atraumatic Modern Extraction vs Old Aggressive Methods" },
+      headers: {
+        uz: ["Parametr", "Dr. Munojatning Atravmatik Usuli", "Eski An'anaviy Usul"],
+        ru: ["Критерий", "Метод Д-р Мунаджат", "Старый метод"],
+        en: ["Criterion", "Dr. Munojat Atraumatic Protocol", "Old Conventional Technique"],
+      },
+      rows: {
+        uz: [
+          ["Og'riq darajasi", "✓ 100% sezilmaydi", "• Kuchli bosim va og'riq"],
+          ["Jag' suyagining saqlanishi", "100% butun (kelgusida implant oson tushadi)", "— Suyak devori sinishi mumkin"],
+          ["Tiklanish vaqti", "1–2 kun", "7–14 kun kuchli og'riq"],
+          ["Shish xavfi", "✓ Minimal yoki umuman yo'q", "• Katta shish va ko'karish"],
+        ],
+        ru: [
+          ["Боль", "✓ Полностью отсутствует", "• Сильное давление и боль"],
+          ["Сохранность кости", "100% сохранена под имплант", "— Повреждение лунки"],
+          ["Заживление", "1–2 дня", "1–2 недели болей"],
+          ["Отёки", "✓ Минимальны", "• Выраженный отёк"],
+        ],
+        en: [
+          ["Pain Level", "✓ 100% pain-free", "• Forceful trauma and pain"],
+          ["Bone Preservation", "Socket wall 100% intact for future implants", "— Damaged socket edges"],
+          ["Recovery Time", "1–2 days", "7–14 days sore recovery"],
+          ["Post-op Swelling", "✓ Minimal or zero swelling", "• Noticeable bruising and swelling"],
+        ],
+      },
+    },
+    faqs: {
+      uz: [
+        { q: "Aql tishini oldirish juda qo'rqinchlimi?", a: "Yo'q! Dr. Munojat Akbarovaning qo'li juda yengil bo'lib, eng murakkab aql tishi ham 10-15 daqiqa ichida hech qanday og'riqsiz olinadi." },
+        { q: "Tish olgandan keyin og'izni chayish mumkinmi?", a: "Dastlabki 24 soat ichida og'izni kuchli chayish mumkin emas, chunki tish o'rnidagi himoya qon laxtasi (qon quyqasi) saqlanishi shart." },
+      ],
+      ru: [
+        { q: "Страшно ли удалять зуб мудрости?", a: "Нет! У Д-р Мунаджат очень лёгкая рука. Процедура проходит за 10-15 минут абсолютно безболезненно." },
+        { q: "Можно ли полоскать рот после удаления?", a: "В первые 24 часа полоскать нельзя, чтобы сохранить защитный кровяной сгусток в лунке." },
+      ],
+      en: [
+        { q: "Is wisdom tooth removal scary?", a: "Not at all! Dr. Munojat has a remarkably gentle touch and completes the extraction in 10-15 painless minutes." },
+        { q: "Can I rinse my mouth after extraction?", a: "Do not vigorously rinse within the first 24 hours to protect the vital blood clot." },
+      ],
+    },
+  },
+
+  "tish-oqartirish": {
+    slug: "tish-oqartirish",
+    iconType: "whitening",
+    badge: {
+      uz: "ZOOM TEXNOLOGIYASI · TABIIY YORQIN OQLIK",
+      ru: "ТЕХНОЛОГИЯ ZOOM · ЕСТЕСТВЕННАЯ БЕЛИЗНА",
+      en: "ZOOM TECHNOLOGY · NATURAL RADIANT WHITE",
+    },
+    title: {
+      uz: "ZOOM Tish Oqartirish — Andijon",
+      ru: "ZOOM Отбеливание Зубов в Андижане",
+      en: "ZOOM Professional Teeth Whitening in Andijan",
+    },
+    seoTitle: {
+      uz: "ZOOM Tish Oqartirish Andijon — Dr. Munojat",
+      ru: "Отбеливание зубов ZOOM в Андижане — Д-р Мунаджат",
+      en: "ZOOM Teeth Whitening in Andijan",
+    },
+    metaDescription: {
+      uz: "Andijonda professional ZOOM tish oqartirish. Dr. Munojat Akbarova — tishlarning o'z holatiga nisbatan xavfsiz oqartirish va yorqin qilish. Emalga zarar yo'q. Tel: +998 94 106-15-55",
+      ru: "Профессиональное отбеливание зубов ZOOM в Андижане у Д-р Мунаджат Акбаровой. Осветление зубов относительно исходного тона без вреда для эмали. Тел: +998 94 106-15-55",
+      en: "Professional ZOOM teeth whitening in Andijan by Dr. Munojat Akbarova. Safe brightening relative to your starting shade. Phone: +998 94 106-15-55",
+    },
+    subtitle: {
+      uz: "Professional ZOOM tizimi yordamida tishlarning o'z holatiga nisbatan xavfsiz oqartirish, tabiiy yorqin va jiloli qilish",
+      ru: "Осветление зубов относительно исходного оттенка до естественного сияния с помощью системы ZOOM",
+      en: "Safe teeth brightening and whitening relative to your natural shade using ZOOM technology",
+    },
+    overview: {
+      uz: "ZOOM professional tish oqartirish — butun dunyoda eng mashhur va xavfsiz estetik muolajadir. Maxsus gel va sovuq nurli ZOOM lampasi yordamida emal ichidagi pigmentlar parchalanadi. Tish emali strukturasi zarracha zararlanmaydi. Dr. Munojat Akbarova Andijonda ayollar va kelinlar uchun to'y va bayramlar oldidan benuqson oppoq tabassum yaratadi.",
+      ru: "ZOOM — всемирно признанная безопасная технология отбеливания. Холодный свет лампы активирует гель, расщепляя глубокие пигменты без вреда для эмали. Д-р Мунаджат создаёт сияющие белоснежные улыбки для женщин и невест в Андижане.",
+      en: "ZOOM is the gold standard in in-office teeth whitening. A cold-light LED lamp activates the whitening gel to break down deep stains without harming tooth enamel. Ideal for brides and ladies in Andijan.",
+    },
+    indications: {
+      uz: [
+        "Qahva, choy, shirinliklar yoki chekish oqibatida sarg'aygan tishlar",
+        "To'y, bayram, fotosessiya yoki muhim tadbir oldidan tezkor porloq tabassum kerak bo'lganda",
+        "Yosh o'tishi bilan tish emali qoraygan holatlarda",
+        "Har qanday ayolning o'ziga bo'lgan ishonchini oshirish istagi",
+      ],
+      ru: [
+        "Пожелтение эмали от чая, кофе, пищевых красителей",
+        "Подготовка к свадьбе, фотосессии и важным событиям",
+        "Возрастные изменения цвета зубов",
+        "Желание иметь яркую ослепительную улыбку",
+      ],
+      en: [
+        "Enamel yellowing from tea, coffee, or dietary pigments",
+        "Pre-wedding, event, or photo-shoot aesthetic preparation",
+        "Age-related tooth darkening",
+        "Boosting personal confidence with a brilliant radiant smile",
+      ],
+    },
+    steps: {
+      uz: [
+        { title: "1. Emal Rangini Aniqlash", desc: "VITA shkalasi bo'yicha boshlang'ich tish rangini belgilash." },
+        { title: "2. Milk va Lablarni Himoyalash", desc: "Milk to'qimalariga maxsus himoya geli (kofferdam) surtish." },
+        { title: "3. ZOOM Gel Qo'llash", desc: "Tish yuzasiga kislorodli faol oqartiruvchi gel surtish." },
+        { title: "4. ZOOM Chiroq Aktivatsiyasi", desc: "3 marta 15 daqiqalik yorug'lik seansi." },
+        { title: "5. Remineralizatsiya", desc: "Tish sezuvchanligini oldini oluvchi fluoridli gel bilan emalni boyitish." },
+      ],
+      ru: [
+        { title: "1. Определение тона", desc: "Фиксация исходного оттенка по шкале VITA." },
+        { title: "2. Защита дёсен", desc: "Нанесение защитного барьера на десны." },
+        { title: "3. Нанесение геля", desc: "Покрытие зубов гелем ZOOM." },
+        { title: "4. Активация лампой", desc: "3 цикла по 15 минут под лампой ZOOM." },
+        { title: "5. Фторирование", desc: "Укрепление эмали минеральным гелем." },
+      ],
+      en: [
+        { title: "1. Shade Assessment", desc: "Recording initial tooth shade on VITA guide." },
+        { title: "2. Gum Isolation", desc: "Applying protective liquid dam barrier." },
+        { title: "3. ZOOM Gel Application", desc: "Applying proprietary ZOOM hydrogen peroxide gel." },
+        { title: "4. Light Activation", desc: "Three 15-minute illumination cycles." },
+        { title: "5. Enamel Remineralization", desc: "Strengthening enamel with soothing fluoride gel." },
+      ],
+    },
+    comparison: {
+      title: { uz: "ZOOM Professional va Uy Sharoitidagi Oqartirish Farqi", ru: "ZOOM против Домашних Полосок и Паст", en: "In-Office ZOOM vs Home Whitening Strips & Pastes" },
+      headers: {
+        uz: ["Parametr", "ZOOM Professional (Dr. Munojat)", "Uy Sharoitidagi Pasta/Plastir"],
+        ru: ["Параметр", "Профессиональный ZOOM", "Домашние пасты и полоски"],
+        en: ["Feature", "In-Office ZOOM System", "Home Strips & Pastes"],
+      },
+      rows: {
+        uz: [
+          ["Natija kuchi", "Tish o'z holatiga nisbatan yorqin va oppoq bo'ladi", "• Zo'rg'a seziladi yoki noxolis oqaradi"],
+          ["Vaqt", "Atigi 45 daqiqa (1 seans)", "3–4 hafta har kuni ovoragarchilik"],
+          ["Emal xavfsizligi", "✓ Vrach nazorati ostida 100% xavfsiz", "— Emalni qirib, sezgir qilib qo'yishi mumkin"],
+          ["Natijaning saqlanishi", "1.5–2 yil", "1–2 oy"],
+        ],
+        ru: [
+          ["Эффект", "Естественная белизна относительно исходного тона", "• Едва заметный эффект"],
+          ["Время", "Всего 45 минут", "Недели ежедневных мучений"],
+          ["Безопасность", "✓ 100% безопасно под контролем врача", "— Абразив повреждает эмаль"],
+          ["Стойкость", "1.5–2 года", "1–2 месяца"],
+        ],
+        en: [
+          ["Effectiveness", "Safe natural brightening relative to baseline", "• Minimal or uneven result"],
+          ["Time Required", "Just 45 minutes (1 visit)", "3–4 weeks of messy routine"],
+          ["Safety", "✓ 100% safe under doctor supervision", "— Risk of abrasive enamel wear"],
+          ["Longevity", "1.5–2 years", "1–2 months"],
+        ],
+      },
+    },
+    faqs: {
+      uz: [
+        { q: "ZOOM oqartirish tish emalini yupqalashtiradimi?", a: "Yo'q! ZOOM texnologiyasi emal qatlamini yupqalashtirmaydi yoki qirmaydi. Kislorod molekulalari faqat emal chuqurligidagi rang beruvchi dog'larni parchalaydi." },
+        { q: "Oqartirishdan keyin qanday parvarish kerak?", a: "Dastlabki 48 soat davomida 'oq parhez' (choy, qahva, shokolad, qizil lavlagi kabi bo'yovchi mahsulotlardan tiyilish) tavsiya etiladi." },
+      ],
+      ru: [
+        { q: "Вредит ли ZOOM эмали?", a: "Нет! Гель ZOOM работает на молекулярном уровне, расщепляя пигмент внутри пор эмали без снятия поверхностного слоя." },
+        { q: "Какая диета нужна после процедуры?", a: "В первые 48 часов соблюдается «белая диета» (исключение кофе, крепкого чая, красного вина и соусов)." },
+      ],
+      en: [
+        { q: "Does ZOOM damage or thin tooth enamel?", a: "No! Oxygen free radicals specifically target stain molecules within enamel micropores without removing enamel." },
+        { q: "What is the post-whitening care?", a: "Follow a 'white diet' for 48 hours, avoiding dark liquids like tea, coffee, and dark sauces." },
+      ],
+    },
+  },
+};

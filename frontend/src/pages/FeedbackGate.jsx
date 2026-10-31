@@ -160,8 +160,6 @@ export default function FeedbackGate() {
       <Seo
         page="feedback"
         path="/baho"
-        title="Dr. Munojat Akbarova — Fikringizni qoldiring | Baho berish"
-        description="Dr. Munojat Akbarova qabuli bo'yicha o'z fikringiz va sharhingizni qoldiring. Google va Yandex Xaritalarda baholash."
       />
 
       <div className="py-12 px-4 sm:px-6 max-w-3xl mx-auto">

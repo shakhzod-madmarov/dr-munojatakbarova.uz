@@ -1,4 +1,3 @@
-import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
 import Seo from "../components/Seo";
@@ -275,9 +274,9 @@ const About = () => {
     },
     sameAs: [
       "https://g.page/r/CXp3o79wS1FnEBM",
-      "https://yandex.uz/maps/org/138661792687",
-      "https://www.instagram.com/dr.munojat_akbarova/",
-      "https://t.me/MunojatAkbarova",
+      "https://yandex.uz/maps/org/138661792687/",
+      "https://www.instagram.com/dr_munojatakbarova/",
+      "https://t.me/dr_munojat",
     ],
   };
 

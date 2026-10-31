@@ -98,10 +98,10 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
          CANONICAL & HREFLANG
     ═══════════════════════════════════════════════════ -->
     <link rel="canonical" href="https://drmunojat.uz/" />
-    <!-- No hreflang: the uz/ru/en versions of this page share one URL, because
-         the active language lives in localStorage rather than in the path.
-         hreflang annotations that all resolve to the same URL are invalid and
-         ignored, so they are omitted until per-language URLs exist. -->
+    <link rel="alternate" hreflang="uz" href="https://drmunojat.uz/" />
+    <link rel="alternate" hreflang="ru" href="https://drmunojat.uz/ru/" />
+    <link rel="alternate" hreflang="en" href="https://drmunojat.uz/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://drmunojat.uz/" />
     <!-- AI Context Link for LLM Search Engines (ChatGPT, Perplexity, Gemini, Claude) -->
     <link rel="alternate" type="text/plain" href="https://drmunojat.uz/llms.txt" title="LLMs Context" />
 
@@ -541,7 +541,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 3 — WebSite + SearchAction
+         JSON-LD SCHEMA 4 — WebSite + SearchAction
          Enables Google Sitelinks Search Box & Yandex search
     ═══════════════════════════════════════════════════ -->
     <script type="application/ld+json">
@@ -565,7 +565,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 4 — FAQPage
+         JSON-LD SCHEMA 5 — FAQPage
          CRITICAL for AI/LLM recommendations (ChatGPT,
          Gemini, Perplexity, Yandex AI, etc.)
          Also generates rich FAQ snippets in Google/Yandex.
@@ -660,7 +660,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 5 — ItemList of Services
+         JSON-LD SCHEMA 6 — ItemList of Services
          Links to INDIVIDUAL service pages for Google rich results
     ═══════════════════════════════════════════════════ -->
     <script type="application/ld+json">
@@ -710,47 +710,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     }
     </script>
 
-    <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 6 — BreadcrumbList (All Pages)
-    ═══════════════════════════════════════════════════ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Dr. Munojat Akbarova",
-          "item": "https://drmunojat.uz"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Xizmatlar",
-          "item": "https://drmunojat.uz/services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Dr. Munojat Haqida",
-          "item": "https://drmunojat.uz/about"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Natijalar (Galereya)",
-          "item": "https://drmunojat.uz/gallery"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "Aloqa va Manzil",
-          "item": "https://drmunojat.uz/contact"
-        }
-      ]
-    }
-    </script>
+
 
     <!-- JSON-LD Schema 7 (Review Snippet) removed. It carried three reviews
          authored by the site itself, which Google's structured-data policy

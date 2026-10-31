@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { useLanguage, useLocalizedPath, LANGS } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
+import { LANGS } from "../utils/language";
 import Logo from "./Logo";
 import { IconPhone } from "./MedicalIcons";
 import { getA11yLabels } from "../constants/a11yLabels";
@@ -36,7 +37,7 @@ const Nav = ({ onOpenBooking }) => {
     { name: { uz: "Dr. Munojat haqida", ru: "О докторе", en: "About Dr." }[lang], path: "/about" },
     { name: { uz: "Natijalar",  ru: "Результаты",   en: "Results"     }[lang], path: "/gallery" },
     { name: { uz: "Aloqa",      ru: "Контакты",     en: "Contact"     }[lang], path: "/contact" },
-    { name: { uz: "Qabul yozilish", ru: "Запись",   en: "Book"        }[lang], path: "/qabul", highlight: true },
+    { name: { uz: "Qabulga yozilish", ru: "Записаться", en: "Book Visit"  }[lang], path: "/qabul", highlight: true },
   ];
 
   return (

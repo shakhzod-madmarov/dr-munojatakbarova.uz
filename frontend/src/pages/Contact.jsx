@@ -99,9 +99,9 @@ const Contact = () => {
         "image": "https://drmunojat.uz/dr_munojat_portrait.webp",
         "sameAs": [
           "https://g.page/r/CXp3o79wS1FnEBM",
-          "https://yandex.uz/maps/org/138661792687",
-          "https://www.instagram.com/dr.munojat_akbarova/",
-          "https://t.me/MunojatAkbarova",
+          "https://yandex.uz/maps/org/138661792687/",
+          "https://www.instagram.com/dr_munojatakbarova/",
+          "https://t.me/dr_munojat",
         ],
         "address": {
           "@type": "PostalAddress",
@@ -115,7 +115,7 @@ const Contact = () => {
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            "opens": "08:00",
+            "opens": "09:00",
             "closes": "18:00",
           },
         ],

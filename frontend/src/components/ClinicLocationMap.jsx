@@ -66,7 +66,7 @@ const ClinicLocationMap = () => {
           <div className="lg:col-span-5 bg-gradient-to-br from-[#120202] via-[#240404] to-[#450707] text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between border border-red-900/40">
             <div>
               <span className="text-[11px] font-black text-amber-300 uppercase tracking-widest block mb-2">
-                KLINIKA VA BOG'LANISH
+                {lang === "uz" ? "KLINIKA VA BOG'LANISH" : lang === "ru" ? "КЛИНИКА И КОНТАКТЫ" : "CLINIC & CONTACT"}
               </span>
               <h3 className="text-2xl font-black text-white mb-1">
                 {t.clinicName}
@@ -81,7 +81,7 @@ const ClinicLocationMap = () => {
                     <IconLocationPin className="w-4 h-4 text-amber-300" />
                   </span>
                   <div>
-                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">Manzil</p>
+                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">{lang === "uz" ? "Manzil" : lang === "ru" ? "Адрес" : "Address"}</p>
                     <p className="text-xs sm:text-sm font-semibold text-white mt-0.5 leading-snug">{t.address}</p>
                   </div>
                 </div>
@@ -91,7 +91,7 @@ const ClinicLocationMap = () => {
                     <IconClock className="w-4 h-4 text-amber-300" />
                   </span>
                   <div>
-                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">Qabul Vaqti</p>
+                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">{lang === "uz" ? "Qabul Vaqti" : lang === "ru" ? "Часы приёма" : "Working Hours"}</p>
                     <p className="text-xs sm:text-sm font-semibold text-white mt-0.5 leading-snug">{t.hours}</p>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const ClinicLocationMap = () => {
                     <IconPhone className="w-4 h-4 text-amber-300" />
                   </span>
                   <div>
-                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">Telefon</p>
+                    <p className="text-[11px] text-red-200 font-bold uppercase tracking-wider">{lang === "uz" ? "Telefon" : lang === "ru" ? "Телефон" : "Phone"}</p>
                     <a href="tel:+998941061555" className="text-base sm:text-lg font-black text-white hover:text-amber-200 transition-colors mt-0.5 block">
                       +998 (94) 106-15-55
                     </a>

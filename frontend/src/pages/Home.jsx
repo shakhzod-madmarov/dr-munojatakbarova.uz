@@ -185,11 +185,11 @@ const HeroSection = ({ onOpenBooking }) => {
       { threshold: [0, 0.05, 0.2] }
     );
 
+    const videoNode = bgVideoRef.current;
     observer.observe(sectionEl);
     return () => {
       observer.disconnect();
-      const video = bgVideoRef.current;
-      if (video) video.pause();
+      if (videoNode) videoNode.pause();
     };
   }, []);
 
@@ -484,13 +484,17 @@ const CoreServicesBento = ({ onOpenBooking }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-xs font-black text-[#930b0b] uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-red-100 border border-red-200 inline-block mb-3">
-            5 TA ASOSIY MUTAXASSISLIK
+            {lang === "uz" ? "5 TA ASOSIY MUTAXASSISLIK" : lang === "ru" ? "5 ОСНОВНЫХ НАПРАВЛЕНИЙ" : "5 CORE SPECIALTIES"}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
-            Zamonaviy Stomatologiya Xizmatlari
+            {lang === "uz" ? "Zamonaviy Stomatologiya Xizmatlari" : lang === "ru" ? "Современные Стоматологические Услуги" : "Modern Dental Care Services"}
           </h2>
           <p className="text-slate-600 mt-2 text-sm sm:text-base">
-            Ayollar va qizlar uchun 100% og'riqsiz, maxfiy va Yevropa standartlaridagi professional muolajalar.
+            {lang === "uz"
+              ? "Ayollar va qizlar uchun 100% og'riqsiz, maxfiy va Yevropa standartlaridagi professional muolajalar."
+              : lang === "ru"
+              ? "Профессиональные процедуры европейского качества для женщин и девушек: 100% без боли и конфиденциально."
+              : "European-standard gentle dental procedures tailored for women: 100% pain-free and strictly private."}
           </p>
         </div>
 
@@ -630,7 +634,11 @@ const ModestyPillars = () => {
         
         <div className="text-center max-w-2xl mx-auto mb-6">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
-            Nima Uchun Ayollar Dr. Munojatni Tanlashadi?
+            {lang === "uz"
+              ? "Nima Uchun Ayollar Dr. Munojatni Tanlashadi?"
+              : lang === "ru"
+              ? "Почему Женщины Выбирают Д-р Мунаджат?"
+              : "Why Do Women Choose Dr. Munojat?"}
           </h2>
         </div>
 
@@ -663,7 +671,7 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
       tag: `YIL STOMATOLOGI – 2025 · ${years} YILLIK AMALIYOT`,
       title: "Dr. Munojat Akbarova",
       subtitle: "Oliy Toifali Shifokor-Stomatolog, Terapevt va Implantolog",
-      desc: "12 yillik amaliy tajriba: estetik restavratsiya, tsirkoniy va keramik karonkalar hamda dental implantologiya. 100% og'riqsiz va ayollar uchun maxfiy muhitda.",
+      desc: `${years} yillik amaliy tajriba: estetik restavratsiya, tsirkoniy va keramik karonkalar hamda dental implantologiya. 100% og'riqsiz va ayollar uchun maxfiy muhitda.`,
       badge1: "Oliy Tibbiy Ma'lumot (TDSI & ADTI)",
       badge2: "Xalqaro Malaka (Janubiy Koreya)",
       badge3: "Yil Stomatologi – 2025",
@@ -675,7 +683,7 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
       tag: `СТОМАТОЛОГ ГОДА – 2025 · ${years} ЛЕТ ОПЫТА`,
       title: "Д-р Мунаджат Акбарова",
       subtitle: "Врач-стоматолог высшей категории, терапевт и имплантолог",
-      desc: "12 лет клинической практики: эстетическая реставрация, циркониевые коронки и дентальная имплантология в приватной обстановке без боли.",
+      desc: `${years} ${getRussianYearsWord(years)} клинической практики: эстетическая реставрация, циркониевые коронки и дентальная имплантология в приватной обстановке без боли.`,
       badge1: "Высшее медицинское образование (ТГСИ и АГМИ)",
       badge2: "Международная квалификация (Южная Корея)",
       badge3: "Стоматолог года – 2025",
@@ -687,7 +695,7 @@ const DoctorSpotlight = ({ onOpenBooking }) => {
       tag: `DENTIST OF THE YEAR – 2025 · ${years}+ YRS EXPERIENCE`,
       title: "Dr. Munojat Akbarova",
       subtitle: "Senior Dental Specialist, Restorative & Implant Surgeon",
-      desc: "12+ years of clinical excellence in restorative dentistry, zirconia prosthodontics, and dental implantology. Strictly private and pain-free care.",
+      desc: `${years}+ years of clinical excellence in restorative dentistry, zirconia prosthodontics, and dental implantology. Strictly private and pain-free care.`,
       badge1: "Higher Medical Education (TSDI & ASMI)",
       badge2: "International Fellowship (South Korea)",
       badge3: "Dentist of the Year – 2025",

@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage, useLocalizedPath, localizePath } from "../context/LanguageContext";
+import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
+import { localizePath } from "../utils/language";
 import { assets } from "../assets/assets";
 import { DOCTOR_INFO } from "../constants/doctor";
 import Seo from "../components/Seo";

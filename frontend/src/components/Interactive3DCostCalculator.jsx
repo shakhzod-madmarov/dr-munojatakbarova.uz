@@ -378,7 +378,7 @@ const Interactive3DCostCalculator = () => {
 
                 <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/70 shrink-0 inline-flex items-center gap-1.5">
                   <IconShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>100% Og'riqsiz</span>
+                  <span>{lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Pain-Free"}</span>
                 </span>
               </div>
               
