@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-XTpDW8id.js",
+    "file": "assets/index-BpBIEVWb.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -64,7 +64,7 @@
     ]
   },
   "node_modules/qrcode/lib/browser.js": {
-    "file": "assets/browser-2kW057fc.js",
+    "file": "assets/browser-CVgEe8BZ.js",
     "name": "browser",
     "src": "node_modules/qrcode/lib/browser.js",
     "isDynamicEntry": true,
