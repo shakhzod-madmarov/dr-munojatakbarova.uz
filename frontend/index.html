@@ -321,48 +321,6 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
       "currenciesAccepted": "UZS",
       "paymentAccepted": "Cash, Click, Payme, Uzum Bank",
       "priceRange": "$$",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Klinik Stomatologik Xizmatlar",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "MedicalProcedure",
-              "name": "Tish Davolash & 4 Davlat Plombalari",
-              "description": "Germaniya (3M™), Yaponiya (Estelite), Koreya (DenFil) va Rossiya (VladMiVa) plombalari"
-            },
-            "priceCurrency": "UZS"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "MedicalProcedure",
-              "name": "Old va Orqa Tish Karonkalari (Xitoy, Germaniya, Avstraliya)",
-              "description": "Xitoy, Germaniya va Avstraliya tsirkoniy hamda keramik karonkalari"
-            },
-            "priceCurrency": "UZS"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "MedicalProcedure",
-              "name": "Janubiy Koreya Biotitan Implantatsiyasi",
-              "description": "Biotitan implantlar bilan uzoq yillik mustahkam tiklash"
-            },
-            "priceCurrency": "UZS"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "MedicalProcedure",
-              "name": "Philips ZOOM 4 Tish Oqartirish",
-              "description": "Tishlarni o'z holatiga nisbatan tabiiy yorqin va xavfsiz oqartirish"
-            },
-            "priceCurrency": "UZS"
-          }
-        ]
-      },
       "medicalSpecialty": [
         "Dentistry",
         "Oral Surgery",
@@ -425,6 +383,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
         "itemListElement": [
           {
             "@type": "Offer",
+            "url": "https://drmunojat.uz/qabul",
             "itemOffered": {
               "@type": "Service",
               "name": "Birlamchi Diagnostika va Konsultatsiya",
@@ -435,6 +394,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
           },
           {
             "@type": "Offer",
+            "url": "https://drmunojat.uz/services/tish-davolash",
             "itemOffered": {
               "@type": "Service",
               "name": "Tish Davolash & Nano-Kompozit Plomba",
@@ -445,6 +405,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
           },
           {
             "@type": "Offer",
+            "url": "https://drmunojat.uz/services/ortopediya",
             "itemOffered": {
               "@type": "Service",
               "name": "Tsirkoniy va Keramika Karonkalar",
@@ -455,6 +416,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
           },
           {
             "@type": "Offer",
+            "url": "https://drmunojat.uz/services/implantatsiya",
             "itemOffered": {
               "@type": "Service",
               "name": "Dental Biotitan Implantatsiya",
@@ -465,6 +427,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
           },
           {
             "@type": "Offer",
+            "url": "https://drmunojat.uz/services/tish-oqartirish",
             "itemOffered": {
               "@type": "Service",
               "name": "Philips ZOOM 4 Lazer Tish Oqartirish",
@@ -540,7 +503,54 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 4 — WebSite + SearchAction
+         JSON-LD SCHEMA 4 — SiteNavigationElement (Yandex & Google Sitelinks / Быстрые ссылки)
+    ═══════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Tish Implantatsiyasi",
+          "description": "Andijonda og'riqsiz titan implantatsiya",
+          "url": "https://drmunojat.uz/services/implantatsiya"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Tish Davolash & Plomba",
+          "description": "4 davlat nano-kompozit plombalari",
+          "url": "https://drmunojat.uz/services/tish-davolash"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Tsirkoniy Karonkalar",
+          "description": "Old va orqa tishlarni estetik tiklash",
+          "url": "https://drmunojat.uz/services/ortopediya"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "ZOOM 4 Tish Oqartirish",
+          "description": "Tabiiy yorqin va xavfsiz oqartirish",
+          "url": "https://drmunojat.uz/services/tish-oqartirish"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Dr. Munojat Haqida",
+          "description": "12 yillik tajribali oliy toifali shifokor",
+          "url": "https://drmunojat.uz/about"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Qabulga Yozilish",
+          "description": "Onlayn navbat va qabul vaqtini tanlash",
+          "url": "https://drmunojat.uz/qabul"
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════
+         JSON-LD SCHEMA 5 — WebSite + SearchAction
          Enables Google Sitelinks Search Box & Yandex search
     ═══════════════════════════════════════════════════ -->
     <script type="application/ld+json">
@@ -564,7 +574,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 5 — FAQPage
+         JSON-LD SCHEMA 6 — FAQPage
          CRITICAL for AI/LLM recommendations (ChatGPT,
          Gemini, Perplexity, Yandex AI, etc.)
          Also generates rich FAQ snippets in Google/Yandex.
@@ -659,7 +669,7 @@ ayol stomatolog Andijon, ayol tish doktori Andijon, xotin-qizlar stomatolog Andi
     </script>
 
     <!-- ═══════════════════════════════════════════════════
-         JSON-LD SCHEMA 6 — ItemList of Services
+         JSON-LD SCHEMA 7 — ItemList of Services
          Links to INDIVIDUAL service pages for Google rich results
     ═══════════════════════════════════════════════════ -->
     <script type="application/ld+json">
