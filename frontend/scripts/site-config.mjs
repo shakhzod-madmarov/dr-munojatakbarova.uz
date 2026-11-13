@@ -42,9 +42,9 @@ export const ROUTES = [
     hreflang: TRILINGUAL,
     xDefault: true,
     image: {
-      src: "public/logo.png",
-      title: "Dr. Munojat Akbarova - Andijondagi Yetakchi Ayol Stomatolog",
-      caption: "Dr. Munojat Akbarova - Ayollar uchun stomatologiya Andijon, Orzu Stoma Denta",
+      src: "public/dr_munojat_portrait.jpg",
+      title: "Dr. Munojat Akbarova - Andijondagi Yetakchi Oliy Toifali Shifokor-Stomatolog",
+      caption: "Dr. Munojat Akbarova - Andijonda stomatologiya va tish davolash, Orzu Stoma Denta",
     },
   },
   {
