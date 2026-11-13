@@ -22,6 +22,34 @@ import { toast } from "react-toastify";
 
 import { detailedSpecialties } from "../constants/specialties";
 
+const SPECIALTY_KEYWORDS = {
+  implantatsiya: {
+    uz: "tish implantatsiyasi Andijon, ayol implantolog Andijon, titan implant narxlari, Janubiy Koreya biotitan implantatsiyasi, suyak atrofiyasini to'xtatish, 100% og'riqsiz implantatsiya, Dr. Munojat Akbarova, Shabnam 11",
+    ru: "имплантация зубов Андижан, женщина имплантолог Андижан, титановые импланты южная корея, цены на имплантацию зубов, безболезненная имплантация, Д-р Мунаджат Акбарова",
+    en: "dental implants Andijan, female implantologist Andijan, titanium dental implants, South Korean implantology protocol, pain-free dental implants, Dr Munojat Akbarova",
+  },
+  "tish-davolash": {
+    uz: "tish davolash Andijon, 4 davlat plombalari, Germaniya 3M Filtek plomba, Yaponiya Estelite plomba, Janubiy Koreya DenFil, Rossiya VladMiVa, karies davolash, pulpit davolash, 100% og'riqsiz tish davolash, homiladorlikda tish davolash, Dr. Munojat Akbarova",
+    ru: "лечение зубов Андижан, пломбы из 4 стран, немецкие пломбы 3M Filtek, японские пломбы Estelite, корейские пломбы DenFil, лечение кариеса и пульпита, безболезненное лечение зубов, лечение зубов при беременности, Д-р Мунаджат Акбарова",
+    en: "dental treatment Andijan, certified tooth fillings, German 3M Filtek fillings, Japanese Estelite composite, Korean DenFil, caries treatment, pulpitis root canal treatment, painless dentistry, Dr Munojat Akbarova",
+  },
+  ortopediya: {
+    uz: "tsirkoniy karonka Andijon, Germaniya tsirkoniyasi, Avstraliya tsirkoniyasi, Xitoy karonkalari, CAD/CAM tish frezerlash, old tish karonkalari, orqa chaynov tish karonkasi, tish qo'ydirish narxi Andijon, Dr. Munojat Akbarova",
+    ru: "циркониевые коронки Андижан, немецкий цирконий, австралийский цирконий, коронки из Китая, CAD/CAM фрезерование зубов, коронки на передние зубы, жевательные коронки, протезирование зубов Андижан, Д-р Мунаджат",
+    en: "zirconia crowns Andijan, German zirconia crowns, Australian zirconia, Chinese crowns, CAD/CAM digital milling, front teeth aesthetics, molar crowns, prosthodontics Andijan, Dr Munojat Akbarova",
+  },
+  xirurgiya: {
+    uz: "aql tishi olish Andijon, donolik tishini oldirish, atravmatik tish olish, mikroxirurgik jarrohlik, og'riqsiz tish sug'urish, shishsiz tish olish, 8-tish operatsiyasi, Dr. Munojat Akbarova",
+    ru: "удаление зуба мудрости Андижан, бережное удаление зубов, микрохирургия зубов, удаление 8-ки без боли и отеков, челюстно-лицевая хирургия, Д-р Мунаджат Акбарова",
+    en: "wisdom tooth extraction Andijan, atraumatic tooth removal, oral surgery Andijan, painless tooth extraction, 8th tooth surgical extraction, Dr Munojat Akbarova",
+  },
+  "tish-oqartirish": {
+    uz: "Philips ZOOM 4 tish oqartirish Andijon, lazer tish oqartirish, tishlarni oqartirish narxi, xavfsiz emal oqartirish, Airflow tish toshlarini tozalash, oq tabassum, Dr. Munojat Akbarova",
+    ru: "отбеливание зубов Philips ZOOM 4 Андижан, лазерное отбеливание зубов, безопасное осветление эмали, чистка зубов Airflow, цены на отбеливание зубов Андижан, Д-р Мунаджат",
+    en: "Philips ZOOM 4 teeth whitening Andijan, laser teeth whitening, safe enamel brightening, Airflow dental cleaning, professional whitening clinic Andijan, Dr Munojat Akbarova",
+  },
+};
+
 const ServiceDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -143,7 +171,10 @@ const ServiceDetail = () => {
       <Seo
         title={specialty.seoTitle[lang]}
         description={specialty.metaDescription[lang]}
-        keywords={`${specialty.title[lang]}, ${specialty.slug} Andijon, ayol stomatolog Andijon, Dr Munojat Akbarova`}
+        keywords={
+          SPECIALTY_KEYWORDS[specialty.slug]?.[lang] ||
+          `${specialty.title[lang]}, ${specialty.slug} Andijon, ayol stomatolog Andijon, Dr Munojat Akbarova`
+        }
         path={`/services/${specialty.slug}`}
         schemaJson={schemaJson}
       />

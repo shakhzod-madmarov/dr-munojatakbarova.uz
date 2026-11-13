@@ -50,7 +50,10 @@ const Seo = ({
   const copy = page ? getPageSeo(page, lang) : null;
   const resolvedTitle = title || copy?.title;
   const resolvedDescription = description || copy?.description;
-  const resolvedKeywords = keywords || PAGE_KEYWORDS[lang];
+  const resolvedKeywords =
+    keywords ||
+    (PAGE_KEYWORDS[page] && PAGE_KEYWORDS[page][lang]) ||
+    PAGE_KEYWORDS[lang];
   const resolvedCanonical = canonical || (path ? urlFor(path, lang) : undefined);
   /* Now that each language has its own URL, hreflang finally means something.
      x-default points at Uzbek, the unprefixed default. */
