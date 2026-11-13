@@ -44,7 +44,7 @@ export const ROUTES = [
     image: {
       src: "public/dr_munojat_portrait.jpg",
       title: "Dr. Munojat Akbarova - Andijondagi Yetakchi Oliy Toifali Shifokor-Stomatolog",
-      caption: "Dr. Munojat Akbarova - Andijonda stomatologiya va tish davolash, Orzu Stoma Denta",
+      caption: "Dr. Munojat Akbarova - Andijonda stomatologiya va professional tish davolash markazi",
     },
   },
   {

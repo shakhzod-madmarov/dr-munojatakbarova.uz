@@ -15,8 +15,8 @@ import { assets } from "../assets/assets";
 
 const T = {
   uz: {
-    seoTitle: "Qabulga Yozilish | Dr. Munojat Akbarova — Orzu Stoma Denta",
-    seoDesc: "Dr. Munojat Akbarova qabuliga onlayn yozilish. Andijon, Orzu Stoma Denta. Qulay kun va bo'sh soatni tanlang.",
+    seoTitle: "Qabulga Yozilish | Dr. Munojat Akbarova Stomatologiya Klinikasi",
+    seoDesc: "Dr. Munojat Akbarova qabuliga onlayn yozilish. Andijon, Shabnam ko'chasi, 11. Qulay kun va bo'sh soatni tanlang.",
     name: "Dr. Munojat Akbarova",
     specialty: "Oliy Toifali Shifokor-Stomatolog, Terapevt, Ortoped va Implantolog",
     degreeLabel: "Ma'lumoti",
@@ -31,8 +31,8 @@ const T = {
     note: "Agar sizga kerakli vaqtda onlayn bron mavjud bo'lmasa, iltimos, klinikamizga qo'ng'iroq qilib administrator bilan bog'laning.",
   },
   ru: {
-    seoTitle: "Онлайн Запись | Д-р Мунаджат Акбарова — Orzu Stoma Denta",
-    seoDesc: "Онлайн запись к Д-р Мунаджат Акбаровой. Андижан, Orzu Stoma Denta. Выберите удобный день и свободное время.",
+    seoTitle: "Онлайн Запись | Стоматологическая клиника Д-р Мунаджат",
+    seoDesc: "Онлайн запись к Д-р Мунаджат Акбаровой. Андижан, ул. Шабнам, 11. Выберите удобный день и свободное время.",
     name: "Д-р Мунаджат Акбарова",
     specialty: "Стоматолог высшей категории, Терапевт, Ортопед и Имплантолог",
     degreeLabel: "Образование",
@@ -47,8 +47,8 @@ const T = {
     note: "Если в нужное вам время онлайн-запись недоступна, пожалуйста, позвоните в клинику и свяжитесь с администратором.",
   },
   en: {
-    seoTitle: "Book Appointment | Dr. Munojat Akbarova — Orzu Stoma Denta",
-    seoDesc: "Online appointment booking with Dr. Munojat Akbarova. Andijan, Orzu Stoma Denta. Select a convenient date and time.",
+    seoTitle: "Book Appointment | Dr. Munojat Akbarova Dental Clinic",
+    seoDesc: "Online appointment booking with Dr. Munojat Akbarova. Andijan, 11 Shabnam St. Select a convenient date and time.",
     name: "Dr. Munojat Akbarova",
     specialty: "Senior Dentist, Restorative Specialist, Prosthodontist & Implantologist",
     degreeLabel: "Education",

@@ -292,9 +292,9 @@ const FAQ_ITEMS = [
       en: "How is female privacy guaranteed during consultations and treatment?",
     },
     a: {
-      uz: "Orzu Stoma Denta klinikasida Dr. Munojat Akbarova qabuli faqat ayollar uchun ajratilgan alohida yopiq kabinetda olib boriladi. Erkaklar va begonalarning kirishi taqiqlangan. Barcha fotosuratlar faqat bemorning yozma roziligi bilan va faqat tabassum hududini ko'rsatgan holda taqdim etiladi.",
-      ru: "В клинике Orzu Stoma Denta приём Д-р Мунаджат проходит в закрытом индивидуальном кабинете. Вход посторонних мужчин исключён. Все фотографии публикуются строго по письменному согласию пациенток и только в области улыбки.",
-      en: "At Orzu Stoma Denta, Dr. Munojat Akbarova treats patients in a private, closed suite exclusively for women. Male visitors are strictly restricted. Clinical photos are displayed exclusively with written patient consent and focus strictly on the smile area.",
+      uz: "Dr. Munojat Akbarova Stomatologiya Klinikasida qabul faqat ayollar uchun ajratilgan alohida yopiq kabinetda olib boriladi. Erkaklar va begonalarning kirishi taqiqlangan. Barcha fotosuratlar faqat bemorning yozma roziligi bilan va faqat tabassum hududini ko'rsatgan holda taqdim etiladi.",
+      ru: "В клинике Д-р Мунаджат Акбаровой приём проходит в закрытом индивидуальном кабинете. Вход посторонних мужчин исключён. Все фотографии публикуются строго по письменному согласию пациенток и только в области улыбки.",
+      en: "At Dr. Munojat Akbarova Dental Clinic, patients are treated in a private, closed suite exclusively for women. Male visitors are strictly restricted. Clinical photos are displayed exclusively with written patient consent and focus strictly on the smile area.",
     },
   },
 ];
@@ -854,7 +854,7 @@ const Gallery = ({ onOpenBooking }) => {
 
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-xs font-bold text-amber-300 block mb-1">
-                  Dr. Munojat Akbarova • Orzu Stoma Denta
+                  Dr. Munojat Akbarova • Stomatologiya Klinikasi
                 </span>
                 <h3 id="modal-case-title" className="font-black text-lg sm:text-2xl leading-snug">
                   {lightbox.title[lang]}

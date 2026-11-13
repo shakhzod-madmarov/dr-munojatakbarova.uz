@@ -24,8 +24,8 @@ export const DOCTOR_INFO = {
   telegramHandle: "@dr_munojat",
   instagram: "https://www.instagram.com/dr_munojatakbarova/",
   // Physical Clinic Building navigation
-  clinicYandexMaps: "https://yandex.uz/maps/org/orzu_stoma_denta/215888013765/",
-  clinicGoogleMaps: "https://maps.google.com/?cid=4641379713526839793",
+  clinicYandexMaps: "https://yandex.uz/maps/org/138661792687/",
+  clinicGoogleMaps: "https://g.page/r/CXp3o79wS1FnEBM",
 
   // Personal Doctor Business Profiles (Dr. Munojat Akbarova's verified personal profiles for patient reviews)
   doctorYandexReviewUrl: "https://yandex.uz/maps/org/138661792687/",
@@ -39,7 +39,8 @@ export const DOCTOR_INFO = {
     lat: 40.754205,
     lng: 72.358426,
   },
-  clinicName: "Orzu Stoma Denta",
+  clinicName: "Dr. Munojat Akbarova Stomatologiya Klinikasi",
+  address: "Shabnam ko'chasi, 11",
   city: "Andijon",
 };
 

@@ -370,7 +370,7 @@ export default function FeedbackGate() {
               Dr. Munojat Akbarova
             </h4>
             <p className="text-[11px] font-semibold text-[#930b0b] mb-4">
-              Ayol Stomatolog · Orzu Stoma Denta
+              Ayol Stomatolog · Andijon
             </p>
 
             {qrUrl ? (

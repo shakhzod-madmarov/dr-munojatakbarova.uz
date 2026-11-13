@@ -23,10 +23,10 @@ import { DOCTOR_INFO, OPENING_HOURS } from "./doctor";
 export const CLINICS = [
   {
     /* REQUIRED. Used in the URL: /clinics/<slug> */
-    slug: "orzu-stoma-denta",
+    slug: "dr-munojat-akbarova",
     /* REQUIRED. The clinic's own registered name, exactly as on its signage
        and its own Google/Yandex listing - consistency is what links them. */
-    name: "Orzu Stoma Denta",
+    name: "Dr. Munojat Akbarova Stomatologiya Markazi",
     /* Marks the location used for site-wide defaults and the Organization
        entity. Exactly one clinic should be primary. */
     primary: true,
@@ -72,9 +72,9 @@ export const CLINICS = [
        clinics: duplicated location pages compete with each other and none of
        them rank. */
     intro: {
-      uz: "Andijon shahridagi Orzu Stoma Denta klinikasida Dr. Munojat Akbarova ayollar va qizlar uchun alohida, to'liq maxfiy xonada qabul qiladi.",
-      ru: "В клинике Orzu Stoma Denta в Андижане приём ведёт д-р Мунаджат Акбарова — отдельный приватный кабинет для женщин и девушек.",
-      en: "At the Orzu Stoma Denta clinic in Andijan, Dr. Munojat Akbarova sees patients in a private, women-only treatment room.",
+      uz: "Andijon shahridagi Dr. Munojat Akbarova Stomatologiya Markazida ayollar va qizlar uchun alohida, to'liq maxfiy xonada professional qabul olib boriladi.",
+      ru: "В стоматологической клинике Д-р Мунаджат Акбаровой в Андижане приём ведётся в отдельном приватном кабинете для женщин и девушек.",
+      en: "At Dr. Munojat Akbarova Dental Clinic in Andijan, treatment is delivered in a private, women-only treatment room.",
     },
   },
 ];

@@ -82,7 +82,7 @@ const faqData = [
       en: "What privacy measures are provided for women and female patients?",
     },
     a: {
-      uz: "Orzu Stoma Denta klinikasida faqat ayollar qabul qilinadi. Shifokor, assistentlar va barcha xodimlar ayollardan iborat. Davolash eshigi yopiq alohida individual xonada 100% begona ko'zlardan xoli tarzda o'tkaziladi.",
+      uz: "Dr. Munojat Akbarova klinikasida faqat ayollar qabul qilinadi. Shifokor, assistentlar va barcha xodimlar ayollardan iborat. Davolash eshigi yopiq alohida individual xonada 100% begona ko'zlardan xoli tarzda o'tkaziladi.",
       ru: "Приём ведётся исключительно для женщин в изолированном закрытом кабинете. Весь персонал — от главного врача до ассистентов — квалифицированные женщины. Полная конфиденциальность и комфорт.",
       en: "Care is exclusively delivered for women in a completely private, single-patient room by an all-female medical team, ensuring 100% modesty, tranquility, and privacy.",
     },

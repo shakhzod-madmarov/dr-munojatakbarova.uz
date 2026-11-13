@@ -8,9 +8,9 @@ const ClinicLocationMap = () => {
   const t = {
     uz: {
       tag: "ANDIJON SHAHAR • ANIQ LOKATSIYA",
-      title: "Orzu Stoma Denta — Dr. Munojat Akbarova",
+      title: "Dr. Munojat Akbarova Stomatologiya Klinikasi",
       sub: "Andijon shahrida ayollar va qizlar uchun maxsus qulay, shinam va to'liq maxfiy stomatologiya klinikasi.",
-      clinicName: "Orzu Stoma Denta",
+      clinicName: "Dr. Munojat Akbarova Stomatologiya Markazi",
       docName: "Dr. Munojat Akbarova Qabuli",
       address: "Andijon shahri, Shabnam ko'chasi, 11",
       hours: OPENING_HOURS.withSunday.uz,
@@ -19,9 +19,9 @@ const ClinicLocationMap = () => {
     },
     ru: {
       tag: "г. АНДИЖАН • ТОЧНАЯ ЛОКАЦИЯ",
-      title: "Orzu Stoma Denta — Д-р Мунаджат Акбарова",
+      title: "Стоматологическая клиника Д-р Мунаджат Акбаровой",
       sub: "Клиника стоматологии в Андижане — комфортный, современный и приватный приём для женщин.",
-      clinicName: "Orzu Stoma Denta",
+      clinicName: "Клиника Д-р Мунаджат Акбаровой",
       docName: "Приём Д-р Мунаджат Акбаровой",
       address: "г. Андижан, ул. Шабнам, 11",
       hours: OPENING_HOURS.withSunday.ru,
@@ -30,10 +30,10 @@ const ClinicLocationMap = () => {
     },
     en: {
       tag: "ANDIJAN CITY • EXACT LOCATION",
-      title: "Orzu Stoma Denta — Dr. Munojat Akbarova",
-      sub: "Andijan City — modern, private, and comfortable dental care suite tailored for women.",
-      clinicName: "Orzu Stoma Denta",
-      docName: "Dr. Munojat Akbarova Dental Suite",
+      title: "Dr. Munojat Akbarova Dental Clinic",
+      sub: "Andijan City — modern, private, and comfortable dental care clinic tailored for women.",
+      clinicName: "Dr. Munojat Akbarova Dental Clinic",
+      docName: "Dr. Munojat Akbarova Dental Practice",
       address: "11 Shabnam Street, Andijan",
       hours: OPENING_HOURS.withSunday.en,
       yandexBtn: "Open in Yandex Maps",
@@ -127,10 +127,10 @@ const ClinicLocationMap = () => {
           {/* Right Yandex Interactive Map Widget */}
           <div className="lg:col-span-7 bg-slate-100 rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl relative min-h-[420px] flex items-center justify-center">
             
-            {/* Real Official Yandex Map Widget for Orzu Stoma Denta */}
+            {/* Real Official Yandex Map Widget for Dr. Munojat Akbarova */}
             <iframe
-              title="Orzu Stoma Denta — Dr. Munojat Akbarova Andijon"
-              src="https://yandex.uz/map-widget/v1/?ll=72.358478%2C40.754198&mode=search&oid=215888013765&ol=biz&z=16.63"
+              title="Dr. Munojat Akbarova Stomatologiya Klinikasi Andijon"
+              src="https://yandex.uz/map-widget/v1/?ll=72.358478%2C40.754198&mode=search&oid=138661792687&ol=biz&z=16.63"
               width="100%"
               height="100%"
               loading="lazy"
@@ -142,7 +142,7 @@ const ClinicLocationMap = () => {
             {/* Floating Top Badge */}
             <div className="absolute top-4 left-4 bg-black/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/20 text-white shadow-xl flex items-center gap-2 pointer-events-none">
               <span className="w-2.5 h-2.5 rounded-full bg-[#fd1616] animate-ping" />
-              <span className="text-xs font-black">Orzu Stoma Denta · Dr. Munojat</span>
+              <span className="text-xs font-black">Dr. Munojat Akbarova Stomatologiyasi</span>
             </div>
 
           </div>

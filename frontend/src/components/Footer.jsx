@@ -32,12 +32,12 @@ const Footer = () => {
       ctaSub: "Andijon shahrida ayollar va qizlar uchun 100% og'riqsiz, maxfiy va Yevropa standartlaridagi professional stomatologiya.",
       ctaCall: "Qabulga Yozilish: +998 (94) 106-15-55",
       ctaTg: "Telegram Orqali Yozilish",
-      bio: `Dr. Munojat Akbarova — ${years} yillik tajribaga ega yuqori malakali stomatolog (${start}-yildan buyon), Koreya malakasi va “Eng Yaxshi Ayol Stomatologi – 2025” nominatsiyasi g‘olibi. Orzu Stoma Denta klinikasida 100% og'riqsiz va maxfiy xizmat ko'rsatadi.`,
+      bio: `Dr. Munojat Akbarova — ${years} yillik tajribaga ega yuqori malakali stomatolog (${start}-yildan buyon), Koreya malakasi va “Eng Yaxshi Ayol Stomatologi – 2025” nominatsiyasi g‘olibi. Dr. Munojat Akbarova Stomatologiya Klinikasida 100% og'riqsiz va maxfiy xizmat ko'rsatadi.`,
       navTitle: "Sahifalar",
       servicesTitle: "Asosiy Xizmatlar",
       contactTitle: "Klinika & Manzil",
-      clinic: "Orzu Stoma Denta",
-      address: "Andijon shahri, Orzu Stoma Denta",
+      clinic: "Dr. Munojat Akbarova Stomatologiya Markazi",
+      address: "Andijon shahri, Shabnam ko'chasi, 11",
       hours: OPENING_HOURS.display.uz,
       yandexBtn: "Yandex Xaritada Ko'rish",
       yandexReviewBtn: "Yandex Kartada bizga baho bering ⭐",
@@ -52,12 +52,12 @@ const Footer = () => {
       ctaSub: "Стоматология европейского качества для женщин и девушек в Андижане: 100% без боли и в полной безопасности.",
       ctaCall: "Запись на приём: +998 (94) 106-15-55",
       ctaTg: "Запись через Telegram",
-      bio: `Д-р Мунаджат Акбарова — стоматолог высшей категории с ${getRussianYearsAdjective(years)} стажем (с ${start} г.), стажировкой в Южной Корее и званием «Лучший Женский Стоматолог – 2025». Деликатный приём в Orzu Stoma Denta 100% без боли.`,
+      bio: `Д-р Мунаджат Акбарова — стоматолог высшей категории с ${getRussianYearsAdjective(years)} стажем (с ${start} г.), стажировкой в Южной Корее и званием «Лучший Женский Стоматолог – 2025». Деликатный приём в клинике Д-р Мунаджат Акбаровой 100% без боли.`,
       navTitle: "Страницы",
       servicesTitle: "Услуги",
       contactTitle: "Клиника и Адрес",
-      clinic: "Orzu Stoma Denta",
-      address: "г. Андижан, клиника Orzu Stoma Denta",
+      clinic: "Стоматологическая клиника Д-р Мунаджат",
+      address: "г. Андижан, ул. Шабнам, 11",
       hours: OPENING_HOURS.display.ru,
       yandexBtn: "Открыть в Яндекс Картах",
       yandexReviewBtn: "Оцените нас в Яндекс Картах ⭐",
@@ -72,12 +72,12 @@ const Footer = () => {
       ctaSub: "Gentle, 100% pain-free and strictly private aesthetic dental care for women and ladies in Andijan.",
       ctaCall: "Book Appointment: +998 (94) 106-15-55",
       ctaTg: "Book via Telegram",
-      bio: `Dr. Munojat Akbarova — ${years} years of clinical excellence (practicing since ${start}), South Korea trained specialist in fillings, veneers, crowns & implants, Winner of «Best Female Dentist 2025» at Orzu Stoma Denta in Andijan.`,
+      bio: `Dr. Munojat Akbarova — ${years} years of clinical excellence (practicing since ${start}), South Korea trained specialist in fillings, veneers, crowns & implants, Winner of «Best Female Dentist 2025» at Dr. Munojat Akbarova Dental Clinic in Andijan.`,
       navTitle: "Navigation",
       servicesTitle: "Specialties",
       contactTitle: "Clinic & Location",
-      clinic: "Orzu Stoma Denta",
-      address: "Andijan City, Orzu Stoma Denta",
+      clinic: "Dr. Munojat Akbarova Dental Clinic",
+      address: "Andijan City, 11 Shabnam Street",
       hours: OPENING_HOURS.display.en,
       yandexBtn: "Open in Yandex Maps",
       yandexReviewBtn: "Rate us on Yandex Maps ⭐",
@@ -291,7 +291,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-200/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-          <p>© 2026 Dr. Munojat Akbarova · Orzu Stoma Denta. {t.rights}</p>
+          <p>© 2026 Dr. Munojat Akbarova Stomatologiya Klinikasi. {t.rights}</p>
           <div className="flex items-center gap-4 text-[11px] font-semibold text-slate-500">
             <span>{t.badge1}</span>
             <span>·</span>
