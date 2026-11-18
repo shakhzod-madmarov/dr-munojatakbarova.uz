@@ -18,11 +18,17 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# 2. Yandex (Web, Images, Maps, Alice / Neuro, Favicons)
+# 2. Yandex (Web, Mobile, Images, Maps, Alice / Neuro, Favicons)
 User-agent: Yandex
 Allow: /
 
 User-agent: YandexBot
+Allow: /
+
+User-agent: YandexMobileBot
+Allow: /
+
+User-agent: YandexDirect
 Allow: /
 
 User-agent: YandexImages
