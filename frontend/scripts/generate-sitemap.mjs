@@ -100,10 +100,12 @@ for (const route of ROUTES) {
 
 lines.push("</urlset>");
 
+const xmlContent = lines.join("\n");
 const outPath = path.join(distDir, "sitemap.xml");
-fs.writeFileSync(outPath, lines.join("\n"), "utf-8");
+fs.writeFileSync(outPath, xmlContent, "utf-8");
+fs.writeFileSync(path.join(root, "public", "sitemap.xml"), xmlContent, "utf-8");
 
-console.log(`sitemap: ${ROUTES.length * LANGS.length} urls (${ROUTES.length} pages x ${LANGS.length} languages) -> dist/sitemap.xml`);
+console.log(`sitemap: ${ROUTES.length * LANGS.length} urls (${ROUTES.length} pages x ${LANGS.length} languages) -> dist/sitemap.xml & public/sitemap.xml`);
 if (unresolved > 0) {
   console.error(`sitemap: ${unresolved} image(s) could not be resolved.`);
   process.exit(1);
