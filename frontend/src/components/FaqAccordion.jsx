@@ -171,29 +171,8 @@ const FaqAccordion = () => {
     },
   }[lang] || {};
 
-  // Generate Google Schema.org FAQPage JSON-LD
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqData.map((item) => ({
-      "@type": "Question",
-      "name": item.q[lang],
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.a[lang],
-      },
-    })),
-  };
-
   return (
     <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 bg-white border-t border-slate-100" aria-labelledby="faq-heading">
-      
-      {/* Schema.org FAQPage Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
