@@ -147,6 +147,42 @@ const faqData = [
       en: "Have a light meal prior to your visit (avoiding fasting before anesthesia) and brush normally. There is zero reason to fear: a fragrant numbing gel is applied first, followed by micro-anesthesia, ensuring complete comfort.",
     },
   },
+  {
+    q: {
+      uz: "Tsirkoniy karonka yaxshimi yoki metallokeramika? Farqi nima?",
+      ru: "Что лучше: циркониевые коронки или металлокерамика? В чем разница?",
+      en: "Are zirconia crowns better than metal-ceramic (PFM)? What is the difference?",
+    },
+    a: {
+      uz: "Tsirkoniy karonkalar bir necha barobar ustun: 1) 100% bio-moslashuvchan, milk chetini qoraytirmaydi va allergiya bermaydi; 2) Tabiiy tish emalidek shaffof va nurni qaytaradi; 3) CAD/CAM raqamli frezerlangani sababli o'z tishingiz minimal silliqlanadi. Metallokeramikada esa vaqt o'tib metall asosi milk ostida qora hoshiya berishi mumkin. Dr. Munojat Akbarova faqat Germaniya, Avstraliya va Xitoyning sertifikatlangan tsirkoniysini tavsiya etadi.",
+      ru: "Циркониевые коронки значительно превосходят металлокерамику: 1) 100% биосовместимость — десна не темнеет и нет аллергии; 2) Естественная полупрозрачность родной эмали; 3) Цифровое фрезерование CAD/CAM требует минимальной обточки зуба. В металлокерамике со временем часто проступает темная кайма у десны. Д-р Мунаджат использует сертифицированный цирконий из Германии, Австралии и Китая.",
+      en: "Zirconia crowns are distinctly superior: 1) 100% biocompatible, preventing dark gum lines and metal allergies; 2) Natural translucency matching real enamel; 3) CAD/CAM digital milling requires minimal tooth reduction. Metal-ceramic crowns often reveal dark metal margins over time. Dr. Munojat utilizes certified zirconia from Germany, Australia, and China.",
+    },
+  },
+  {
+    q: {
+      uz: "Tish implantatsiyasi qancha vaqtda suyakka bitadi va tushib ketish xavfi bormi?",
+      ru: "Сколько приживается зубной имплант и есть ли риск отторжения?",
+      en: "How long does a dental implant take to heal and is there a rejection risk?",
+    },
+    a: {
+      uz: "Janubiy Koreya biotitan implantlari inson suyagi bilan 98-99% to'liq birikib ketadi (osseointegratsiya). Pastki jag'da odatda 2-3 oyda, yuqori jag'da 3-4 oyda to'liq suyak to'qimasi bilan birikadi. Dr. Munojat Akbarova 12 yillik klinik tajriba va Janubiy Koreya implantologiya xalqaro protokoli asosida mutlaqo og'riqsiz o'rnatadi.",
+      ru: "Южнокорейские биотитановые импланты показывают приживаемость 98-99% (остеоинтеграция). Полное сращение с костью занимает 2-3 месяца на нижней челюсти и 3-4 месяца на верхней. Д-р Мунаджат проводит установку без боли по международным южнокорейским протоколам.",
+      en: "South Korean biotitanium implants achieve a 98-99% osseointegration success rate. Full healing takes 2-3 months in the lower jaw and 3-4 months in the upper jaw. Dr. Munojat performs implantation 100% pain-free following advanced South Korean surgical protocols.",
+    },
+  },
+  {
+    q: {
+      uz: "Karies bilan pulpit (nerv yallig'lanishi) o'rtasidagi farq nima va nervni olish og'ritadimi?",
+      ru: "Как отличить кариес от пульпита и больно ли удалять нерв?",
+      en: "What is the difference between cavities and pulpitis, and does root canal therapy hurt?",
+    },
+    a: {
+      uz: "Kariesda tish faqat sovuq, issiq yoki shirin taom yeganda qisqa vaqt og'riydi va ta'sir to'xtashi bilan og'riq yo'qoladi. Pulpitda esa og'riq o'z-o'zidan, ayniqsa kechasi uxlaganda lo'qillab va uzoq davom etadi. Bunday holda nervni tozalash shart. Dr. Munojat Akbarova qabulida zamonaviy mikro-anesteziya qo'llangani sababli nervni tozalash va davolash 100% og'riqsiz o'tadi.",
+      ru: "При кариесе зуб реагирует на сладкое, холодное или горячее кратковременно. При пульпите возникает самопроизвольная пульсирующая ноющая боль, усиливающаяся ночью. В таком случае требуется лечение каналов. Благодаря микроанестезии Д-р Мунаджат удаляет воспаленный нерв абсолютно безболезненно.",
+      en: "A cavity causes brief sensitivity to sweets, hot, or cold. Pulpitis triggers throbbing, spontaneous pain, especially severe at night, indicating infected nerves requiring root canal therapy. Dr. Munojat cleans and seals the canals 100% painlessly under gentle micro-anesthesia.",
+    },
+  },
 ];
 
 const FaqAccordion = () => {
