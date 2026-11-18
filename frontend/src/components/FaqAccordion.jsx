@@ -99,6 +99,54 @@ const faqData = [
       en: "Yes, to ensure dedicated one-on-one doctor attention without waiting in line, appointments are scheduled in advance via phone (+998 94 106-15-55) or Telegram.",
     },
   },
+  {
+    q: {
+      uz: "Tish qattiq og'riyotganda (kechasi simillaganda) birinchi yordam sifatida nima qilish kerak?",
+      ru: "Что делать при острой зубной боли (особенно ночью)?",
+      en: "What should I do during a severe toothache (especially at night)?",
+    },
+    a: {
+      uz: "O'tkir tish og'rig'ida og'izni iliq tuzli suv bilan chayish mumkin, ammo tish ustiga aslo aspirin, spirt yoki issiq narsa bosmang — bu yallig'lanishni kuchaytiradi. Zudlik bilan shifokorga murojaat qiling. Dr. Munojat Akbarova qabulida maxsus zamonaviy anesteziya bilan og'riq bir necha daqiqada 100% to'xtatiladi.",
+      ru: "При острой боли можно прополоскать рот теплым содо-солевым раствором. Ни в коем случае не прикладывайте к десне аспирин или согревающие компрессы. Срочно обратитесь к врачу — Д-р Мунаджат снимет острую боль за несколько минут с помощью бережной анестезии.",
+      en: "Rinse gently with warm salt water and avoid placing aspirin or hot compresses directly on the gums. Contact the clinic immediately — Dr. Munojat provides instant relief and 100% painless treatment under gentle local anesthesia.",
+    },
+  },
+  {
+    q: {
+      uz: "Plomba tushib ketganda yoki tish sinib qolsa, qanday va qancha vaqtda tiklanadi?",
+      ru: "Что делать, если выпала пломба или откололся зуб?",
+      en: "What should I do if a filling falls out or a tooth chips?",
+    },
+    a: {
+      uz: "Plomba tushsa yoki tish sinsa, darhol kelish lozim, aks holda ochiq qolgan nerv yallig'lanib pulpitga aylanishi mumkin. Dr. Munojat Akbarova Germaniya va Yaponiya nanokompozitlari yoki tsirkoniy tojlar yordamida tishni atigi 1 ta seansda avvalgidek chiroyli va mustahkam tiklab beradi.",
+      ru: "Не откладывайте визит: открытая полость быстро инфицируется и может развиться пульпит. Д-р Мунаджат восстановит зуб за 1 сеанс с помощью нанокомпозитов из Германии/Японии или циркониевых коронок.",
+      en: "Do not delay your visit, as an exposed cavity risks nerve infection (pulpitis). Dr. Munojat restores the tooth in a single session using premium German/Japanese composites or aesthetic zirconia crowns.",
+    },
+  },
+  {
+    q: {
+      uz: "Aql tishi (donolik tishi) og'rib, milk yoki yanoq shishib ketsa nima qilish kerak?",
+      ru: "Что делать, если болит зуб мудрости и опухла щека или десна?",
+      en: "What should I do if a wisdom tooth hurts and the cheek or gum swells?",
+    },
+    a: {
+      uz: "8-tish (aql tishi) qiyshiq chiqqanda milk ostida yiring va shish paydo bo'lishi mumkin. O'zboshimchalik bilan issiq qilmasdan darhol ko'rikka kelish shart. Dr. Munojat Akbarova mikroxirurgik nozik usulda aql tishini 100% og'riqsiz va operatsiyadan keyingi shishlarsiz olib beradi.",
+      ru: "При прорезывании зуба мудрости часто возникает воспаление капюшона десны (перикоронит). Греть щеку нельзя! Д-р Мунаджат бережно и безболезненно удалит зуб мудрости с помощью микрохирургии без последующих отеков.",
+      en: "Impacted wisdom teeth often cause gum swelling and infection. Never apply heat. Dr. Munojat performs delicate, 100% pain-free microsurgical extraction without post-operative swelling.",
+    },
+  },
+  {
+    q: {
+      uz: "Stomatolog qabuliga borishdan oldin nimalarga e'tibor berish lozim va og'riqdan qo'rqish kerakmi?",
+      ru: "Как подготовиться к визиту к стоматологу и стоит ли бояться боли?",
+      en: "How to prepare for a dental appointment and should I fear pain?",
+    },
+    a: {
+      uz: "Qabuldan oldin yengil ovqatlanib olish (och qoringa anesteziya tavsiya etilmaydi) va tishlarni yuvish kifoya. Og'riqdan mutlaqo qo'rqish shart emas: avval milkka xushbo'y mevali muzlatuvchi gel surtiladi, so'ngra kompyuterli mikro-anesteziya qilinadi, ukol ninasining o'zi ham sezilmaydi.",
+      ru: "Перед приемом рекомендуется слегка перекусить (анестезия на голодный желудок нежелательна) и почистить зубы. Бояться не нужно: сначала наносится вкусный гель-заморозка, а затем проводится мягкий микроукол, который вы даже не почувствуете.",
+      en: "Have a light meal prior to your visit (avoiding fasting before anesthesia) and brush normally. There is zero reason to fear: a fragrant numbing gel is applied first, followed by micro-anesthesia, ensuring complete comfort.",
+    },
+  },
 ];
 
 const FaqAccordion = () => {

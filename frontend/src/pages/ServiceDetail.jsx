@@ -24,29 +24,29 @@ import { detailedSpecialties } from "../constants/specialties";
 
 const SPECIALTY_KEYWORDS = {
   implantatsiya: {
-    uz: "tish implantatsiyasi Andijon, ayol implantolog Andijon, titan implant narxlari, Janubiy Koreya biotitan implantatsiyasi, suyak atrofiyasini to'xtatish, 100% og'riqsiz implantatsiya, Dr. Munojat Akbarova, Shabnam 11",
-    ru: "имплантация зубов Андижан, женщина имплантолог Андижан, титановые импланты южная корея, цены на имплантацию зубов, безболезненная имплантация, Д-р Мунаджат Акбарова",
-    en: "dental implants Andijan, female implantologist Andijan, titanium dental implants, South Korean implantology protocol, pain-free dental implants, Dr Munojat Akbarova",
+    uz: "tish implantatsiyasi Andijon, tish tushib qolganda nima qilish kerak, tish yo'q bo'lsa qanday qo'yiladi, tish qo'ydirish turlari, titan implant narxlari, Janubiy Koreya biotitan implantatsiyasi, ko'prik yoki implant, suyak yemirilishi, ayol implantolog Andijon, 100% og'riqsiz implantatsiya, Dr. Munojat Akbarova, Shabnam 11",
+    ru: "имплантация зубов Андижан, нет зуба что делать, выпал зуб как восстановить, виды протезирования, титановые импланты южная корея, мост или имплант, женщина имплантолог Андижан, безболезненная имплантация, цены на импланты зубов, Д-р Мунаджат",
+    en: "dental implants Andijan, missing tooth replacement, tooth fell out what to do, how to replace missing tooth, titanium dental implants, South Korean implant protocol, bridge vs implant, female implantologist Andijan, pain-free dental implants, Dr Munojat Akbarova",
   },
   "tish-davolash": {
-    uz: "tish davolash Andijon, 4 davlat plombalari, Germaniya 3M Filtek plomba, Yaponiya Estelite plomba, Janubiy Koreya DenFil, Rossiya VladMiVa, karies davolash, pulpit davolash, 100% og'riqsiz tish davolash, homiladorlikda tish davolash, Dr. Munojat Akbarova",
-    ru: "лечение зубов Андижан, пломбы из 4 стран, немецкие пломбы 3M Filtek, японские пломбы Estelite, корейские пломбы DenFil, лечение кариеса и пульпита, безболезненное лечение зубов, лечение зубов при беременности, Д-р Мунаджат Акбарова",
-    en: "dental treatment Andijan, certified tooth fillings, German 3M Filtek fillings, Japanese Estelite composite, Korean DenFil, caries treatment, pulpitis root canal treatment, painless dentistry, Dr Munojat Akbarova",
+    uz: "tish davolash Andijon, tish og'rig'i, tishim qattiq og'riyapti, tish og'rig'ini qoldirish, tish nervi og'rishi, nervni oldirish og'riqlimi, plomba tushib qolsa, karies davolash, tishga sovuq yoki issiq tekkanda og'rish, 4 davlat plombalari, Germaniya 3M Filtek, Yaponiya Estelite, Koreya DenFil, homiladorlikda tish og'rig'i, Dr. Munojat Akbarova",
+    ru: "лечение зубов Андижан, острая зубная боль, болит зуб что делать, как снять зубную боль быстро, ноет зуб, болит нерв зуба, удаление нерва без боли, выпала пломба, лечение кариеса и пульпита, зуб реагирует на холодное и горячее, пломбы из 4 стран, лечение зубов при беременности, Д-р Мунаджат",
+    en: "dental treatment Andijan, toothache relief, severe tooth pain, how to stop toothache fast, tooth nerve pain, root canal without pain, lost filling what to do, caries treatment, tooth sensitive to hot cold, certified 3M Filtek fillings, tooth pain during pregnancy, Dr Munojat Akbarova",
   },
   ortopediya: {
-    uz: "tsirkoniy karonka Andijon, Germaniya tsirkoniyasi, Avstraliya tsirkoniyasi, Xitoy karonkalari, CAD/CAM tish frezerlash, old tish karonkalari, orqa chaynov tish karonkasi, tish qo'ydirish narxi Andijon, Dr. Munojat Akbarova",
-    ru: "циркониевые коронки Андижан, немецкий цирконий, австралийский цирконий, коронки из Китая, CAD/CAM фрезерование зубов, коронки на передние зубы, жевательные коронки, протезирование зубов Андижан, Д-р Мунаджат",
-    en: "zirconia crowns Andijan, German zirconia crowns, Australian zirconia, Chinese crowns, CAD/CAM digital milling, front teeth aesthetics, molar crowns, prosthodontics Andijan, Dr Munojat Akbarova",
+    uz: "tsirkoniy karonka Andijon, old tish sinib tushdi, old tish sinishi, tish yorilishi, tish qo'ydirish narxi Andijon, metallokiramika yoki tsirkoniy, CAD CAM tish frezerlash, old tish karonkalari, orqa chaynov tish karonkasi, singan tishni tiklash, Dr. Munojat Akbarova",
+    ru: "циркониевые коронки Андижан, сломался передний зуб, откололся зуб, трещина на зубе, сколько стоит вставить зуб Андижан, металлокерамика или цирконий, коронки на передние зубы, жевательные коронки, CAD CAM фрезерование, протезирование зубов, Д-р Мунаджат",
+    en: "zirconia crowns Andijan, broken front tooth, chipped tooth repair, dental crown cost Andijan, front teeth aesthetic crowns, molar chewing crowns, CAD CAM digital milling, how to fix broken tooth, dental prosthetics Andijan, Dr Munojat Akbarova",
   },
   xirurgiya: {
-    uz: "aql tishi olish Andijon, donolik tishini oldirish, atravmatik tish olish, mikroxirurgik jarrohlik, og'riqsiz tish sug'urish, shishsiz tish olish, 8-tish operatsiyasi, Dr. Munojat Akbarova",
-    ru: "удаление зуба мудрости Андижан, бережное удаление зубов, микрохирургия зубов, удаление 8-ки без боли и отеков, челюстно-лицевая хирургия, Д-р Мунаджат Акбарова",
-    en: "wisdom tooth extraction Andijan, atraumatic tooth removal, oral surgery Andijan, painless tooth extraction, 8th tooth surgical extraction, Dr Munojat Akbarova",
+    uz: "aql tishi olish Andijon, donolik tishi og'riyapti, 8-tish chiqishi, aql tishi milkni yorishi, milk shishishi, yanoq shishi flyus, tish olish og'riqlimi, atravmatik tish olish, mikroxirurgik tish sug'urtirish, shishsiz tish olish, Dr. Munojat Akbarova",
+    ru: "удаление зуба мудрости Андижан, болит зуб мудрости, растет зуб мудрости, опухла десна, опухла щека флюс, больно ли удалять зуб, бережное удаление зубов, микрохирургия зубов, удаление 8 без боли и отеков, челюстно-лицевая хирургия, Д-р Мунаджат",
+    en: "wisdom tooth extraction Andijan, wisdom tooth pain, impacted wisdom tooth, swollen gums, swollen cheek dental abscess, is tooth extraction painful, atraumatic tooth removal, painless oral surgery Andijan, Dr Munojat Akbarova",
   },
   "tish-oqartirish": {
-    uz: "Philips ZOOM 4 tish oqartirish Andijon, lazer tish oqartirish, tishlarni oqartirish narxi, xavfsiz emal oqartirish, Airflow tish toshlarini tozalash, oq tabassum, Dr. Munojat Akbarova",
-    ru: "отбеливание зубов Philips ZOOM 4 Андижан, лазерное отбеливание зубов, безопасное осветление эмали, чистка зубов Airflow, цены на отбеливание зубов Андижан, Д-р Мунаджат",
-    en: "Philips ZOOM 4 teeth whitening Andijan, laser teeth whitening, safe enamel brightening, Airflow dental cleaning, professional whitening clinic Andijan, Dr Munojat Akbarova",
+    uz: "Philips ZOOM 4 tish oqartirish Andijon, tish sarg'ayishi, sariq tishlarni oqartirish, kofe va choy dog'lari, tish toshlarini tozalash Airflow, milk qonashi, og'izdan noxush hid kelishi, xavfsiz emal oqartirish, oq tabassum, Dr. Munojat Akbarova",
+    ru: "отбеливание зубов Philips ZOOM 4 Андижан, пожелтели зубы, как отбелить зубы, налет от кофе и чая, чистка зубного камня Airflow, кровоточивость десен, неприятный запах изо рта, безопасное осветление эмали, цены на отбеливание, Д-р Мунаджат",
+    en: "Philips ZOOM 4 teeth whitening Andijan, yellow teeth brightening, coffee tea stains removal, dental tartar cleaning Airflow, bleeding gums treatment, bad breath cure, safe enamel whitening, white smile makeover, Dr Munojat Akbarova",
   },
 };
 

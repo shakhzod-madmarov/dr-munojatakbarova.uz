@@ -138,51 +138,51 @@ export const PAGE_SEO = {
    against you. What remains is only what the page is genuinely about. */
 export const PAGE_KEYWORDS = {
   // Global defaults across languages
-  uz: "andijonda stomatologiya, andijonda stomatolog, andijon stomatologlari, andijon tish klinikasi, stomatologiya markazi andijon, ayol stomatolog Andijon, ayol implantolog Andijon, tish davolash Andijon, 4 davlat plombalari, tsirkoniy karonka, Janubiy Koreya biotitan implantatsiya, Philips ZOOM 4 tish oqartirish, aql tishi olish, Dr. Munojat Akbarova, Shabnam 11, аёл стоматолог Андижон, тиш даволаш, тиш клиникаси",
-  ru: "стоматология андижан, стоматологи андижана, клиники стоматологии андижан, стоматолог в андижане, женский стоматолог Андижан, женщина имплантолог, лечение зубов Андижан, пломбы 4 стран, циркониевые коронки, имплантация зубов корея, удаление зуба мудрости, отбеливание зубов zoom 4, Мунаджат Акбарова, ул Шабнам 11, клиника стоматологии андижан",
-  en: "dentistry in andijan, dentist in andijan, dental clinic andijan, dental clinics andijan, female dentist Andijan, dental implants Andijan, 4 countries certified fillings, zirconia crowns, teeth whitening zoom 4, wisdom tooth extraction, Dr Munojat Akbarova, 11 Shabnam St",
+  uz: "andijonda stomatologiya, andijonda stomatolog, andijon stomatologlari, andijon tish klinikasi, stomatologiya markazi andijon, ayol stomatolog Andijon, tish og'rig'i, tish qattiq og'riyapti, tish og'rig'ini qoldirish, tish davolash Andijon, 4 davlat plombalari, plomba tushib qolsa, old tish sinishi, tsirkoniy karonka, Janubiy Koreya biotitan implantatsiya, Philips ZOOM 4 tish oqartirish, aql tishi og'riyapti, donolik tishi olish, milk qonashi va shishi, Dr. Munojat Akbarova, Shabnam 11, аёл стоматолог Андижон, тиш оғриғи, тиш даволаш, тиш клиникаси",
+  ru: "стоматология андижан, стоматологи андижана, клиники стоматологии андижан, стоматолог в андижане, женский стоматолог Андижан, болит зуб что делать, острая зубная боль, как снять зубную боль, лечение зубов Андижан, пломбы 4 стран, выпала пломба, сломался зуб, циркониевые коронки, имплантация зубов корея, болит зуб мудрости, удаление зуба мудрости, отбеливание зубов zoom 4, Мунаджат Акбарова, ул Шабнам 11, клиника стоматологии андижан",
+  en: "dentistry in andijan, dentist in andijan, dental clinic andijan, female dentist Andijan, toothache relief andijan, severe tooth pain, how to stop tooth pain, dental implants Andijan, 4 countries certified fillings, lost filling, broken tooth repair, zirconia crowns, teeth whitening zoom 4, wisdom tooth pain, Dr Munojat Akbarova, 11 Shabnam St",
 
   // Page-specific keyword matrices
   home: {
-    uz: "andijonda stomatologiya, andijonda stomatolog, andijon stomatologlari, andijon stomatologiya klinikalari, ayol stomatolog andijon, dr munojat akbarova stomatologiya markazi, tish davolash andijon, 4 davlat plombalari, old va orqa tsirkoniy karonka, titan implantatsiya, zoom 4 tish oqartirish, aql tishi olish, ogriqsiz tish davolash, shabnam kochasi 11, аёл стоматолог андижон, тиш даволаш андижон, стоматология маркази",
-    ru: "стоматология андижан, стоматологи андижана, клиники стоматологии андижан, женский стоматолог андижан, женщина стоматолог, д-р мунаджат акбарова, стоматологическая клиника др мунаджат акбаровой, лечение зубов андижан, пломбы из 4 стран, циркониевые коронки, имплантация зубов южная корея, отбеливание зубов zoom 4, удаление зуба мудрости без боли, ул шабнам 11",
-    en: "dentistry in andijan, dentist andijan, dental clinics andijan, female dentist andijan, dr munojat akbarova dental clinic, dental treatment andijan, certified dental fillings, zirconia dental crowns, titanium implants south korea, zoom 4 teeth whitening, painless wisdom tooth extraction, 11 shabnam st andijan",
+    uz: "andijonda stomatologiya, andijonda stomatolog, andijon stomatologlari, andijon stomatologiya klinikalari, ayol stomatolog andijon, dr munojat akbarova stomatologiya markazi, tish og'rig'i, tish qattiq og'riyapti, tish og'rig'ini qoldirish, tish nervi og'rishi, tish davolash andijon, 4 davlat plombalari, plomba tushib qolsa, old tish sinishi, tsirkoniy karonka, titan implantatsiya, zoom 4 tish oqartirish, aql tishi og'riyapti, donolik tishi olish, milk qonashi va shishi, homiladorlikda tish og'rig'i, ogriqsiz tish davolash, shabnam kochasi 11, аёл стоматолог андижон, тиш даволаш андижон, тиш оғриғини қолдириш, стоматология маркази",
+    ru: "стоматология андижан, стоматологи андижана, клиники стоматологии андижан, женский стоматолог андижан, женщина стоматолог, д-р мунаджат акбарова, болит зуб что делать, острая зубная боль, как снять зубную боль быстро, лечение зубов андижан, пломбы из 4 стран, выпала пломба, сломался передний зуб, циркониевые коронки, имплантация зубов южная корея, отбеливание зубов zoom 4, болит зуб мудрости, удаление зуба мудрости без боли, кровоточат десны, лечение зубов при беременности, ул шабнам 11",
+    en: "dentistry in andijan, dentist andijan, dental clinics andijan, female dentist andijan, dr munojat akbarova dental clinic, toothache relief andijan, severe tooth pain, how to stop toothache fast, dental treatment andijan, certified dental fillings, lost filling repair, chipped tooth repair, zirconia dental crowns, titanium implants south korea, zoom 4 teeth whitening, wisdom tooth pain, painless wisdom tooth extraction, emergency dentist andijan, 11 shabnam st andijan",
   },
 
   services: {
-    uz: "stomatologiya xizmatlari andijon, tish davolash narxlari andijon, plomba qoyish narxi andijon, tish implantatsiyasi narxi andijon, tsirkoniy karonka narxi, tish oqartirish narxlari, aql tishi oldirish narxi, profilaktik stomatologiya, stomatologik diagnostika, xizmatlar va narxlar stomatologiya, хизматлар ва нархлар стоматология андижон",
-    ru: "услуги стоматологии в андижане, цены на лечение зубов андижан, сколько стоит пломба в андижане, цены на имплантацию зубов андижан, стоимость циркониевых коронок, удаление зуба мудрости цена, отбеливание зубов цены андижан, прайс лист стоматологии",
-    en: "dental services andijan, dental treatment prices andijan, tooth filling cost andijan, dental implant cost andijan, zirconia crown prices, teeth whitening cost andijan, wisdom tooth removal cost, dental procedure catalog andijan",
+    uz: "stomatologiya xizmatlari andijon, tish davolash narxlari andijon, plomba qoyish narxi andijon, tish implantatsiyasi narxi andijon, tsirkoniy karonka narxi, tish qo'ydirish narxi, tish oqartirish narxlari, aql tishi oldirish narxi, tish nervini olish narxi, tish toshlarini tozalash airflow narxi, homilador ayollar tish davolash narxi, profilaktik stomatologiya, stomatologik diagnostika, xizmatlar va narxlar stomatologiya, хизматлар ва нархлар стоматология андижон",
+    ru: "услуги стоматологии в андижане, цены на лечение зубов андижан, сколько стоит пломба в андижане, цены на имплантацию зубов андижан, стоимость циркониевых коронок, сколько стоит вставить зуб, удаление зуба мудрости цена, отбеливание зубов цены андижан, чистка зубов от камня цена, удаление нерва зуба цена, прайс лист стоматологии",
+    en: "dental services andijan, dental treatment prices andijan, tooth filling cost andijan, dental implant cost andijan, zirconia crown prices, teeth whitening cost andijan, wisdom tooth removal cost, root canal cost andijan, dental cleaning cost, dental procedure catalog andijan",
   },
 
   about: {
-    uz: "dr munojat akbarova, munojat akbarova stomatolog, andijondagi eng yaxshi ayol stomatolog, tdsi buxoro stomatologiya, adti magistratura, koreyada implantologiya malakasi seul, eng yaxshi ayol stomatologi 2025 mukofoti, oliy toifali ayol implantolog, 12 yillik tajriba, д-р мунаджат акбарова биография",
-    ru: "д-р мунаджат акбарова, мунаджат акбарова стоматолог, биография женского стоматолога андижан, высшая категория, тгси бухара, агми магистратура, стажировка по имплантологии сеул южная корея, лучший женский стоматолог 2025 года, 12 лет опыта",
-    en: "dr munojat akbarova, female dentist credentials andijan, tsdi bukhara, asmi andijan master degree, south korea dental implant training seoul, best female dentist 2025 award winner, 12 years clinical experience",
+    uz: "dr munojat akbarova, munojat akbarova stomatolog, andijondagi eng yaxshi ayol stomatolog, ayol tish doktori andijon, tdsi buxoro stomatologiya, adti magistratura, koreyada implantologiya malakasi seul, eng yaxshi ayol stomatologi 2025 mukofoti, oliy toifali ayol implantolog, 12 yillik tajriba, og'riqsiz tish davolash, tish davolatishdan qo'rqadiganlar uchun stomatolog, д-р мунаджат акбарова биография",
+    ru: "д-р мунаджат акбарова, мунаджат акбарова стоматолог, биография женского стоматолога андижан, высшая категория, тгси бухара, агми магистратура, стажировка по имплантологии сеул южная корея, лучший женский стоматолог 2025 года, 12 лет опыта, стоматолог без страха и боли",
+    en: "dr munojat akbarova, female dentist credentials andijan, tsdi bukhara, asmi andijan master degree, south korea dental implant training seoul, best female dentist 2025 award winner, 12 years clinical experience, gentle pain-free dentist for anxious patients",
   },
 
   gallery: {
-    uz: "tish davolash natijalari andijon, tabassum galereyasi dr munojat, tsirkoniy karonka oldin va keyin, zoom 4 oqartirish natijalari, biotitan implant natijalari, tish davolash suratlari, фото до и после лечение зубов андижан, smile gallery dental results andijan",
-    ru: "результаты лечения зубов андижан, фото до и после стоматология, циркониевые коронки до и после, отбеливание zoom 4 результаты, имплантация фото кейсов, клинические случаи д-р мунаджат, before after dental cases andijan",
-    en: "dental treatment results andijan, before and after dental cases, zirconia crowns results, zoom 4 whitening results, dental implant cases, smile makeover gallery andijan",
+    uz: "tish davolash natijalari andijon, tabassum galereyasi dr munojat, singan tishni tiklash oldin va keyin, tsirkoniy karonka oldin va keyin, zoom 4 oqartirish natijalari, biotitan implant natijalari, tish davolash suratlari, фото до и после лечение зубов андижан, smile gallery dental results andijan",
+    ru: "результаты лечения зубов андижан, фото до и после стоматология, восстановление сломанного зуба фото, циркониевые коронки до и после, отбеливание zoom 4 результаты, имплантация фото кейсов, клинические случаи д-р мунаджат, before after dental cases andijan",
+    en: "dental treatment results andijan, before and after dental cases, broken tooth restoration before after, zirconia crowns results, zoom 4 whitening results, dental implant cases, smile makeover gallery andijan",
   },
 
   contact: {
-    uz: "dr munojat akbarova manzili, shabnam kochasi 11 andijon, stomatologiya telefon raqami andijon, tish shifokori bilan boglanish, qabul kunlari va ish vaqti, lokatsiya stomatologiya andijon, контакты стоматологии андижан, dentist location andijan",
-    ru: "адрес клиники д-р мунаджат, ул шабнам 11 андижан, телефон стоматолога андижан, записаться к стоматологу, время работы стоматологии, стоматология на карте андижана, dentist contact phone andijan",
-    en: "dr munojat akbarova clinic address, 11 shabnam street andijan, dental clinic phone number andijan, dentist working hours, contact female dentist andijan",
+    uz: "dr munojat akbarova manzili, shabnam kochasi 11 andijon, stomatologiya telefon raqami andijon, tish shifokori bilan boglanish, qabul kunlari va ish vaqti, shoshilinch tish og'rig'ida qabul, lokatsiya stomatologiya andijon, контакты стоматологии андижан, dentist location andijan",
+    ru: "адрес клиники д-р мунаджат, ул шабнам 11 андижан, телефон стоматолога андижан, записаться к стоматологу, время работы стоматологии, прием при острой боли, стоматология на карте андижана, dentist contact phone andijan",
+    en: "dr munojat akbarova clinic address, 11 shabnam street andijan, dental clinic phone number andijan, dentist working hours, emergency toothache visit, contact female dentist andijan",
   },
 
   booking: {
-    uz: "stomatolog qabuliga yozilish andijon, onlayn navbat stomatologiya, tish davolashga band qilish, dr munojat qabuli vaqtlari, shoshilinch tish ogriqi qabul, запись к стоматологу андижан онлайн, book dentist appointment andijan",
-    ru: "онлайн запись к стоматологу андижан, выбрать время приёма стоматология, запись на имплантацию и лечение зубов, д-р мунаджат прием, book dental appointment andijan online",
-    en: "online dental booking andijan, book dentist appointment andijan, dental visit schedule, reserve dental treatment slot dr munojat",
+    uz: "stomatolog qabuliga yozilish andijon, onlayn navbat stomatologiya, tish davolashga band qilish, dr munojat qabuli vaqtlari, shoshilinch tish ogriqi qabul, tish og'riganda navbat olish, запись к стоматологу андижан онлайн, book dentist appointment andijan",
+    ru: "онлайн запись к стоматологу андижан, выбрать время приёма стоматология, запись на имплантацию и лечение зубов, срочный прием при зубной боли, д-р мунаджат прием, book dental appointment andijan online",
+    en: "online dental booking andijan, book dentist appointment andijan, dental visit schedule, reserve dental treatment slot dr munojat, emergency dental booking",
   },
 
   feedback: {
-    uz: "dr munojat akbarova fikrlar, stomatologiya sharhlari andijon, bemorlar bahosi, yandex xaritalar fikrlar stomatolog, google xaritalar baho, отзывы о стоматологе андижан, patient reviews dentist andijan",
-    ru: "отзывы д-р мунаджат акбарова, отзывы о стоматологии в андижане, оценки пациентов, яндекс карты отзывы стоматолог, google maps отзывы, genuine patient reviews andijan dentist",
-    en: "dr munojat akbarova patient reviews, dentist ratings andijan, dental clinic google yandex reviews, verified feedback female dentist andijan",
+    uz: "dr munojat akbarova fikrlar, stomatologiya sharhlari andijon, bemorlar bahosi, tish davolatganlar fikri, og'riqsiz davolash baholari, yandex xaritalar fikrlar stomatolog, google xaritalar baho, отзывы о стоматологе андижан, patient reviews dentist andijan",
+    ru: "отзывы д-р мунаджат акбарова, отзывы о стоматологии в андижане, оценки пациентов, отзывы о лечении зубов без боли, яндекс карты отзывы стоматолог, google maps отзывы, genuine patient reviews andijan dentist",
+    en: "dr munojat akbarova patient reviews, dentist ratings andijan, dental clinic google yandex reviews, verified feedback female dentist andijan, painless dentistry reviews",
   },
 };
 
